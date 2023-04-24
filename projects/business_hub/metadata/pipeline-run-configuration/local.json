@@ -17,6 +17,5 @@
   "configurationVariables": [],
   "name": "local",
   "description": "",
-  "dataProfile": "",
   "executionInfoLocationName": "Runs your pipelines locally with the standard local Hop pipeline engine"
 }
