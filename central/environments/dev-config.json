@@ -1,0 +1,15 @@
+{
+  "variables" : [ {
+    "name" : "Salesforce_Webservice_URL",
+    "value" : "https://uhn.my.salesforce.com/services/Soap/u/52.0",
+    "description" : ""
+  }, {
+    "name" : "Salesforce_ETL_Username",
+    "value" : "business.hub@uhn.ca.etl.prod",
+    "description" : ""
+  }, {
+    "name" : "Salesforce_ETL_Password",
+    "value" : "Encrypted 44714742514d64334a76764250544c4f336f34623377784f5247313436d8f1e8bd00c3bad29f16a054c8a39ee3",
+    "description" : ""
+  } ]
+}

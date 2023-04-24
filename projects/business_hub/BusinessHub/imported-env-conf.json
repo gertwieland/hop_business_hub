@@ -1,0 +1,463 @@
+{
+  "variables" : [ {
+    "name" : "KETTLE_XLSX_ZIP_BOMB_CHECK",
+    "value" : "false",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_STEP_LOG_SCHEMA",
+    "value" : "",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_TRANS_PERFORMANCE_LOG_SCHEMA",
+    "value" : "",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_ROWSET_PUT_TIMEOUT",
+    "value" : "50",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "s3.vfs.partSize",
+    "value" : "5MB",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "GW_UHN_Email_SenderName",
+    "value" : "Gert Wieland",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_TRANS_LOG_TABLE",
+    "value" : "",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "GW_UAT_Salesforce_Password",
+    "value" : "r0swZ57ay7RGpwURqyOAZpNFToPSBS9XN3TIcFj3Aunh",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_FILE_OUTPUT_MAX_STREAM_COUNT",
+    "value" : "1024",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_DEFAULT_NUMBER_FORMAT",
+    "value" : "",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_DATEDIFF_DST_AWARE",
+    "value" : "N",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "s3.vfs.useTempFileOnUploadData",
+    "value" : "N",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_TRANS_PAN_JVM_EXIT_CODE",
+    "value" : "",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_DEFAULT_CHECKSUM_EVALUATION_METHOD",
+    "value" : "BYTES",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_HADOOP_CLUSTER_GATEWAY_CONNECTION",
+    "value" : "false",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "GW_UHN_Password",
+    "value" : "#.Q3d6qn.#",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_HIDE_DEVELOPMENT_VERSION_WARNING",
+    "value" : "N",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_MAX_LOG_TIMEOUT_IN_MINUTES",
+    "value" : "1440",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "BusinessHub_SenderName",
+    "value" : "Business Hub",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_GLOBAL_LOG_VARIABLES_CLEAR_ON_EXPORT",
+    "value" : "false",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "SpanBegin",
+    "value" : "<span lang=EN-US style='font-size:11pt;font-family:\"Calibri\",sans-serif'>",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_DEFAULT_INTEGER_FORMAT",
+    "value" : "",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_COMPATIBILITY_TEXT_FILE_OUTPUT_APPEND_NO_HEADER",
+    "value" : "N",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "vfs.sftp.userDirIsRoot",
+    "value" : "false",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_STEP_LOG_DB",
+    "value" : "",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_MAX_JOB_TRACKER_SIZE",
+    "value" : "5000",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "GW_UHN_Email",
+    "value" : "Gert.Wieland@uhn.ca",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "GW_Salesforce_Password",
+    "value" : "DqGBQMd3JvvBPTLO3o4b3wxORG144fiGujdH6TonDvQQY",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_COMPATIBILITY_PUR_OLD_NAMING_MODE",
+    "value" : "N",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_JOB_LOG_DB",
+    "value" : "",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_STEP_PERFORMANCE_SNAPSHOT_LIMIT",
+    "value" : "0",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_CARTE_OBJECT_TIMEOUT_MINUTES",
+    "value" : "1440",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "GW_Demo_Salesforce_Webservice_URL",
+    "value" : "https://uhn--demo.my.salesforce.com/services/Soap/u/47.0",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_MAX_LOGGING_REGISTRY_SIZE",
+    "value" : "10000",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_TRANS_PERFORMANCE_LOG_DB",
+    "value" : "",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_DISABLE_CONSOLE_LOGGING",
+    "value" : "N",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_LOG_MARK_MAPPINGS",
+    "value" : "N",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_EMPTY_STRING_DIFFERS_FROM_NULL",
+    "value" : "N",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "GW_UAT_Salesforce_UserName",
+    "value" : "gert.wieland@uhn.ca.uat",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_JOBENTRY_LOG_TABLE",
+    "value" : "",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "SpanEnd",
+    "value" : "</span>",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_COMPATIBILITY_DB_IGNORE_TIMEZONE",
+    "value" : "N",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_AGGREGATION_ALL_NULLS_ARE_ZERO",
+    "value" : "N",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_DEFAULT_BIGNUMBER_FORMAT",
+    "value" : "",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "BusinessHub_SenderAddress",
+    "value" : "BusinessHub@uhn.ca",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_SHARED_OBJECTS",
+    "value" : "",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_PLUGIN_CLASSES",
+    "value" : "",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_MAX_LOG_SIZE_IN_LINES",
+    "value" : "5000",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_COMPATIBILITY_MERGE_ROWS_USE_REFERENCE_STREAM_WHEN_IDENTICAL",
+    "value" : "N",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_LOG_TAB_REFRESH_DELAY",
+    "value" : "1000",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_BATCHING_ROWSET",
+    "value" : "N",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_JNDI_ROOT",
+    "value" : "",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_METRICS_LOG_DB",
+    "value" : "",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_ROWSET_GET_TIMEOUT",
+    "value" : "50",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_DEFAULT_SERVLET_ENCODING",
+    "value" : "",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_SPLIT_FIELDS_REMOVE_ENCLOSURE",
+    "value" : "false",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_TRANS_LOG_DB",
+    "value" : "",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_LOG_TAB_REFRESH_PERIOD",
+    "value" : "1000",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_STREAMING_TIME_LIMIT",
+    "value" : "10000",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_TRANS_LOG_SCHEMA",
+    "value" : "",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_CORE_STEPS_FILE",
+    "value" : "",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_XML_EMPTY_TAG_YIELDS_EMPTY_VALUE",
+    "value" : "N",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_DO_NOT_NORMALIZE_NULL_STRING_TO_EMPTY",
+    "value" : "N",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "GW_Salesforce_UserName",
+    "value" : "business.hub@uhn.ca.etl.prod",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_METRICS_LOG_TABLE",
+    "value" : "",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "SHELL_STEP_ENVIRONMENT_VARIABLES_TO_IGNORE",
+    "value" : "org.osgi.framework.system.packages.extra",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "SHIM_DRIVER_DEPLOYMENT_LOCATION",
+    "value" : "DEFAULT",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "GW_UHN_SMTP_PORT",
+    "value" : "587",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_LOG_SIZE_LIMIT",
+    "value" : "0",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_LOGGING_REGISTRY_PURGE_TIMEOUT",
+    "value" : "60000",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_JOBENTRY_LOG_SCHEMA",
+    "value" : "",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_LENIENT_STRING_TO_NUMBER_CONVERSION",
+    "value" : "N",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_TIMESTAMP_NUMBER_CONVERSION_MODE",
+    "value" : "LEGACY",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_DATA_REFINERY_HTTP_CLIENT_TIMEOUT",
+    "value" : "2000",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_DEFAULT_DATE_FORMAT",
+    "value" : "",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_CORE_JOBENTRIES_FILE",
+    "value" : "",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_CHANNEL_LOG_DB",
+    "value" : "",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_DO_NOT_NORMALIZE_SPACES_ONLY_STRING_TO_EMPTY",
+    "value" : "N",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_PASSWORD_ENCODER_PLUGIN",
+    "value" : "Kettle",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "GW_UHN_SMTP",
+    "value" : "smtp.office365.com",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_METRICS_LOG_SCHEMA",
+    "value" : "",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_CHANNEL_LOG_TABLE",
+    "value" : "",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "PENTAHO_METASTORE_FOLDER",
+    "value" : "",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "GW_Salesforce_Webservice_URL",
+    "value" : "https://uhn.my.salesforce.com/services/Soap/u/47.0",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_JOB_LOG_SCHEMA",
+    "value" : "",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_COMPATIBILITY_INVOKE_FILES_WITH_OR_WITHOUT_FILE_EXTENSION",
+    "value" : "Y",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "GW_UAT_Salesforce_Webservice_URL",
+    "value" : "https://uhn--uat.my.salesforce.com/services/Soap/u/47.0",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_PLUGIN_PACKAGES",
+    "value" : "",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_DEFAULT_TIMESTAMP_FORMAT",
+    "value" : "",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_FILE_OUTPUT_MAX_STREAM_LIFE",
+    "value" : "0",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_MAX_JOB_ENTRIES_LOGGED",
+    "value" : "5000",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_RETRY_OPEN_XML_STREAM",
+    "value" : "2",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_CARTE_JETTY_ACCEPTORS",
+    "value" : "",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_MAX_TAB_LENGTH",
+    "value" : "17",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_CARTE_JETTY_ACCEPT_QUEUE_SIZE",
+    "value" : "",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_FAIL_ON_LOGGING_ERROR",
+    "value" : "N",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_SYSTEM_HOSTNAME",
+    "value" : "",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_JOB_LOG_TABLE",
+    "value" : "",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_TRANS_PERFORMANCE_LOG_TABLE",
+    "value" : "",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_CARTE_JETTY_RES_MAX_IDLE_TIME",
+    "value" : "",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_STREAMING_ROW_LIMIT",
+    "value" : "5000",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_XML_MISSING_TAG_YIELDS_NULL_VALUE",
+    "value" : "N",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "GW_Demo_Salesforce_UserName",
+    "value" : "Gert.Wieland@uhn.ca.demo",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "BusinessHub_Footer",
+    "value" : "<p><strong><em><span lang=EN-US style='font-size:9pt;color:gray;font-family:\"Calibri\",sans-serif'> This email was generated and sent automatically by the Business Hub. <br /> Please refer to our </span><a href=\"https://intranet.uhnresearch.ca/service/business-hub\"><span lang=EN-US style='font-size:9pt;color:gray;font-family:\"Calibri\",sans-serif'> Business Hub intranet page </span></a><span lang=EN-US style='font-size:9pt;color:gray;font-family:\"Calibri\",sans-serif'> for more general information, training material etc. </span></em></strong></p>",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_REDIRECT_STDERR",
+    "value" : "N",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "SHARED_STREAMING_BATCH_POOL_SIZE",
+    "value" : "0",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_STEP_LOG_TABLE",
+    "value" : "",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_LAZY_REPOSITORY",
+    "value" : "true",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_ALLOW_EMPTY_FIELD_NAMES_AND_TYPES",
+    "value" : "false",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_REDIRECT_STDOUT",
+    "value" : "N",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_CHANNEL_LOG_SCHEMA",
+    "value" : "",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_COMPATIBILITY_IMPORT_PATH_ADDITION_ON_VARIABLES",
+    "value" : "N",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_JOBENTRY_LOG_DB",
+    "value" : "",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "GW_Demo_Salesforce_Password",
+    "value" : "zXlAmZszDlwPptakHa9sfPeGLZdbyc6lZsVk5gGrN6e4y",
+    "description" : "Imported from Kettle"
+  }, {
+    "name" : "KETTLE_AGGREGATION_MIN_NULL_IS_VALUED",
+    "value" : "N",
+    "description" : "Imported from Kettle"
+  } ]
+}

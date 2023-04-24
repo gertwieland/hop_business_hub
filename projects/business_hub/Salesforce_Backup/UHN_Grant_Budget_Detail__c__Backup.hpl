@@ -1,0 +1,720 @@
+<pipeline>
+  <info>
+    <name>UHN_Grant_Budget_Detail__c__Backup</name>
+    <name_sync_with_filename>Y</name_sync_with_filename>
+    <description/>
+    <extended_description/>
+    <pipeline_version/>
+    <pipeline_type>Normal</pipeline_type>
+    <directory>/Salesforce_Backup</directory>
+    <parameters>
+    </parameters>
+    <capture_transform_performance>N</capture_transform_performance>
+    <transform_performance_capturing_delay>1000</transform_performance_capturing_delay>
+    <transform_performance_capturing_size_limit>100</transform_performance_capturing_size_limit>
+    <created_user/>
+    <created_date>2023/04/23 22:11:23.754</created_date>
+    <modified_user>gert</modified_user>
+    <modified_date>2022/03/11 18:15:08.498</modified_date>
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
+    <is_key_private>N</is_key_private>
+  </info>
+  <notepads>
+    <notepad>
+      <note>LastModifiedDate = LAST_N_DAYS:7</note>
+      <xloc>288</xloc>
+      <yloc>480</yloc>
+      <width>283</width>
+      <heigth>33</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>10</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+  </notepads>
+  <order>
+    <hop>
+      <from>Read Grant Budget Details</from>
+      <to>Get system info</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Get system info</from>
+      <to>Write Grant Budget Details</to>
+      <enabled>Y</enabled>
+    </hop>
+  </order>
+  <transform>
+    <name>Get system info</name>
+    <type>SystemInfo</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>LastUpdate</name>
+        <type>system date (variable)</type>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>864</xloc>
+      <yloc>512</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Read Grant Budget Details</name>
+    <type>SalesforceInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <targeturl>${GW_Salesforce_Webservice_URL}</targeturl>
+    <username>${GW_Salesforce_UserName}</username>
+    <password>${GW_Salesforce_Password}</password>
+    <timeout>60000</timeout>
+    <useCompression>N</useCompression>
+    <module>UHN_Grant_Budget_Detail__c</module>
+    <condition/>
+    <specifyQuery>N</specifyQuery>
+    <query/>
+    <include_targeturl>N</include_targeturl>
+    <targeturl_field/>
+    <include_module>N</include_module>
+    <module_field/>
+    <include_rownum>N</include_rownum>
+    <include_deletion_date>N</include_deletion_date>
+    <deletion_date_field/>
+    <rownum_field/>
+    <include_sql>N</include_sql>
+    <sql_field/>
+    <include_Timestamp>N</include_Timestamp>
+    <timestamp_field/>
+    <read_from/>
+    <read_to/>
+    <records_filter>all</records_filter>
+    <queryAll>N</queryAll>
+    <fields>
+      <field>
+        <name>Record ID</name>
+        <field>Id</field>
+        <idlookup>Y</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>18</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Owner ID</name>
+        <field>OwnerId</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>18</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Deleted</name>
+        <field>IsDeleted</field>
+        <idlookup>N</idlookup>
+        <type>Boolean</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Grant Budget Detail Name</name>
+        <field>Name</field>
+        <idlookup>Y</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>80</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Created Date</name>
+        <field>CreatedDate</field>
+        <idlookup>N</idlookup>
+        <type>Date</type>
+        <format>yyyy-MM-dd'T'HH:mm:ss'.000'XXX</format>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Created By ID</name>
+        <field>CreatedById</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>18</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Last Modified Date</name>
+        <field>LastModifiedDate</field>
+        <idlookup>N</idlookup>
+        <type>Date</type>
+        <format>yyyy-MM-dd'T'HH:mm:ss'.000'XXX</format>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Last Modified By ID</name>
+        <field>LastModifiedById</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>18</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>System Modstamp</name>
+        <field>SystemModstamp</field>
+        <idlookup>N</idlookup>
+        <type>Date</type>
+        <format>yyyy-MM-dd'T'HH:mm:ss'.000'XXX</format>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Last Viewed Date</name>
+        <field>LastViewedDate</field>
+        <idlookup>N</idlookup>
+        <type>Date</type>
+        <format>yyyy-MM-dd'T'HH:mm:ss'.000'XXX</format>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Last Referenced Date</name>
+        <field>LastReferencedDate</field>
+        <idlookup>N</idlookup>
+        <type>Date</type>
+        <format>yyyy-MM-dd'T'HH:mm:ss'.000'XXX</format>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Amount</name>
+        <field>UHN_Amount__c</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>0</length>
+        <precision>18</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Commitment Number</name>
+        <field>UHN_Commitment_Number__c</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>32</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Currency</name>
+        <field>UHN_Currency__c</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>255</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>End Date</name>
+        <field>UHN_End_Date__c</field>
+        <idlookup>N</idlookup>
+        <type>Date</type>
+        <format>yyyy-MM-dd</format>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Eqv. CAD Amount</name>
+        <field>UHN_Eqv_CAD_Amount__c</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>0</length>
+        <precision>18</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>FCC Application</name>
+        <field>UHN_FCC_Application__c</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>18</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>FCC</name>
+        <field>UHN_FCC__c</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>18</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Uploaded into SAP</name>
+        <field>UHN_In_SAP__c</field>
+        <idlookup>N</idlookup>
+        <type>Boolean</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Obsolete Institute Code</name>
+        <field>Obsolete_UHN_Institute_Code__c</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>32</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Percent Overhead</name>
+        <field>UHN_Percent_Overhead__c</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>0</length>
+        <precision>18</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Sponsor Relation</name>
+        <field>UHN_Primary_Sponsor_Relation__c</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>255</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Sponsor</name>
+        <field>UHN_Primary_Sponsor__c</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>18</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Original Sponsor Relation</name>
+        <field>UHN_Secondary_Sponsor_Relation__c</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>255</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Original Sponsor</name>
+        <field>UHN_Secondary_Sponsor__c</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>18</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Sponsor Funding Amount Reference</name>
+        <field>UHN_Sponsor_Reference_Number__c</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>32</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Start Date</name>
+        <field>UHN_Start_Date__c</field>
+        <idlookup>N</idlookup>
+        <type>Date</type>
+        <format>yyyy-MM-dd</format>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Subcommitment Number</name>
+        <field>UHN_Subcommitment_Number__c</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>32</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>UNIQUEID</name>
+        <field>UHN_UNIQUEID__c</field>
+        <idlookup>Y</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>64</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+    </fields>
+    <limit>0</limit>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>576</xloc>
+      <yloc>512</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Write Grant Budget Details</name>
+    <type>InsertUpdate</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>30</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>MSSQL_RFSDW</connection>
+    <commit>1000</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema>salesforce_backup</schema>
+      <table>UHN_Grant_Budget_Detail__c</table>
+      <key>
+        <name>Record ID</name>
+        <field>Record ID</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>Record ID</name>
+        <rename>Record ID</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Owner ID</name>
+        <rename>Owner ID</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Deleted</name>
+        <rename>Deleted</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Grant Budget Detail Name</name>
+        <rename>Grant Budget Detail Name</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Created Date</name>
+        <rename>Created Date</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Created By ID</name>
+        <rename>Created By ID</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Last Modified Date</name>
+        <rename>Last Modified Date</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Last Modified By ID</name>
+        <rename>Last Modified By ID</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>System Modstamp</name>
+        <rename>System Modstamp</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Last Viewed Date</name>
+        <rename>Last Viewed Date</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Last Referenced Date</name>
+        <rename>Last Referenced Date</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Amount</name>
+        <rename>Amount</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Commitment Number</name>
+        <rename>Commitment Number</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Currency</name>
+        <rename>Currency</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>End Date</name>
+        <rename>End Date</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Eqv. CAD Amount</name>
+        <rename>Eqv. CAD Amount</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>FCC Application</name>
+        <rename>FCC Application</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>FCC</name>
+        <rename>FCC</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Uploaded into SAP</name>
+        <rename>Uploaded into SAP</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Obsolete Institute Code</name>
+        <rename>Obsolete Institute Code</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Percent Overhead</name>
+        <rename>Percent Overhead</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Sponsor Relation</name>
+        <rename>Sponsor Relation</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Sponsor</name>
+        <rename>Sponsor</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Original Sponsor Relation</name>
+        <rename>Original Sponsor Relation</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Original Sponsor</name>
+        <rename>Original Sponsor</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Sponsor Funding Amount Reference</name>
+        <rename>Sponsor Funding Amount Reference</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Start Date</name>
+        <rename>Start Date</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Subcommitment Number</name>
+        <rename>Subcommitment Number</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>UNIQUEID</name>
+        <rename>UNIQUEID</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>LastUpdate</name>
+        <rename>LastUpdate</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>1152</xloc>
+      <yloc>512</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform_error_handling>
+  </transform_error_handling>
+  <attributes/>
+</pipeline>

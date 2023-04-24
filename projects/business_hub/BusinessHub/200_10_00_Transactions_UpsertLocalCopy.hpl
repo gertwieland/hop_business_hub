@@ -1,0 +1,3379 @@
+<pipeline>
+  <info>
+    <name>200_10_00_Transactions_UpsertLocalCopy</name>
+    <name_sync_with_filename>Y</name_sync_with_filename>
+    <description/>
+    <extended_description/>
+    <pipeline_version/>
+    <pipeline_type>Normal</pipeline_type>
+    <directory>/BusinessHub</directory>
+    <parameters>
+    </parameters>
+    <capture_transform_performance>N</capture_transform_performance>
+    <transform_performance_capturing_delay>1000</transform_performance_capturing_delay>
+    <transform_performance_capturing_size_limit>100</transform_performance_capturing_size_limit>
+    <created_user>gert</created_user>
+    <created_date>2022/02/22 16:34:12.790</created_date>
+    <modified_user>gert</modified_user>
+    <modified_date>2023/04/01 15:31:41.553</modified_date>
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
+    <is_key_private>N</is_key_private>
+  </info>
+  <notepads>
+    <notepad>
+      <note>SystemModstamp &lt;= LAST_N_DAYS:3</note>
+      <xloc>352</xloc>
+      <yloc>96</yloc>
+      <width>344</width>
+      <heigth>37</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>10</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>Tracked</note>
+      <xloc>0</xloc>
+      <yloc>0</yloc>
+      <width>76</width>
+      <heigth>37</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>10</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+  </notepads>
+  <order>
+    <hop>
+      <from>Error Date Transactions</from>
+      <to>Transaction Errors</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Insert / update</from>
+      <to>Error Date Transactions</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Dummy (do nothing)</from>
+      <to>Get system info</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Get system info</from>
+      <to>Insert / update</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Transactions</from>
+      <to>Select values 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values 2</from>
+      <to>Modified JavaScript value</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Modified JavaScript value</from>
+      <to>Select values</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values</from>
+      <to>Dummy (do nothing)</to>
+      <enabled>Y</enabled>
+    </hop>
+  </order>
+  <transform>
+    <name>Dummy (do nothing)</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>1456</xloc>
+      <yloc>576</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Error Date Transactions</name>
+    <type>SystemInfo</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>ErrorDate</name>
+        <type>system date (variable)</type>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>2272</xloc>
+      <yloc>576</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Get system info</name>
+    <type>SystemInfo</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>LastUpdate</name>
+        <type>system date (fixed)</type>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>1728</xloc>
+      <yloc>576</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Insert / update</name>
+    <type>InsertUpdate</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>200</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>MSSQL_RFSDW</connection>
+    <commit>1000</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema>salesforce_fact</schema>
+      <table>Transactions</table>
+      <key>
+        <name>UID</name>
+        <field>UID</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>Absolute Transferable Amount</name>
+        <rename>Absolute Transferable Amount</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Actual (original)</name>
+        <rename>Actual (original)</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Amount</name>
+        <rename>Amount</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Business Area</name>
+        <rename>Business Area</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Created By ID</name>
+        <rename>Created By ID</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Created Date</name>
+        <rename>Created Date</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Currency</name>
+        <rename>Currency</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Currency (original)</name>
+        <rename>Currency (original)</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Debit or Credit</name>
+        <rename>Debit or Credit</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Deleted</name>
+        <rename>Deleted</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Description</name>
+        <rename>Description</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Display Sign Multiplier</name>
+        <rename>Display Sign Multiplier</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>DisplayAmount</name>
+        <rename>DisplayAmount</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Effective Date</name>
+        <rename>Effective Date</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Exchange Rate</name>
+        <rename>Exchange Rate</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Exchange Rate Date</name>
+        <rename>Exchange Rate Date</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>FCC</name>
+        <rename>FCC</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>FCC (original)</name>
+        <rename>FCC (original)</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>FCC SAP Id</name>
+        <rename>FCC SAP Id</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Formatted Transferrable Amount</name>
+        <rename>Formatted Transferrable Amount</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>GL Account</name>
+        <rename>GL Account</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>GL Account Name</name>
+        <rename>GL Account Name</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>GL Account SAP Id</name>
+        <rename>GL Account SAP Id</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Has Been Transfered</name>
+        <rename>Has Been Transfered</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Journal Description</name>
+        <rename>Journal Description</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Journal Line Status</name>
+        <rename>Journal Line Status</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Journal Sequence Number</name>
+        <rename>Journal Sequence Number</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Journal Status Code</name>
+        <rename>Journal Status Code</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Journal Type Code</name>
+        <rename>Journal Type Code</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Last Modified By ID</name>
+        <rename>Last Modified By ID</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Last Modified Date</name>
+        <rename>Last Modified Date</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Last Referenced Date</name>
+        <rename>Last Referenced Date</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Last Viewed Date</name>
+        <rename>Last Viewed Date</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>LastUpdate</name>
+        <rename>LastUpdate</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Line Date Created</name>
+        <rename>Line Date Created</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Line Date Posted</name>
+        <rename>Line Date Posted</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Line Journal Origin Code</name>
+        <rename>Line Journal Origin Code</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Line Journal Origin Description</name>
+        <rename>Line Journal Origin Description</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Number of Transfer Requests</name>
+        <rename>Number of Transfer Requests</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Purchase Order Line</name>
+        <rename>Purchase Order Line</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Purchase Order Number</name>
+        <rename>Purchase Order Number</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Purchased Quantity</name>
+        <rename>Purchased Quantity</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Record ID</name>
+        <rename>Record ID</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>ReportingDate</name>
+        <rename>ReportingDate</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>SAP Journal ID</name>
+        <rename>SAP Journal ID</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>SAP Journal Line</name>
+        <rename>SAP Journal Line</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Source Document Reference</name>
+        <rename>Source Document Reference</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Sponsor</name>
+        <rename>Sponsor</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Sponsor SAP Id</name>
+        <rename>Sponsor SAP Id</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Sponsored Class</name>
+        <rename>Sponsored Class</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Sponsored Class Detail</name>
+        <rename>Sponsored Class Detail</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>System Modstamp</name>
+        <rename>System Modstamp</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Transaction Category</name>
+        <rename>Transaction Category</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Transaction Class</name>
+        <rename>Transaction Class</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Transaction Name</name>
+        <rename>Transaction Name</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Transaction Name Rule</name>
+        <rename>Transaction Name Rule</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Transaction Type</name>
+        <rename>Transaction Type</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Transfer Amount</name>
+        <rename>Transfer Amount</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Transfer Direction</name>
+        <rename>Transfer Direction</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Transfer Status</name>
+        <rename>Transfer Status</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Transferable Amount</name>
+        <rename>Transferable Amount</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>UID</name>
+        <rename>UID</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Vendor ID</name>
+        <rename>Vendor ID</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Vendor Item Description</name>
+        <rename>Vendor Item Description</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Vendor Item ID</name>
+        <rename>Vendor Item ID</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Vendor Name</name>
+        <rename>Vendor Name</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Vendor Name 2</name>
+        <rename>Vendor Name 2</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>2000</xloc>
+      <yloc>576</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Modified JavaScript value</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>//Script here
+
+var Journal_ID_Line_Combined = SAP_Journal_ID.concat('-').concat(SAP_Journal_Line)
+
+</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>Journal_ID_Line_Combined</name>
+        <rename>Journal_ID_Line_Combined</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>912</xloc>
+      <yloc>576</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Select values</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>Absolute Transferable Amount</name>
+      </field>
+      <field>
+        <name>Actual (original)</name>
+      </field>
+      <field>
+        <name>Amount</name>
+      </field>
+      <field>
+        <name>Amount ($)</name>
+      </field>
+      <field>
+        <name>Business Area</name>
+      </field>
+      <field>
+        <name>Created By ID</name>
+      </field>
+      <field>
+        <name>Created Date</name>
+      </field>
+      <field>
+        <name>Currency</name>
+      </field>
+      <field>
+        <name>Currency (original)</name>
+      </field>
+      <field>
+        <name>Date</name>
+      </field>
+      <field>
+        <name>Debit or Credit</name>
+      </field>
+      <field>
+        <name>Deleted</name>
+      </field>
+      <field>
+        <name>Description</name>
+      </field>
+      <field>
+        <name>Display Sign Multiplier</name>
+      </field>
+      <field>
+        <name>Effective Date</name>
+      </field>
+      <field>
+        <name>Exchange Rate</name>
+      </field>
+      <field>
+        <name>Exchange Rate Date</name>
+      </field>
+      <field>
+        <name>FCC</name>
+      </field>
+      <field>
+        <name>FCC (original)</name>
+      </field>
+      <field>
+        <name>FCC SAP Id</name>
+      </field>
+      <field>
+        <name>Formatted Transferrable Amount</name>
+      </field>
+      <field>
+        <name>GL Account</name>
+      </field>
+      <field>
+        <name>GL Account Name</name>
+      </field>
+      <field>
+        <name>GL Account SAP Id</name>
+      </field>
+      <field>
+        <name>Has Been Transfered</name>
+      </field>
+      <field>
+        <name>Journal Description</name>
+      </field>
+      <field>
+        <name>Journal Line Status</name>
+      </field>
+      <field>
+        <name>Journal Sequence Number</name>
+      </field>
+      <field>
+        <name>Journal Status Code</name>
+      </field>
+      <field>
+        <name>Journal Type Code</name>
+      </field>
+      <field>
+        <name>Last Modified By ID</name>
+      </field>
+      <field>
+        <name>Last Modified Date</name>
+      </field>
+      <field>
+        <name>Last Referenced Date</name>
+      </field>
+      <field>
+        <name>Last Viewed Date</name>
+      </field>
+      <field>
+        <name>Line Date Created</name>
+      </field>
+      <field>
+        <name>Line Date Posted</name>
+      </field>
+      <field>
+        <name>Line Journal Origin Code</name>
+      </field>
+      <field>
+        <name>Line Journal Origin Description</name>
+      </field>
+      <field>
+        <name>Number of Transfer Requests</name>
+      </field>
+      <field>
+        <name>Purchase Order Line</name>
+      </field>
+      <field>
+        <name>Purchase Order Number</name>
+      </field>
+      <field>
+        <name>Purchased Quantity</name>
+      </field>
+      <field>
+        <name>Record ID</name>
+      </field>
+      <field>
+        <name>SAP_Journal_ID</name>
+      </field>
+      <field>
+        <name>SAP_Journal_Line</name>
+      </field>
+      <field>
+        <name>Source Document Reference</name>
+      </field>
+      <field>
+        <name>Sponsor</name>
+      </field>
+      <field>
+        <name>Sponsor SAP Id</name>
+      </field>
+      <field>
+        <name>Sponsored Class</name>
+      </field>
+      <field>
+        <name>Sponsored Class Detail</name>
+      </field>
+      <field>
+        <name>System Modstamp</name>
+      </field>
+      <field>
+        <name>Transaction Category</name>
+      </field>
+      <field>
+        <name>Transaction Class</name>
+      </field>
+      <field>
+        <name>Transaction Description</name>
+      </field>
+      <field>
+        <name>Transaction Name Rule</name>
+      </field>
+      <field>
+        <name>Transaction Type</name>
+      </field>
+      <field>
+        <name>Transfer Amount</name>
+      </field>
+      <field>
+        <name>Transfer Direction</name>
+      </field>
+      <field>
+        <name>Transfer Status</name>
+      </field>
+      <field>
+        <name>Transferable Amount</name>
+      </field>
+      <field>
+        <name>UID</name>
+      </field>
+      <field>
+        <name>Vendor ID</name>
+      </field>
+      <field>
+        <name>Vendor Item Description</name>
+      </field>
+      <field>
+        <name>Vendor Item ID</name>
+      </field>
+      <field>
+        <name>Vendor Name</name>
+      </field>
+      <field>
+        <name>Vendor Name 2</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+      <meta>
+        <name>Absolute Transferable Amount</name>
+        <rename>Absolute Transferable Amount</rename>
+        <type>Number</type>
+        <length>-2</length>
+        <precision>2</precision>
+        <conversion_mask>#.#</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Actual (original)</name>
+        <rename>Actual (original)</rename>
+        <type>Number</type>
+        <length>0</length>
+        <precision>2</precision>
+        <conversion_mask>#.#</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Amount</name>
+        <rename>Amount</rename>
+        <type>Number</type>
+        <length>-2</length>
+        <precision>2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Amount ($)</name>
+        <rename>DisplayAmount</rename>
+        <type>Number</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Business Area</name>
+        <rename>Business Area</rename>
+        <type>None</type>
+        <length>255</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Created By ID</name>
+        <rename>Created By ID</rename>
+        <type>None</type>
+        <length>18</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Created Date</name>
+        <rename>Created Date</rename>
+        <type>None</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Currency</name>
+        <rename>Currency</rename>
+        <type>None</type>
+        <length>255</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Currency (original)</name>
+        <rename>Currency (original)</rename>
+        <type>None</type>
+        <length>255</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Date</name>
+        <rename>ReportingDate</rename>
+        <type>None</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Debit or Credit</name>
+        <rename>Debit or Credit</rename>
+        <type>None</type>
+        <length>255</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Deleted</name>
+        <rename>Deleted</rename>
+        <type>None</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Description</name>
+        <rename>Description</rename>
+        <type>None</type>
+        <length>255</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Display Sign Multiplier</name>
+        <rename>Display Sign Multiplier</rename>
+        <type>None</type>
+        <length>0</length>
+        <precision>18</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Effective Date</name>
+        <rename>Effective Date</rename>
+        <type>None</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Exchange Rate</name>
+        <rename>Exchange Rate</rename>
+        <type>None</type>
+        <length>0</length>
+        <precision>18</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Exchange Rate Date</name>
+        <rename>Exchange Rate Date</rename>
+        <type>None</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>FCC</name>
+        <rename>FCC</rename>
+        <type>None</type>
+        <length>18</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>FCC (original)</name>
+        <rename>FCC (original)</rename>
+        <type>None</type>
+        <length>20</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>FCC SAP Id</name>
+        <rename>FCC SAP Id</rename>
+        <type>None</type>
+        <length>20</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Formatted Transferrable Amount</name>
+        <rename>Formatted Transferrable Amount</rename>
+        <type>None</type>
+        <length>1300</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>GL Account</name>
+        <rename>GL Account</rename>
+        <type>None</type>
+        <length>18</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>GL Account Name</name>
+        <rename>GL Account Name</rename>
+        <type>None</type>
+        <length>1300</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>GL Account SAP Id</name>
+        <rename>GL Account SAP Id</rename>
+        <type>None</type>
+        <length>20</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Has Been Transfered</name>
+        <rename>Has Been Transfered</rename>
+        <type>None</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Journal Description</name>
+        <rename>Journal Description</rename>
+        <type>None</type>
+        <length>255</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Journal Line Status</name>
+        <rename>Journal Line Status</rename>
+        <type>None</type>
+        <length>10</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Journal Sequence Number</name>
+        <rename>Journal Sequence Number</rename>
+        <type>None</type>
+        <length>0</length>
+        <precision>18</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Journal Status Code</name>
+        <rename>Journal Status Code</rename>
+        <type>None</type>
+        <length>10</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Journal Type Code</name>
+        <rename>Journal Type Code</rename>
+        <type>None</type>
+        <length>10</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Last Modified By ID</name>
+        <rename>Last Modified By ID</rename>
+        <type>None</type>
+        <length>18</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Last Modified Date</name>
+        <rename>Last Modified Date</rename>
+        <type>None</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Last Referenced Date</name>
+        <rename>Last Referenced Date</rename>
+        <type>None</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Last Viewed Date</name>
+        <rename>Last Viewed Date</rename>
+        <type>None</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Line Date Created</name>
+        <rename>Line Date Created</rename>
+        <type>None</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Line Date Posted</name>
+        <rename>Line Date Posted</rename>
+        <type>None</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Line Journal Origin Code</name>
+        <rename>Line Journal Origin Code</rename>
+        <type>None</type>
+        <length>2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Line Journal Origin Description</name>
+        <rename>Line Journal Origin Description</rename>
+        <type>None</type>
+        <length>255</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Number of Transfer Requests</name>
+        <rename>Number of Transfer Requests</rename>
+        <type>None</type>
+        <length>0</length>
+        <precision>18</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Purchase Order Line</name>
+        <rename>Purchase Order Line</rename>
+        <type>None</type>
+        <length>50</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Purchase Order Number</name>
+        <rename>Purchase Order Number</rename>
+        <type>None</type>
+        <length>10</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Purchased Quantity</name>
+        <rename>Purchased Quantity</rename>
+        <type>None</type>
+        <length>0</length>
+        <precision>18</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Record ID</name>
+        <rename>Record ID</rename>
+        <type>None</type>
+        <length>18</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>SAP_Journal_ID</name>
+        <rename>SAP Journal ID</rename>
+        <type>None</type>
+        <length>20</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>SAP_Journal_Line</name>
+        <rename>SAP Journal Line</rename>
+        <type>None</type>
+        <length>0</length>
+        <precision>18</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Source Document Reference</name>
+        <rename>Source Document Reference</rename>
+        <type>None</type>
+        <length>100</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Sponsor</name>
+        <rename>Sponsor</rename>
+        <type>None</type>
+        <length>18</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Sponsor SAP Id</name>
+        <rename>Sponsor SAP Id</rename>
+        <type>None</type>
+        <length>20</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Sponsored Class</name>
+        <rename>Sponsored Class</rename>
+        <type>None</type>
+        <length>255</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Sponsored Class Detail</name>
+        <rename>Sponsored Class Detail</rename>
+        <type>None</type>
+        <length>255</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>System Modstamp</name>
+        <rename>System Modstamp</rename>
+        <type>None</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Transaction Category</name>
+        <rename>Transaction Category</rename>
+        <type>None</type>
+        <length>255</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Transaction Class</name>
+        <rename>Transaction Class</rename>
+        <type>None</type>
+        <length>255</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Transaction Description</name>
+        <rename>Transaction Name</rename>
+        <type>None</type>
+        <length>80</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Transaction Type</name>
+        <rename>Transaction Type</rename>
+        <type>None</type>
+        <length>255</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Transfer Amount</name>
+        <rename>Transfer Amount</rename>
+        <type>None</type>
+        <length>0</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Transfer Direction</name>
+        <rename>Transfer Direction</rename>
+        <type>None</type>
+        <length>255</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Transfer Status</name>
+        <rename>Transfer Status</rename>
+        <type>None</type>
+        <length>1300</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Transferable Amount</name>
+        <rename>Transferable Amount</rename>
+        <type>Number</type>
+        <length>2</length>
+        <precision>-2</precision>
+        <conversion_mask>#.#</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>UID</name>
+        <rename>UID</rename>
+        <type>None</type>
+        <length>64</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Vendor ID</name>
+        <rename>Vendor ID</rename>
+        <type>None</type>
+        <length>10</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Vendor Item Description</name>
+        <rename>Vendor Item Description</rename>
+        <type>None</type>
+        <length>100</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Vendor Item ID</name>
+        <rename>Vendor Item ID</rename>
+        <type>None</type>
+        <length>100</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Vendor Name</name>
+        <rename>Vendor Name</rename>
+        <type>None</type>
+        <length>100</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Vendor Name 2</name>
+        <rename>Vendor Name 2</rename>
+        <type>None</type>
+        <length>100</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>1184</xloc>
+      <yloc>576</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Select values 2</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>SAP Journal ID</name>
+        <rename>SAP_Journal_ID</rename>
+      </field>
+      <field>
+        <name>SAP Journal Line</name>
+        <rename>SAP_Journal_Line</rename>
+      </field>
+      <select_unspecified>Y</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>640</xloc>
+      <yloc>576</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Transaction Errors</name>
+    <type>InsertUpdate</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>20</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>MSSQL_RFSDW</connection>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema>errors_loading</schema>
+      <table>SF_Transactions_local</table>
+      <key>
+        <name>UID</name>
+        <field>UID</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>Absolute Transferable Amount</name>
+        <rename>Absolute Transferable Amount</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Actual (original)</name>
+        <rename>Actual (original)</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Amount</name>
+        <rename>Amount</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Business Area</name>
+        <rename>Business Area</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Created By ID</name>
+        <rename>Created By ID</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Created Date</name>
+        <rename>Created Date</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Currency</name>
+        <rename>Currency</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Currency (original)</name>
+        <rename>Currency (original)</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Debit or Credit</name>
+        <rename>Debit or Credit</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Deleted</name>
+        <rename>Deleted</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Description</name>
+        <rename>Description</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Display Sign Multiplier</name>
+        <rename>Display Sign Multiplier</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Effective Date</name>
+        <rename>Effective Date</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Exchange Rate</name>
+        <rename>Exchange Rate</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Exchange Rate Date</name>
+        <rename>Exchange Rate Date</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>FCC</name>
+        <rename>FCC</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>FCC (original)</name>
+        <rename>FCC (original)</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>FCC SAP Id</name>
+        <rename>FCC SAP Id</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Formatted Transferrable Amount</name>
+        <rename>Formatted Transferrable Amount</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>GL Account</name>
+        <rename>GL Account</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>GL Account Name</name>
+        <rename>GL Account Name</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>GL Account SAP Id</name>
+        <rename>GL Account SAP Id</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Has Been Transfered</name>
+        <rename>Has Been Transfered</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Journal Description</name>
+        <rename>Journal Description</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Journal Line Status</name>
+        <rename>Journal Line Status</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Journal Sequence Number</name>
+        <rename>Journal Sequence Number</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Journal Status Code</name>
+        <rename>Journal Status Code</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Journal Type Code</name>
+        <rename>Journal Type Code</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Last Modified By ID</name>
+        <rename>Last Modified By ID</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Last Modified Date</name>
+        <rename>Last Modified Date</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Last Referenced Date</name>
+        <rename>Last Referenced Date</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Last Viewed Date</name>
+        <rename>Last Viewed Date</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Line Date Created</name>
+        <rename>Line Date Created</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Line Date Posted</name>
+        <rename>Line Date Posted</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Line Journal Origin Code</name>
+        <rename>Line Journal Origin Code</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Line Journal Origin Description</name>
+        <rename>Line Journal Origin Description</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Number of Transfer Requests</name>
+        <rename>Number of Transfer Requests</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Purchase Order Line</name>
+        <rename>Purchase Order Line</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Purchase Order Number</name>
+        <rename>Purchase Order Number</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Purchased Quantity</name>
+        <rename>Purchased Quantity</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Record ID</name>
+        <rename>Record ID</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>SAP Journal ID</name>
+        <rename>SAP Journal ID</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>SAP Journal Line</name>
+        <rename>SAP Journal Line</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Source Document Reference</name>
+        <rename>Source Document Reference</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Sponsor</name>
+        <rename>Sponsor</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Sponsor SAP Id</name>
+        <rename>Sponsor SAP Id</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Sponsored Class</name>
+        <rename>Sponsored Class</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Sponsored Class Detail</name>
+        <rename>Sponsored Class Detail</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>System Modstamp</name>
+        <rename>System Modstamp</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Transaction Category</name>
+        <rename>Transaction Category</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Transaction Class</name>
+        <rename>Transaction Class</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Transaction Name</name>
+        <rename>Transaction Name</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Transaction Name Rule</name>
+        <rename>Transaction Name Rule</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Transaction Type</name>
+        <rename>Transaction Type</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Transfer Amount</name>
+        <rename>Transfer Amount</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Transfer Direction</name>
+        <rename>Transfer Direction</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Transfer Status</name>
+        <rename>Transfer Status</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Transferable Amount</name>
+        <rename>Transferable Amount</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>UID</name>
+        <rename>UID</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Vendor ID</name>
+        <rename>Vendor ID</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Vendor Item Description</name>
+        <rename>Vendor Item Description</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Vendor Item ID</name>
+        <rename>Vendor Item ID</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Vendor Name</name>
+        <rename>Vendor Name</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Vendor Name 2</name>
+        <rename>Vendor Name 2</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>ReportingDate</name>
+        <rename>ReportingDate</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>DisplayAmount</name>
+        <rename>DisplayAmount</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>LastUpdate</name>
+        <rename>LastUpdate</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>NoOfErrors</name>
+        <rename>NoOfErrors</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>ErrorDescription</name>
+        <rename>ErrorDescription</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>ErrorDate</name>
+        <rename>ErrorDate</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>2544</xloc>
+      <yloc>576</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Transactions</name>
+    <type>SalesforceInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <targeturl>${GW_Salesforce_Webservice_URL}</targeturl>
+    <username>${GW_Salesforce_UserName}</username>
+    <password>${GW_Salesforce_Password}</password>
+    <timeout>60000</timeout>
+    <useCompression>N</useCompression>
+    <module>UHN_Journal_Entry__c</module>
+    <condition>SystemModstamp = LAST_N_DAYS:3</condition>
+    <specifyQuery>N</specifyQuery>
+    <query/>
+    <include_targeturl>N</include_targeturl>
+    <targeturl_field/>
+    <include_module>N</include_module>
+    <module_field/>
+    <include_rownum>N</include_rownum>
+    <include_deletion_date>N</include_deletion_date>
+    <deletion_date_field/>
+    <rownum_field/>
+    <include_sql>N</include_sql>
+    <sql_field/>
+    <include_Timestamp>N</include_Timestamp>
+    <timestamp_field/>
+    <read_from/>
+    <read_to/>
+    <records_filter>all</records_filter>
+    <queryAll>N</queryAll>
+    <fields>
+      <field>
+        <name>Created By ID</name>
+        <field>CreatedById</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>18</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Created Date</name>
+        <field>CreatedDate</field>
+        <idlookup>N</idlookup>
+        <type>Date</type>
+        <format>yyyy-MM-dd'T'HH:mm:ss'.000'XXX</format>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>GL Account Description Level 1</name>
+        <field>GL_Account_Description_Level1__c</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>1300</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>GL Account Description Level 3</name>
+        <field>GL_Account_Description_Level_3__c</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>1300</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Record ID</name>
+        <field>Id</field>
+        <idlookup>Y</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>18</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Deleted</name>
+        <field>IsDeleted</field>
+        <idlookup>N</idlookup>
+        <type>Boolean</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Last Modified By ID</name>
+        <field>LastModifiedById</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>18</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Last Modified Date</name>
+        <field>LastModifiedDate</field>
+        <idlookup>N</idlookup>
+        <type>Date</type>
+        <format>yyyy-MM-dd'T'HH:mm:ss'.000'XXX</format>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Last Referenced Date</name>
+        <field>LastReferencedDate</field>
+        <idlookup>N</idlookup>
+        <type>Date</type>
+        <format>yyyy-MM-dd'T'HH:mm:ss'.000'XXX</format>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Last Viewed Date</name>
+        <field>LastViewedDate</field>
+        <idlookup>N</idlookup>
+        <type>Date</type>
+        <format>yyyy-MM-dd'T'HH:mm:ss'.000'XXX</format>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Transaction Description</name>
+        <field>Name</field>
+        <idlookup>Y</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>80</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>System Modstamp</name>
+        <field>SystemModstamp</field>
+        <idlookup>N</idlookup>
+        <type>Date</type>
+        <format>yyyy-MM-dd'T'HH:mm:ss'.000'XXX</format>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Absolute Transferable Amount</name>
+        <field>UHN_Absolute_Transferable_Amount__c</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>0</length>
+        <precision>18</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Transferable Amount</name>
+        <field>UHN_Actual_Amount__c</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>0</length>
+        <precision>18</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Amount</name>
+        <field>UHN_Amount__c</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>0</length>
+        <precision>18</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Business Area</name>
+        <field>UHN_Business_Area__c</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>255</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Date</name>
+        <field>UHN_Calculated_Date_Key__c</field>
+        <idlookup>N</idlookup>
+        <type>Date</type>
+        <format>yyyy-MM-dd</format>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Currency</name>
+        <field>UHN_Currency__c</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>255</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Debit or Credit</name>
+        <field>UHN_Debit_or_Credit__c</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>255</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Description</name>
+        <field>UHN_Description__c</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>255</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Amount ($)</name>
+        <field>UHN_Display_Amount__c</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>0</length>
+        <precision>18</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Display Sign Multiplier</name>
+        <field>UHN_Display_Sign_Multiplier__c</field>
+        <idlookup>N</idlookup>
+        <type>Number</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>0</length>
+        <precision>18</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Effective Date</name>
+        <field>UHN_Effective_Date__c</field>
+        <idlookup>N</idlookup>
+        <type>Date</type>
+        <format>yyyy-MM-dd</format>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Exchange Rate Date</name>
+        <field>UHN_Exchange_Rate_Date__c</field>
+        <idlookup>N</idlookup>
+        <type>Date</type>
+        <format>yyyy-MM-dd</format>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>FCC SAP Id</name>
+        <field>UHN_FCC_SAP_Id__c</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>20</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>FCC</name>
+        <field>UHN_FCC__c</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>18</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>FCC (original)</name>
+        <field>UHN_FCC_original__c</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>20</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Formatted Transferrable Amount</name>
+        <field>UHN_Formatted_Transferrable_Amount__c</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>1300</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>GL Account Description Level 2</name>
+        <field>UHN_GL_Account_Description_Level2__c</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>1300</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>GL Account Name</name>
+        <field>UHN_GL_Account_Name__c</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>1300</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>GL Account SAP Id</name>
+        <field>UHN_GL_Account_SAP_Id__c</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>20</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>GL Account</name>
+        <field>UHN_GL_Account__c</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>18</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Has Been Transfered</name>
+        <field>UHN_Has_Been_Transfered__c</field>
+        <idlookup>N</idlookup>
+        <type>Boolean</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Journal Description</name>
+        <field>UHN_Journal_Description__c</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>255</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Journal Line Status</name>
+        <field>UHN_Journal_Line_Status__c</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>10</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Journal Sequence Number</name>
+        <field>UHN_Journal_Sequence_Number__c</field>
+        <idlookup>N</idlookup>
+        <type>Number</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>0</length>
+        <precision>18</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Journal Status Code</name>
+        <field>UHN_Journal_Status_Code__c</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>10</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Journal Type Code</name>
+        <field>UHN_Journal_Type_Code__c</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>10</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Line Date Created</name>
+        <field>UHN_Line_Date_Created__c</field>
+        <idlookup>N</idlookup>
+        <type>Date</type>
+        <format>yyyy-MM-dd</format>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Line Date Posted</name>
+        <field>UHN_Line_Date_Posted__c</field>
+        <idlookup>N</idlookup>
+        <type>Date</type>
+        <format>yyyy-MM-dd</format>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Number of Transfer Requests</name>
+        <field>UHN_Number_of_Transfer_Requests__c</field>
+        <idlookup>N</idlookup>
+        <type>Number</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>0</length>
+        <precision>18</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Line Journal Origin Code</name>
+        <field>UHN_Origin_Code__c</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>2</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Line Journal Origin Description</name>
+        <field>UHN_Origin_Description__c</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>255</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Transaction Category</name>
+        <field>UHN_PI_Expense_or_Revenue_Category__c</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>255</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Transaction Class</name>
+        <field>UHN_PI_Expense_or_Revenue_Class__c</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>255</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Transaction Type</name>
+        <field>UHN_PI_Expense_or_Revenue_Type__c</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>255</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Purchase Order Line</name>
+        <field>UHN_Purchase_Order_Line__c</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>50</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Purchase Order Number</name>
+        <field>UHN_Purchase_Order_Number__c</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>10</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Purchased Quantity</name>
+        <field>UHN_Purchased_Quantity__c</field>
+        <idlookup>N</idlookup>
+        <type>Number</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>0</length>
+        <precision>18</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>RFIS JE Description</name>
+        <field>UHN_RFIS_JE_Description__c</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>255</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>SAP Journal ID</name>
+        <field>UHN_SAP_JOURNAL_ID__c</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>20</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>SAP Journal Line</name>
+        <field>UHN_SAP_Journal_Line__c</field>
+        <idlookup>N</idlookup>
+        <type>Number</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>0</length>
+        <precision>18</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Source Document Reference</name>
+        <field>UHN_Source_Document_Reference__c</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>100</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Sponsor SAP Id</name>
+        <field>UHN_Sponsor_SAP_Id__c</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>20</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Sponsor</name>
+        <field>UHN_Sponsor__c</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>18</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Sponsored Class Detail</name>
+        <field>UHN_Sponsored_Class_Detail__c</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>255</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Sponsored Class</name>
+        <field>UHN_Sponsored_Class__c</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>255</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Exchange Rate</name>
+        <field>UHN_Trans_To_Prim_Exchange_Rate__c</field>
+        <idlookup>N</idlookup>
+        <type>Number</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>0</length>
+        <precision>15</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Actual (original)</name>
+        <field>UHN_Transaction_Amount__c</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>0</length>
+        <precision>18</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Currency (original)</name>
+        <field>UHN_Transaction_Currency_Code__c</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>255</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Transaction Name Rule</name>
+        <field>UHN_Transaction_Name_Rule__c</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>255</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Transfer Amount</name>
+        <field>UHN_Transfer_Amount__c</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>0</length>
+        <precision>18</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Transfer Direction</name>
+        <field>UHN_Transfer_Direction__c</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>255</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>SAP Transfer</name>
+        <field>UHN_Transfer_Flag_SAP__c</field>
+        <idlookup>N</idlookup>
+        <type>Boolean</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Transfer Status</name>
+        <field>UHN_Transfer_Status__c</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>1300</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>UID</name>
+        <field>UHN_UID__c</field>
+        <idlookup>Y</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>64</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Vendor ID</name>
+        <field>UHN_Vendor_ID__c</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>10</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Vendor Item Description</name>
+        <field>UHN_Vendor_Item_Description__c</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>100</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Vendor Item ID</name>
+        <field>UHN_Vendor_Item_ID__c</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>100</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Vendor Name 2</name>
+        <field>UHN_Vendor_Name_2__c</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>100</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Vendor Name</name>
+        <field>UHN_Vendor_Name__c</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>100</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+    </fields>
+    <limit>0</limit>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>384</xloc>
+      <yloc>576</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform_error_handling>
+    <error>
+      <source_transform>Insert / update</source_transform>
+      <target_transform>Error Date Transactions</target_transform>
+      <is_enabled>Y</is_enabled>
+      <nr_valuename>NoOfErrors</nr_valuename>
+      <descriptions_valuename>ErrorDescription</descriptions_valuename>
+      <fields_valuename/>
+      <codes_valuename/>
+      <max_errors/>
+      <max_pct_errors/>
+      <min_pct_rows/>
+    </error>
+  </transform_error_handling>
+  <attributes/>
+</pipeline>

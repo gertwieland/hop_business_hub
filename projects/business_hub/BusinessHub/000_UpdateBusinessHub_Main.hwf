@@ -1,0 +1,973 @@
+<workflow>
+  <name>000_UpdateBusinessHub_Main</name>
+  <name_sync_with_filename>Y</name_sync_with_filename>
+  <description/>
+  <extended_description/>
+  <workflow_version/>
+  <job_status>0</job_status>
+  <directory>/BusinessHub</directory>
+  <created_user>gert</created_user>
+  <created_date>2022/02/22 16:44:01.481</created_date>
+  <modified_user>gert</modified_user>
+  <modified_date>2023/02/27 23:18:57.263</modified_date>
+  <parameters>
+    </parameters>
+  <pass_batchid>N</pass_batchid>
+  <actions>
+    <action>
+      <name>Success Backup Pre</name>
+      <description/>
+      <type>WEBSERVICE_AVAILABLE</type>
+      <attributes/>
+      <url>https://hc-ping.com/ef276270-4d05-4649-9d38-2eefff81c2c5</url>
+      <connectTimeOut>0</connectTimeOut>
+      <readTimeOut>0</readTimeOut>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>2448</xloc>
+      <yloc>304</yloc>
+      <attributes_kjc/>
+    </action>
+    <action>
+      <name>Backup Pre Fail</name>
+      <description/>
+      <type>WEBSERVICE_AVAILABLE</type>
+      <attributes/>
+      <url>https://hc-ping.com/ef276270-4d05-4649-9d38-2eefff81c2c5/fail</url>
+      <connectTimeOut>0</connectTimeOut>
+      <readTimeOut>0</readTimeOut>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>2272</xloc>
+      <yloc>544</yloc>
+      <attributes_kjc/>
+    </action>
+    <action>
+      <name>Backup Post Ping</name>
+      <description/>
+      <type>WEBSERVICE_AVAILABLE</type>
+      <attributes/>
+      <url>https://hc-ping.com/7b7f8df5-e798-4d65-8312-788db99eb7bc</url>
+      <connectTimeOut>0</connectTimeOut>
+      <readTimeOut>0</readTimeOut>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>4176</xloc>
+      <yloc>304</yloc>
+      <attributes_kjc/>
+    </action>
+    <action>
+      <name>Backup Post Start</name>
+      <description/>
+      <type>WEBSERVICE_AVAILABLE</type>
+      <attributes/>
+      <url>https://hc-ping.com/7b7f8df5-e798-4d65-8312-788db99eb7bc/start</url>
+      <connectTimeOut>0</connectTimeOut>
+      <readTimeOut>0</readTimeOut>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>4352</xloc>
+      <yloc>304</yloc>
+      <attributes_kjc/>
+    </action>
+    <action>
+      <name>Backup Post Success</name>
+      <description/>
+      <type>WEBSERVICE_AVAILABLE</type>
+      <attributes/>
+      <url>https://hc-ping.com/7b7f8df5-e798-4d65-8312-788db99eb7bc</url>
+      <connectTimeOut>0</connectTimeOut>
+      <readTimeOut>0</readTimeOut>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>4736</xloc>
+      <yloc>304</yloc>
+      <attributes_kjc/>
+    </action>
+    <action>
+      <name>Backup Post Fail</name>
+      <description/>
+      <type>WEBSERVICE_AVAILABLE</type>
+      <attributes/>
+      <url>https://hc-ping.com/7b7f8df5-e798-4d65-8312-788db99eb7bc/fail</url>
+      <connectTimeOut>0</connectTimeOut>
+      <readTimeOut>0</readTimeOut>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>4528</xloc>
+      <yloc>544</yloc>
+      <attributes_kjc/>
+    </action>
+    <action>
+      <name>Adjust values for new FCCs</name>
+      <description/>
+      <type>PIPELINE</type>
+      <attributes/>
+      <specification_method>rep_name</specification_method>
+      <trans_object_id/>
+      <filename>${PROJECT_HOME}\/BusinessHub/9999_100_000_FixMissingValuesForNewFCCs.hpl</filename>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
+      <run_configuration/>
+      <suppress_result_data>N</suppress_result_data>
+      <parameters>
+        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>1408</xloc>
+      <yloc>192</yloc>
+      <attributes_kjc/>
+    </action>
+    <action>
+      <name>Start</name>
+      <description/>
+      <type>SPECIAL</type>
+      <attributes/>
+      <repeat>N</repeat>
+      <schedulerType>0</schedulerType>
+      <intervalSeconds>0</intervalSeconds>
+      <intervalMinutes>60</intervalMinutes>
+      <hour>12</hour>
+      <minutes>0</minutes>
+      <weekDay>1</weekDay>
+      <DayOfMonth>1</DayOfMonth>
+      <parallel>N</parallel>
+      <xloc>96</xloc>
+      <yloc>304</yloc>
+      <attributes_kjc/>
+    </action>
+    <action>
+      <name>Success</name>
+      <description/>
+      <type>SUCCESS</type>
+      <attributes/>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>5248</xloc>
+      <yloc>304</yloc>
+      <attributes_kjc/>
+    </action>
+    <action>
+      <name>Main ETL</name>
+      <description/>
+      <type>WORKFLOW</type>
+      <attributes/>
+      <specification_method>rep_name</specification_method>
+      <job_object_id/>
+      <filename>${PROJECT_HOME}\/BusinessHub/UPDATE_00_Entire_Business_Hub.hwf</filename>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Nothing</loglevel>
+      <slave_server_name/>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <expand_remote_job>N</expand_remote_job>
+      <create_parent_folder>N</create_parent_folder>
+      <pass_export>N</pass_export>
+      <run_configuration/>
+      <parameters>
+        <pass_all_parameters>Y</pass_all_parameters>
+        <parameter>
+          <name>DayOfWeek_Integer</name>
+          <stream_name>${DayOfWeek_Integer}</stream_name>
+          <value/>
+        </parameter>
+      </parameters>
+      <set_append_logfile>N</set_append_logfile>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>2944</xloc>
+      <yloc>192</yloc>
+      <attributes_kjc/>
+    </action>
+    <action>
+      <name>Start Business Hub Overall Update</name>
+      <description/>
+      <type>WEBSERVICE_AVAILABLE</type>
+      <attributes/>
+      <url>https://hc-ping.com/a417838f-df3e-4a0a-88f3-e41ea803e631/start</url>
+      <connectTimeOut>0</connectTimeOut>
+      <readTimeOut>0</readTimeOut>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>640</xloc>
+      <yloc>304</yloc>
+      <attributes_kjc/>
+    </action>
+    <action>
+      <name>Success Business Hub Overall Update</name>
+      <description/>
+      <type>WEBSERVICE_AVAILABLE</type>
+      <attributes/>
+      <url>https://hc-ping.com/a417838f-df3e-4a0a-88f3-e41ea803e631</url>
+      <connectTimeOut>0</connectTimeOut>
+      <readTimeOut>0</readTimeOut>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>5008</xloc>
+      <yloc>304</yloc>
+      <attributes_kjc/>
+    </action>
+    <action>
+      <name>Fail Main ETL</name>
+      <description/>
+      <type>WEBSERVICE_AVAILABLE</type>
+      <attributes/>
+      <url>https://hc-ping.com/909322fc-274b-42e8-92fd-847454f5bf63/fail</url>
+      <connectTimeOut>0</connectTimeOut>
+      <readTimeOut>0</readTimeOut>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>2944</xloc>
+      <yloc>544</yloc>
+      <attributes_kjc/>
+    </action>
+    <action>
+      <name>Backups pre update</name>
+      <description/>
+      <type>WORKFLOW</type>
+      <attributes/>
+      <specification_method>rep_name</specification_method>
+      <job_object_id/>
+      <filename>${PROJECT_HOME}\/Salesforce_Backup/00_00_Salesforce_Backup.hwf</filename>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Nothing</loglevel>
+      <slave_server_name/>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <expand_remote_job>N</expand_remote_job>
+      <create_parent_folder>N</create_parent_folder>
+      <pass_export>N</pass_export>
+      <run_configuration/>
+      <parameters>
+        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>
+      <set_append_logfile>N</set_append_logfile>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>2272</xloc>
+      <yloc>192</yloc>
+      <attributes_kjc/>
+    </action>
+    <action>
+      <name>Ping Business Hub Overall Update</name>
+      <description/>
+      <type>WEBSERVICE_AVAILABLE</type>
+      <attributes/>
+      <url>https://hc-ping.com/a417838f-df3e-4a0a-88f3-e41ea803e631</url>
+      <connectTimeOut>0</connectTimeOut>
+      <readTimeOut>0</readTimeOut>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>352</xloc>
+      <yloc>304</yloc>
+      <attributes_kjc/>
+    </action>
+    <action>
+      <name>Backups post update</name>
+      <description/>
+      <type>WORKFLOW</type>
+      <attributes/>
+      <specification_method>rep_name</specification_method>
+      <job_object_id/>
+      <filename>${PROJECT_HOME}\/Salesforce_Backup/00_00_Salesforce_Backup.hwf</filename>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Nothing</loglevel>
+      <slave_server_name/>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <expand_remote_job>N</expand_remote_job>
+      <create_parent_folder>N</create_parent_folder>
+      <pass_export>N</pass_export>
+      <run_configuration/>
+      <parameters>
+        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>
+      <set_append_logfile>N</set_append_logfile>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>4528</xloc>
+      <yloc>192</yloc>
+      <attributes_kjc/>
+    </action>
+    <action>
+      <name>Start Backup Pre Update</name>
+      <description/>
+      <type>WEBSERVICE_AVAILABLE</type>
+      <attributes/>
+      <url>https://hc-ping.com/ef276270-4d05-4649-9d38-2eefff81c2c5/start</url>
+      <connectTimeOut>0</connectTimeOut>
+      <readTimeOut>0</readTimeOut>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>2096</xloc>
+      <yloc>304</yloc>
+      <attributes_kjc/>
+    </action>
+    <action>
+      <name>Ping Backup Pre Update</name>
+      <description/>
+      <type>WEBSERVICE_AVAILABLE</type>
+      <attributes/>
+      <url>https://hc-ping.com/ef276270-4d05-4649-9d38-2eefff81c2c5</url>
+      <connectTimeOut>0</connectTimeOut>
+      <readTimeOut>0</readTimeOut>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>1888</xloc>
+      <yloc>304</yloc>
+      <attributes_kjc/>
+    </action>
+    <action>
+      <name>Adjust values for new FCCs 2</name>
+      <description/>
+      <type>PIPELINE</type>
+      <attributes/>
+      <specification_method>rep_name</specification_method>
+      <trans_object_id/>
+      <filename>${PROJECT_HOME}\/BusinessHub/9999_100_000_FixMissingValuesForNewFCCs.hpl</filename>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
+      <run_configuration/>
+      <suppress_result_data>N</suppress_result_data>
+      <parameters>
+        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>3632</xloc>
+      <yloc>192</yloc>
+      <attributes_kjc/>
+    </action>
+    <action>
+      <name>Ping Adjust Values</name>
+      <description/>
+      <type>WEBSERVICE_AVAILABLE</type>
+      <attributes/>
+      <url>https://hc-ping.com/dfc1356e-2cc8-4501-905a-273dbf864ba8</url>
+      <connectTimeOut>0</connectTimeOut>
+      <readTimeOut>0</readTimeOut>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>1040</xloc>
+      <yloc>304</yloc>
+      <attributes_kjc/>
+    </action>
+    <action>
+      <name>Start Adjust Values</name>
+      <description/>
+      <type>WEBSERVICE_AVAILABLE</type>
+      <attributes/>
+      <url>https://hc-ping.com/dfc1356e-2cc8-4501-905a-273dbf864ba8/start</url>
+      <connectTimeOut>0</connectTimeOut>
+      <readTimeOut>0</readTimeOut>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>1216</xloc>
+      <yloc>304</yloc>
+      <attributes_kjc/>
+    </action>
+    <action>
+      <name>Fail Adjust Values</name>
+      <description/>
+      <type>WEBSERVICE_AVAILABLE</type>
+      <attributes/>
+      <url>https://hc-ping.com/dfc1356e-2cc8-4501-905a-273dbf864ba8/fail</url>
+      <connectTimeOut>0</connectTimeOut>
+      <readTimeOut>0</readTimeOut>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>1408</xloc>
+      <yloc>544</yloc>
+      <attributes_kjc/>
+    </action>
+    <action>
+      <name>Ping Adjust Values 2</name>
+      <description/>
+      <type>WEBSERVICE_AVAILABLE</type>
+      <attributes/>
+      <url>https://hc-ping.com/dfc1356e-2cc8-4501-905a-273dbf864ba8</url>
+      <connectTimeOut>0</connectTimeOut>
+      <readTimeOut>0</readTimeOut>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>3264</xloc>
+      <yloc>304</yloc>
+      <attributes_kjc/>
+    </action>
+    <action>
+      <name>Start Adjust Values 2</name>
+      <description/>
+      <type>WEBSERVICE_AVAILABLE</type>
+      <attributes/>
+      <url>https://hc-ping.com/dfc1356e-2cc8-4501-905a-273dbf864ba8/start</url>
+      <connectTimeOut>0</connectTimeOut>
+      <readTimeOut>0</readTimeOut>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>3456</xloc>
+      <yloc>304</yloc>
+      <attributes_kjc/>
+    </action>
+    <action>
+      <name>Adjust Values Success</name>
+      <description/>
+      <type>WEBSERVICE_AVAILABLE</type>
+      <attributes/>
+      <url>https://hc-ping.com/dfc1356e-2cc8-4501-905a-273dbf864ba8</url>
+      <connectTimeOut>0</connectTimeOut>
+      <readTimeOut>0</readTimeOut>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>1600</xloc>
+      <yloc>304</yloc>
+      <attributes_kjc/>
+    </action>
+    <action>
+      <name>Adjust Values Success 2</name>
+      <description/>
+      <type>WEBSERVICE_AVAILABLE</type>
+      <attributes/>
+      <url>https://hc-ping.com/dfc1356e-2cc8-4501-905a-273dbf864ba8</url>
+      <connectTimeOut>0</connectTimeOut>
+      <readTimeOut>0</readTimeOut>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>3904</xloc>
+      <yloc>304</yloc>
+      <attributes_kjc/>
+    </action>
+    <action>
+      <name>Fail Adjust Values (2)</name>
+      <description/>
+      <type>WEBSERVICE_AVAILABLE</type>
+      <attributes/>
+      <url>https://hc-ping.com/dfc1356e-2cc8-4501-905a-273dbf864ba8/fail</url>
+      <connectTimeOut>0</connectTimeOut>
+      <readTimeOut>0</readTimeOut>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>3632</xloc>
+      <yloc>544</yloc>
+      <attributes_kjc/>
+    </action>
+    <action>
+      <name>Fail Business Hub Overall Update</name>
+      <description/>
+      <type>WEBSERVICE_AVAILABLE</type>
+      <attributes/>
+      <url>https://hc-ping.com/a417838f-df3e-4a0a-88f3-e41ea803e631/fail</url>
+      <connectTimeOut>0</connectTimeOut>
+      <readTimeOut>0</readTimeOut>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>3216</xloc>
+      <yloc>880</yloc>
+      <attributes_kjc/>
+    </action>
+    <action>
+      <name>Ping Main ETL</name>
+      <description/>
+      <type>WEBSERVICE_AVAILABLE</type>
+      <attributes/>
+      <url>https://hc-ping.com/909322fc-274b-42e8-92fd-847454f5bf63</url>
+      <connectTimeOut>0</connectTimeOut>
+      <readTimeOut>0</readTimeOut>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>2688</xloc>
+      <yloc>304</yloc>
+      <attributes_kjc/>
+    </action>
+    <action>
+      <name>Start Main ETL</name>
+      <description/>
+      <type>WEBSERVICE_AVAILABLE</type>
+      <attributes/>
+      <url>https://hc-ping.com/909322fc-274b-42e8-92fd-847454f5bf63/start</url>
+      <connectTimeOut>0</connectTimeOut>
+      <readTimeOut>0</readTimeOut>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>2832</xloc>
+      <yloc>304</yloc>
+      <attributes_kjc/>
+    </action>
+    <action>
+      <name>Success Main ETL</name>
+      <description/>
+      <type>WEBSERVICE_AVAILABLE</type>
+      <attributes/>
+      <url>https://hc-ping.com/909322fc-274b-42e8-92fd-847454f5bf63</url>
+      <connectTimeOut>0</connectTimeOut>
+      <readTimeOut>0</readTimeOut>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>3056</xloc>
+      <yloc>304</yloc>
+      <attributes_kjc/>
+    </action>
+    <action>
+      <name>Set Variables</name>
+      <description/>
+      <type>PIPELINE</type>
+      <attributes/>
+      <specification_method>rep_name</specification_method>
+      <trans_object_id/>
+      <filename>${PROJECT_HOME}\/BusinessHub/0_Set_Variables.hpl</filename>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
+      <run_configuration/>
+      <suppress_result_data>N</suppress_result_data>
+      <parameters>
+        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>848</xloc>
+      <yloc>176</yloc>
+      <attributes_kjc/>
+    </action>
+  </actions>
+  <hops>
+    <hop>
+      <from>Success Business Hub Overall Update</from>
+      <to>Success</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Main ETL</from>
+      <to>Fail Main ETL</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Start</from>
+      <to>Ping Business Hub Overall Update</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Ping Business Hub Overall Update</from>
+      <to>Start Business Hub Overall Update</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Ping Backup Pre Update</from>
+      <to>Start Backup Pre Update</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Backups pre update</from>
+      <to>Success Backup Pre</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Backups pre update</from>
+      <to>Backup Pre Fail</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Backup Post Ping</from>
+      <to>Backup Post Start</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Backups post update</from>
+      <to>Backup Post Success</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Backup Post Success</from>
+      <to>Success Business Hub Overall Update</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Backups post update</from>
+      <to>Backup Post Fail</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Start Backup Pre Update</from>
+      <to>Backups pre update</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Ping Adjust Values</from>
+      <to>Start Adjust Values</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Start Adjust Values</from>
+      <to>Adjust values for new FCCs</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Adjust values for new FCCs</from>
+      <to>Fail Adjust Values</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Backup Post Start</from>
+      <to>Backups post update</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Ping Adjust Values 2</from>
+      <to>Start Adjust Values 2</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Start Adjust Values 2</from>
+      <to>Adjust values for new FCCs 2</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Adjust values for new FCCs</from>
+      <to>Adjust Values Success</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Adjust Values Success</from>
+      <to>Ping Backup Pre Update</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Adjust values for new FCCs 2</from>
+      <to>Adjust Values Success 2</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Adjust values for new FCCs 2</from>
+      <to>Fail Adjust Values (2)</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Adjust Values Success 2</from>
+      <to>Backup Post Ping</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Fail Adjust Values</from>
+      <to>Fail Business Hub Overall Update</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Backup Pre Fail</from>
+      <to>Fail Business Hub Overall Update</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Fail Main ETL</from>
+      <to>Fail Business Hub Overall Update</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Success Backup Pre</from>
+      <to>Ping Main ETL</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Ping Main ETL</from>
+      <to>Start Main ETL</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Start Main ETL</from>
+      <to>Main ETL</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Main ETL</from>
+      <to>Success Main ETL</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Success Main ETL</from>
+      <to>Ping Adjust Values 2</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Fail Adjust Values (2)</from>
+      <to>Fail Business Hub Overall Update</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Backup Post Fail</from>
+      <to>Fail Business Hub Overall Update</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Start Business Hub Overall Update</from>
+      <to>Set Variables</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Set Variables</from>
+      <to>Ping Adjust Values</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+  </hops>
+  <notepads>
+    <notepad>
+      <note>Tracked</note>
+      <xloc>0</xloc>
+      <yloc>0</yloc>
+      <width>76</width>
+      <heigth>37</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>10</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+  </notepads>
+  <attributes/>
+</workflow>

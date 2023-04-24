@@ -1,0 +1,492 @@
+<pipeline>
+  <info>
+    <name>UserRole__Backup</name>
+    <name_sync_with_filename>Y</name_sync_with_filename>
+    <description/>
+    <extended_description/>
+    <pipeline_version/>
+    <pipeline_type>Normal</pipeline_type>
+    <directory>/Salesforce_Backup</directory>
+    <parameters>
+    </parameters>
+    <capture_transform_performance>N</capture_transform_performance>
+    <transform_performance_capturing_delay>1000</transform_performance_capturing_delay>
+    <transform_performance_capturing_size_limit>100</transform_performance_capturing_size_limit>
+    <created_user/>
+    <created_date>2023/04/23 22:11:23.849</created_date>
+    <modified_user>gert</modified_user>
+    <modified_date>2023/01/23 22:23:51.460</modified_date>
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
+    <is_key_private>N</is_key_private>
+  </info>
+  <notepads>
+    <notepad>
+      <note>SystemModstamp &lt;= LAST_N_DAYS:7</note>
+      <xloc>288</xloc>
+      <yloc>480</yloc>
+      <width>344</width>
+      <heigth>37</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>10</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+  </notepads>
+  <order>
+    <hop>
+      <from>Read UserRole</from>
+      <to>Get system info</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Get system info</from>
+      <to>Write UserRole</to>
+      <enabled>Y</enabled>
+    </hop>
+  </order>
+  <transform>
+    <name>Get system info</name>
+    <type>SystemInfo</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>LastUpdate</name>
+        <type>system date (variable)</type>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>864</xloc>
+      <yloc>512</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Read UserRole</name>
+    <type>SalesforceInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <targeturl>${GW_Salesforce_Webservice_URL}</targeturl>
+    <username>${GW_Salesforce_UserName}</username>
+    <password>${GW_Salesforce_Password}</password>
+    <timeout>60000</timeout>
+    <useCompression>N</useCompression>
+    <module>UserRole</module>
+    <condition>${SF_Query_for_Dimensions}</condition>
+    <specifyQuery>N</specifyQuery>
+    <query/>
+    <include_targeturl>N</include_targeturl>
+    <targeturl_field/>
+    <include_module>N</include_module>
+    <module_field/>
+    <include_rownum>N</include_rownum>
+    <include_deletion_date>N</include_deletion_date>
+    <deletion_date_field/>
+    <rownum_field/>
+    <include_sql>N</include_sql>
+    <sql_field/>
+    <include_Timestamp>N</include_Timestamp>
+    <timestamp_field/>
+    <read_from/>
+    <read_to/>
+    <records_filter>all</records_filter>
+    <queryAll>N</queryAll>
+    <fields>
+      <field>
+        <name>Role ID</name>
+        <field>Id</field>
+        <idlookup>Y</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>18</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Name</name>
+        <field>Name</field>
+        <idlookup>Y</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>80</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Parent Role ID</name>
+        <field>ParentRoleId</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>18</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Description</name>
+        <field>RollupDescription</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>80</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Opportunity Access Level for Account Owner</name>
+        <field>OpportunityAccessForAccountOwner</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>40</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Case Access Level for Account Owner</name>
+        <field>CaseAccessForAccountOwner</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>40</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Contact Access Level for Account Owner</name>
+        <field>ContactAccessForAccountOwner</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>40</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>User ID</name>
+        <field>ForecastUserId</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>18</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>May Forecast Manager Share</name>
+        <field>MayForecastManagerShare</field>
+        <idlookup>N</idlookup>
+        <type>Boolean</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Last Modified Date</name>
+        <field>LastModifiedDate</field>
+        <idlookup>N</idlookup>
+        <type>Date</type>
+        <format>yyyy-MM-dd'T'HH:mm:ss'.000'XXX</format>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Last Modified By ID</name>
+        <field>LastModifiedById</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>18</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>System Modstamp</name>
+        <field>SystemModstamp</field>
+        <idlookup>N</idlookup>
+        <type>Date</type>
+        <format>yyyy-MM-dd'T'HH:mm:ss'.000'XXX</format>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Developer Name</name>
+        <field>DeveloperName</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>80</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Entity ID</name>
+        <field>PortalAccountId</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>18</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Portal Type</name>
+        <field>PortalType</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>40</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Portal Role</name>
+        <field>PortalRole</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>40</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>User ID</name>
+        <field>PortalAccountOwnerId</field>
+        <idlookup>N</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>18</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+    </fields>
+    <limit>0</limit>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>576</xloc>
+      <yloc>512</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Write UserRole</name>
+    <type>InsertUpdate</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>10</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>MSSQL_RFSDW</connection>
+    <commit>1000</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema>salesforce_backup</schema>
+      <table>UserRole</table>
+      <key>
+        <name>Role ID</name>
+        <field>Role ID</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>Role ID</name>
+        <rename>Role ID</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Name</name>
+        <rename>Name</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Parent Role ID</name>
+        <rename>Parent Role ID</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Description</name>
+        <rename>Description</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Opportunity Access Level for Account Owner</name>
+        <rename>Opportunity Access Level for Account Owner</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Case Access Level for Account Owner</name>
+        <rename>Case Access Level for Account Owner</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Contact Access Level for Account Owner</name>
+        <rename>Contact Access Level for Account Owner</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>User ID</name>
+        <rename>User ID</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>May Forecast Manager Share</name>
+        <rename>May Forecast Manager Share</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Last Modified Date</name>
+        <rename>Last Modified Date</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Last Modified By ID</name>
+        <rename>Last Modified By ID</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>System Modstamp</name>
+        <rename>System Modstamp</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Developer Name</name>
+        <rename>Developer Name</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Entity ID</name>
+        <rename>Entity ID</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Portal Type</name>
+        <rename>Portal Type</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Portal Role</name>
+        <rename>Portal Role</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>User ID_1</name>
+        <rename>User ID_1</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>LastUpdate</name>
+        <rename>LastUpdate</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>1152</xloc>
+      <yloc>512</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform_error_handling>
+  </transform_error_handling>
+  <attributes/>
+</pipeline>

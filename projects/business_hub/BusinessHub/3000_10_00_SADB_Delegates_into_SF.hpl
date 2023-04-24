@@ -1,0 +1,179 @@
+<pipeline>
+  <info>
+    <name>3000_10_00_SADB_Delegates_into_SF</name>
+    <name_sync_with_filename>Y</name_sync_with_filename>
+    <description/>
+    <extended_description/>
+    <pipeline_version/>
+    <pipeline_type>Normal</pipeline_type>
+    <directory>/BusinessHub</directory>
+    <parameters>
+    </parameters>
+    <capture_transform_performance>N</capture_transform_performance>
+    <transform_performance_capturing_delay>1000</transform_performance_capturing_delay>
+    <transform_performance_capturing_size_limit>100</transform_performance_capturing_size_limit>
+    <created_user>gert</created_user>
+    <created_date>2022/02/22 16:34:29.056</created_date>
+    <modified_user>gert</modified_user>
+    <modified_date>2021/04/05 21:54:38.710</modified_date>
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
+    <is_key_private>N</is_key_private>
+  </info>
+  <notepads>
+  </notepads>
+  <order>
+    <hop>
+      <from>sadb.MainAuthorityTable</from>
+      <to>Select values</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values</from>
+      <to>Select values 2</to>
+      <enabled>Y</enabled>
+    </hop>
+  </order>
+  <transform>
+    <name>Select values</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>LineID</name>
+      </field>
+      <field>
+        <name>RFSMngtLink</name>
+      </field>
+      <field>
+        <name>DEPT</name>
+      </field>
+      <field>
+        <name>FC</name>
+      </field>
+      <field>
+        <name>FCNAME</name>
+      </field>
+      <field>
+        <name>Rsch Inst / Analyst</name>
+      </field>
+      <field>
+        <name>Level</name>
+      </field>
+      <field>
+        <name>SRMLevel</name>
+      </field>
+      <field>
+        <name>Ecode</name>
+      </field>
+      <field>
+        <name>Limit</name>
+      </field>
+      <field>
+        <name>SRMuserID</name>
+      </field>
+      <field>
+        <name>Notes</name>
+      </field>
+      <field>
+        <name>SADB Status</name>
+      </field>
+      <field>
+        <name>Manager Comments1</name>
+      </field>
+      <field>
+        <name>Manager Comments2</name>
+      </field>
+      <field>
+        <name>LineCreatDate</name>
+      </field>
+      <field>
+        <name>Be Available in E-Req</name>
+      </field>
+      <field>
+        <name>Be available in Publication</name>
+      </field>
+      <field>
+        <name>Updates</name>
+      </field>
+      <field>
+        <name>Business Area</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>480</xloc>
+      <yloc>112</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Select values 2</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>Ecode</name>
+      </field>
+      <field>
+        <name>FC</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>688</xloc>
+      <yloc>112</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>sadb.MainAuthorityTable</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>MSSQL_RFSDW</connection>
+    <sql>SELECT *
+FROM sadb.MainAuthorityTable
+</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cached_row_meta_active>N</cached_row_meta_active>
+    <row-meta/>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>288</xloc>
+      <yloc>112</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform_error_handling>
+  </transform_error_handling>
+  <attributes/>
+</pipeline>

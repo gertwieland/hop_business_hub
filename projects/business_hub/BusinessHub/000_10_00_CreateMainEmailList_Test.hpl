@@ -1,0 +1,1383 @@
+<pipeline>
+  <info>
+    <name>000_10_00_CreateMainEmailList_Test</name>
+    <name_sync_with_filename>Y</name_sync_with_filename>
+    <description/>
+    <extended_description/>
+    <pipeline_version/>
+    <pipeline_type>Normal</pipeline_type>
+    <directory>/BusinessHub</directory>
+    <parameters>
+    </parameters>
+    <capture_transform_performance>N</capture_transform_performance>
+    <transform_performance_capturing_delay>1000</transform_performance_capturing_delay>
+    <transform_performance_capturing_size_limit>100</transform_performance_capturing_size_limit>
+    <created_user>gert</created_user>
+    <created_date>2022/02/22 16:32:54.520</created_date>
+    <modified_user>gert</modified_user>
+    <modified_date>2022/02/10 10:34:23.017</modified_date>
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
+    <is_key_private>N</is_key_private>
+  </info>
+  <notepads>
+  </notepads>
+  <order>
+    <hop>
+      <from>Filter rows</from>
+      <to>Select values</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values</from>
+      <to>Find domain</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>PDB_EMPLOYEEEMAILADDRESS</from>
+      <to>Mail validator</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Domain Sort Order</from>
+      <to>Sort rows</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sequence ENID</from>
+      <to>Select best domain</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort</from>
+      <to>Sequence Email</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select best domain</from>
+      <to>Sort</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>PDB_VFSTDB_EMPLOYEE_ID</from>
+      <to>Select values 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values 3</from>
+      <to>Stream lookup</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values 2</from>
+      <to>Stream lookup</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Find domain</from>
+      <to>Domain Sort Order</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Mail validator</from>
+      <to>Filter rows</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Error Date</from>
+      <to>PDB Email Errors</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Insert / update</from>
+      <to>Error Date</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows</from>
+      <to>Sequence ENID</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>411 Status (PDB)</from>
+      <to>Adjustments</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select latest ENID</from>
+      <to>411 Status (PDB)</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Adjustments</from>
+      <to>Select values 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sequence Email</from>
+      <to>Select latest ENID</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Stream lookup</from>
+      <to>Insert / update</to>
+      <enabled>Y</enabled>
+    </hop>
+  </order>
+  <transform>
+    <name>411 Status (PDB)</name>
+    <type>DBLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>MSSQL_RFSDW</connection>
+    <cache>Y</cache>
+    <cache_load_all>Y</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema>pdb</schema>
+      <table>LatestEmployeeStatus</table>
+      <orderby/>
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>ENID</name>
+        <field>ENID</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>Status</name>
+        <rename>PDB_Status</rename>
+        <default/>
+        <type>String</type>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>2464</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Adjustments</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>//Script here
+
+var Status_Employee_PDB = null;
+
+
+if (PDB_Status != 'Active') {
+ 	EMAILADDRESS = 'INACTIVE_IN_PDB.'.concat(EMAILADDRESS)
+	Status_Employee_PDB = 'Inactive';
+} else {
+	Status_Employee_PDB = 'Active';
+}
+</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>EMAILADDRESS</name>
+        <rename>EMAILADDRESS</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>Y</replace>
+      </field>
+      <field>
+        <name>Status_Employee_PDB</name>
+        <rename>Status_Employee_PDB</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>2576</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Domain Sort Order</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>var DomainSortOrder = null;
+
+
+switch (true) {
+	case Domain == 'uhn.ca':
+		DomainSortOrder = 10;
+		break;
+
+	case Domain == 'uhnresearch.ca':
+		DomainSortOrder = 20;
+		break;
+
+	case Domain == 'rmp.uhn.ca':
+		DomainSortOrder = 25;
+		break;
+
+
+	case Domain == 'thepmcf.ca':
+		DomainSortOrder = 27;
+		break;
+
+
+	case Domain == 'uhnres.utoronto.ca':
+		DomainSortOrder = 30;
+		break;
+
+	case Domain == 'rmp.uhn.on.ca':
+		DomainSortOrder = 40;
+		break;
+
+
+
+	case Domain == 'uhn.on.ca':
+		DomainSortOrder = 60;
+		break;
+
+
+	case Domain == 'utoronto.ca':
+		DomainSortOrder = 500;
+		break;
+
+	case Domain == 'mail.utoronto.ca':
+		DomainSortOrder = 510;
+		break;
+
+	case Domain == 'ccso.ca':
+		DomainSortOrder = 600;
+		break;
+
+
+	case Domain == 'gmail.com':
+		DomainSortOrder = 10000;
+		break;
+
+
+	case Domain == 'hotmail.com':
+		DomainSortOrder = 10001;
+		break;
+
+	case Domain == 'yahoo.ca':
+		DomainSortOrder = 10002;
+		break;
+
+
+	default:
+		DomainSortOrder = 9999
+
+}
+
+</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>DomainSortOrder</name>
+        <rename>DomainSortOrder</rename>
+        <type>Integer</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>1088</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Error Date</name>
+    <type>SystemInfo</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>ErrorDate</name>
+        <type>system date (variable)</type>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>3184</xloc>
+      <yloc>416</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Filter rows</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to>Select values</send_true_to>
+    <send_false_to/>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <conditions>
+          <condition>
+            <negated>N</negated>
+            <leftvalue>VALIDID</leftvalue>
+            <function>=</function>
+            <rightvalue/>
+            <value>
+              <name>constant</name>
+              <type>String</type>
+              <text>10</text>
+              <length>-1</length>
+              <precision>-1</precision>
+              <isnull>N</isnull>
+              <mask/>
+            </value>
+          </condition>
+          <condition>
+            <negated>N</negated>
+            <operator>AND</operator>
+            <leftvalue>IsValidEmailAddress</leftvalue>
+            <function>=</function>
+            <rightvalue/>
+            <value>
+              <name>constant</name>
+              <type>String</type>
+              <text>valid</text>
+              <length>-1</length>
+              <precision>-1</precision>
+              <isnull>N</isnull>
+              <mask/>
+            </value>
+          </condition>
+          <condition>
+            <negated>N</negated>
+            <operator>AND</operator>
+            <leftvalue>ENID</leftvalue>
+            <function>&lt;></function>
+            <rightvalue/>
+            <value>
+              <name>constant</name>
+              <type>String</type>
+              <text>0</text>
+              <length>-1</length>
+              <precision>-1</precision>
+              <isnull>N</isnull>
+              <mask/>
+            </value>
+          </condition>
+          <condition>
+            <negated>N</negated>
+            <operator>AND</operator>
+            <leftvalue>EMAILADDRESS</leftvalue>
+            <function>&lt;></function>
+            <rightvalue/>
+            <value>
+              <name>constant</name>
+              <type>String</type>
+              <text>contracts@uhnresearch.ca</text>
+              <length>-1</length>
+              <precision>-1</precision>
+              <isnull>N</isnull>
+              <mask/>
+            </value>
+          </condition>
+        </conditions>
+      </condition>
+    </compare>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>528</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Find domain</name>
+    <type>FieldSplitter</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <splitfield>EmailAddressForDomain</splitfield>
+    <delimiter>@</delimiter>
+    <enclosure/>
+    <fields>
+      <field>
+        <name>PartBeforeEmail</name>
+        <id/>
+        <idrem>Y</idrem>
+        <type>String</type>
+        <format/>
+        <group/>
+        <decimal/>
+        <currency/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <nullif/>
+        <ifnull/>
+        <trimtype>both</trimtype>
+      </field>
+      <field>
+        <name>Domain</name>
+        <id/>
+        <idrem>Y</idrem>
+        <type>String</type>
+        <format/>
+        <group/>
+        <decimal/>
+        <currency/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <nullif/>
+        <ifnull/>
+        <trimtype>both</trimtype>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>896</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Insert / update</name>
+    <type>InsertUpdate</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>50</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>MSSQL_RFSDW</connection>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema>bihelper</schema>
+      <table>PDB_MainEmailList</table>
+      <key>
+        <name>ENID</name>
+        <field>ENID</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>ENID</name>
+        <rename>ENID</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>EMPLOYEE_ID</name>
+        <rename>EMPLOYEEIDDESC</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>ENID_VALIDID</name>
+        <rename>VALIDID</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>ENID_VALIDDESC</name>
+        <rename>VALIDDESC</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>EMAILADDRESS</name>
+        <rename>EMAILADDRESS</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Status_Employee_PDB</name>
+        <rename>Status_Employee_PDB</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>2976</xloc>
+      <yloc>416</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Mail validator</name>
+    <type>MailValidator</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <emailfield>EMAILADDRESS</emailfield>
+    <resultfieldname>IsValidEmailAddress</resultfieldname>
+    <ResultAsString>Y</ResultAsString>
+    <smtpCheck>N</smtpCheck>
+    <emailValideMsg>valid</emailValideMsg>
+    <emailNotValideMsg>invalid</emailNotValideMsg>
+    <errorsFieldName>Error message</errorsFieldName>
+    <timeout>0</timeout>
+    <defaultSMTP/>
+    <emailSender>noreply@domain.com</emailSender>
+    <defaultSMTPField/>
+    <isdynamicDefaultSMTP>N</isdynamicDefaultSMTP>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>336</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>PDB Email Errors</name>
+    <type>InsertUpdate</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>MSSQL_RFSDW</connection>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema>errors_loading</schema>
+      <table>PDB_MainEmailList</table>
+      <key>
+        <name>ENID</name>
+        <field>ENID</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>ENID</name>
+        <rename>ENID</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>EMPLOYEEIDDESC</name>
+        <rename>EMPLOYEEIDDESC</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>VALIDID</name>
+        <rename>VALIDID</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>VALIDDESC</name>
+        <rename>VALIDDESC</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>EMAILADDRESS</name>
+        <rename>EMAILADDRESS</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>NoOfErrors</name>
+        <rename>NoOfErrors</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>ErrorDescription</name>
+        <rename>ErrorDescription</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>ErrorDate</name>
+        <rename>ErrorDate</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Status_Employee_PDB</name>
+        <rename>Status_Employee_PDB</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>3376</xloc>
+      <yloc>416</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>PDB_EMPLOYEEEMAILADDRESS</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>MSSQL_RFSDW</connection>
+    <sql>SELECT *
+FROM pdb.PDB_EMPLOYEEEMAILADDRESS
+
+
+
+</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cached_row_meta_active>N</cached_row_meta_active>
+    <row-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>ENID</name>
+        <length>50</length>
+        <precision>-1</precision>
+        <origin>PDB_EMPLOYEEEMAILADDRESS</origin>
+        <comments>ENID</comments>
+        <conversion_Mask/>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>America/New_York</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Integer</type>
+        <storagetype>normal</storagetype>
+        <name>EVSQN</name>
+        <length>9</length>
+        <precision>0</precision>
+        <origin>PDB_EMPLOYEEEMAILADDRESS</origin>
+        <comments>EVSQN</comments>
+        <conversion_Mask>####0;-####0</conversion_Mask>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>America/New_York</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>PRIVACYID</name>
+        <length>10</length>
+        <precision>-1</precision>
+        <origin>PDB_EMPLOYEEEMAILADDRESS</origin>
+        <comments>PRIVACYID</comments>
+        <conversion_Mask/>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>America/New_York</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>EMAILADDRESSINDEX</name>
+        <length>10</length>
+        <precision>-1</precision>
+        <origin>PDB_EMPLOYEEEMAILADDRESS</origin>
+        <comments>EMAILADDRESSINDEX</comments>
+        <conversion_Mask/>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>America/New_York</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>EMAILADDRESS</name>
+        <length>120</length>
+        <precision>-1</precision>
+        <origin>PDB_EMPLOYEEEMAILADDRESS</origin>
+        <comments>EMAILADDRESS</comments>
+        <conversion_Mask/>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>America/New_York</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>EMAILADDRESSLABEL</name>
+        <length>120</length>
+        <precision>-1</precision>
+        <origin>PDB_EMPLOYEEEMAILADDRESS</origin>
+        <comments>EMAILADDRESSLABEL</comments>
+        <conversion_Mask/>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>America/New_York</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>VALIDID</name>
+        <length>10</length>
+        <precision>-1</precision>
+        <origin>PDB_EMPLOYEEEMAILADDRESS</origin>
+        <comments>VALIDID</comments>
+        <conversion_Mask/>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>America/New_York</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+    </row-meta>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>160</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>PDB_VFSTDB_EMPLOYEE_ID</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>MSSQL_RFSDW</connection>
+    <sql>SELECT *
+FROM pdb.PDB_VFSTDB_EMPLOYEE_ID
+
+</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cached_row_meta_active>N</cached_row_meta_active>
+    <row-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>ENID</name>
+        <length>20</length>
+        <precision>-1</precision>
+        <origin>PDB_VFSTDB_EMPLOYEE_ID</origin>
+        <comments>ENID</comments>
+        <conversion_Mask/>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>America/New_York</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>EVSQN</name>
+        <length>30</length>
+        <precision>-1</precision>
+        <origin>PDB_VFSTDB_EMPLOYEE_ID</origin>
+        <comments>EVSQN</comments>
+        <conversion_Mask/>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>America/New_York</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>EMPLOYEEIDDESC</name>
+        <length>20</length>
+        <precision>-1</precision>
+        <origin>PDB_VFSTDB_EMPLOYEE_ID</origin>
+        <comments>EMPLOYEEIDDESC</comments>
+        <conversion_Mask/>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>America/New_York</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>VALIDID</name>
+        <length>20</length>
+        <precision>-1</precision>
+        <origin>PDB_VFSTDB_EMPLOYEE_ID</origin>
+        <comments>VALIDID</comments>
+        <conversion_Mask/>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>America/New_York</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>VALIDDESC</name>
+        <length>20</length>
+        <precision>-1</precision>
+        <origin>PDB_VFSTDB_EMPLOYEE_ID</origin>
+        <comments>VALIDDESC</comments>
+        <conversion_Mask/>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>America/New_York</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+    </row-meta>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>160</xloc>
+      <yloc>416</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Select best domain</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to>Sort</send_true_to>
+    <send_false_to/>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>Counter_ENID</leftvalue>
+        <function>=</function>
+        <rightvalue/>
+        <value>
+          <name>constant</name>
+          <type>Integer</type>
+          <text>1</text>
+          <length>-1</length>
+          <precision>0</precision>
+          <isnull>N</isnull>
+          <mask>#</mask>
+        </value>
+      </condition>
+    </compare>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>1648</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Select latest ENID</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to>411 Status (PDB)</send_true_to>
+    <send_false_to/>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>Counter_Email</leftvalue>
+        <function>=</function>
+        <rightvalue/>
+        <value>
+          <name>constant</name>
+          <type>Integer</type>
+          <text>1</text>
+          <length>-1</length>
+          <precision>0</precision>
+          <isnull>N</isnull>
+          <mask>#</mask>
+        </value>
+      </condition>
+    </compare>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>2240</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Select values</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>EMAILADDRESS</name>
+      </field>
+      <field>
+        <name>EMAILADDRESS</name>
+        <rename>EmailAddressForDomain</rename>
+      </field>
+      <select_unspecified>Y</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>720</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Select values 2</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>ENID</name>
+      </field>
+      <field>
+        <name>EMAILADDRESS</name>
+      </field>
+      <field>
+        <name>Status_Employee_PDB</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>2768</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Select values 3</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>ENID</name>
+      </field>
+      <field>
+        <name>EMPLOYEEIDDESC</name>
+      </field>
+      <field>
+        <name>VALIDID</name>
+      </field>
+      <field>
+        <name>VALIDDESC</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>1472</xloc>
+      <yloc>416</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Sequence ENID</name>
+    <type>FieldsChangeSequence</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <start>1</start>
+    <increment>1</increment>
+    <resultfieldName>Counter_ENID</resultfieldName>
+    <fields>
+      <field>
+        <name>ENID</name>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>1456</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Sequence Email</name>
+    <type>FieldsChangeSequence</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <start>1</start>
+    <increment>1</increment>
+    <resultfieldName>Counter_Email</resultfieldName>
+    <fields>
+      <field>
+        <name>EMAILADDRESS</name>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>1984</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Sort</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>ENID</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>EMAILADDRESS</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>1840</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Sort rows</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>ENID</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>DomainSortOrder</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>1280</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Stream lookup</name>
+    <type>StreamLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <from>Select values 2</from>
+    <input_sorted>N</input_sorted>
+    <preserve_memory>Y</preserve_memory>
+    <sorted_list>N</sorted_list>
+    <integer_pair>N</integer_pair>
+    <lookup>
+      <key>
+        <name>ENID</name>
+        <field>ENID</field>
+      </key>
+      <value>
+        <name>EMAILADDRESS</name>
+        <rename>EMAILADDRESS</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>Status_Employee_PDB</name>
+        <rename>Status_Employee_PDB</rename>
+        <default/>
+        <type>String</type>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>2784</xloc>
+      <yloc>416</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform_error_handling>
+    <error>
+      <source_transform>Insert / update</source_transform>
+      <target_transform>Error Date</target_transform>
+      <is_enabled>Y</is_enabled>
+      <nr_valuename>NoOfErrors</nr_valuename>
+      <descriptions_valuename>ErrorDescription</descriptions_valuename>
+      <fields_valuename/>
+      <codes_valuename/>
+      <max_errors/>
+      <max_pct_errors/>
+      <min_pct_rows/>
+    </error>
+  </transform_error_handling>
+  <attributes/>
+</pipeline>

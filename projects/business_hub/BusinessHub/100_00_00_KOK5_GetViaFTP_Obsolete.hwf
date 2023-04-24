@@ -1,0 +1,373 @@
+<workflow>
+  <name>100_00_00_KOK5_GetViaFTP_Obsolete</name>
+  <name_sync_with_filename>Y</name_sync_with_filename>
+  <description/>
+  <extended_description/>
+  <workflow_version/>
+  <job_status>0</job_status>
+  <directory>/BusinessHub</directory>
+  <created_user>gert</created_user>
+  <created_date>2020/08/20 23:04:49.804</created_date>
+  <modified_user>gert</modified_user>
+  <modified_date>2021/12/12 13:43:50.487</modified_date>
+  <parameters>
+    </parameters>
+  <pass_batchid>N</pass_batchid>
+  <actions>
+    <action>
+      <name>Get a file with SFTP</name>
+      <description/>
+      <type>SFTP</type>
+      <attributes/>
+      <servername>52.139.25.105</servername>
+      <serverport>22</serverport>
+      <username>rfsftp</username>
+      <password>Encrypted 5a415435ccd9c2fe09d69ab69f1fb826f6918dc8</password>
+      <sftpdirectory>rfsftp</sftpdirectory>
+      <targetdirectory>/data/rfsdata/ftpupload</targetdirectory>
+      <wildcard>.*\.(?i)txt</wildcard>
+      <remove>Y</remove>
+      <isaddresult>Y</isaddresult>
+      <createtargetfolder>N</createtargetfolder>
+      <copyprevious>N</copyprevious>
+      <usekeyfilename>N</usekeyfilename>
+      <keyfilename/>
+      <keyfilepass>Encrypted </keyfilepass>
+      <compression>none</compression>
+      <proxyType/>
+      <proxyHost/>
+      <proxyPort/>
+      <proxyUsername/>
+      <proxyPassword>Encrypted </proxyPassword>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>512</xloc>
+      <yloc>288</yloc>
+      <attributes_kjc/>
+    </action>
+    <action>
+      <name>Start</name>
+      <description/>
+      <type>SPECIAL</type>
+      <attributes/>
+      <repeat>N</repeat>
+      <schedulerType>0</schedulerType>
+      <intervalSeconds>0</intervalSeconds>
+      <intervalMinutes>60</intervalMinutes>
+      <hour>12</hour>
+      <minutes>0</minutes>
+      <weekDay>1</weekDay>
+      <DayOfMonth>1</DayOfMonth>
+      <parallel>N</parallel>
+      <xloc>288</xloc>
+      <yloc>288</yloc>
+      <attributes_kjc/>
+    </action>
+    <action>
+      <name>Put a file with SFTP</name>
+      <description/>
+      <type>SFTPPUT</type>
+      <attributes/>
+      <servername>52.139.25.105</servername>
+      <serverport>22</serverport>
+      <username>rfsftp</username>
+      <password>Encrypted 5a415435ccd9c2fe09d69ab69f1fb826f6918dc8</password>
+      <sftpdirectory>rfsftp/archive</sftpdirectory>
+      <localdirectory>/data/rfsdata/ftpupload</localdirectory>
+      <wildcard>files_from_ftp_server.*\.zip</wildcard>
+      <copyprevious>N</copyprevious>
+      <copypreviousfiles>N</copypreviousfiles>
+      <addFilenameResut>N</addFilenameResut>
+      <usekeyfilename>N</usekeyfilename>
+      <keyfilename/>
+      <keyfilepass>Encrypted </keyfilepass>
+      <compression>none</compression>
+      <proxyType/>
+      <proxyHost/>
+      <proxyPort/>
+      <proxyUsername/>
+      <proxyPassword>Encrypted </proxyPassword>
+      <createRemoteFolder>N</createRemoteFolder>
+      <aftersftpput>delete</aftersftpput>
+      <destinationfolder/>
+      <createdestinationfolder>N</createdestinationfolder>
+      <successWhenNoFile>N</successWhenNoFile>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>1312</xloc>
+      <yloc>288</yloc>
+      <attributes_kjc/>
+    </action>
+    <action>
+      <name>Zip file</name>
+      <description/>
+      <type>ZIP_FILE</type>
+      <attributes/>
+      <zipfilename>/data/rfsdata/ftpupload/files_from_ftp_server.zip</zipfilename>
+      <compressionrate>1</compressionrate>
+      <ifzipfileexists>0</ifzipfileexists>
+      <wildcard>.*\.(?i)txt</wildcard>
+      <wildcardexclude/>
+      <sourcedirectory>/data/rfsdata/ftpupload</sourcedirectory>
+      <movetodirectory/>
+      <afterzip>0</afterzip>
+      <addfiletoresult>N</addfiletoresult>
+      <isfromprevious>N</isfromprevious>
+      <createparentfolder>N</createparentfolder>
+      <adddate>Y</adddate>
+      <addtime>Y</addtime>
+      <SpecifyFormat>N</SpecifyFormat>
+      <date_time_format/>
+      <createMoveToDirectory>N</createMoveToDirectory>
+      <include_subfolders>N</include_subfolders>
+      <stored_source_path_depth>1</stored_source_path_depth>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>768</xloc>
+      <yloc>288</yloc>
+      <attributes_kjc/>
+    </action>
+    <action>
+      <name>Success</name>
+      <description/>
+      <type>SUCCESS</type>
+      <attributes/>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>1728</xloc>
+      <yloc>288</yloc>
+      <attributes_kjc/>
+    </action>
+    <action>
+      <name>Ping Fail</name>
+      <description/>
+      <type>WEBSERVICE_AVAILABLE</type>
+      <attributes/>
+      <url>https://hc-ping.com/f76081cc-7027-4a5a-932a-89c5913f299d/fail</url>
+      <connectTimeOut>0</connectTimeOut>
+      <readTimeOut>0</readTimeOut>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>864</xloc>
+      <yloc>480</yloc>
+      <attributes_kjc/>
+    </action>
+    <action>
+      <name>Ping Success</name>
+      <description/>
+      <type>WEBSERVICE_AVAILABLE</type>
+      <attributes/>
+      <url>https://hc-ping.com/f76081cc-7027-4a5a-932a-89c5913f299d</url>
+      <connectTimeOut>0</connectTimeOut>
+      <readTimeOut>0</readTimeOut>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>1536</xloc>
+      <yloc>288</yloc>
+      <attributes_kjc/>
+    </action>
+    <action>
+      <name>Checks if files exist</name>
+      <description/>
+      <type>FILES_EXIST</type>
+      <attributes/>
+      <filename/>
+      <fields>
+        <field>
+          <name>/data/rfsdata/ftpupload/files_from_ftp_server.*\.zip</name>
+        </field>
+      </fields>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>1056</xloc>
+      <yloc>288</yloc>
+      <attributes_kjc/>
+    </action>
+  </actions>
+  <hops>
+    <hop>
+      <from>Start</from>
+      <to>Get a file with SFTP</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Get a file with SFTP</from>
+      <to>Zip file</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Get a file with SFTP</from>
+      <to>Ping Fail</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Zip file</from>
+      <to>Ping Fail</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Put a file with SFTP</from>
+      <to>Ping Fail</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Ping Success</from>
+      <to>Success</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Put a file with SFTP</from>
+      <to>Ping Success</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Zip file</from>
+      <to>Checks if files exist</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Checks if files exist</from>
+      <to>Put a file with SFTP</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Checks if files exist</from>
+      <to>Ping Fail</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+  </hops>
+  <notepads>
+    <notepad>
+      <note>Get all text files</note>
+      <xloc>448</xloc>
+      <yloc>224</yloc>
+      <width>128</width>
+      <heigth>33</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>10</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>Zip all text files</note>
+      <xloc>704</xloc>
+      <yloc>224</yloc>
+      <width>125</width>
+      <heigth>33</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>10</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>Check if zip file exists</note>
+      <xloc>992</xloc>
+      <yloc>224</yloc>
+      <width>171</width>
+      <heigth>33</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>10</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>Send zip file back to FTP</note>
+      <xloc>1248</xloc>
+      <yloc>224</yloc>
+      <width>195</width>
+      <heigth>33</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>10</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+  </notepads>
+  <attributes/>
+</workflow>

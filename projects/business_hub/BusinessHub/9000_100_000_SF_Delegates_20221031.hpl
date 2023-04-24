@@ -1,0 +1,3850 @@
+<pipeline>
+  <info>
+    <name>9000_100_000_SF_Delegates_20221031</name>
+    <name_sync_with_filename>Y</name_sync_with_filename>
+    <description/>
+    <extended_description/>
+    <pipeline_version/>
+    <pipeline_type>Normal</pipeline_type>
+    <directory>/BusinessHub</directory>
+    <parameters>
+    </parameters>
+    <capture_transform_performance>N</capture_transform_performance>
+    <transform_performance_capturing_delay>1000</transform_performance_capturing_delay>
+    <transform_performance_capturing_size_limit>100</transform_performance_capturing_size_limit>
+    <created_user>gert</created_user>
+    <created_date>2022/02/22 16:35:35.635</created_date>
+    <modified_user>gert</modified_user>
+    <modified_date>2022/10/31 10:41:54.695</modified_date>
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
+    <is_key_private>N</is_key_private>
+  </info>
+  <notepads>
+    <notepad>
+      <note>Try and pull from SADB (Access) into SQL,
+then pull from there.</note>
+      <xloc>928</xloc>
+      <yloc>32</yloc>
+      <width>371</width>
+      <heigth>64</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>10</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>Tracked</note>
+      <xloc>0</xloc>
+      <yloc>0</yloc>
+      <width>76</width>
+      <heigth>37</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>10</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>Only Grant Accounts for now.
+Remove filter later</note>
+      <xloc>4176</xloc>
+      <yloc>1440</yloc>
+      <width>454</width>
+      <heigth>96</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>16</fontsize>
+      <fontbold>Y</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>0</backgroundcolorgreen>
+      <backgroundcolorblue>0</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>Remove these two steps to stop 
+overwriting settings for 73*</note>
+      <xloc>3056</xloc>
+      <yloc>1168</yloc>
+      <width>476</width>
+      <heigth>96</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>16</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>0</backgroundcolorgreen>
+      <backgroundcolorblue>0</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>Sorting so same contact only gets updated once.</note>
+      <xloc>3712</xloc>
+      <yloc>1504</yloc>
+      <width>399</width>
+      <heigth>34</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>Batch size 1 so only one record 
+a time gets updated.</note>
+      <xloc>3376</xloc>
+      <yloc>1008</yloc>
+      <width>261</width>
+      <heigth>58</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+  </notepads>
+  <order>
+    <hop>
+      <from>Lookup contact</from>
+      <to>Lookup FCC</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Validation</from>
+      <to>Delegate &lt;&gt; AccountHolder</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Lookup FCC</from>
+      <to>Has SF Contact</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Has SF Contact</from>
+      <to>Validation</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Delegate &lt;&gt; AccountHolder</from>
+      <to>UID and others</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>UID and others</from>
+      <to>Select values 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values 2</from>
+      <to>Sort rows</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows</from>
+      <to>1 record per FCC-Delegate</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>1 record per FCC-Delegate</from>
+      <to>Filter rows 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows 2</from>
+      <to>Add value fields changing sequence</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Add value fields changing sequence</from>
+      <to>Filter rows 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter rows 3</from>
+      <to>Only pass existing SF Contacts</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>UID and others 2</from>
+      <to>Select values 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values 4</from>
+      <to>Append streams</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values 3</from>
+      <to>Append streams</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Append streams</from>
+      <to>Unique rows (HashSet)</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter rows 2</from>
+      <to>Dummy (do nothing)</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Dummy (do nothing)</from>
+      <to>Select values 4</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Unique rows (HashSet)</from>
+      <to>Stream lookup</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Dummy (do nothing)</from>
+      <to>Dummy (do nothing) 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Dummy (do nothing) 2</from>
+      <to>Stream lookup</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>UID and others 2</from>
+      <to>Dummy (do nothing) 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Dummy (do nothing) 3</from>
+      <to>Stream lookup 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Only pass existing SF Contacts</from>
+      <to>Lookup FCC 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Lookup FCC 2</from>
+      <to>UID and others 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Lookup contact 3</from>
+      <to>Lookup FCC 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Lookup FCC 3</from>
+      <to>Modified JavaScript value 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Replace in string 2</from>
+      <to>String operations 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>String operations 2</from>
+      <to>Filter rows 4</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values 5</from>
+      <to>Lookup contact</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Modified JavaScript value 3</from>
+      <to>Select values</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values</from>
+      <to>Select values 7</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values 7</from>
+      <to>Modified JavaScript value 4</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values 6</from>
+      <to>Find User</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Find User</from>
+      <to>Delegates</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Delegates</from>
+      <to>Checksum (Flag Changes)</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Modified JavaScript value 4</from>
+      <to>Select values 6</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Dummy (do nothing) 4</from>
+      <to>Only certain FCC types</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>RFIS_FCC_ACCESS_ROLE</from>
+      <to>Modified JavaScript value 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Delegates_from_SADB</from>
+      <to>Replace in string 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Exclude Delegate = AccountHolder</from>
+      <to>New Records only</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>New Records only</from>
+      <to>Dummy (do nothing) 4</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Checksum (Flag Changes)</from>
+      <to>Exclude Delegate = AccountHolder</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Set 73 to CantView</from>
+      <to>Select values 8</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values 8</from>
+      <to>SF Delegates</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Get system info</from>
+      <to>Track Errors</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>SF Delegates</from>
+      <to>Get system info</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Stream lookup</from>
+      <to>Dummy (do nothing) 5</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Dummy (do nothing) 5</from>
+      <to>Stream lookup 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Modified JavaScript value 2</from>
+      <to>Sort rows 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter rows 4</from>
+      <to>Select values 5</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Only certain FCC types</from>
+      <to>Sort rows 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows 3</from>
+      <to>Set 73 to CantView</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Stream lookup 2</from>
+      <to>Lookup contact 3</to>
+      <enabled>Y</enabled>
+    </hop>
+  </order>
+  <transform>
+    <name>1 record per FCC-Delegate</name>
+    <type>FieldsChangeSequence</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <start>1</start>
+    <increment>1</increment>
+    <resultfieldName>Counter</resultfieldName>
+    <fields>
+      <field>
+        <name>UID</name>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>2464</xloc>
+      <yloc>352</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Add value fields changing sequence</name>
+    <type>FieldsChangeSequence</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <start>1</start>
+    <increment>1</increment>
+    <resultfieldName>Counter</resultfieldName>
+    <fields>
+      <field>
+        <name>ENID_FCC</name>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>1264</xloc>
+      <yloc>736</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Append streams</name>
+    <type>Append</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <head_name>Select values 4</head_name>
+    <tail_name>Select values 3</tail_name>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>3072</xloc>
+      <yloc>544</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Checksum (Flag Changes)</name>
+    <type>CheckSum</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <checksumtype>SHA-256</checksumtype>
+    <resultfieldName>Checksum_FlagChanges</resultfieldName>
+    <resultType>hexadecimal</resultType>
+    <compatibilityMode>N</compatibilityMode>
+    <oldChecksumBehaviour>N</oldChecksumBehaviour>
+    <fieldSeparatorString>-</fieldSeparatorString>
+    <checksumtype>SHA-256</checksumtype>
+    <resultfieldName>Checksum_FlagChanges</resultfieldName>
+    <resultType>hexadecimal</resultType>
+    <compatibilityMode>N</compatibilityMode>
+    <oldChecksumBehaviour>N</oldChecksumBehaviour>
+    <fieldSeparatorString>-</fieldSeparatorString>
+    <fields>
+      <field>
+        <name>User_IsActive</name>
+      </field>
+      <field>
+        <name>UserID</name>
+      </field>
+      <field>
+        <name>UID</name>
+      </field>
+      <field>
+        <name>SigningLimit</name>
+      </field>
+      <field>
+        <name>Record ID</name>
+      </field>
+      <field>
+        <name>PCard_Authorization</name>
+      </field>
+      <field>
+        <name>Notes</name>
+      </field>
+      <field>
+        <name>Level</name>
+      </field>
+      <field>
+        <name>HasUnlimitedSigning</name>
+      </field>
+      <field>
+        <name>FCC_ID_Salesforce</name>
+      </field>
+      <field>
+        <name>FCC</name>
+      </field>
+      <field>
+        <name>DelegateName</name>
+      </field>
+      <field>
+        <name>Contact_SF</name>
+      </field>
+      <field>
+        <name>CanViewFinancialStatements</name>
+      </field>
+      <field>
+        <name>Can View FCC</name>
+      </field>
+      <field>
+        <name>CalculatedSigningLimit</name>
+      </field>
+      <field>
+        <name>ActiveRecord</name>
+      </field>
+      <field>
+        <name>AccountHolder_SF</name>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>5808</xloc>
+      <yloc>1216</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Delegate &lt;&gt; AccountHolder</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to>UID and others</send_true_to>
+    <send_false_to/>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>DelegateSameAsAccountHolder</leftvalue>
+        <function>=</function>
+        <rightvalue/>
+        <value>
+          <name>constant</name>
+          <type>String</type>
+          <text>No</text>
+          <length>-1</length>
+          <precision>-1</precision>
+          <isnull>N</isnull>
+          <mask/>
+        </value>
+      </condition>
+    </compare>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>1728</xloc>
+      <yloc>352</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Delegates</name>
+    <type>DBLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>MSSQL_RFSDW</connection>
+    <cache>Y</cache>
+    <cache_load_all>Y</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema>salesforce_dim</schema>
+      <table>Delegate</table>
+      <orderby/>
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>UID</name>
+        <field>UID</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>Record ID</name>
+        <rename>Record ID</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>Can View FCC</name>
+        <rename>Can View FCC</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>Checksum_FlagChanges</name>
+        <rename>Checksum_FlagChanges_InSF</rename>
+        <default/>
+        <type>String</type>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>5808</xloc>
+      <yloc>800</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Delegates_from_SADB</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>MSSQL_RFSDW</connection>
+    <sql>SELECT
+ *
+FROM sadb.Delegates_from_SADB 
+--where FCC like '%410007345%' 
+--where FCC = '410017080'</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cached_row_meta_active>N</cached_row_meta_active>
+    <row-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>UID</name>
+        <length>64</length>
+        <precision>-1</precision>
+        <origin>Delegates_from_SADB</origin>
+        <comments>UID</comments>
+        <conversion_Mask/>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>America/New_York</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>FCC</name>
+        <length>100</length>
+        <precision>-1</precision>
+        <origin>Delegates_from_SADB</origin>
+        <comments>FCC</comments>
+        <conversion_Mask/>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>America/New_York</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Integer</type>
+        <storagetype>normal</storagetype>
+        <name>LineID</name>
+        <length>9</length>
+        <precision>0</precision>
+        <origin>Delegates_from_SADB</origin>
+        <comments>LineID</comments>
+        <conversion_Mask>####0;-####0</conversion_Mask>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>America/New_York</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>RFSMngtLink</name>
+        <length>100</length>
+        <precision>-1</precision>
+        <origin>Delegates_from_SADB</origin>
+        <comments>RFSMngtLink</comments>
+        <conversion_Mask/>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>America/New_York</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>DEPT</name>
+        <length>100</length>
+        <precision>-1</precision>
+        <origin>Delegates_from_SADB</origin>
+        <comments>DEPT</comments>
+        <conversion_Mask/>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>America/New_York</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>FCNAME</name>
+        <length>500</length>
+        <precision>-1</precision>
+        <origin>Delegates_from_SADB</origin>
+        <comments>FCNAME</comments>
+        <conversion_Mask/>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>America/New_York</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>ResearchInstitute_Analyst</name>
+        <length>100</length>
+        <precision>-1</precision>
+        <origin>Delegates_from_SADB</origin>
+        <comments>ResearchInstitute_Analyst</comments>
+        <conversion_Mask/>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>America/New_York</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Integer</type>
+        <storagetype>normal</storagetype>
+        <name>Level</name>
+        <length>9</length>
+        <precision>0</precision>
+        <origin>Delegates_from_SADB</origin>
+        <comments>Level</comments>
+        <conversion_Mask>####0;-####0</conversion_Mask>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>America/New_York</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>SRMLevel</name>
+        <length>100</length>
+        <precision>-1</precision>
+        <origin>Delegates_from_SADB</origin>
+        <comments>SRMLevel</comments>
+        <conversion_Mask/>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>America/New_York</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>Ecode</name>
+        <length>100</length>
+        <precision>-1</precision>
+        <origin>Delegates_from_SADB</origin>
+        <comments>Ecode</comments>
+        <conversion_Mask/>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>America/New_York</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Integer</type>
+        <storagetype>normal</storagetype>
+        <name>Signing_Limit</name>
+        <length>9</length>
+        <precision>0</precision>
+        <origin>Delegates_from_SADB</origin>
+        <comments>Signing_Limit</comments>
+        <conversion_Mask>####0;-####0</conversion_Mask>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>America/New_York</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>SRMuserID</name>
+        <length>100</length>
+        <precision>-1</precision>
+        <origin>Delegates_from_SADB</origin>
+        <comments>SRMuserID</comments>
+        <conversion_Mask/>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>America/New_York</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>Notes</name>
+        <length>2147483647</length>
+        <precision>-1</precision>
+        <origin>Delegates_from_SADB</origin>
+        <comments>Notes</comments>
+        <conversion_Mask/>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>America/New_York</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>SADB_Status</name>
+        <length>100</length>
+        <precision>-1</precision>
+        <origin>Delegates_from_SADB</origin>
+        <comments>SADB_Status</comments>
+        <conversion_Mask/>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>America/New_York</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>Manager_Comments_1</name>
+        <length>100</length>
+        <precision>-1</precision>
+        <origin>Delegates_from_SADB</origin>
+        <comments>Manager_Comments_1</comments>
+        <conversion_Mask/>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>America/New_York</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>Manager_Comments_2</name>
+        <length>100</length>
+        <precision>-1</precision>
+        <origin>Delegates_from_SADB</origin>
+        <comments>Manager_Comments_2</comments>
+        <conversion_Mask/>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>America/New_York</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Timestamp</type>
+        <storagetype>normal</storagetype>
+        <name>LineCreatDate</name>
+        <length>3</length>
+        <precision>-1</precision>
+        <origin>Delegates_from_SADB</origin>
+        <comments>LineCreatDate</comments>
+        <conversion_Mask/>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>America/New_York</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Boolean</type>
+        <storagetype>normal</storagetype>
+        <name>Be_Available_In_E_Req</name>
+        <length>-1</length>
+        <precision>-1</precision>
+        <origin>Delegates_from_SADB</origin>
+        <comments>Be_Available_In_E_Req</comments>
+        <conversion_Mask/>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>America/New_York</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Boolean</type>
+        <storagetype>normal</storagetype>
+        <name>Be_Available_In_Publication</name>
+        <length>-1</length>
+        <precision>-1</precision>
+        <origin>Delegates_from_SADB</origin>
+        <comments>Be_Available_In_Publication</comments>
+        <conversion_Mask/>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>America/New_York</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>Delegate_Email</name>
+        <length>100</length>
+        <precision>-1</precision>
+        <origin>Delegates_from_SADB</origin>
+        <comments>Delegate_Email</comments>
+        <conversion_Mask/>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>America/New_York</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>Delegate_FirstName</name>
+        <length>100</length>
+        <precision>-1</precision>
+        <origin>Delegates_from_SADB</origin>
+        <comments>Delegate_FirstName</comments>
+        <conversion_Mask/>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>America/New_York</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>Delegate_LastName</name>
+        <length>100</length>
+        <precision>-1</precision>
+        <origin>Delegates_from_SADB</origin>
+        <comments>Delegate_LastName</comments>
+        <conversion_Mask/>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>America/New_York</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>Delegate_T_ID</name>
+        <length>100</length>
+        <precision>-1</precision>
+        <origin>Delegates_from_SADB</origin>
+        <comments>Delegate_T_ID</comments>
+        <conversion_Mask/>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>America/New_York</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>PCard_Authorization</name>
+        <length>5</length>
+        <precision>-1</precision>
+        <origin>Delegates_from_SADB</origin>
+        <comments>PCard_Authorization</comments>
+        <conversion_Mask/>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>America/New_York</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+    </row-meta>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>96</xloc>
+      <yloc>352</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Dummy (do nothing)</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>2832</xloc>
+      <yloc>352</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Dummy (do nothing) 2</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>3488</xloc>
+      <yloc>352</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Dummy (do nothing) 3</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>3856</xloc>
+      <yloc>736</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Dummy (do nothing) 4</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>4704</xloc>
+      <yloc>1216</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Dummy (do nothing) 5</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>3680</xloc>
+      <yloc>544</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Exclude Delegate = AccountHolder</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to>New Records only</send_true_to>
+    <send_false_to/>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>Contact_SF</leftvalue>
+        <function>&lt;></function>
+        <rightvalue>AccountHolder_SF</rightvalue>
+      </condition>
+    </compare>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>5312</xloc>
+      <yloc>1216</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Filter rows 2</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to>Dummy (do nothing)</send_true_to>
+    <send_false_to/>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>Counter</leftvalue>
+        <function>=</function>
+        <rightvalue/>
+        <value>
+          <name>constant</name>
+          <type>Integer</type>
+          <text>1</text>
+          <length>-1</length>
+          <precision>0</precision>
+          <isnull>N</isnull>
+          <mask>#</mask>
+        </value>
+      </condition>
+    </compare>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>2656</xloc>
+      <yloc>352</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Filter rows 3</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to>Only pass existing SF Contacts</send_true_to>
+    <send_false_to/>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <conditions>
+          <condition>
+            <negated>N</negated>
+            <leftvalue>Counter</leftvalue>
+            <function>=</function>
+            <rightvalue/>
+            <value>
+              <name>constant</name>
+              <type>Integer</type>
+              <text>1</text>
+              <length>-1</length>
+              <precision>0</precision>
+              <isnull>N</isnull>
+              <mask>#</mask>
+            </value>
+          </condition>
+        </conditions>
+      </condition>
+    </compare>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>1664</xloc>
+      <yloc>736</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Filter rows 4</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to>Select values 5</send_true_to>
+    <send_false_to/>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <conditions>
+          <condition>
+            <negated>N</negated>
+            <leftvalue>FCC</leftvalue>
+            <function>IS NOT NULL</function>
+            <rightvalue/>
+          </condition>
+        </conditions>
+      </condition>
+    </compare>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>640</xloc>
+      <yloc>352</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Find User</name>
+    <type>DBLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>MSSQL_RFSDW</connection>
+    <cache>Y</cache>
+    <cache_load_all>Y</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema>salesforce_backup</schema>
+      <table>User</table>
+      <orderby/>
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>AccountHolder_SF</name>
+        <field>Contact ID</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>Active</name>
+        <rename>User_IsActive</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>User ID</name>
+        <rename>UserID</rename>
+        <default/>
+        <type>String</type>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>5808</xloc>
+      <yloc>656</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Get system info</name>
+    <type>SystemInfo</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>ErrorDate</name>
+        <type>system date (variable)</type>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>3904</xloc>
+      <yloc>1024</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Has SF Contact</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to>Validation</send_true_to>
+    <send_false_to/>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>Delegate_Contact_ID_SF</leftvalue>
+        <function>IS NOT NULL</function>
+        <rightvalue/>
+      </condition>
+    </compare>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>1376</xloc>
+      <yloc>352</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Lookup FCC</name>
+    <type>DBLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>MSSQL_RFSDW</connection>
+    <cache>Y</cache>
+    <cache_load_all>Y</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema>salesforce_dim</schema>
+      <table>FCC</table>
+      <orderby/>
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>FCC_AssignDelegateHere</name>
+        <field>FCC_Number</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>Account Holder</name>
+        <rename>FCC_AccountHolder_Contact_ID_SF</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>Record ID</name>
+        <rename>FCC_ID_SF</rename>
+        <default/>
+        <type>String</type>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>1184</xloc>
+      <yloc>352</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Lookup FCC 2</name>
+    <type>DBLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>MSSQL_RFSDW</connection>
+    <cache>Y</cache>
+    <cache_load_all>Y</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema>salesforce_dim</schema>
+      <table>FCC</table>
+      <orderby/>
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>FCC_NUMBER</name>
+        <field>FCC_Number</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>Record ID</name>
+        <rename>FCC_ID_SF</rename>
+        <default/>
+        <type>String</type>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>2448</xloc>
+      <yloc>736</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Lookup FCC 3</name>
+    <type>DBLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>MSSQL_RFSDW</connection>
+    <cache>Y</cache>
+    <cache_load_all>Y</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema>salesforce_dim</schema>
+      <table>FCC</table>
+      <orderby/>
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>Y</eat_row_on_failure>
+      <key>
+        <name>FCC</name>
+        <field>SAP Id</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>Record ID</name>
+        <rename>FCC_ID_Salesforce</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>Account Holder</name>
+        <rename>AccountHolder_SF</rename>
+        <default/>
+        <type>String</type>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>4352</xloc>
+      <yloc>544</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Lookup contact</name>
+    <type>DBLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>MSSQL_RFSDW</connection>
+    <cache>Y</cache>
+    <cache_load_all>Y</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema>salesforce_dim</schema>
+      <table>Contact</table>
+      <orderby/>
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>ECODE_Delegate</name>
+        <field>ECode</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>Contact ID</name>
+        <rename>Delegate_Contact_ID_SF</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>First Name</name>
+        <rename>Contact_FirstName</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>Last Name</name>
+        <rename>Contact_LastName</rename>
+        <default/>
+        <type>String</type>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>1008</xloc>
+      <yloc>352</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Lookup contact 3</name>
+    <type>DBLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>MSSQL_RFSDW</connection>
+    <cache>Y</cache>
+    <cache_load_all>Y</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema>salesforce_dim</schema>
+      <table>Contact</table>
+      <orderby/>
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>Contact_SF</name>
+        <field>Contact ID</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>First Name</name>
+        <rename>Contact_FirstName</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>Last Name</name>
+        <rename>Contact_LastName</rename>
+        <default/>
+        <type>String</type>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>4064</xloc>
+      <yloc>544</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Modified JavaScript value 2</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>//Script here
+
+//For every ENID-FCC group, take only the latest (current) EVSQN (in later steps)
+var ENID_FCC = null;
+
+ENID_FCC = ENID.concat("-").concat(FCC_NUMBER);</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>ENID_FCC</name>
+        <rename>ENID_FCC</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>480</xloc>
+      <yloc>736</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Modified JavaScript value 3</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>//Script here
+
+var ActiveRecord = null;
+var CanViewFinancialStatements = null;
+var DelegateName = null;
+var HasUnlimitedSigning = null;
+var SigningLimit =  null;
+var CalculatedSigningLimit = null;
+
+
+//Viewing access is driven by RFIS settings (not in the SADB).
+//if (CanViewFinancialStatements_RFIS == true || HasUnlimitedSigning_SADB == true || SigningLimit_SADB > 0) {
+
+if (CanViewFinancialStatements_RFIS == true || Active_SADB == true) {
+
+
+	ActiveRecord = true;
+} else {
+	ActiveRecord = false;
+}
+
+
+//Give RFIS access priority over SADB
+if (CanViewFinancialStatements_RFIS !== null) {
+	CanViewFinancialStatements = CanViewFinancialStatements_RFIS.valueOf();
+} else {
+	CanViewFinancialStatements = CanViewFinancialStatements_SADB.valueOf();
+}
+
+
+
+DelegateName = Contact_FirstName.concat(" ").concat(Contact_LastName).concat(" for FCC ").concat(FCC)
+
+
+
+//If UnlimitedSigning is set in SADB, then use it, otherwise set to false;
+if (HasUnlimitedSigning_SADB !== null) {
+HasUnlimitedSigning = HasUnlimitedSigning_SADB.valueOf();
+} else {
+HasUnlimitedSigning = false;
+}
+
+
+//If SigningLimit is set in SADB, then use it, otherwise set to false;
+if (SigningLimit_SADB !== null) {
+SigningLimit = SigningLimit_SADB;
+} else {
+SigningLimit = 0;
+}
+
+
+
+//Will be formatted in a later step
+CalculatedSigningLimit = SigningLimit
+
+
+</jsScript_script>
+      </jsScript>
+      <jsScript>
+        <jsScript_type>-1</jsScript_type>
+        <jsScript_name>num2str_Sample</jsScript_name>
+        <jsScript_script>// Converts a numeric Value to a String with the
+// given format.
+//
+// Usage:
+// num2str(var);
+// 1. String - The String to convert.
+// The converstation uses the standard localized format.
+//
+// num2str(var,var);
+// 1. String - The String to convert.
+// 2. String - The Format 
+//
+// num2str(var,var,var);
+// 1. String - The String to convert.
+// 2. String - The Format
+// 3: String - The Locale Parameter
+// An valid ISO Language Code. (DE = German, EN = English, FR = France, ...)
+// 
+// 2006-11-15
+//
+var d1 = 123.40;
+var d2 = -123.40;
+Alert(num2str(d1));
+Alert(num2str(d1, "0.00"));
+Alert(num2str(d1, "0.00", "EN"));
+Alert(num2str(d2, "0.00;(0.00)", "EN"));
+      </jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>ActiveRecord</name>
+        <rename>ActiveRecord</rename>
+        <type>Boolean</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>CanViewFinancialStatements</name>
+        <rename>CanViewFinancialStatements</rename>
+        <type>Boolean</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>DelegateName</name>
+        <rename>DelegateName</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>HasUnlimitedSigning</name>
+        <rename>HasUnlimitedSigning</rename>
+        <type>Boolean</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>SigningLimit</name>
+        <rename>SigningLimit</rename>
+        <type>Number</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>CalculatedSigningLimit</name>
+        <rename>CalculatedSigningLimit</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>4656</xloc>
+      <yloc>592</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Modified JavaScript value 4</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>//Script here
+
+
+switch (true) {
+	case SigningLimit_SADB === null:
+		CalculatedSigningLimit = 'N/A';
+		break;
+	
+	case HasUnlimitedSigning == true:
+		CalculatedSigningLimit = 'Unlimited';
+		break;
+
+	default:
+		CalculatedSigningLimit = '$'.concat(CalculatedSigningLimit);	
+}	
+
+
+
+if (Active_SADB == false) {
+CalculatedSigningLimit = CalculatedSigningLimit.concat(' (Inactive)')
+}
+
+if (SigningLimit_SADB == null) {
+CalculatedSigningLimit = 'N/A'
+}
+
+
+
+switch (true) {
+
+	case PCard_Authorization == 'Yes':
+		PCard_Authorization = true;
+		break;
+
+	default:
+		PCard_Authorization = false;
+}</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>CalculatedSigningLimit</name>
+        <rename>CalculatedSigningLimit</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>Y</replace>
+      </field>
+      <field>
+        <name>PCard_Authorization</name>
+        <rename>PCard_Authorization</rename>
+        <type>Boolean</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>Y</replace>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>5520</xloc>
+      <yloc>544</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>New Records only</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to>Dummy (do nothing) 4</send_true_to>
+    <send_false_to/>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>Checksum_FlagChanges_InSF</leftvalue>
+        <function>&lt;></function>
+        <rightvalue>Checksum_FlagChanges</rightvalue>
+      </condition>
+    </compare>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>5024</xloc>
+      <yloc>1216</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Only certain FCC types</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to>Sort rows 3</send_true_to>
+    <send_false_to/>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <conditions>
+          <condition>
+            <negated>N</negated>
+            <leftvalue>FCC</leftvalue>
+            <function>STARTS WITH</function>
+            <rightvalue/>
+            <value>
+              <name>constant</name>
+              <type>String</type>
+              <text>737</text>
+              <length>-1</length>
+              <precision>-1</precision>
+              <isnull>N</isnull>
+              <mask/>
+            </value>
+          </condition>
+          <condition>
+            <negated>N</negated>
+            <operator>OR</operator>
+            <leftvalue>FCC</leftvalue>
+            <function>STARTS WITH</function>
+            <rightvalue/>
+            <value>
+              <name>constant</name>
+              <type>String</type>
+              <text>739</text>
+              <length>-1</length>
+              <precision>-1</precision>
+              <isnull>N</isnull>
+              <mask/>
+            </value>
+          </condition>
+          <condition>
+            <negated>N</negated>
+            <operator>OR</operator>
+            <leftvalue>FCC</leftvalue>
+            <function>STARTS WITH</function>
+            <rightvalue/>
+            <value>
+              <name>constant</name>
+              <type>String</type>
+              <text>410</text>
+              <length>-1</length>
+              <precision>-1</precision>
+              <isnull>N</isnull>
+              <mask/>
+            </value>
+          </condition>
+          <condition>
+            <negated>N</negated>
+            <operator>OR</operator>
+            <leftvalue>FCC</leftvalue>
+            <function>STARTS WITH</function>
+            <rightvalue/>
+            <value>
+              <name>constant</name>
+              <type>String</type>
+              <text>777</text>
+              <length>-1</length>
+              <precision>-1</precision>
+              <isnull>N</isnull>
+              <mask/>
+            </value>
+          </condition>
+        </conditions>
+      </condition>
+    </compare>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>4608</xloc>
+      <yloc>1520</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Only pass existing SF Contacts</name>
+    <type>DBLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>MSSQL_RFSDW</connection>
+    <cache>Y</cache>
+    <cache_load_all>Y</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema>salesforce_dim</schema>
+      <table>Contact</table>
+      <orderby/>
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>Y</eat_row_on_failure>
+      <key>
+        <name>ENID</name>
+        <field>ENID</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>Contact ID</name>
+        <rename>Contact_ID_SF</rename>
+        <default/>
+        <type>String</type>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>2048</xloc>
+      <yloc>736</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>RFIS_FCC_ACCESS_ROLE</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>MSSQL_RFSDW</connection>
+    <sql>SELECT *
+FROM rfis.RFIS_FCC_ACCESS_ROLE
+
+--WHERE FCC_NUMBER like '%410007345%'
+--where FCC_NUMBER like '410%' or FCC_NUMBER like '777%'
+
+
+</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cached_row_meta_active>N</cached_row_meta_active>
+    <row-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>ENID</name>
+        <length>30</length>
+        <precision>-1</precision>
+        <origin>RFIS_FCC_ACCESS_ROLE</origin>
+        <comments>ENID</comments>
+        <conversion_Mask/>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>America/New_York</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>ROLE_ID</name>
+        <length>10</length>
+        <precision>-1</precision>
+        <origin>RFIS_FCC_ACCESS_ROLE</origin>
+        <comments>ROLE_ID</comments>
+        <conversion_Mask/>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>America/New_York</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Integer</type>
+        <storagetype>normal</storagetype>
+        <name>EVSQN</name>
+        <length>9</length>
+        <precision>0</precision>
+        <origin>RFIS_FCC_ACCESS_ROLE</origin>
+        <comments>EVSQN</comments>
+        <conversion_Mask>####0;-####0</conversion_Mask>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>America/New_York</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>FCC_NUMBER</name>
+        <length>20</length>
+        <precision>-1</precision>
+        <origin>RFIS_FCC_ACCESS_ROLE</origin>
+        <comments>FCC_NUMBER</comments>
+        <conversion_Mask/>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>America/New_York</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>STATUS_ID</name>
+        <length>10</length>
+        <precision>-1</precision>
+        <origin>RFIS_FCC_ACCESS_ROLE</origin>
+        <comments>STATUS_ID</comments>
+        <conversion_Mask/>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>America/New_York</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Integer</type>
+        <storagetype>normal</storagetype>
+        <name>IS_EMAIL_ON_HOLD</name>
+        <length>9</length>
+        <precision>0</precision>
+        <origin>RFIS_FCC_ACCESS_ROLE</origin>
+        <comments>IS_EMAIL_ON_HOLD</comments>
+        <conversion_Mask>####0;-####0</conversion_Mask>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>America/New_York</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Integer</type>
+        <storagetype>normal</storagetype>
+        <name>ROLE_TYPE_ID</name>
+        <length>9</length>
+        <precision>0</precision>
+        <origin>RFIS_FCC_ACCESS_ROLE</origin>
+        <comments>ROLE_TYPE_ID</comments>
+        <conversion_Mask>####0;-####0</conversion_Mask>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>America/New_York</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>ROWID_CHECKSUM_PKEY</name>
+        <length>64</length>
+        <precision>-1</precision>
+        <origin>RFIS_FCC_ACCESS_ROLE</origin>
+        <comments>ROWID_CHECKSUM_PKEY</comments>
+        <conversion_Mask/>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>America/New_York</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Timestamp</type>
+        <storagetype>normal</storagetype>
+        <name>LastUpdate</name>
+        <length>7</length>
+        <precision>-1</precision>
+        <origin>RFIS_FCC_ACCESS_ROLE</origin>
+        <comments>LastUpdate</comments>
+        <conversion_Mask/>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>America/New_York</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+    </row-meta>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>96</xloc>
+      <yloc>736</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Replace in string 2</name>
+    <type>ReplaceString</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <in_stream_name>FCC</in_stream_name>
+        <out_stream_name/>
+        <use_regex>no</use_regex>
+        <replace_string>UH</replace_string>
+        <replace_by_string/>
+        <set_empty_string>N</set_empty_string>
+        <replace_field_by_string/>
+        <whole_word>no</whole_word>
+        <case_sensitive>no</case_sensitive>
+        <is_unicode>no</is_unicode>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>272</xloc>
+      <yloc>352</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>SF Delegates</name>
+    <type>SalesforceUpsert</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <targeturl>${GW_Salesforce_Webservice_URL}</targeturl>
+    <username>${GW_Salesforce_UserName}</username>
+    <password>${GW_Salesforce_Password}</password>
+    <timeout>60000</timeout>
+    <useCompression>Y</useCompression>
+    <module>UHN_Delegate__c</module>
+    <upsertfield>UHN_UID__c</upsertfield>
+    <batchSize>1</batchSize>
+    <salesforceIDFieldName>UHN_UID__c</salesforceIDFieldName>
+    <fields>
+      <field>
+        <name>UHN_Active_Record__c</name>
+        <field>ActiveRecord</field>
+        <useExternalId>N</useExternalId>
+      </field>
+      <field>
+        <name>UHN_Can_View_Financial_Statements__c</name>
+        <field>CanViewFinancialStatements</field>
+        <useExternalId>N</useExternalId>
+      </field>
+      <field>
+        <name>UHN_Contact__c</name>
+        <field>Contact_SF</field>
+        <useExternalId>N</useExternalId>
+      </field>
+      <field>
+        <name>UHN_FCC__c</name>
+        <field>FCC_ID_Salesforce</field>
+        <useExternalId>N</useExternalId>
+      </field>
+      <field>
+        <name>UHN_Has_Unlimited_Signing__c</name>
+        <field>HasUnlimitedSigning</field>
+        <useExternalId>N</useExternalId>
+      </field>
+      <field>
+        <name>Name</name>
+        <field>DelegateName</field>
+        <useExternalId>N</useExternalId>
+      </field>
+      <field>
+        <name>UHN_Signing_Limit__c</name>
+        <field>SigningLimit</field>
+        <useExternalId>N</useExternalId>
+      </field>
+      <field>
+        <name>UHN_UID__c</name>
+        <field>UID</field>
+        <useExternalId>N</useExternalId>
+      </field>
+      <field>
+        <name>UHN_Checksum_Flag_Changes__c</name>
+        <field>Checksum_FlagChanges</field>
+        <useExternalId>N</useExternalId>
+      </field>
+      <field>
+        <name>UHN_Calculated_Signing_Limit__c</name>
+        <field>CalculatedSigningLimit</field>
+        <useExternalId>N</useExternalId>
+      </field>
+      <field>
+        <name>UHN_Level__c</name>
+        <field>Level</field>
+        <useExternalId>N</useExternalId>
+      </field>
+      <field>
+        <name>UHN_Notes__c</name>
+        <field>Notes</field>
+        <useExternalId>N</useExternalId>
+      </field>
+      <field>
+        <name>UHN_Can_Approve_Pcard_Statement__c</name>
+        <field>PCard_Authorization</field>
+        <useExternalId>N</useExternalId>
+      </field>
+    </fields>
+    <rollbackAllChangesOnError>N</rollbackAllChangesOnError>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>3728</xloc>
+      <yloc>1120</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Select values</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>CalculatedSigningLimit</name>
+      </field>
+      <select_unspecified>Y</select_unspecified>
+      <meta>
+        <name>CalculatedSigningLimit</name>
+        <rename>CalculatedSigningLimit</rename>
+        <type>Integer</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask>#,##0</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>4944</xloc>
+      <yloc>544</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Select values 2</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>Active</name>
+      </field>
+      <field>
+        <name>CanViewFinancialStatements</name>
+      </field>
+      <field>
+        <name>Delegate_Contact_ID_SF</name>
+        <rename>Contact</rename>
+      </field>
+      <field>
+        <name>FCC_ID_SF</name>
+      </field>
+      <field>
+        <name>HasUnlimitedSigning</name>
+      </field>
+      <field>
+        <name>DelegateName</name>
+        <rename>Name</rename>
+      </field>
+      <field>
+        <name>SigningLimit</name>
+      </field>
+      <field>
+        <name>UID</name>
+      </field>
+      <field>
+        <name>FCC_AssignDelegateHere</name>
+        <rename>FCC</rename>
+      </field>
+      <field>
+        <name>Level</name>
+      </field>
+      <field>
+        <name>Notes</name>
+      </field>
+      <field>
+        <name>PCard_Authorization</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>2096</xloc>
+      <yloc>352</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Select values 3</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>UID</name>
+      </field>
+      <field>
+        <name>Contact_ID_SF</name>
+        <rename>Contact_SF</rename>
+      </field>
+      <field>
+        <name>FCC_ID_SF</name>
+        <rename>FCC_SF</rename>
+      </field>
+      <field>
+        <name>FCC_NUMBER</name>
+        <rename>FCC</rename>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>2832</xloc>
+      <yloc>608</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Select values 4</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>UID</name>
+      </field>
+      <field>
+        <name>Contact</name>
+        <rename>Contact_SF</rename>
+      </field>
+      <field>
+        <name>FCC_ID_SF</name>
+        <rename>FCC_SF</rename>
+      </field>
+      <field>
+        <name>FCC</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>2832</xloc>
+      <yloc>480</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Select values 5</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>FCC</name>
+        <rename>FCC_AssignDelegateHere</rename>
+      </field>
+      <field>
+        <name>Ecode</name>
+        <rename>ECODE_Delegate</rename>
+      </field>
+      <field>
+        <name>Signing_Limit</name>
+        <rename>Limit</rename>
+      </field>
+      <field>
+        <name>Level</name>
+      </field>
+      <field>
+        <name>Notes</name>
+      </field>
+      <field>
+        <name>SADB_Status</name>
+      </field>
+      <field>
+        <name>PCard_Authorization</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>816</xloc>
+      <yloc>352</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Select values 6</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>UID</name>
+      </field>
+      <field>
+        <name>Contact_SF</name>
+      </field>
+      <field>
+        <name>FCC_ID_Salesforce</name>
+      </field>
+      <field>
+        <name>DelegateName</name>
+      </field>
+      <field>
+        <name>ActiveRecord</name>
+      </field>
+      <field>
+        <name>CanViewFinancialStatements</name>
+      </field>
+      <field>
+        <name>HasUnlimitedSigning</name>
+      </field>
+      <field>
+        <name>SigningLimit</name>
+      </field>
+      <field>
+        <name>FCC</name>
+      </field>
+      <field>
+        <name>AccountHolder_SF</name>
+      </field>
+      <field>
+        <name>Level</name>
+      </field>
+      <field>
+        <name>Notes</name>
+      </field>
+      <field>
+        <name>CalculatedSigningLimit</name>
+      </field>
+      <field>
+        <name>PCard_Authorization</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>5808</xloc>
+      <yloc>544</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Select values 7</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>CalculatedSigningLimit</name>
+      </field>
+      <select_unspecified>Y</select_unspecified>
+      <meta>
+        <name>CalculatedSigningLimit</name>
+        <rename>CalculatedSigningLimit</rename>
+        <type>String</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>5232</xloc>
+      <yloc>544</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Select values 8</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>UID</name>
+      </field>
+      <field>
+        <name>Contact_SF</name>
+      </field>
+      <field>
+        <name>FCC_ID_Salesforce</name>
+      </field>
+      <field>
+        <name>DelegateName</name>
+      </field>
+      <field>
+        <name>ActiveRecord</name>
+      </field>
+      <field>
+        <name>CanViewFinancialStatements</name>
+      </field>
+      <field>
+        <name>HasUnlimitedSigning</name>
+      </field>
+      <field>
+        <name>SigningLimit</name>
+      </field>
+      <field>
+        <name>FCC</name>
+      </field>
+      <field>
+        <name>AccountHolder_SF</name>
+      </field>
+      <field>
+        <name>Level</name>
+      </field>
+      <field>
+        <name>Notes</name>
+      </field>
+      <field>
+        <name>CalculatedSigningLimit</name>
+      </field>
+      <field>
+        <name>PCard_Authorization</name>
+      </field>
+      <field>
+        <name>User_IsActive</name>
+      </field>
+      <field>
+        <name>UserID</name>
+      </field>
+      <field>
+        <name>Record ID</name>
+      </field>
+      <field>
+        <name>Can View FCC</name>
+      </field>
+      <field>
+        <name>Checksum_FlagChanges_InSF</name>
+      </field>
+      <field>
+        <name>Checksum_FlagChanges</name>
+      </field>
+      <field>
+        <name>CanViewFinancialStatements_temp</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+      <meta>
+        <name>CanViewFinancialStatements_temp</name>
+        <rename>CanViewFinancialStatements</rename>
+        <type>Boolean</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>3520</xloc>
+      <yloc>1152</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Set 73 to CantView</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>//Script here
+
+//For now, we only show Delegate records for 73* account, but don't allow viewing yet.
+
+var CanViewFinancialStatements_temp = null;
+
+if (substr(FCC,0,3) == '737' || substr(FCC,0,3) == '739') {
+	CanViewFinancialStatements_temp = 'false'
+} else {
+//
+CanViewFinancialStatements_temp = CanViewFinancialStatements
+}
+
+//CanViewFinancialStatements = CanViewFinancialStatements_current</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>CanViewFinancialStatements_temp</name>
+        <rename>CanViewFinancialStatements_temp</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>3520</xloc>
+      <yloc>1248</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Sort rows</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>UID</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>2288</xloc>
+      <yloc>352</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Sort rows 2</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>ENID_FCC</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>EVSQN</name>
+        <ascending>N</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>880</xloc>
+      <yloc>736</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Sort rows 3</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>Contact_SF</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>2</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>3840</xloc>
+      <yloc>1360</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Stream lookup</name>
+    <type>StreamLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <from>Dummy (do nothing) 2</from>
+    <input_sorted>N</input_sorted>
+    <preserve_memory>Y</preserve_memory>
+    <sorted_list>N</sorted_list>
+    <integer_pair>N</integer_pair>
+    <lookup>
+      <key>
+        <name>UID</name>
+        <field>UID</field>
+      </key>
+      <value>
+        <name>Active</name>
+        <rename>Active_SADB</rename>
+        <default/>
+        <type>Boolean</type>
+      </value>
+      <value>
+        <name>CanViewFinancialStatements</name>
+        <rename>CanViewFinancialStatements_SADB</rename>
+        <default/>
+        <type>Boolean</type>
+      </value>
+      <value>
+        <name>Contact</name>
+        <rename>Contact_SADB</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>FCC_ID_SF</name>
+        <rename>FCC_ID_SF_SADB</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>HasUnlimitedSigning</name>
+        <rename>HasUnlimitedSigning_SADB</rename>
+        <default/>
+        <type>Boolean</type>
+      </value>
+      <value>
+        <name>Name</name>
+        <rename>Name_SADB</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>SigningLimit</name>
+        <rename>SigningLimit_SADB</rename>
+        <default/>
+        <type>Number</type>
+      </value>
+      <value>
+        <name>FCC</name>
+        <rename>FCC_SADB</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>Level</name>
+        <rename>Level</rename>
+        <default/>
+        <type>Integer</type>
+      </value>
+      <value>
+        <name>Notes</name>
+        <rename>Notes</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>PCard_Authorization</name>
+        <rename>PCard_Authorization</rename>
+        <default/>
+        <type>String</type>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>3488</xloc>
+      <yloc>544</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Stream lookup 2</name>
+    <type>StreamLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <from>Dummy (do nothing) 3</from>
+    <input_sorted>N</input_sorted>
+    <preserve_memory>N</preserve_memory>
+    <sorted_list>N</sorted_list>
+    <integer_pair>N</integer_pair>
+    <lookup>
+      <key>
+        <name>UID</name>
+        <field>UID</field>
+      </key>
+      <value>
+        <name>CanViewFinancialStatements</name>
+        <rename>CanViewFinancialStatements_RFIS</rename>
+        <default/>
+        <type>Boolean</type>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>3856</xloc>
+      <yloc>544</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>String operations 2</name>
+    <type>StringOperations</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <in_stream_name>FCC</in_stream_name>
+        <out_stream_name/>
+        <trim_type>both</trim_type>
+        <lower_upper/>
+        <padding_type/>
+        <pad_char/>
+        <pad_len/>
+        <init_cap/>
+        <mask_xml/>
+        <digits/>
+        <remove_special_characters/>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>448</xloc>
+      <yloc>352</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Track Errors</name>
+    <type>InsertUpdate</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>MSSQL_RFSDW</connection>
+    <commit>1</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema>errors_loading</schema>
+      <table>SF_Delegate_Update</table>
+      <key>
+        <name>UID</name>
+        <field>UID</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>UID</name>
+        <rename>UID</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Contact_SF</name>
+        <rename>Contact_SF</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>FCC_ID_Salesforce</name>
+        <rename>FCC_ID_Salesforce</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>DelegateName</name>
+        <rename>DelegateName</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>ActiveRecord</name>
+        <rename>ActiveRecord</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>CanViewFinancialStatements</name>
+        <rename>CanViewFinancialStatements</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>HasUnlimitedSigning</name>
+        <rename>HasUnlimitedSigning</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>SigningLimit</name>
+        <rename>SigningLimit</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>FCC</name>
+        <rename>FCC</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>AccountHolder_SF</name>
+        <rename>AccountHolder_SF</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Level</name>
+        <rename>Level</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Notes</name>
+        <rename>Notes</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>CalculatedSigningLimit</name>
+        <rename>CalculatedSigningLimit</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>User_IsActive</name>
+        <rename>User_IsActive</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>UserID</name>
+        <rename>UserID</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Record ID</name>
+        <rename>Record ID</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Can View FCC</name>
+        <rename>Can View FCC</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Checksum_FlagChanges_InSF</name>
+        <rename>Checksum_FlagChanges_InSF</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Checksum_FlagChanges</name>
+        <rename>Checksum_FlagChanges</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>NoOfErrors</name>
+        <rename>NoOfErrors</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>ErrorDescription</name>
+        <rename>ErrorDescription</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>ErrorDate</name>
+        <rename>ErrorDate</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>PCard_Authorization</name>
+        <rename>PCard_Authorization</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>4368</xloc>
+      <yloc>976</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>UID and others</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>//Script here
+var Active = null;
+
+//This is the name of the specific delegate record for a specific FCC, i. e. it's not the name of the Delegate
+var DelegateName = null;
+
+var HasUnlimitedSigning = null;
+
+var CanViewFinancialStatements = null;
+
+var SigningLimit = null;
+
+var UID = null;
+
+
+if (SADB_Status == 'Active') {
+Active = true;
+} else {
+Active = false
+}
+
+
+
+if (Limit == 0) {
+HasUnlimitedSigning = true;
+} else {
+HasUnlimitedSigning = false;
+}
+
+
+
+DelegateName = Contact_FirstName.concat(" ").concat(Contact_LastName).concat(" for FCC ").concat(FCC_AssignDelegateHere)
+
+//Signing Authority does not imply viewing access. Viewing access is driven by RFIS only.
+CanViewFinancialStatements = false;
+
+SigningLimit = Limit;
+
+UID =substr(FCC_AssignDelegateHere.concat("-").concat(Delegate_Contact_ID_SF),0,25)</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>Active</name>
+        <rename>Active</rename>
+        <type>Boolean</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>DelegateName</name>
+        <rename>DelegateName</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>HasUnlimitedSigning</name>
+        <rename>HasUnlimitedSigning</rename>
+        <type>Boolean</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>CanViewFinancialStatements</name>
+        <rename>CanViewFinancialStatements</rename>
+        <type>Boolean</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>SigningLimit</name>
+        <rename>SigningLimit</rename>
+        <type>Number</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>UID</name>
+        <rename>UID</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>1952</xloc>
+      <yloc>352</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>UID and others 2</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>//Script here
+
+
+var CanViewFinancialStatements = null;
+var UID = null;
+
+
+
+if(STATUS_ID.equals('1')) {
+
+CanViewFinancialStatements = true;
+} else {
+
+CanViewFinancialStatements = false;
+}
+
+
+UID = substr(FCC_NUMBER.concat("-").concat(Contact_ID_SF),0,25)</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>CanViewFinancialStatements</name>
+        <rename>CanViewFinancialStatements</rename>
+        <type>Boolean</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>UID</name>
+        <rename>UID</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>PCard_Authorization</name>
+        <rename>PCard_Authorization</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>2832</xloc>
+      <yloc>736</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Unique rows (HashSet)</name>
+    <type>UniqueRowsByHashSet</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <store_values>N</store_values>
+    <reject_duplicate_row>N</reject_duplicate_row>
+    <error_description/>
+    <fields>      </fields>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>3264</xloc>
+      <yloc>544</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Validation</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>//Script here
+var DelegateSameAsAccountHolder = null;
+
+if ( Delegate_Contact_ID_SF.equals(FCC_AccountHolder_Contact_ID_SF)) {
+	DelegateSameAsAccountHolder = "Yes";
+} else {
+	DelegateSameAsAccountHolder = "No";
+}</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>DelegateSameAsAccountHolder</name>
+        <rename>DelegateSameAsAccountHolder</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>1552</xloc>
+      <yloc>352</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform_error_handling>
+    <error>
+      <source_transform>SF Delegates</source_transform>
+      <target_transform>Get system info</target_transform>
+      <is_enabled>Y</is_enabled>
+      <nr_valuename>NoOfErrors</nr_valuename>
+      <descriptions_valuename>ErrorDescription</descriptions_valuename>
+      <fields_valuename/>
+      <codes_valuename/>
+      <max_errors/>
+      <max_pct_errors/>
+      <min_pct_rows/>
+    </error>
+  </transform_error_handling>
+  <attributes/>
+</pipeline>

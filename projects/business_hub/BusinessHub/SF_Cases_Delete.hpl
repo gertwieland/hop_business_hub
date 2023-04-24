@@ -1,0 +1,123 @@
+<pipeline>
+  <info>
+    <name>SF_Cases_Delete</name>
+    <name_sync_with_filename>Y</name_sync_with_filename>
+    <description/>
+    <extended_description/>
+    <pipeline_version/>
+    <pipeline_type>Normal</pipeline_type>
+    <directory>/BusinessHub</directory>
+    <parameters>
+    </parameters>
+    <capture_transform_performance>N</capture_transform_performance>
+    <transform_performance_capturing_delay>1000</transform_performance_capturing_delay>
+    <transform_performance_capturing_size_limit>100</transform_performance_capturing_size_limit>
+    <created_user>gert</created_user>
+    <created_date>2022/02/22 16:36:47.492</created_date>
+    <modified_user>gert</modified_user>
+    <modified_date>2021/03/05 22:13:17.553</modified_date>
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
+    <is_key_private>N</is_key_private>
+  </info>
+  <notepads>
+  </notepads>
+  <order>
+    <hop>
+      <from>SF Case</from>
+      <to>Salesforce delete</to>
+      <enabled>Y</enabled>
+    </hop>
+  </order>
+  <transform>
+    <name>SF Case</name>
+    <type>SalesforceInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <targeturl>https://uhn.my.salesforce.com/services/Soap/u/47.0</targeturl>
+    <username>gert.wieland@uhn.ca</username>
+    <password>Encrypted 354264512a2347533153644d6741666a7654245234636e4f504d2653562366476c6c733045784bdbf1ccac19e885a09d3daf768690bde3</password>
+    <timeout>60000</timeout>
+    <useCompression>N</useCompression>
+    <module>Case</module>
+    <condition/>
+    <specifyQuery>N</specifyQuery>
+    <query/>
+    <include_targeturl>N</include_targeturl>
+    <targeturl_field>URL</targeturl_field>
+    <include_module>N</include_module>
+    <module_field/>
+    <include_rownum>N</include_rownum>
+    <include_deletion_date>N</include_deletion_date>
+    <deletion_date_field/>
+    <rownum_field/>
+    <include_sql>N</include_sql>
+    <sql_field/>
+    <include_Timestamp>N</include_Timestamp>
+    <timestamp_field/>
+    <read_from/>
+    <read_to/>
+    <records_filter>all</records_filter>
+    <queryAll>N</queryAll>
+    <fields>
+      <field>
+        <name>Case ID</name>
+        <field>Id</field>
+        <idlookup>Y</idlookup>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>18</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+    </fields>
+    <limit>0</limit>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>448</xloc>
+      <yloc>192</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Salesforce delete</name>
+    <type>SalesforceDelete</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>20</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <targeturl>https://uhn--datatest.my.salesforce.com/services/Soap/u/47.0</targeturl>
+    <username>gert.wieland1@uhn.ca.datatest</username>
+    <password>Encrypted 563440693369493633316841725170624e373165634449367825454a695457785a595a6d6363d8ade4a230d7bba582299641ecbb81fe</password>
+    <timeout>60000</timeout>
+    <useCompression>N</useCompression>
+    <module>Case</module>
+    <DeleteField>Case ID</DeleteField>
+    <batchSize>10</batchSize>
+    <rollbackAllChangesOnError>N</rollbackAllChangesOnError>
+    <attributes/>
+    <cluster_schema/>
+    <GUI>
+      <xloc>800</xloc>
+      <yloc>192</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </transform>
+  <transform_error_handling>
+  </transform_error_handling>
+  <attributes/>
+</pipeline>
