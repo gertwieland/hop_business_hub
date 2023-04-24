@@ -93,11 +93,13 @@ from "Full Name" to "UHN_Full_Name__c"</note>
       <fontitalic>N</fontitalic>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
-      <height>24</height>
+      <height>50</height>
       <xloc>288</xloc>
       <yloc>288</yloc>
-      <note>${SF_Query_for_Dimensions}</note>
-      <width>235</width>
+      <note>${SF_Query_for_Dimensions}
+
+SystemModStamp=LAST_N_DAYS:3</note>
+      <width>164</width>
     </notepad>
   </notepads>
   <order>
@@ -159,7 +161,7 @@ from "Full Name" to "UHN_Full_Name__c"</note>
     <hop>
       <from>Skip existing records BACKUP</from>
       <to>Contact Backup</to>
-      <enabled>N</enabled>
+      <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Select values</from>
@@ -239,7 +241,7 @@ from "Full Name" to "UHN_Full_Name__c"</note>
     <hop>
       <from>Skip existing records DIM</from>
       <to>Contact Dim</to>
-      <enabled>N</enabled>
+      <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Is UHN domain?</from>
@@ -285,7 +287,7 @@ from "Full Name" to "UHN_Full_Name__c"</note>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
-    <copies>20</copies>
+    <copies>1</copies>
     <partitioning>
       <method>none</method>
       <schema_name/>
@@ -301,108 +303,28 @@ from "Full Name" to "UHN_Full_Name__c"</note>
       <schema>salesforce_backup</schema>
       <table>Contact</table>
       <value>
-        <name>Contact ID</name>
-        <rename>Contact ID</rename>
+        <name>411 Directory</name>
+        <rename>411 Directory</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>Deleted</name>
-        <rename>Deleted</rename>
+        <name>411 Directory Status</name>
+        <rename>411 Directory Status</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>Master Record ID</name>
-        <rename>Master Record ID</rename>
+        <name>AD Account Name</name>
+        <rename>AD Account Name</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>Entity Name</name>
-        <rename>Entity Name</rename>
+        <name>Active As Delegate</name>
+        <rename>Active As Delegate</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>Last Name</name>
-        <rename>Last Name</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>First Name</name>
-        <rename>First Name</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>Salutation</name>
-        <rename>Salutation</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>Middle Name</name>
-        <rename>Middle Name</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>Suffix</name>
-        <rename>Suffix</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>Full Name</name>
-        <rename>Full Name</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>Record Type ID</name>
-        <rename>Record Type ID</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>Mailing Street</name>
-        <rename>Mailing Street</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>Mailing City</name>
-        <rename>Mailing City</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>Mailing State/Province</name>
-        <rename>Mailing State/Province</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>Mailing Zip/Postal Code</name>
-        <rename>Mailing Zip/Postal Code</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>Mailing Country</name>
-        <rename>Mailing Country</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>Mailing Latitude</name>
-        <rename>Mailing Latitude</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>Mailing Longitude</name>
-        <rename>Mailing Longitude</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>Mailing Geocode Accuracy</name>
-        <rename>Mailing Geocode Accuracy</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>Mailing Address</name>
-        <rename>Mailing Address</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>Business Phone</name>
-        <rename>Business Phone</rename>
+        <name>Active User</name>
+        <rename>Active User</rename>
         <update>Y</update>
       </value>
       <value>
@@ -411,38 +333,28 @@ from "Full Name" to "UHN_Full_Name__c"</note>
         <update>Y</update>
       </value>
       <value>
-        <name>Mobile Phone</name>
-        <rename>Mobile Phone</rename>
+        <name>Business Phone</name>
+        <rename>Business Phone</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>Reports To ID</name>
-        <rename>Reports To ID</rename>
+        <name>CPSO Licence</name>
+        <rename>CPSO Licence</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>Email</name>
-        <rename>Email</rename>
+        <name>Checksum (Flag changes)</name>
+        <rename>Checksum (Flag changes)</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>Title</name>
-        <rename>Title</rename>
+        <name>Clinical Department</name>
+        <rename>Clinical Department</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>Department</name>
-        <rename>Department</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>Owner ID</name>
-        <rename>Owner ID</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>Created Date</name>
-        <rename>Created Date</rename>
+        <name>Contact ID</name>
+        <rename>Contact ID</rename>
         <update>Y</update>
       </value>
       <value>
@@ -451,8 +363,188 @@ from "Full Name" to "UHN_Full_Name__c"</note>
         <update>Y</update>
       </value>
       <value>
-        <name>Last Modified Date</name>
-        <rename>Last Modified Date</rename>
+        <name>Created Date</name>
+        <rename>Created Date</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Currency Test</name>
+        <rename>Currency Test</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>CurrentInstitute</name>
+        <rename>CurrentInstitute</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Data.com Key</name>
+        <rename>Data.com Key</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Deleted</name>
+        <rename>Deleted</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Department</name>
+        <rename>Department</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Describe</name>
+        <rename>Describe</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>ECode</name>
+        <rename>ECode</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>ENID</name>
+        <rename>ENID</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Email</name>
+        <rename>Email</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Email (Unique)</name>
+        <rename>Email (Unique)</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Email Bounced Date</name>
+        <rename>Email Bounced Date</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Email Bounced Reason</name>
+        <rename>Email Bounced Reason</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Email Data Source</name>
+        <rename>Email Data Source</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Email_Domain</name>
+        <rename>Email_Domain</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Email_Has_UHN_domain</name>
+        <rename>Email_Has_UHN_domain</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Email_LocalPart</name>
+        <rename>Email_LocalPart</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Employee ID</name>
+        <rename>Employee ID</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Employee ID Status</name>
+        <rename>Employee ID Status</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Entity Name</name>
+        <rename>Entity Name</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>ExcludeFromEmailNotification</name>
+        <rename>ExcludeFromEmailNotification</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Federation_ID</name>
+        <rename>Federation_ID</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>First Name</name>
+        <rename>First Name</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Formula Test</name>
+        <rename>Formula Test</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Full Name</name>
+        <rename>Full Name</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Has CPSO License</name>
+        <rename>Has CPSO License</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Individual ID</name>
+        <rename>Individual ID</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Integer Test</name>
+        <rename>Integer Test</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Is Current UHN employee</name>
+        <rename>Is Current UHN employee</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Is Email Bounced</name>
+        <rename>Is Email Bounced</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Is PI</name>
+        <rename>Is PI</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>IsPortalEnabled</name>
+        <rename>IsPortalEnabled</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>IsUserLicenseActive</name>
+        <rename>IsUserLicenseActive</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Jigsaw Contact ID</name>
+        <rename>Jigsaw Contact ID</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Job</name>
+        <rename>Job</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Last Activity</name>
+        <rename>Last Activity</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Last Login</name>
+        <rename>Last Login</rename>
         <update>Y</update>
       </value>
       <value>
@@ -461,13 +553,18 @@ from "Full Name" to "UHN_Full_Name__c"</note>
         <update>Y</update>
       </value>
       <value>
-        <name>System Modstamp</name>
-        <rename>System Modstamp</rename>
+        <name>Last Modified Date</name>
+        <rename>Last Modified Date</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>Last Activity</name>
-        <rename>Last Activity</rename>
+        <name>Last Name</name>
+        <rename>Last Name</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Last Referenced Date</name>
+        <rename>Last Referenced Date</rename>
         <update>Y</update>
       </value>
       <value>
@@ -486,153 +583,83 @@ from "Full Name" to "UHN_Full_Name__c"</note>
         <update>Y</update>
       </value>
       <value>
-        <name>Last Referenced Date</name>
-        <rename>Last Referenced Date</rename>
+        <name>LastUpdate</name>
+        <rename>LastUpdate</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>Email Bounced Reason</name>
-        <rename>Email Bounced Reason</rename>
+        <name>Licence Type</name>
+        <rename>Licence Type</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>Email Bounced Date</name>
-        <rename>Email Bounced Date</rename>
+        <name>Location</name>
+        <rename>Location</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>Is Email Bounced</name>
-        <rename>Is Email Bounced</rename>
+        <name>Mailing Address</name>
+        <rename>Mailing Address</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>Photo URL</name>
-        <rename>Photo URL</rename>
+        <name>Mailing City</name>
+        <rename>Mailing City</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>Data.com Key</name>
-        <rename>Data.com Key</rename>
+        <name>Mailing Country</name>
+        <rename>Mailing Country</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>Jigsaw Contact ID</name>
-        <rename>Jigsaw Contact ID</rename>
+        <name>Mailing Geocode Accuracy</name>
+        <rename>Mailing Geocode Accuracy</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>Individual ID</name>
-        <rename>Individual ID</rename>
+        <name>Mailing Latitude</name>
+        <rename>Mailing Latitude</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>Currency Test</name>
-        <rename>Currency Test</rename>
+        <name>Mailing Longitude</name>
+        <rename>Mailing Longitude</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>Describe</name>
-        <rename>Describe</rename>
+        <name>Mailing State/Province</name>
+        <rename>Mailing State/Province</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>Formula Test</name>
-        <rename>Formula Test</rename>
+        <name>Mailing Street</name>
+        <rename>Mailing Street</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>Integer Test</name>
-        <rename>Integer Test</rename>
+        <name>Mailing Zip/Postal Code</name>
+        <rename>Mailing Zip/Postal Code</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>Active As Delegate</name>
-        <rename>Active As Delegate</rename>
+        <name>Master Record ID</name>
+        <rename>Master Record ID</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>ECode</name>
-        <rename>ECode</rename>
+        <name>Middle Name</name>
+        <rename>Middle Name</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>ENID</name>
-        <rename>ENID</rename>
+        <name>Mobile Phone</name>
+        <rename>Mobile Phone</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>Employee ID</name>
-        <rename>Employee ID</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>Is PI</name>
-        <rename>Is PI</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>411 Directory Status</name>
-        <rename>411 Directory Status</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>PI Status</name>
-        <rename>PI Status</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>PI Type</name>
-        <rename>PI Type</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>Research Appointment Type</name>
-        <rename>Research Appointment Type</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>Research Appointment</name>
-        <rename>Research Appointment</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>Signature Image URL</name>
-        <rename>Signature Image URL</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>Signature Image</name>
-        <rename>Signature Image</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>T-ID</name>
-        <rename>T-ID</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>Total Funding</name>
-        <rename>Total Funding</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>Total Open Funding</name>
-        <rename>Total Open Funding</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>CPSO Licence</name>
-        <rename>CPSO Licence</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>Has CPSO License</name>
-        <rename>Has CPSO License</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>User Profile</name>
-        <rename>User Profile</rename>
+        <name>No of Active Delegate Records with Signing</name>
+        <rename>No of Active Delegate Records with Signing</rename>
         <update>Y</update>
       </value>
       <value>
@@ -646,28 +673,13 @@ from "Full Name" to "UHN_Full_Name__c"</note>
         <update>Y</update>
       </value>
       <value>
-        <name>Employee ID Status</name>
-        <rename>Employee ID Status</rename>
-        <update>Y</update>
-      </value>
-      <value>
         <name>Number of active delegate records</name>
         <rename>Number of active delegate records</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>Email (Unique)</name>
-        <rename>Email (Unique)</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>411 Directory</name>
-        <rename>411 Directory</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>Email Data Source</name>
-        <rename>Email Data Source</rename>
+        <name>Owner ID</name>
+        <rename>Owner ID</rename>
         <update>Y</update>
       </value>
       <value>
@@ -676,28 +688,18 @@ from "Full Name" to "UHN_Full_Name__c"</note>
         <update>Y</update>
       </value>
       <value>
-        <name>User</name>
-        <rename>User</rename>
+        <name>PI Status</name>
+        <rename>PI Status</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>Checksum (Flag changes)</name>
-        <rename>Checksum (Flag changes)</rename>
+        <name>PI Type</name>
+        <rename>PI Type</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>UHN_Full_Name__c</name>
-        <rename>UHN_Full_Name__c</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>Licence Type</name>
-        <rename>Licence Type</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>Job</name>
-        <rename>Job</rename>
+        <name>Photo URL</name>
+        <rename>Photo URL</rename>
         <update>Y</update>
       </value>
       <value>
@@ -706,118 +708,13 @@ from "Full Name" to "UHN_Full_Name__c"</note>
         <update>Y</update>
       </value>
       <value>
-        <name>Location</name>
-        <rename>Location</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>Clinical Department</name>
-        <rename>Clinical Department</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>Sub-Institute</name>
-        <rename>Sub-Institute</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>Last Login</name>
-        <rename>Last Login</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>Active User</name>
-        <rename>Active User</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>AD Account Name</name>
-        <rename>AD Account Name</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>No of Active Delegate Records with Signing</name>
-        <rename>No of Active Delegate Records with Signing</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>LastUpdate</name>
-        <rename>LastUpdate</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>UID_FlagChanges</name>
-        <rename>UID_FlagChanges</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>CurrentInstitute</name>
-        <rename>CurrentInstitute</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>Federation_ID</name>
-        <rename>Federation_ID</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>User_ContactID</name>
-        <rename>User_ContactID</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>IsPortalEnabled</name>
-        <rename>IsPortalEnabled</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>IsUserLicenseActive</name>
-        <rename>IsUserLicenseActive</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>Role_ID_SF</name>
-        <rename>Role_ID_SF</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>UserType</name>
-        <rename>UserType</rename>
-        <update>Y</update>
-      </value>
-      <value>
         <name>Profile_ID_SF</name>
         <rename>Profile_ID_SF</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>UserRole</name>
-        <rename>UserRole</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>UserProfile</name>
-        <rename>UserProfile</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>Email_LocalPart</name>
-        <rename>Email_LocalPart</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>Email_Domain</name>
-        <rename>Email_Domain</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>Email_IsValid</name>
-        <rename>Email_IsValid</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>Email_Has_UHN_domain</name>
-        <rename>Email_Has_UHN_domain</rename>
+        <name>Record Type ID</name>
+        <rename>Record Type ID</rename>
         <update>Y</update>
       </value>
       <value>
@@ -826,18 +723,118 @@ from "Full Name" to "UHN_Full_Name__c"</note>
         <update>Y</update>
       </value>
       <value>
+        <name>Reports To ID</name>
+        <rename>Reports To ID</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Research Appointment</name>
+        <rename>Research Appointment</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Research Appointment Type</name>
+        <rename>Research Appointment Type</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Role_ID_SF</name>
+        <rename>Role_ID_SF</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Salutation</name>
+        <rename>Salutation</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Signature Image</name>
+        <rename>Signature Image</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Signature Image URL</name>
+        <rename>Signature Image URL</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Sub-Institute</name>
+        <rename>Sub-Institute</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Suffix</name>
+        <rename>Suffix</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>System Modstamp</name>
+        <rename>System Modstamp</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>T-ID</name>
+        <rename>T-ID</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Title</name>
+        <rename>Title</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Total Funding</name>
+        <rename>Total Funding</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Total Open Funding</name>
+        <rename>Total Open Funding</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>UHN_Full_Name__c</name>
+        <rename>UHN_Full_Name__c</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>UID_FlagChanges</name>
+        <rename>UID_FlagChanges</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>User</name>
+        <rename>User</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>User Profile</name>
+        <rename>User Profile</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>UserProfile</name>
+        <rename>UserProfile</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>UserRole</name>
+        <rename>UserRole</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>UserType</name>
+        <rename>UserType</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>User_ContactID</name>
+        <rename>User_ContactID</rename>
+        <update>Y</update>
+      </value>
+      <value>
         <name>Username</name>
         <rename>Username</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>ExcludeFromEmailNotification</name>
-        <rename>ExcludeFromEmailNotification</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>Is Current UHN employee</name>
-        <rename>Is Current UHN employee</rename>
         <update>Y</update>
       </value>
     </lookup>
@@ -854,7 +851,7 @@ from "Full Name" to "UHN_Full_Name__c"</note>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
-    <copies>20</copies>
+    <copies>1</copies>
     <partitioning>
       <method>none</method>
       <schema_name/>
@@ -1007,11 +1004,6 @@ from "Full Name" to "UHN_Full_Name__c"</note>
       <value>
         <name>Email_Has_UHN_domain</name>
         <rename>Email_Has_UHN_domain</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>Email_IsValid</name>
-        <rename>Email_IsValid</rename>
         <update>Y</update>
       </value>
       <value>
@@ -2242,7 +2234,7 @@ switch (true) {
     <timeout>60000</timeout>
     <useCompression>N</useCompression>
     <module>Contact</module>
-    <condition>SystemModStamp=LAST_N_DAYS:3</condition>
+    <condition/>
     <specifyQuery>N</specifyQuery>
     <query/>
     <include_targeturl>N</include_targeturl>

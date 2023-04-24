@@ -33,7 +33,7 @@
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
       <height>24</height>
-      <xloc>3616</xloc>
+      <xloc>3632</xloc>
       <yloc>720</yloc>
       <note>Add a new record per user if any of the relevant fields has changed.</note>
       <width>543</width>
@@ -82,6 +82,26 @@ This step is just a workaround to change the LastModifiedDate in the contacts ob
 process would pick it up (Limit is usually LAST_N_DAYS: 7). It just reads the current name of a contact
 and "writes it back". Effectively it makes no change, but it's enough to change the LAST_MODIFIED_DATE.</note>
       <width>841</width>
+    </notepad>
+    <notepad>
+      <backgroundcolorblue>251</backgroundcolorblue>
+      <backgroundcolorgreen>232</backgroundcolorgreen>
+      <backgroundcolorred>201</backgroundcolorred>
+      <bordercolorblue>90</bordercolorblue>
+      <bordercolorgreen>58</bordercolorgreen>
+      <bordercolorred>14</bordercolorred>
+      <fontbold>N</fontbold>
+      <fontcolorblue>90</fontcolorblue>
+      <fontcolorgreen>58</fontcolorgreen>
+      <fontcolorred>14</fontcolorred>
+      <fontitalic>N</fontitalic>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <height>24</height>
+      <xloc>572</xloc>
+      <yloc>664</yloc>
+      <note>${SF_Query_for_Dimensions}</note>
+      <width>134</width>
     </notepad>
   </notepads>
   <order>
@@ -1152,7 +1172,7 @@ Email = 'inactive.jung.ahn@uhn.ca'
     <timeout>60000</timeout>
     <useCompression>N</useCompression>
     <module>User</module>
-    <condition>${SF_Query_for_Dimensions}</condition>
+    <condition/>
     <specifyQuery>N</specifyQuery>
     <query/>
     <include_targeturl>N</include_targeturl>
@@ -3874,7 +3894,7 @@ Email = 'inactive.jung.ahn@uhn.ca'
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
-    <copies>20</copies>
+    <copies>2</copies>
     <partitioning>
       <method>none</method>
       <schema_name/>
@@ -4828,7 +4848,7 @@ Email = 'inactive.jung.ahn@uhn.ca'
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
-    <copies>20</copies>
+    <copies>2</copies>
     <partitioning>
       <method>none</method>
       <schema_name/>

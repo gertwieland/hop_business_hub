@@ -2837,12 +2837,16 @@ This is just a quick'n dirty solution.</note>
         <condition>=</condition>
         <field>Institute_ID_SF</field>
         <name>Institute</name>
+        <name2/>
       </key>
+      <orderby/>
       <schema>salesforce_dim</schema>
       <table>Institute</table>
       <value>
+        <default/>
         <name>Institute_ID_SAP</name>
         <rename>Institute_SAP_ID</rename>
+        <trim_type>none</trim_type>
         <type>String</type>
       </value>
     </lookup>
