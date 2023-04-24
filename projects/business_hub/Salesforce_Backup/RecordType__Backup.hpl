@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <pipeline>
   <info>
     <name>RecordType__Backup</name>
@@ -6,7 +7,6 @@
     <extended_description/>
     <pipeline_version/>
     <pipeline_type>Normal</pipeline_type>
-    <directory>/Salesforce_Backup</directory>
     <parameters>
     </parameters>
     <capture_transform_performance>N</capture_transform_performance>
@@ -16,8 +16,6 @@
     <created_date>2023/04/23 22:11:23.578</created_date>
     <modified_user>gert</modified_user>
     <modified_date>2023/01/23 22:22:40.911</modified_date>
-    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
-    <is_key_private>N</is_key_private>
   </info>
   <notepads>
   </notepads>
@@ -51,11 +49,9 @@
       </field>
     </fields>
     <attributes/>
-    <cluster_schema/>
     <GUI>
-      <xloc>832</xloc>
-      <yloc>192</yloc>
-      <draw>Y</draw>
+      <xloc>784</xloc>
+      <yloc>496</yloc>
     </GUI>
   </transform>
   <transform>
@@ -69,18 +65,16 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>MSSQL_RFSDW</connection>
     <commit>100</commit>
-    <update_bypassed>N</update_bypassed>
+    <connection>MSSQL_RFSDW</connection>
     <lookup>
+      <key>
+        <condition>=</condition>
+        <field>Record Type ID</field>
+        <name>Record Type ID</name>
+      </key>
       <schema>salesforce_backup</schema>
       <table>RecordType</table>
-      <key>
-        <name>Record Type ID</name>
-        <field>Record Type ID</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
       <value>
         <name>Record Type ID</name>
         <rename>Record Type ID</rename>
@@ -152,12 +146,11 @@
         <update>Y</update>
       </value>
     </lookup>
+    <update_bypassed>N</update_bypassed>
     <attributes/>
-    <cluster_schema/>
     <GUI>
-      <xloc>1120</xloc>
-      <yloc>192</yloc>
-      <draw>Y</draw>
+      <xloc>1072</xloc>
+      <yloc>496</yloc>
     </GUI>
   </transform>
   <transform>
@@ -171,9 +164,9 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <targeturl>${GW_Salesforce_Webservice_URL}</targeturl>
-    <username>${GW_Salesforce_UserName}</username>
-    <password>${GW_Salesforce_Password}</password>
+    <targeturl>${Salesforce_Webservice_URL}</targeturl>
+    <username>${Salesforce_ETL_Username}</username>
+    <password>${Salesforce_ETL_Password}</password>
     <timeout>60000</timeout>
     <useCompression>N</useCompression>
     <module>RecordType</module>
@@ -382,11 +375,9 @@
     </fields>
     <limit>0</limit>
     <attributes/>
-    <cluster_schema/>
     <GUI>
-      <xloc>544</xloc>
-      <yloc>192</yloc>
-      <draw>Y</draw>
+      <xloc>496</xloc>
+      <yloc>496</yloc>
     </GUI>
   </transform>
   <transform_error_handling>

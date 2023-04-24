@@ -1,0 +1,15 @@
+{
+  "variables" : [ {
+    "name" : "Salesforce_Webservice_URL",
+    "value" : "",
+    "description" : ""
+  }, {
+    "name" : "Salesforce_ETL_Username",
+    "value" : "",
+    "description" : ""
+  }, {
+    "name" : "Salesforce_ETL_Pasword",
+    "value" : "",
+    "description" : ""
+  } ]
+}

@@ -1,0 +1,35 @@
+{
+  "variables" : [ {
+    "name" : "Salesforce_Webservice_URL",
+    "value" : "https://uhn.my.salesforce.com/services/Soap/u/52.0",
+    "description" : ""
+  }, {
+    "name" : "Salesforce_ETL_Username",
+    "value" : "business.hub@uhn.ca.etl.prod",
+    "description" : ""
+  }, {
+    "name" : "Salesforce_ETL_Password",
+    "value" : "Encrypted 44714742514d64334a76764250544c4f336f34623377784f5247313436d8f1e8bd00c3bad29f16a054c8a39ee3",
+    "description" : ""
+  }, {
+    "name" : "MSSQL_Username",
+    "value" : "gert",
+    "description" : ""
+  }, {
+    "name" : "MSSQL_Password",
+    "value" : "Encrypted 2be98afc86aa7daca9a4aaa26cf9ce193",
+    "description" : ""
+  }, {
+    "name" : "MSSQL_Port",
+    "value" : "1433",
+    "description" : ""
+  }, {
+    "name" : "MSSQL_HostName",
+    "value" : "rfsbi.database.windows.net",
+    "description" : ""
+  }, {
+    "name" : "MSSQL_DatabaseName",
+    "value" : "RFS_DataWarehouse",
+    "description" : ""
+  } ]
+}
