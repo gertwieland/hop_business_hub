@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <pipeline>
   <info>
     <name>UHN_FCC__c__Backup</name>
@@ -6,7 +7,6 @@
     <extended_description/>
     <pipeline_version/>
     <pipeline_type>Normal</pipeline_type>
-    <directory>/Salesforce_Backup</directory>
     <parameters>
     </parameters>
     <capture_transform_performance>N</capture_transform_performance>
@@ -16,120 +16,113 @@
     <created_date>2023/04/23 22:11:23.724</created_date>
     <modified_user>gert</modified_user>
     <modified_date>2023/04/20 11:43:35.566</modified_date>
-    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
-    <is_key_private>N</is_key_private>
   </info>
   <notepads>
     <notepad>
-      <note>If one of the attributes changes, it creates a new UID.
-This will create a new record in the "ChangeTracking" table.</note>
-      <xloc>3664</xloc>
-      <yloc>416</yloc>
-      <width>520</width>
-      <heigth>64</heigth>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorred>255</backgroundcolorred>
+      <bordercolorblue>100</bordercolorblue>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorred>100</bordercolorred>
+      <fontbold>N</fontbold>
+      <fontcolorblue>0</fontcolorblue>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorred>0</fontcolorred>
+      <fontitalic>N</fontitalic>
       <fontname>Segoe UI</fontname>
       <fontsize>10</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>205</backgroundcolorgreen>
-      <backgroundcolorblue>112</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
+      <height>42</height>
+      <xloc>3664</xloc>
+      <yloc>416</yloc>
+      <note>If one of the attributes changes, it creates a new UID.
+This will create a new record in the "ChangeTracking" table.</note>
+      <width>520</width>
     </notepad>
     <notepad>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorred>255</backgroundcolorred>
+      <bordercolorblue>100</bordercolorblue>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorred>100</bordercolorred>
+      <fontbold>N</fontbold>
+      <fontcolorblue>0</fontcolorblue>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorred>0</fontcolorred>
+      <fontitalic>N</fontitalic>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <height>66</height>
+      <xloc>496</xloc>
+      <yloc>688</yloc>
       <note>Always rename 
 UHN_Sponsor_Text_Only__c 
 from Sponsor_1 
 to UHN_Sponsor_Text_Only__c</note>
-      <xloc>496</xloc>
-      <yloc>688</yloc>
       <width>248</width>
-      <heigth>106</heigth>
-      <fontname>Segoe UI</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>205</backgroundcolorgreen>
-      <backgroundcolorblue>112</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
     </notepad>
     <notepad>
-      <note>If one of the attributes changes, it creates a new UID.
-This will create a new record in the "ChangeTracking" table.</note>
-      <xloc>4400</xloc>
-      <yloc>272</yloc>
-      <width>520</width>
-      <heigth>64</heigth>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorred>255</backgroundcolorred>
+      <bordercolorblue>100</bordercolorblue>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorred>100</bordercolorred>
+      <fontbold>N</fontbold>
+      <fontcolorblue>0</fontcolorblue>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorred>0</fontcolorred>
+      <fontitalic>N</fontitalic>
       <fontname>Segoe UI</fontname>
       <fontsize>10</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>205</backgroundcolorgreen>
-      <backgroundcolorblue>112</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
+      <height>42</height>
+      <xloc>4400</xloc>
+      <yloc>272</yloc>
+      <note>If one of the attributes changes, it creates a new UID.
+This will create a new record in the "ChangeTracking" table.</note>
+      <width>520</width>
     </notepad>
     <notepad>
-      <note>${SF_Query_for_Dimensions}</note>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorred>255</backgroundcolorred>
+      <bordercolorblue>100</bordercolorblue>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorred>100</bordercolorred>
+      <fontbold>N</fontbold>
+      <fontcolorblue>0</fontcolorblue>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorred>0</fontcolorred>
+      <fontitalic>N</fontitalic>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <height>24</height>
       <xloc>288</xloc>
       <yloc>368</yloc>
+      <note>${SF_Query_for_Dimensions}</note>
       <width>235</width>
-      <heigth>34</heigth>
-      <fontname>Segoe UI</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>205</backgroundcolorgreen>
-      <backgroundcolorblue>112</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
     </notepad>
     <notepad>
-      <note>Change later to local table. 
-This is just a quick'n dirty solution.</note>
-      <xloc>3008</xloc>
-      <yloc>96</yloc>
-      <width>280</width>
-      <heigth>58</heigth>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorred>255</backgroundcolorred>
+      <bordercolorblue>100</bordercolorblue>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorred>100</bordercolorred>
+      <fontbold>N</fontbold>
+      <fontcolorblue>0</fontcolorblue>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorred>0</fontcolorred>
+      <fontitalic>N</fontitalic>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>205</backgroundcolorgreen>
-      <backgroundcolorblue>112</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
+      <height>38</height>
+      <xloc>3008</xloc>
+      <yloc>96</yloc>
+      <note>Change later to local table. 
+This is just a quick'n dirty solution.</note>
+      <width>280</width>
     </notepad>
   </notepads>
   <order>
@@ -270,35 +263,30 @@ This is just a quick'n dirty solution.</note>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>MSSQL_RFSDW</connection>
     <cache>Y</cache>
     <cache_load_all>Y</cache_load_all>
     <cache_size>0</cache_size>
+    <connection>MSSQL_RFSDW</connection>
     <lookup>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <fail_on_multiple>N</fail_on_multiple>
+      <key>
+        <condition>=</condition>
+        <field>Contact ID</field>
+        <name>Account Holder</name>
+      </key>
       <schema>salesforce_dim</schema>
       <table>Contact</table>
-      <orderby/>
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
-        <name>Account Holder</name>
-        <field>Contact ID</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
       <value>
         <name>ENID</name>
         <rename>ENID_Account_Holder</rename>
-        <default/>
         <type>String</type>
       </value>
     </lookup>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>2304</xloc>
       <yloc>512</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -313,11 +301,9 @@ This is just a quick'n dirty solution.</note>
       <schema_name/>
     </partitioning>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>4320</xloc>
       <yloc>512</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -331,35 +317,30 @@ This is just a quick'n dirty solution.</note>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>MSSQL_RFSDW</connection>
     <cache>Y</cache>
     <cache_load_all>Y</cache_load_all>
     <cache_size>0</cache_size>
+    <connection>MSSQL_RFSDW</connection>
     <lookup>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <fail_on_multiple>N</fail_on_multiple>
+      <key>
+        <condition>=</condition>
+        <field>Sponsor_ID_SF</field>
+        <name>Sponsor</name>
+      </key>
       <schema>salesforce_dim</schema>
       <table>Sponsor</table>
-      <orderby/>
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
-        <name>Sponsor</name>
-        <field>Sponsor_ID_SF</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
       <value>
         <name>Sponsor_ID_SAP</name>
         <rename>Sponsor_SAP_ID</rename>
-        <default/>
         <type>String</type>
       </value>
     </lookup>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>1792</xloc>
       <yloc>512</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -373,18 +354,16 @@ This is just a quick'n dirty solution.</note>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>MSSQL_RFSDW</connection>
     <commit>100</commit>
-    <update_bypassed>N</update_bypassed>
+    <connection>MSSQL_RFSDW</connection>
     <lookup>
+      <key>
+        <condition>=</condition>
+        <field>FCC Number</field>
+        <name>FCC Number</name>
+      </key>
       <schema>errors_loading</schema>
       <table>FCC_local</table>
-      <key>
-        <name>FCC Number</name>
-        <field>FCC Number</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
       <value>
         <name>LastUpdate</name>
         <rename>LastUpdate</rename>
@@ -1136,12 +1115,11 @@ This is just a quick'n dirty solution.</note>
         <update>Y</update>
       </value>
     </lookup>
+    <update_bypassed>N</update_bypassed>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>5232</xloc>
       <yloc>416</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -1155,35 +1133,30 @@ This is just a quick'n dirty solution.</note>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>MSSQL_RFSDW</connection>
     <cache>Y</cache>
     <cache_load_all>N</cache_load_all>
     <cache_size>0</cache_size>
+    <connection>MSSQL_RFSDW</connection>
     <lookup>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <fail_on_multiple>N</fail_on_multiple>
+      <key>
+        <condition>=</condition>
+        <field>Contact ID</field>
+        <name>Expense Analyst</name>
+      </key>
       <schema>salesforce_dim</schema>
       <table>Contact</table>
-      <orderby/>
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
-        <name>Expense Analyst</name>
-        <field>Contact ID</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
       <value>
         <name>Full Name</name>
         <rename>Expense_Analyst_Name</rename>
-        <default/>
         <type>String</type>
       </value>
     </lookup>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>2512</xloc>
       <yloc>512</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -1197,18 +1170,16 @@ This is just a quick'n dirty solution.</note>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>MSSQL_RFSDW</connection>
     <commit>1000</commit>
-    <update_bypassed>N</update_bypassed>
+    <connection>MSSQL_RFSDW</connection>
     <lookup>
+      <key>
+        <condition>=</condition>
+        <field>UID_FlagChanges</field>
+        <name>UID_FlagChanges</name>
+      </key>
       <schema>salesforce_backup</schema>
       <table>FCC</table>
-      <key>
-        <name>UID_FlagChanges</name>
-        <field>UID_FlagChanges</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
       <value>
         <name>Account Holder</name>
         <rename>Account Holder</rename>
@@ -1945,12 +1916,11 @@ This is just a quick'n dirty solution.</note>
         <update>Y</update>
       </value>
     </lookup>
+    <update_bypassed>N</update_bypassed>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>5088</xloc>
       <yloc>624</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -1964,18 +1934,16 @@ This is just a quick'n dirty solution.</note>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>MSSQL_RFSDW</connection>
     <commit>1000</commit>
-    <update_bypassed>N</update_bypassed>
+    <connection>MSSQL_RFSDW</connection>
     <lookup>
+      <key>
+        <condition>=</condition>
+        <field>FCC_Number</field>
+        <name>FCC Number</name>
+      </key>
       <schema>salesforce_dim</schema>
       <table>FCC</table>
-      <key>
-        <name>FCC Number</name>
-        <field>FCC_Number</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
       <value>
         <name>Account Holder</name>
         <rename>Account Holder</rename>
@@ -2712,12 +2680,11 @@ This is just a quick'n dirty solution.</note>
         <update>Y</update>
       </value>
     </lookup>
+    <update_bypassed>N</update_bypassed>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>5056</xloc>
       <yloc>416</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -2731,84 +2698,84 @@ This is just a quick'n dirty solution.</note>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <send_true_to>Entity (Sponsor)</send_true_to>
-    <send_false_to/>
     <compare>
       <condition>
-        <negated>N</negated>
         <conditions>
           <condition>
-            <negated>N</negated>
-            <leftvalue>SAP Id</leftvalue>
+            <conditions>
+</conditions>
             <function>STARTS WITH</function>
-            <rightvalue/>
+            <leftvalue>SAP Id</leftvalue>
+            <negated>N</negated>
+            <operator>-</operator>
             <value>
+              <isnull>N</isnull>
+              <length>-1</length>
               <name>constant</name>
-              <type>String</type>
+              <precision>-1</precision>
               <text>410</text>
-              <length>-1</length>
-              <precision>-1</precision>
-              <isnull>N</isnull>
-              <mask/>
+              <type>String</type>
             </value>
           </condition>
           <condition>
+            <conditions>
+</conditions>
+            <function>STARTS WITH</function>
+            <leftvalue>SAP Id</leftvalue>
             <negated>N</negated>
             <operator>OR</operator>
-            <leftvalue>SAP Id</leftvalue>
-            <function>STARTS WITH</function>
-            <rightvalue/>
             <value>
+              <isnull>N</isnull>
+              <length>-1</length>
               <name>constant</name>
-              <type>String</type>
+              <precision>-1</precision>
               <text>777</text>
-              <length>-1</length>
-              <precision>-1</precision>
-              <isnull>N</isnull>
-              <mask/>
+              <type>String</type>
             </value>
           </condition>
           <condition>
+            <conditions>
+</conditions>
+            <function>STARTS WITH</function>
+            <leftvalue>SAP Id</leftvalue>
             <negated>N</negated>
             <operator>OR</operator>
-            <leftvalue>SAP Id</leftvalue>
-            <function>STARTS WITH</function>
-            <rightvalue/>
             <value>
+              <isnull>N</isnull>
+              <length>-1</length>
               <name>constant</name>
-              <type>String</type>
+              <precision>-1</precision>
               <text>737</text>
-              <length>-1</length>
-              <precision>-1</precision>
-              <isnull>N</isnull>
-              <mask/>
+              <type>String</type>
             </value>
           </condition>
           <condition>
+            <conditions>
+</conditions>
+            <function>STARTS WITH</function>
+            <leftvalue>SAP Id</leftvalue>
             <negated>N</negated>
             <operator>OR</operator>
-            <leftvalue>SAP Id</leftvalue>
-            <function>STARTS WITH</function>
-            <rightvalue/>
             <value>
-              <name>constant</name>
-              <type>String</type>
-              <text>739</text>
-              <length>-1</length>
-              <precision>-1</precision>
               <isnull>N</isnull>
-              <mask/>
+              <length>-1</length>
+              <name>constant</name>
+              <precision>-1</precision>
+              <text>739</text>
+              <type>String</type>
             </value>
           </condition>
         </conditions>
+        <function>=</function>
+        <negated>N</negated>
+        <operator>-</operator>
       </condition>
     </compare>
+    <send_true_to>Entity (Sponsor)</send_true_to>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>1568</xloc>
       <yloc>432</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -2822,35 +2789,30 @@ This is just a quick'n dirty solution.</note>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>MSSQL_RFSDW</connection>
     <cache>Y</cache>
     <cache_load_all>N</cache_load_all>
     <cache_size>0</cache_size>
+    <connection>MSSQL_RFSDW</connection>
     <lookup>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <fail_on_multiple>N</fail_on_multiple>
+      <key>
+        <condition>=</condition>
+        <field>Contact ID</field>
+        <name>Financial Analyst</name>
+      </key>
       <schema>salesforce_dim</schema>
       <table>Contact</table>
-      <orderby/>
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
-        <name>Financial Analyst</name>
-        <field>Contact ID</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
       <value>
         <name>Full Name</name>
         <rename>Financial_Analyst_Name</rename>
-        <default/>
         <type>String</type>
       </value>
     </lookup>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>2704</xloc>
       <yloc>512</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -2864,35 +2826,30 @@ This is just a quick'n dirty solution.</note>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>MSSQL_RFSDW</connection>
     <cache>Y</cache>
     <cache_load_all>Y</cache_load_all>
     <cache_size>0</cache_size>
+    <connection>MSSQL_RFSDW</connection>
     <lookup>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <fail_on_multiple>N</fail_on_multiple>
+      <key>
+        <condition>=</condition>
+        <field>Institute_ID_SF</field>
+        <name>Institute</name>
+      </key>
       <schema>salesforce_dim</schema>
       <table>Institute</table>
-      <orderby/>
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
-        <name>Institute</name>
-        <field>Institute_ID_SF</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
       <value>
         <name>Institute_ID_SAP</name>
         <rename>Institute_SAP_ID</rename>
-        <default/>
         <type>String</type>
       </value>
     </lookup>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>1296</xloc>
       <yloc>512</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -2906,41 +2863,35 @@ This is just a quick'n dirty solution.</note>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>MSSQL_RFSDW</connection>
     <cache>Y</cache>
     <cache_load_all>Y</cache_load_all>
     <cache_size>0</cache_size>
+    <connection>MSSQL_RFSDW</connection>
     <lookup>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <fail_on_multiple>N</fail_on_multiple>
+      <key>
+        <condition>=</condition>
+        <field>Entity ID</field>
+        <name>Institute</name>
+      </key>
       <schema>salesforce_backup</schema>
       <table>Account</table>
-      <orderby/>
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
-        <name>Institute</name>
-        <field>Entity ID</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
       <value>
         <name>Entity Name</name>
         <rename>InstituteName_SAP</rename>
-        <default/>
         <type>String</type>
       </value>
       <value>
         <name>Financial Report Rollup</name>
         <rename>Financial_Report_Rollup</rename>
-        <default/>
         <type>String</type>
       </value>
     </lookup>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>1040</xloc>
       <yloc>512</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -2954,35 +2905,30 @@ This is just a quick'n dirty solution.</note>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>MSSQL_RFSDW</connection>
     <cache>Y</cache>
     <cache_load_all>Y</cache_load_all>
     <cache_size>0</cache_size>
+    <connection>MSSQL_RFSDW</connection>
     <lookup>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <fail_on_multiple>N</fail_on_multiple>
+      <key>
+        <condition>=</condition>
+        <field>Institute_ID_SF</field>
+        <name>Institute SAP</name>
+      </key>
       <schema>salesforce_dim</schema>
       <table>Institute</table>
-      <orderby/>
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
-        <name>Institute SAP</name>
-        <field>Institute_ID_SF</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
       <value>
         <name>Institute_Name</name>
         <rename>InstituteName_SAP</rename>
-        <default/>
         <type>String</type>
       </value>
     </lookup>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>1040</xloc>
       <yloc>272</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -3003,11 +2949,9 @@ This is just a quick'n dirty solution.</note>
       </field>
     </fields>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>4016</xloc>
       <yloc>512</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -3021,35 +2965,30 @@ This is just a quick'n dirty solution.</note>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>MSSQL_RFSDW</connection>
     <cache>Y</cache>
     <cache_load_all>N</cache_load_all>
     <cache_size>0</cache_size>
+    <connection>MSSQL_RFSDW</connection>
     <lookup>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <fail_on_multiple>N</fail_on_multiple>
+      <key>
+        <condition>=</condition>
+        <field>UID_FlagChanges</field>
+        <name>UID_FlagChanges</name>
+      </key>
       <schema>salesforce_backup</schema>
       <table>FCC</table>
-      <orderby/>
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
-        <name>UID_FlagChanges</name>
-        <field>UID_FlagChanges</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
       <value>
         <name>UID_FlagChanges</name>
         <rename>UID_FlagChanges_InTable</rename>
-        <default/>
         <type>String</type>
       </value>
     </lookup>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>4592</xloc>
       <yloc>624</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -3063,35 +3002,30 @@ This is just a quick'n dirty solution.</note>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>MSSQL_RFSDW</connection>
     <cache>Y</cache>
     <cache_load_all>Y</cache_load_all>
     <cache_size>0</cache_size>
+    <connection>MSSQL_RFSDW</connection>
     <lookup>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <fail_on_multiple>N</fail_on_multiple>
+      <key>
+        <condition>=</condition>
+        <field>UID_FlagChanges</field>
+        <name>UID_FlagChanges</name>
+      </key>
       <schema>salesforce_dim</schema>
       <table>FCC</table>
-      <orderby/>
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
-        <name>UID_FlagChanges</name>
-        <field>UID_FlagChanges</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
       <value>
         <name>UID_FlagChanges</name>
         <rename>UID_FlagChanges_InTable</rename>
-        <default/>
         <type>String</type>
       </value>
     </lookup>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>4576</xloc>
       <yloc>416</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -3105,35 +3039,30 @@ This is just a quick'n dirty solution.</note>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>MSSQL_RFSDW</connection>
     <cache>Y</cache>
     <cache_load_all>Y</cache_load_all>
     <cache_size>0</cache_size>
+    <connection>MSSQL_RFSDW</connection>
     <lookup>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <fail_on_multiple>N</fail_on_multiple>
+      <key>
+        <condition>=</condition>
+        <field>Sponsor_ID_SF</field>
+        <name>Original Sponsor</name>
+      </key>
       <schema>salesforce_dim</schema>
       <table>Sponsor</table>
-      <orderby/>
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
-        <name>Original Sponsor</name>
-        <field>Sponsor_ID_SF</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
       <value>
         <name>Sponsor_Name</name>
         <rename>OriginalSponsor_Name</rename>
-        <default/>
         <type>String</type>
       </value>
     </lookup>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>2048</xloc>
       <yloc>512</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -3147,9 +3076,9 @@ This is just a quick'n dirty solution.</note>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <targeturl>${GW_Salesforce_Webservice_URL}</targeturl>
-    <username>${GW_Salesforce_UserName}</username>
-    <password>${GW_Salesforce_Password}</password>
+    <targeturl>${Salesforce_Webservice_URL}</targeturl>
+    <username>${Salesforce_ETL_Username}</username>
+    <password>${Salesforce_ETL_Password}</password>
     <timeout>60000</timeout>
     <useCompression>N</useCompression>
     <module>UHN_Portfolio_Code__c</module>
@@ -3204,11 +3133,9 @@ This is just a quick'n dirty solution.</note>
     </fields>
     <limit>0</limit>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>3072</xloc>
       <yloc>272</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -3222,35 +3149,30 @@ This is just a quick'n dirty solution.</note>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>MSSQL_RFSDW</connection>
     <cache>Y</cache>
     <cache_load_all>Y</cache_load_all>
     <cache_size>0</cache_size>
+    <connection>MSSQL_RFSDW</connection>
     <lookup>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <fail_on_multiple>N</fail_on_multiple>
+      <key>
+        <condition>=</condition>
+        <field>Record Type ID</field>
+        <name>Report Status</name>
+      </key>
       <schema>salesforce_backup</schema>
       <table>RecordType</table>
-      <orderby/>
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
-        <name>Report Status</name>
-        <field>Record Type ID</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
       <value>
         <name>Record Type Name</name>
         <rename>RecordTypeName</rename>
-        <default/>
         <type>String</type>
       </value>
     </lookup>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>784</xloc>
       <yloc>512</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -3266,156 +3188,130 @@ This is just a quick'n dirty solution.</note>
     </partitioning>
     <fields>
       <field>
+        <case_sensitive>N</case_sensitive>
         <in_stream_name>IsBlocked</in_stream_name>
-        <out_stream_name/>
-        <use_regex>no</use_regex>
-        <replace_string>N</replace_string>
+        <is_unicode>N</is_unicode>
         <replace_by_string>No</replace_by_string>
+        <replace_string>N</replace_string>
         <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>no</whole_word>
-        <case_sensitive>no</case_sensitive>
-        <is_unicode>no</is_unicode>
+        <use_regex>N</use_regex>
+        <whole_word>N</whole_word>
       </field>
       <field>
+        <case_sensitive>N</case_sensitive>
         <in_stream_name>IsBlocked</in_stream_name>
-        <out_stream_name/>
-        <use_regex>no</use_regex>
-        <replace_string>Y</replace_string>
+        <is_unicode>N</is_unicode>
         <replace_by_string>Yes</replace_by_string>
+        <replace_string>Y</replace_string>
         <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>no</whole_word>
-        <case_sensitive>no</case_sensitive>
-        <is_unicode>no</is_unicode>
+        <use_regex>N</use_regex>
+        <whole_word>N</whole_word>
       </field>
       <field>
+        <case_sensitive>N</case_sensitive>
         <in_stream_name>Is In-Kind-Matching</in_stream_name>
-        <out_stream_name/>
-        <use_regex>no</use_regex>
-        <replace_string>N</replace_string>
+        <is_unicode>N</is_unicode>
         <replace_by_string>No</replace_by_string>
+        <replace_string>N</replace_string>
         <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>no</whole_word>
-        <case_sensitive>no</case_sensitive>
-        <is_unicode>no</is_unicode>
+        <use_regex>N</use_regex>
+        <whole_word>N</whole_word>
       </field>
       <field>
+        <case_sensitive>N</case_sensitive>
         <in_stream_name>Is In-Kind-Matching</in_stream_name>
-        <out_stream_name/>
-        <use_regex>no</use_regex>
-        <replace_string>Y</replace_string>
+        <is_unicode>N</is_unicode>
         <replace_by_string>Yes</replace_by_string>
+        <replace_string>Y</replace_string>
         <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>no</whole_word>
-        <case_sensitive>no</case_sensitive>
-        <is_unicode>no</is_unicode>
+        <use_regex>N</use_regex>
+        <whole_word>N</whole_word>
       </field>
       <field>
+        <case_sensitive>N</case_sensitive>
         <in_stream_name>Is To be Closed</in_stream_name>
-        <out_stream_name/>
-        <use_regex>no</use_regex>
-        <replace_string>N</replace_string>
+        <is_unicode>N</is_unicode>
         <replace_by_string>No</replace_by_string>
+        <replace_string>N</replace_string>
         <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>no</whole_word>
-        <case_sensitive>no</case_sensitive>
-        <is_unicode>no</is_unicode>
+        <use_regex>N</use_regex>
+        <whole_word>N</whole_word>
       </field>
       <field>
+        <case_sensitive>N</case_sensitive>
         <in_stream_name>Is To be Closed</in_stream_name>
-        <out_stream_name/>
-        <use_regex>no</use_regex>
-        <replace_string>Y</replace_string>
+        <is_unicode>N</is_unicode>
         <replace_by_string>Yes</replace_by_string>
+        <replace_string>Y</replace_string>
         <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>no</whole_word>
-        <case_sensitive>no</case_sensitive>
-        <is_unicode>no</is_unicode>
+        <use_regex>N</use_regex>
+        <whole_word>N</whole_word>
       </field>
       <field>
+        <case_sensitive>N</case_sensitive>
         <in_stream_name>Is Start-Up</in_stream_name>
-        <out_stream_name/>
-        <use_regex>no</use_regex>
-        <replace_string>N</replace_string>
+        <is_unicode>N</is_unicode>
         <replace_by_string>No</replace_by_string>
+        <replace_string>N</replace_string>
         <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>no</whole_word>
-        <case_sensitive>no</case_sensitive>
-        <is_unicode>no</is_unicode>
+        <use_regex>N</use_regex>
+        <whole_word>N</whole_word>
       </field>
       <field>
+        <case_sensitive>N</case_sensitive>
         <in_stream_name>Is Start-Up</in_stream_name>
-        <out_stream_name/>
-        <use_regex>no</use_regex>
-        <replace_string>Y</replace_string>
+        <is_unicode>N</is_unicode>
         <replace_by_string>Yes</replace_by_string>
+        <replace_string>Y</replace_string>
         <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>no</whole_word>
-        <case_sensitive>no</case_sensitive>
-        <is_unicode>no</is_unicode>
+        <use_regex>N</use_regex>
+        <whole_word>N</whole_word>
       </field>
       <field>
+        <case_sensitive>N</case_sensitive>
         <in_stream_name>Is New Deficit</in_stream_name>
-        <out_stream_name/>
-        <use_regex>no</use_regex>
-        <replace_string>N</replace_string>
+        <is_unicode>N</is_unicode>
         <replace_by_string>No</replace_by_string>
+        <replace_string>N</replace_string>
         <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>no</whole_word>
-        <case_sensitive>no</case_sensitive>
-        <is_unicode>no</is_unicode>
+        <use_regex>N</use_regex>
+        <whole_word>N</whole_word>
       </field>
       <field>
+        <case_sensitive>N</case_sensitive>
         <in_stream_name>Is New Deficit</in_stream_name>
-        <out_stream_name/>
-        <use_regex>no</use_regex>
-        <replace_string>Y</replace_string>
+        <is_unicode>N</is_unicode>
         <replace_by_string>Yes</replace_by_string>
+        <replace_string>Y</replace_string>
         <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>no</whole_word>
-        <case_sensitive>no</case_sensitive>
-        <is_unicode>no</is_unicode>
+        <use_regex>N</use_regex>
+        <whole_word>N</whole_word>
       </field>
       <field>
+        <case_sensitive>N</case_sensitive>
         <in_stream_name>ExcludeFromEmailNotification</in_stream_name>
-        <out_stream_name/>
-        <use_regex>no</use_regex>
-        <replace_string>N</replace_string>
+        <is_unicode>N</is_unicode>
         <replace_by_string>No</replace_by_string>
+        <replace_string>N</replace_string>
         <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>no</whole_word>
-        <case_sensitive>no</case_sensitive>
-        <is_unicode>no</is_unicode>
+        <use_regex>N</use_regex>
+        <whole_word>N</whole_word>
       </field>
       <field>
+        <case_sensitive>N</case_sensitive>
         <in_stream_name>ExcludeFromEmailNotification</in_stream_name>
-        <out_stream_name/>
-        <use_regex>no</use_regex>
-        <replace_string>Y</replace_string>
+        <is_unicode>N</is_unicode>
         <replace_by_string>Yes</replace_by_string>
+        <replace_string>Y</replace_string>
         <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>no</whole_word>
-        <case_sensitive>no</case_sensitive>
-        <is_unicode>no</is_unicode>
+        <use_regex>N</use_regex>
+        <whole_word>N</whole_word>
       </field>
     </fields>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>3312</xloc>
       <yloc>512</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -4245,11 +4141,9 @@ This is just a quick'n dirty solution.</note>
       </meta>
     </fields>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>3568</xloc>
       <yloc>512</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -4384,11 +4278,9 @@ This is just a quick'n dirty solution.</note>
       </meta>
     </fields>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>2864</xloc>
       <yloc>512</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -4429,11 +4321,9 @@ This is just a quick'n dirty solution.</note>
       </meta>
     </fields>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>4160</xloc>
       <yloc>512</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -4447,22 +4337,21 @@ This is just a quick'n dirty solution.</note>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <send_true_to>FCC Backup</send_true_to>
-    <send_false_to/>
     <compare>
       <condition>
-        <negated>N</negated>
-        <leftvalue>UID_FlagChanges_InTable</leftvalue>
+        <conditions>
+</conditions>
         <function>IS NULL</function>
-        <rightvalue/>
+        <leftvalue>UID_FlagChanges_InTable</leftvalue>
+        <negated>N</negated>
+        <operator>-</operator>
       </condition>
     </compare>
+    <send_true_to>FCC Backup</send_true_to>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>4816</xloc>
       <yloc>624</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -4476,22 +4365,21 @@ This is just a quick'n dirty solution.</note>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <send_true_to>FCC Dim</send_true_to>
-    <send_false_to/>
     <compare>
       <condition>
-        <negated>N</negated>
-        <leftvalue>UID_FlagChanges_InTable</leftvalue>
+        <conditions>
+</conditions>
         <function>IS NULL</function>
-        <rightvalue/>
+        <leftvalue>UID_FlagChanges_InTable</leftvalue>
+        <negated>N</negated>
+        <operator>-</operator>
       </condition>
     </compare>
+    <send_true_to>FCC Dim</send_true_to>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>4800</xloc>
       <yloc>416</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -4523,11 +4411,9 @@ This is just a quick'n dirty solution.</note>
       </value>
     </lookup>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>3088</xloc>
       <yloc>496</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -4541,13 +4427,13 @@ This is just a quick'n dirty solution.</note>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <targeturl>${GW_Salesforce_Webservice_URL}</targeturl>
-    <username>${GW_Salesforce_UserName}</username>
-    <password>${GW_Salesforce_Password}</password>
+    <targeturl>${Salesforce_Webservice_URL}</targeturl>
+    <username>${Salesforce_ETL_Username}</username>
+    <password>${Salesforce_ETL_Password}</password>
     <timeout>60000</timeout>
     <useCompression>N</useCompression>
     <module>UHN_FCC__c</module>
-    <condition/>
+    <condition>${SF_Query_for_Dimensions}</condition>
     <specifyQuery>N</specifyQuery>
     <query/>
     <include_targeturl>N</include_targeturl>
@@ -6516,11 +6402,9 @@ This is just a quick'n dirty solution.</note>
     </fields>
     <limit>0</limit>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>512</xloc>
       <yloc>512</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -6535,17 +6419,6 @@ This is just a quick'n dirty solution.</note>
       <schema_name/>
     </partitioning>
     <checksumtype>SHA-256</checksumtype>
-    <resultfieldName>UID_FlagChanges</resultfieldName>
-    <resultType>hexadecimal</resultType>
-    <compatibilityMode>N</compatibilityMode>
-    <oldChecksumBehaviour>N</oldChecksumBehaviour>
-    <fieldSeparatorString>-</fieldSeparatorString>
-    <checksumtype>SHA-256</checksumtype>
-    <resultfieldName>UID_FlagChanges</resultfieldName>
-    <resultType>hexadecimal</resultType>
-    <compatibilityMode>N</compatibilityMode>
-    <oldChecksumBehaviour>N</oldChecksumBehaviour>
-    <fieldSeparatorString>-</fieldSeparatorString>
     <fields>
       <field>
         <name>Account Holder</name>
@@ -6968,12 +6841,12 @@ This is just a quick'n dirty solution.</note>
         <name>Financial_Report_Rollup</name>
       </field>
     </fields>
+    <resultType>hexadecimal</resultType>
+    <resultfieldName>UID_FlagChanges</resultfieldName>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>3824</xloc>
       <yloc>512</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform_error_handling>

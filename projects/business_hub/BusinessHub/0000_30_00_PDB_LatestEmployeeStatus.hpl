@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <pipeline>
   <info>
     <name>0000_30_00_PDB_LatestEmployeeStatus</name>
@@ -6,7 +7,6 @@
     <extended_description/>
     <pipeline_version/>
     <pipeline_type>Normal</pipeline_type>
-    <directory>/BusinessHub</directory>
     <parameters>
     </parameters>
     <capture_transform_performance>N</capture_transform_performance>
@@ -16,70 +16,51 @@
     <created_date>2022/02/22 16:32:50.951</created_date>
     <modified_user>gert</modified_user>
     <modified_date>2023/04/18 16:23:42.276</modified_date>
-    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
-    <is_key_private>N</is_key_private>
   </info>
   <notepads>
     <notepad>
-      <note>Tracked</note>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorred>255</backgroundcolorred>
+      <bordercolorblue>100</bordercolorblue>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorred>100</bordercolorred>
+      <fontbold>N</fontbold>
+      <fontcolorblue>0</fontcolorblue>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorred>0</fontcolorred>
+      <fontitalic>N</fontitalic>
+      <fontname>Segoe UI</fontname>
+      <fontsize>10</fontsize>
+      <height>26</height>
       <xloc>0</xloc>
       <yloc>0</yloc>
+      <note>Tracked</note>
       <width>76</width>
-      <heigth>37</heigth>
-      <fontname>Segoe UI</fontname>
-      <fontsize>10</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>205</backgroundcolorgreen>
-      <backgroundcolorblue>112</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
     </notepad>
     <notepad>
-      <note>Check if date filter is ok,
-or if all records should be pulled</note>
-      <xloc>288</xloc>
-      <yloc>352</yloc>
-      <width>291</width>
-      <heigth>64</heigth>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorred>255</backgroundcolorred>
+      <bordercolorblue>100</bordercolorblue>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorred>100</bordercolorred>
+      <fontbold>N</fontbold>
+      <fontcolorblue>0</fontcolorblue>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorred>0</fontcolorred>
+      <fontitalic>N</fontitalic>
       <fontname>Segoe UI</fontname>
       <fontsize>10</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>205</backgroundcolorgreen>
-      <backgroundcolorblue>112</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
+      <height>42</height>
+      <xloc>464</xloc>
+      <yloc>320</yloc>
+      <note>Check if date filter is ok,
+or if all records should be pulled</note>
+      <width>291</width>
     </notepad>
   </notepads>
   <order>
-    <hop>
-      <from>Sort rows</from>
-      <to>Current Record</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Current Record</from>
-      <to>Latest Status</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Latest Status</from>
-      <to>Status Description</to>
-      <enabled>Y</enabled>
-    </hop>
     <hop>
       <from>Status Description</from>
       <to>Select values</to>
@@ -115,6 +96,21 @@ or if all records should be pulled</note>
       <to>Sort rows</to>
       <enabled>Y</enabled>
     </hop>
+    <hop>
+      <from>Sort rows</from>
+      <to>Current Record</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Current Record</from>
+      <to>Latest Status</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>pdb.STDB_EMPLOYEESTATUS 2</from>
+      <to>Status Description</to>
+      <enabled>Y</enabled>
+    </hop>
   </order>
   <transform>
     <name>Current Record</name>
@@ -127,20 +123,18 @@ or if all records should be pulled</note>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <start>1</start>
-    <increment>1</increment>
-    <resultfieldName>Sequence</resultfieldName>
     <fields>
       <field>
         <name>ENID</name>
       </field>
     </fields>
+    <increment>1</increment>
+    <resultfieldName>Sequence</resultfieldName>
+    <start>1</start>
     <attributes/>
-    <cluster_schema/>
     <GUI>
-      <xloc>944</xloc>
-      <yloc>416</yloc>
-      <draw>Y</draw>
+      <xloc>960</xloc>
+      <yloc>560</yloc>
     </GUI>
   </transform>
   <transform>
@@ -154,22 +148,21 @@ or if all records should be pulled</note>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <send_true_to>Get system info</send_true_to>
-    <send_false_to/>
     <compare>
       <condition>
-        <negated>N</negated>
-        <leftvalue>UID_FlagChanges_In_SF</leftvalue>
+        <conditions>
+</conditions>
         <function>IS NULL</function>
-        <rightvalue/>
+        <leftvalue>UID_FlagChanges_In_SF</leftvalue>
+        <negated>N</negated>
+        <operator>-</operator>
       </condition>
     </compare>
+    <send_true_to>Get system info</send_true_to>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>2144</xloc>
       <yloc>416</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -183,35 +176,30 @@ or if all records should be pulled</note>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>MSSQL_RFSDW</connection>
     <cache>Y</cache>
     <cache_load_all>Y</cache_load_all>
     <cache_size>0</cache_size>
+    <connection>MSSQL_RFSDW</connection>
     <lookup>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <fail_on_multiple>N</fail_on_multiple>
+      <key>
+        <condition>=</condition>
+        <field>UID_FlagChanges</field>
+        <name>UID_FlagChanges</name>
+      </key>
       <schema>pdb</schema>
       <table>LatestEmployeeStatus</table>
-      <orderby/>
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
-        <name>UID_FlagChanges</name>
-        <field>UID_FlagChanges</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
       <value>
         <name>UID_FlagChanges</name>
         <rename>UID_FlagChanges_In_SF</rename>
-        <default/>
         <type>String</type>
       </value>
     </lookup>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>1936</xloc>
       <yloc>416</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -226,17 +214,6 @@ or if all records should be pulled</note>
       <schema_name/>
     </partitioning>
     <checksumtype>SHA-256</checksumtype>
-    <resultfieldName>UID_FlagChanges</resultfieldName>
-    <resultType>hexadecimal</resultType>
-    <compatibilityMode>N</compatibilityMode>
-    <oldChecksumBehaviour>N</oldChecksumBehaviour>
-    <fieldSeparatorString>-</fieldSeparatorString>
-    <checksumtype>SHA-256</checksumtype>
-    <resultfieldName>UID_FlagChanges</resultfieldName>
-    <resultType>hexadecimal</resultType>
-    <compatibilityMode>N</compatibilityMode>
-    <oldChecksumBehaviour>N</oldChecksumBehaviour>
-    <fieldSeparatorString>-</fieldSeparatorString>
     <fields>
       <field>
         <name>ENID</name>
@@ -248,12 +225,12 @@ or if all records should be pulled</note>
         <name>Validity</name>
       </field>
     </fields>
+    <resultType>hexadecimal</resultType>
+    <resultfieldName>UID_FlagChanges</resultfieldName>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>1744</xloc>
       <yloc>416</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -274,11 +251,9 @@ or if all records should be pulled</note>
       </field>
     </fields>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>2352</xloc>
       <yloc>416</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -292,18 +267,16 @@ or if all records should be pulled</note>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>MSSQL_RFSDW</connection>
     <commit>1000</commit>
-    <update_bypassed>N</update_bypassed>
+    <connection>MSSQL_RFSDW</connection>
     <lookup>
+      <key>
+        <condition>=</condition>
+        <field>ENID</field>
+        <name>ENID</name>
+      </key>
       <schema>pdb</schema>
       <table>LatestEmployeeStatus</table>
-      <key>
-        <name>ENID</name>
-        <field>ENID</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
       <value>
         <name>ENID</name>
         <rename>ENID</rename>
@@ -330,12 +303,11 @@ or if all records should be pulled</note>
         <update>Y</update>
       </value>
     </lookup>
+    <update_bypassed>N</update_bypassed>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>2544</xloc>
       <yloc>416</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -349,31 +321,30 @@ or if all records should be pulled</note>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <send_true_to>Status Description</send_true_to>
-    <send_false_to/>
     <compare>
       <condition>
-        <negated>N</negated>
-        <leftvalue>Sequence</leftvalue>
+        <conditions>
+</conditions>
         <function>=</function>
-        <rightvalue/>
+        <leftvalue>Sequence</leftvalue>
+        <negated>N</negated>
+        <operator>-</operator>
         <value>
-          <name>constant</name>
-          <type>Integer</type>
-          <text>1</text>
-          <length>-1</length>
-          <precision>0</precision>
           <isnull>N</isnull>
+          <length>-1</length>
           <mask>#</mask>
+          <name>constant</name>
+          <precision>0</precision>
+          <text>1</text>
+          <type>Integer</type>
         </value>
       </condition>
     </compare>
+    <send_true_to>Status Description</send_true_to>
     <attributes/>
-    <cluster_schema/>
     <GUI>
-      <xloc>1136</xloc>
-      <yloc>416</yloc>
-      <draw>Y</draw>
+      <xloc>1152</xloc>
+      <yloc>560</yloc>
     </GUI>
   </transform>
   <transform>
@@ -400,11 +371,9 @@ or if all records should be pulled</note>
       <select_unspecified>N</select_unspecified>
     </fields>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>1536</xloc>
       <yloc>416</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -444,11 +413,9 @@ or if all records should be pulled</note>
       </field>
     </fields>
     <attributes/>
-    <cluster_schema/>
     <GUI>
-      <xloc>736</xloc>
-      <yloc>416</yloc>
-      <draw>Y</draw>
+      <xloc>752</xloc>
+      <yloc>560</yloc>
     </GUI>
   </transform>
   <transform>
@@ -462,7 +429,6 @@ or if all records should be pulled</note>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <compatible>N</compatible>
     <optimizationLevel>9</optimizationLevel>
     <jsScripts>
       <jsScript>
@@ -554,11 +520,9 @@ switch (true) {
       </field>
     </fields>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>1344</xloc>
       <yloc>416</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -573,162 +537,48 @@ switch (true) {
       <schema_name/>
     </partitioning>
     <connection>MSSQL_RFSDW</connection>
+    <execute_each_row>N</execute_each_row>
+    <limit>0</limit>
     <sql>SELECT *
 FROM pdb.STDB_EMPLOYEESTATUS
 --WHERE LastUpdate >=  DATEADD(DAY, -7, GETDATE())
 </sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <cached_row_meta_active>N</cached_row_meta_active>
-    <row-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>ENID</name>
-        <length>255</length>
-        <precision>-1</precision>
-        <origin>pdb.STDB_EMPLOYEESTATUS</origin>
-        <comments>ENID</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Integer</type>
-        <storagetype>normal</storagetype>
-        <name>EVSQN</name>
-        <length>9</length>
-        <precision>0</precision>
-        <origin>pdb.STDB_EMPLOYEESTATUS</origin>
-        <comments>EVSQN</comments>
-        <conversion_Mask>####0;-####0</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Integer</type>
-        <storagetype>normal</storagetype>
-        <name>STATUSID</name>
-        <length>9</length>
-        <precision>0</precision>
-        <origin>pdb.STDB_EMPLOYEESTATUS</origin>
-        <comments>STATUSID</comments>
-        <conversion_Mask>####0;-####0</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Integer</type>
-        <storagetype>normal</storagetype>
-        <name>VALIDID</name>
-        <length>9</length>
-        <precision>0</precision>
-        <origin>pdb.STDB_EMPLOYEESTATUS</origin>
-        <comments>VALIDID</comments>
-        <conversion_Mask>####0;-####0</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>ROWID_CHECKSUM_PKEY</name>
-        <length>64</length>
-        <precision>-1</precision>
-        <origin>pdb.STDB_EMPLOYEESTATUS</origin>
-        <comments>ROWID_CHECKSUM_PKEY</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Timestamp</type>
-        <storagetype>normal</storagetype>
-        <name>LASTUPDATE</name>
-        <length>3</length>
-        <precision>-1</precision>
-        <origin>pdb.STDB_EMPLOYEESTATUS</origin>
-        <comments>LASTUPDATE</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-    </row-meta>
     <attributes/>
-    <cluster_schema/>
     <GUI>
-      <xloc>544</xloc>
+      <xloc>368</xloc>
+      <yloc>560</yloc>
+    </GUI>
+  </transform>
+  <transform>
+    <name>pdb.STDB_EMPLOYEESTATUS 2</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>MSSQL_RFSDW</connection>
+    <execute_each_row>N</execute_each_row>
+    <limit>0</limit>
+    <sql>SELECT t.ENID, t.STATUSID, t.VALIDID
+FROM pdb.STDB_EMPLOYEESTATUS t
+INNER JOIN (
+  SELECT ENID, MAX(EVSQN) AS max_seq
+  FROM pdb.STDB_EMPLOYEESTATUS
+  GROUP BY ENID
+) latest
+ON t.ENID = latest.ENID AND t.EVSQN = latest.max_seq
+WHERE t.lastupdate >= DATEADD(day, -7, GETDATE());
+</sql>
+    <variables_active>N</variables_active>
+    <attributes/>
+    <GUI>
+      <xloc>512</xloc>
       <yloc>416</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform_error_handling>

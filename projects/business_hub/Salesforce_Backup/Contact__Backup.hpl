@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <pipeline>
   <info>
     <name>Contact__Backup</name>
@@ -6,7 +7,6 @@
     <extended_description/>
     <pipeline_version/>
     <pipeline_type>Normal</pipeline_type>
-    <directory>/Salesforce_Backup</directory>
     <parameters>
     </parameters>
     <capture_transform_performance>N</capture_transform_performance>
@@ -16,94 +16,88 @@
     <created_date>2023/04/23 22:11:23.527</created_date>
     <modified_user>gert</modified_user>
     <modified_date>2023/04/01 13:39:29.552</modified_date>
-    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
-    <is_key_private>N</is_key_private>
   </info>
   <notepads>
     <notepad>
-      <note>Add a new record per contact if any of the relevant fields has changed.</note>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorred>255</backgroundcolorred>
+      <bordercolorblue>100</bordercolorblue>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorred>100</bordercolorred>
+      <fontbold>N</fontbold>
+      <fontcolorblue>0</fontcolorblue>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorred>0</fontcolorred>
+      <fontitalic>N</fontitalic>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <height>24</height>
       <xloc>4528</xloc>
       <yloc>688</yloc>
+      <note>Add a new record per contact if any of the relevant fields has changed.</note>
       <width>568</width>
-      <heigth>34</heigth>
-      <fontname>Segoe UI</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>205</backgroundcolorgreen>
-      <backgroundcolorblue>112</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
     </notepad>
     <notepad>
-      <note>Update the contact record if any of the relevant fields has changed.</note>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorred>255</backgroundcolorred>
+      <bordercolorblue>100</bordercolorblue>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorred>100</bordercolorred>
+      <fontbold>N</fontbold>
+      <fontcolorblue>0</fontcolorblue>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorred>0</fontcolorred>
+      <fontitalic>N</fontitalic>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <height>24</height>
       <xloc>4528</xloc>
       <yloc>864</yloc>
+      <note>Update the contact record if any of the relevant fields has changed.</note>
       <width>540</width>
-      <heigth>34</heigth>
-      <fontname>Segoe UI</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>205</backgroundcolorgreen>
-      <backgroundcolorblue>112</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
     </notepad>
     <notepad>
-      <note>Always rename UHN_Full_Name__c 
-from "Full Name" to "UHN_Full_Name__c"</note>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorred>255</backgroundcolorred>
+      <bordercolorblue>100</bordercolorblue>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorred>100</bordercolorred>
+      <fontbold>N</fontbold>
+      <fontcolorblue>0</fontcolorblue>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorred>0</fontcolorred>
+      <fontitalic>N</fontitalic>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <height>38</height>
       <xloc>240</xloc>
       <yloc>880</yloc>
+      <note>Always rename UHN_Full_Name__c 
+from "Full Name" to "UHN_Full_Name__c"</note>
       <width>337</width>
-      <heigth>58</heigth>
-      <fontname>Segoe UI</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>205</backgroundcolorgreen>
-      <backgroundcolorblue>112</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
     </notepad>
     <notepad>
-      <note>${SF_Query_for_Dimensions}</note>
-      <xloc>288</xloc>
-      <yloc>288</yloc>
-      <width>235</width>
-      <heigth>34</heigth>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorred>255</backgroundcolorred>
+      <bordercolorblue>100</bordercolorblue>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorred>100</bordercolorred>
+      <fontbold>N</fontbold>
+      <fontcolorblue>0</fontcolorblue>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorred>0</fontcolorred>
+      <fontitalic>N</fontitalic>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>205</backgroundcolorgreen>
-      <backgroundcolorblue>112</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
+      <height>24</height>
+      <xloc>288</xloc>
+      <yloc>288</yloc>
+      <note>${SF_Query_for_Dimensions}</note>
+      <width>235</width>
     </notepad>
   </notepads>
   <order>
@@ -165,7 +159,7 @@ from "Full Name" to "UHN_Full_Name__c"</note>
     <hop>
       <from>Skip existing records BACKUP</from>
       <to>Contact Backup</to>
-      <enabled>Y</enabled>
+      <enabled>N</enabled>
     </hop>
     <hop>
       <from>Select values</from>
@@ -213,23 +207,8 @@ from "Full Name" to "UHN_Full_Name__c"</note>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Email Domain</from>
-      <to>Mail validator</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Is UHN domain?</from>
-      <to>Record Type</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Lowercase</from>
       <to>Calculator</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Mail validator</from>
-      <to>Is UHN domain?</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -260,6 +239,16 @@ from "Full Name" to "UHN_Full_Name__c"</note>
     <hop>
       <from>Skip existing records DIM</from>
       <to>Contact Dim</to>
+      <enabled>N</enabled>
+    </hop>
+    <hop>
+      <from>Is UHN domain?</from>
+      <to>Record Type</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Email Domain</from>
+      <to>Is UHN domain?</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -274,28 +263,20 @@ from "Full Name" to "UHN_Full_Name__c"</note>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <failIfNoFile>Y</failIfNoFile>
     <calculation>
-      <field_name>Email_Clone</field_name>
       <calc_type>COPY_FIELD</calc_type>
       <field_a>Email</field_a>
-      <field_b/>
-      <field_c/>
-      <value_type>String</value_type>
+      <field_name>Email_Clone</field_name>
+      <remove>N</remove>
       <value_length>-1</value_length>
       <value_precision>-1</value_precision>
-      <remove>N</remove>
-      <conversion_mask/>
-      <decimal_symbol/>
-      <grouping_symbol/>
-      <currency_symbol/>
+      <value_type>String</value_type>
     </calculation>
+    <failIfNoFile>Y</failIfNoFile>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>2288</xloc>
       <yloc>768</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -309,18 +290,16 @@ from "Full Name" to "UHN_Full_Name__c"</note>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>MSSQL_RFSDW</connection>
     <commit>1000</commit>
-    <update_bypassed>N</update_bypassed>
+    <connection>MSSQL_RFSDW</connection>
     <lookup>
+      <key>
+        <condition>=</condition>
+        <field>UID_FlagChanges</field>
+        <name>UID_FlagChanges</name>
+      </key>
       <schema>salesforce_backup</schema>
       <table>Contact</table>
-      <key>
-        <name>UID_FlagChanges</name>
-        <field>UID_FlagChanges</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
       <value>
         <name>Contact ID</name>
         <rename>Contact ID</rename>
@@ -862,12 +841,11 @@ from "Full Name" to "UHN_Full_Name__c"</note>
         <update>Y</update>
       </value>
     </lookup>
+    <update_bypassed>N</update_bypassed>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>4448</xloc>
       <yloc>688</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -881,18 +859,16 @@ from "Full Name" to "UHN_Full_Name__c"</note>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>MSSQL_RFSDW</connection>
     <commit>1000</commit>
-    <update_bypassed>N</update_bypassed>
+    <connection>MSSQL_RFSDW</connection>
     <lookup>
+      <key>
+        <condition>=</condition>
+        <field>Contact ID</field>
+        <name>Contact ID</name>
+      </key>
       <schema>salesforce_dim</schema>
       <table>Contact</table>
-      <key>
-        <name>Contact ID</name>
-        <field>Contact ID</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
       <value>
         <name>411 Directory</name>
         <rename>411 Directory</rename>
@@ -1434,12 +1410,11 @@ from "Full Name" to "UHN_Full_Name__c"</note>
         <update>Y</update>
       </value>
     </lookup>
+    <update_bypassed>N</update_bypassed>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>4448</xloc>
       <yloc>864</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -1454,11 +1429,9 @@ from "Full Name" to "UHN_Full_Name__c"</note>
       <schema_name/>
     </partitioning>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>720</xloc>
       <yloc>768</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -1473,11 +1446,9 @@ from "Full Name" to "UHN_Full_Name__c"</note>
       <schema_name/>
     </partitioning>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>1312</xloc>
       <yloc>448</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -1492,11 +1463,9 @@ from "Full Name" to "UHN_Full_Name__c"</note>
       <schema_name/>
     </partitioning>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>3744</xloc>
       <yloc>768</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -1510,47 +1479,30 @@ from "Full Name" to "UHN_Full_Name__c"</note>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <splitfield>Email_Clone</splitfield>
     <delimiter>@</delimiter>
-    <enclosure/>
     <fields>
       <field>
-        <name>Email_LocalPart</name>
-        <id/>
         <idrem>N</idrem>
-        <type>String</type>
-        <format/>
-        <group/>
-        <decimal/>
-        <currency/>
         <length>-1</length>
+        <name>Email_LocalPart</name>
         <precision>-1</precision>
-        <nullif/>
-        <ifnull/>
         <trimtype>both</trimtype>
+        <type>String</type>
       </field>
       <field>
-        <name>Email_Domain</name>
-        <id/>
         <idrem>N</idrem>
-        <type>String</type>
-        <format/>
-        <group/>
-        <decimal/>
-        <currency/>
         <length>-1</length>
+        <name>Email_Domain</name>
         <precision>-1</precision>
-        <nullif/>
-        <ifnull/>
         <trimtype>both</trimtype>
+        <type>String</type>
       </field>
     </fields>
+    <splitfield>Email_Clone</splitfield>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>2480</xloc>
       <yloc>768</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -1564,22 +1516,21 @@ from "Full Name" to "UHN_Full_Name__c"</note>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <send_true_to>Select values 2</send_true_to>
-    <send_false_to/>
     <compare>
       <condition>
-        <negated>N</negated>
-        <leftvalue>Sub-institute (Multi)</leftvalue>
+        <conditions>
+</conditions>
         <function>IS NOT NULL</function>
-        <rightvalue/>
+        <leftvalue>Sub-institute (Multi)</leftvalue>
+        <negated>N</negated>
+        <operator>-</operator>
       </condition>
     </compare>
+    <send_true_to>Select values 2</send_true_to>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>720</xloc>
       <yloc>608</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -1593,35 +1544,30 @@ from "Full Name" to "UHN_Full_Name__c"</note>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>MSSQL_RFSDW</connection>
     <cache>Y</cache>
     <cache_load_all>Y</cache_load_all>
     <cache_size>0</cache_size>
+    <connection>MSSQL_RFSDW</connection>
     <lookup>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <fail_on_multiple>N</fail_on_multiple>
+      <key>
+        <condition>=</condition>
+        <field>Institute_ID_SF</field>
+        <name>Entity Name</name>
+      </key>
       <schema>salesforce_dim</schema>
       <table>Institute</table>
-      <orderby/>
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
-        <name>Entity Name</name>
-        <field>Institute_ID_SF</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
       <value>
         <name>Institute_Name</name>
         <rename>CurrentInstitute</rename>
-        <default/>
         <type>String</type>
       </value>
     </lookup>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>1312</xloc>
       <yloc>768</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -1635,77 +1581,65 @@ from "Full Name" to "UHN_Full_Name__c"</note>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>MSSQL_RFSDW</connection>
     <cache>Y</cache>
     <cache_load_all>Y</cache_load_all>
     <cache_size>0</cache_size>
+    <connection>MSSQL_RFSDW</connection>
     <lookup>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <fail_on_multiple>N</fail_on_multiple>
+      <key>
+        <condition>=</condition>
+        <field>User ID</field>
+        <name>User</name>
+      </key>
       <schema>salesforce_backup</schema>
       <table>User</table>
-      <orderby/>
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
-        <name>User</name>
-        <field>User ID</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
       <value>
         <name>SAML Federation ID</name>
         <rename>Federation_ID</rename>
-        <default/>
         <type>String</type>
       </value>
       <value>
         <name>Contact ID</name>
         <rename>User_ContactID</rename>
-        <default/>
         <type>String</type>
       </value>
       <value>
         <name>Is Portal Enabled</name>
         <rename>IsPortalEnabled</rename>
-        <default/>
         <type>String</type>
       </value>
       <value>
         <name>Active</name>
         <rename>IsUserLicenseActive</rename>
-        <default/>
         <type>String</type>
       </value>
       <value>
         <name>Role ID</name>
         <rename>Role_ID_SF</rename>
-        <default/>
         <type>String</type>
       </value>
       <value>
         <name>User Type</name>
         <rename>UserType</rename>
-        <default/>
         <type>String</type>
       </value>
       <value>
         <name>Profile ID</name>
         <rename>Profile_ID_SF</rename>
-        <default/>
         <type>String</type>
       </value>
       <value>
         <name>Username</name>
         <rename>Username</rename>
-        <default/>
         <type>String</type>
       </value>
     </lookup>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>1504</xloc>
       <yloc>768</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -1719,35 +1653,30 @@ from "Full Name" to "UHN_Full_Name__c"</note>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>MSSQL_RFSDW</connection>
     <cache>Y</cache>
     <cache_load_all>Y</cache_load_all>
     <cache_size>0</cache_size>
+    <connection>MSSQL_RFSDW</connection>
     <lookup>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <fail_on_multiple>N</fail_on_multiple>
+      <key>
+        <condition>=</condition>
+        <field>Profile ID</field>
+        <name>Profile_ID_SF</name>
+      </key>
       <schema>salesforce_backup</schema>
       <table>Profile</table>
-      <orderby/>
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
-        <name>Profile_ID_SF</name>
-        <field>Profile ID</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
       <value>
         <name>Name</name>
         <rename>UserProfile</rename>
-        <default/>
         <type>String</type>
       </value>
     </lookup>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>1888</xloc>
       <yloc>768</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -1761,35 +1690,30 @@ from "Full Name" to "UHN_Full_Name__c"</note>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>MSSQL_RFSDW</connection>
     <cache>Y</cache>
     <cache_load_all>Y</cache_load_all>
     <cache_size>0</cache_size>
+    <connection>MSSQL_RFSDW</connection>
     <lookup>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <fail_on_multiple>N</fail_on_multiple>
+      <key>
+        <condition>=</condition>
+        <field>Role ID</field>
+        <name>Role_ID_SF</name>
+      </key>
       <schema>salesforce_backup</schema>
       <table>UserRole</table>
-      <orderby/>
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
-        <name>Role_ID_SF</name>
-        <field>Role ID</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
       <value>
         <name>Name</name>
         <rename>UserRole</rename>
-        <default/>
         <type>String</type>
       </value>
     </lookup>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>1712</xloc>
       <yloc>768</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -1803,35 +1727,30 @@ from "Full Name" to "UHN_Full_Name__c"</note>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>MSSQL_RFSDW</connection>
     <cache>Y</cache>
     <cache_load_all>N</cache_load_all>
     <cache_size>0</cache_size>
+    <connection>MSSQL_RFSDW</connection>
     <lookup>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <fail_on_multiple>N</fail_on_multiple>
+      <key>
+        <condition>=</condition>
+        <field>UID_FlagChanges</field>
+        <name>UID_FlagChanges</name>
+      </key>
       <schema>salesforce_backup</schema>
       <table>Contact</table>
-      <orderby/>
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
-        <name>UID_FlagChanges</name>
-        <field>UID_FlagChanges</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
       <value>
         <name>UID_FlagChanges</name>
         <rename>UID_FlagChanges_in_SF</rename>
-        <default/>
         <type>String</type>
       </value>
     </lookup>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>3968</xloc>
       <yloc>688</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -1845,35 +1764,30 @@ from "Full Name" to "UHN_Full_Name__c"</note>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>MSSQL_RFSDW</connection>
     <cache>Y</cache>
     <cache_load_all>N</cache_load_all>
     <cache_size>0</cache_size>
+    <connection>MSSQL_RFSDW</connection>
     <lookup>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <fail_on_multiple>N</fail_on_multiple>
+      <key>
+        <condition>=</condition>
+        <field>UID_FlagChanges</field>
+        <name>UID_FlagChanges</name>
+      </key>
       <schema>salesforce_dim</schema>
       <table>Contact</table>
-      <orderby/>
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
-        <name>UID_FlagChanges</name>
-        <field>UID_FlagChanges</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
       <value>
         <name>UID_FlagChanges</name>
         <rename>UID_FlagChanges_in_SF</rename>
-        <default/>
         <type>String</type>
       </value>
     </lookup>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>3968</xloc>
       <yloc>864</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -1888,17 +1802,6 @@ from "Full Name" to "UHN_Full_Name__c"</note>
       <schema_name/>
     </partitioning>
     <checksumtype>SHA-256</checksumtype>
-    <resultfieldName>UID_FlagChanges</resultfieldName>
-    <resultType>hexadecimal</resultType>
-    <compatibilityMode>N</compatibilityMode>
-    <oldChecksumBehaviour>N</oldChecksumBehaviour>
-    <fieldSeparatorString>-</fieldSeparatorString>
-    <checksumtype>SHA-256</checksumtype>
-    <resultfieldName>UID_FlagChanges</resultfieldName>
-    <resultType>hexadecimal</resultType>
-    <compatibilityMode>N</compatibilityMode>
-    <oldChecksumBehaviour>N</oldChecksumBehaviour>
-    <fieldSeparatorString>-</fieldSeparatorString>
     <fields>
       <field>
         <name>411 Directory</name>
@@ -1974,9 +1877,6 @@ from "Full Name" to "UHN_Full_Name__c"</note>
       </field>
       <field>
         <name>Email_Has_UHN_domain</name>
-      </field>
-      <field>
-        <name>Email_IsValid</name>
       </field>
       <field>
         <name>Email_LocalPart</name>
@@ -2162,12 +2062,12 @@ from "Full Name" to "UHN_Full_Name__c"</note>
         <name>Is Current UHN employee</name>
       </field>
     </fields>
+    <resultType>hexadecimal</resultType>
+    <resultfieldName>UID_FlagChanges</resultfieldName>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>3520</xloc>
       <yloc>768</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -2188,11 +2088,9 @@ from "Full Name" to "UHN_Full_Name__c"</note>
       </field>
     </fields>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>1104</xloc>
       <yloc>768</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -2213,11 +2111,9 @@ from "Full Name" to "UHN_Full_Name__c"</note>
       </field>
     </fields>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>1520</xloc>
       <yloc>448</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -2231,7 +2127,6 @@ from "Full Name" to "UHN_Full_Name__c"</note>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <compatible>N</compatible>
     <optimizationLevel>9</optimizationLevel>
     <jsScripts>
       <jsScript>
@@ -2280,11 +2175,9 @@ switch (true) {
       </field>
     </fields>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>2864</xloc>
       <yloc>768</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -2304,65 +2197,32 @@ switch (true) {
         <out_stream_name/>
         <trim_type>both</trim_type>
         <lower_upper>lower</lower_upper>
-        <padding_type/>
+        <padding_type>none</padding_type>
         <pad_char/>
         <pad_len/>
-        <init_cap/>
-        <mask_xml/>
-        <digits/>
-        <remove_special_characters/>
+        <init_cap>no</init_cap>
+        <mask_xml>none</mask_xml>
+        <digits>none</digits>
+        <remove_special_characters>none</remove_special_characters>
       </field>
       <field>
         <in_stream_name>T-ID</in_stream_name>
         <out_stream_name/>
         <trim_type>both</trim_type>
         <lower_upper>lower</lower_upper>
-        <padding_type/>
+        <padding_type>none</padding_type>
         <pad_char/>
         <pad_len/>
-        <init_cap/>
-        <mask_xml/>
-        <digits/>
-        <remove_special_characters/>
+        <init_cap>no</init_cap>
+        <mask_xml>none</mask_xml>
+        <digits>none</digits>
+        <remove_special_characters>none</remove_special_characters>
       </field>
     </fields>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>2096</xloc>
       <yloc>768</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </transform>
-  <transform>
-    <name>Mail validator</name>
-    <type>MailValidator</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <emailfield>Email</emailfield>
-    <resultfieldname>Email_IsValid</resultfieldname>
-    <ResultAsString>Y</ResultAsString>
-    <smtpCheck>N</smtpCheck>
-    <emailValideMsg>Yes</emailValideMsg>
-    <emailNotValideMsg>No</emailNotValideMsg>
-    <errorsFieldName>Email_Validity_Error</errorsFieldName>
-    <timeout>0</timeout>
-    <defaultSMTP/>
-    <emailSender>noreply@domain.com</emailSender>
-    <defaultSMTPField/>
-    <isdynamicDefaultSMTP>N</isdynamicDefaultSMTP>
-    <attributes/>
-    <cluster_schema/>
-    <GUI>
-      <xloc>2672</xloc>
-      <yloc>768</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -2376,9 +2236,9 @@ switch (true) {
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <targeturl>${GW_Salesforce_Webservice_URL}</targeturl>
-    <username>${GW_Salesforce_UserName}</username>
-    <password>${GW_Salesforce_Password}</password>
+    <targeturl>${Salesforce_Webservice_URL}</targeturl>
+    <username>${Salesforce_ETL_Username}</username>
+    <password>${Salesforce_ETL_Password}</password>
     <timeout>60000</timeout>
     <useCompression>N</useCompression>
     <module>Contact</module>
@@ -3679,11 +3539,9 @@ switch (true) {
     </fields>
     <limit>0</limit>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>384</xloc>
       <yloc>768</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -3697,35 +3555,30 @@ switch (true) {
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>MSSQL_RFSDW</connection>
     <cache>Y</cache>
     <cache_load_all>Y</cache_load_all>
     <cache_size>0</cache_size>
+    <connection>MSSQL_RFSDW</connection>
     <lookup>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <fail_on_multiple>N</fail_on_multiple>
+      <key>
+        <condition>=</condition>
+        <field>Record Type ID</field>
+        <name>Record Type ID</name>
+      </key>
       <schema>salesforce_backup</schema>
       <table>RecordType</table>
-      <orderby/>
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
-        <name>Record Type ID</name>
-        <field>Record Type ID</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
       <value>
         <name>Record Type Name</name>
         <rename>RecordType</rename>
-        <default/>
         <type>String</type>
       </value>
     </lookup>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>3056</xloc>
       <yloc>768</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -3741,108 +3594,90 @@ switch (true) {
     </partitioning>
     <fields>
       <field>
+        <case_sensitive>N</case_sensitive>
         <in_stream_name>Active As Delegate</in_stream_name>
-        <out_stream_name/>
-        <use_regex>no</use_regex>
-        <replace_string>Y</replace_string>
+        <is_unicode>N</is_unicode>
         <replace_by_string>Active</replace_by_string>
+        <replace_string>Y</replace_string>
         <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>yes</whole_word>
-        <case_sensitive>no</case_sensitive>
-        <is_unicode>no</is_unicode>
+        <use_regex>N</use_regex>
+        <whole_word>Y</whole_word>
       </field>
       <field>
+        <case_sensitive>N</case_sensitive>
         <in_stream_name>Active As Delegate</in_stream_name>
-        <out_stream_name/>
-        <use_regex>no</use_regex>
-        <replace_string>N</replace_string>
+        <is_unicode>N</is_unicode>
         <replace_by_string>Inactive</replace_by_string>
+        <replace_string>N</replace_string>
         <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>yes</whole_word>
-        <case_sensitive>no</case_sensitive>
-        <is_unicode>no</is_unicode>
+        <use_regex>N</use_regex>
+        <whole_word>Y</whole_word>
       </field>
       <field>
+        <case_sensitive>N</case_sensitive>
         <in_stream_name>Active User</in_stream_name>
-        <out_stream_name/>
-        <use_regex>no</use_regex>
-        <replace_string>Y</replace_string>
+        <is_unicode>N</is_unicode>
         <replace_by_string>Active</replace_by_string>
+        <replace_string>Y</replace_string>
         <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>yes</whole_word>
-        <case_sensitive>no</case_sensitive>
-        <is_unicode>no</is_unicode>
+        <use_regex>N</use_regex>
+        <whole_word>Y</whole_word>
       </field>
       <field>
+        <case_sensitive>N</case_sensitive>
         <in_stream_name>Active User</in_stream_name>
-        <out_stream_name/>
-        <use_regex>no</use_regex>
-        <replace_string>N</replace_string>
+        <is_unicode>N</is_unicode>
         <replace_by_string>Inactive</replace_by_string>
-        <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>yes</whole_word>
-        <case_sensitive>no</case_sensitive>
-        <is_unicode>no</is_unicode>
-      </field>
-      <field>
-        <in_stream_name>ExcludeFromEmailNotification</in_stream_name>
-        <out_stream_name/>
-        <use_regex>no</use_regex>
-        <replace_string>Y</replace_string>
-        <replace_by_string>Yes</replace_by_string>
-        <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>no</whole_word>
-        <case_sensitive>no</case_sensitive>
-        <is_unicode>no</is_unicode>
-      </field>
-      <field>
-        <in_stream_name>ExcludeFromEmailNotification</in_stream_name>
-        <out_stream_name/>
-        <use_regex>no</use_regex>
         <replace_string>N</replace_string>
-        <replace_by_string>No</replace_by_string>
         <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>no</whole_word>
-        <case_sensitive>no</case_sensitive>
-        <is_unicode>no</is_unicode>
+        <use_regex>N</use_regex>
+        <whole_word>Y</whole_word>
       </field>
       <field>
-        <in_stream_name>Is Current UHN employee</in_stream_name>
-        <out_stream_name/>
-        <use_regex>no</use_regex>
-        <replace_string>Y</replace_string>
+        <case_sensitive>N</case_sensitive>
+        <in_stream_name>ExcludeFromEmailNotification</in_stream_name>
+        <is_unicode>N</is_unicode>
         <replace_by_string>Yes</replace_by_string>
+        <replace_string>Y</replace_string>
         <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>no</whole_word>
-        <case_sensitive>no</case_sensitive>
-        <is_unicode>no</is_unicode>
+        <use_regex>N</use_regex>
+        <whole_word>N</whole_word>
       </field>
       <field>
-        <in_stream_name>Is Current UHN employee</in_stream_name>
-        <out_stream_name/>
-        <use_regex>no</use_regex>
-        <replace_string>N</replace_string>
+        <case_sensitive>N</case_sensitive>
+        <in_stream_name>ExcludeFromEmailNotification</in_stream_name>
+        <is_unicode>N</is_unicode>
         <replace_by_string>No</replace_by_string>
+        <replace_string>N</replace_string>
         <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>no</whole_word>
-        <case_sensitive>no</case_sensitive>
-        <is_unicode>no</is_unicode>
+        <use_regex>N</use_regex>
+        <whole_word>N</whole_word>
+      </field>
+      <field>
+        <case_sensitive>N</case_sensitive>
+        <in_stream_name>Is Current UHN employee</in_stream_name>
+        <is_unicode>N</is_unicode>
+        <replace_by_string>Yes</replace_by_string>
+        <replace_string>Y</replace_string>
+        <set_empty_string>N</set_empty_string>
+        <use_regex>N</use_regex>
+        <whole_word>N</whole_word>
+      </field>
+      <field>
+        <case_sensitive>N</case_sensitive>
+        <in_stream_name>Is Current UHN employee</in_stream_name>
+        <is_unicode>N</is_unicode>
+        <replace_by_string>No</replace_by_string>
+        <replace_string>N</replace_string>
+        <set_empty_string>N</set_empty_string>
+        <use_regex>N</use_regex>
+        <whole_word>N</whole_word>
       </field>
     </fields>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>3344</xloc>
       <yloc>768</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -4131,11 +3966,9 @@ switch (true) {
       <select_unspecified>N</select_unspecified>
     </fields>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>928</xloc>
       <yloc>768</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -4159,11 +3992,9 @@ switch (true) {
       <select_unspecified>N</select_unspecified>
     </fields>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>720</xloc>
       <yloc>448</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -4187,11 +4018,9 @@ switch (true) {
       <select_unspecified>N</select_unspecified>
     </fields>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>1024</xloc>
       <yloc>448</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -4286,11 +4115,9 @@ switch (true) {
       </meta>
     </fields>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>3184</xloc>
       <yloc>768</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -4304,27 +4131,28 @@ switch (true) {
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <send_true_to>Contact Backup</send_true_to>
-    <send_false_to/>
     <compare>
       <condition>
-        <negated>N</negated>
         <conditions>
           <condition>
-            <negated>N</negated>
-            <leftvalue>UID_FlagChanges_in_SF</leftvalue>
+            <conditions>
+</conditions>
             <function>IS NULL</function>
-            <rightvalue/>
+            <leftvalue>UID_FlagChanges_in_SF</leftvalue>
+            <negated>N</negated>
+            <operator>-</operator>
           </condition>
         </conditions>
+        <function>=</function>
+        <negated>N</negated>
+        <operator>-</operator>
       </condition>
     </compare>
+    <send_true_to>Contact Backup</send_true_to>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>4208</xloc>
       <yloc>688</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -4338,27 +4166,28 @@ switch (true) {
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <send_true_to>Contact Dim</send_true_to>
-    <send_false_to/>
     <compare>
       <condition>
-        <negated>N</negated>
         <conditions>
           <condition>
-            <negated>N</negated>
-            <leftvalue>UID_FlagChanges_in_SF</leftvalue>
+            <conditions>
+</conditions>
             <function>IS NULL</function>
-            <rightvalue/>
+            <leftvalue>UID_FlagChanges_in_SF</leftvalue>
+            <negated>N</negated>
+            <operator>-</operator>
           </condition>
         </conditions>
+        <function>=</function>
+        <negated>N</negated>
+        <operator>-</operator>
       </condition>
     </compare>
+    <send_true_to>Contact Dim</send_true_to>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>4208</xloc>
       <yloc>864</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -4372,19 +4201,16 @@ switch (true) {
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <splitfield>Sub-institute (Multi)</splitfield>
     <delimiter>;</delimiter>
-    <newfield>SubInstitute</newfield>
-    <rownum>N</rownum>
-    <rownum_field/>
-    <resetrownumber>Y</resetrownumber>
     <delimiter_is_regex>N</delimiter_is_regex>
+    <newfield>SubInstitute</newfield>
+    <resetrownumber>Y</resetrownumber>
+    <rownum>N</rownum>
+    <splitfield>Sub-institute (Multi)</splitfield>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>864</xloc>
       <yloc>448</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -4398,18 +4224,16 @@ switch (true) {
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>MSSQL_RFSDW</connection>
     <commit>100</commit>
-    <update_bypassed>N</update_bypassed>
+    <connection>MSSQL_RFSDW</connection>
     <lookup>
+      <key>
+        <condition>=</condition>
+        <field>UID</field>
+        <name>UID</name>
+      </key>
       <schema>salesforce_dim</schema>
       <table>SubInstitutesPerContact</table>
-      <key>
-        <name>UID</name>
-        <field>UID</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
       <value>
         <name>ContactID_SF</name>
         <rename>Contact ID</rename>
@@ -4431,12 +4255,11 @@ switch (true) {
         <update>Y</update>
       </value>
     </lookup>
+    <update_bypassed>N</update_bypassed>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>1792</xloc>
       <yloc>448</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -4451,17 +4274,6 @@ switch (true) {
       <schema_name/>
     </partitioning>
     <checksumtype>SHA-256</checksumtype>
-    <resultfieldName>UID</resultfieldName>
-    <resultType>hexadecimal</resultType>
-    <compatibilityMode>N</compatibilityMode>
-    <oldChecksumBehaviour>N</oldChecksumBehaviour>
-    <fieldSeparatorString>-</fieldSeparatorString>
-    <checksumtype>SHA-256</checksumtype>
-    <resultfieldName>UID</resultfieldName>
-    <resultType>hexadecimal</resultType>
-    <compatibilityMode>N</compatibilityMode>
-    <oldChecksumBehaviour>N</oldChecksumBehaviour>
-    <fieldSeparatorString>-</fieldSeparatorString>
     <fields>
       <field>
         <name>Contact ID</name>
@@ -4470,12 +4282,12 @@ switch (true) {
         <name>SubInstitute</name>
       </field>
     </fields>
+    <resultType>hexadecimal</resultType>
+    <resultfieldName>UID</resultfieldName>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>1152</xloc>
       <yloc>448</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform_error_handling>

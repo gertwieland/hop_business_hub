@@ -380,6 +380,105 @@
       <yloc>496</yloc>
     </GUI>
   </transform>
+  <transform>
+    <name>Insert / update 2</name>
+    <type>InsertUpdate</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <commit>100</commit>
+    <connection>MSSQL_RFSDW</connection>
+    <lookup>
+      <key>
+        <condition>=</condition>
+        <field>Record Type ID</field>
+        <name>Record Type ID</name>
+      </key>
+      <schema>salesforce_backup</schema>
+      <table>RecordType</table>
+      <value>
+        <name>Record Type ID</name>
+        <rename>Record Type ID</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Name</name>
+        <rename>Name</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Record Type Name</name>
+        <rename>Record Type Name</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Namespace Prefix</name>
+        <rename>Namespace Prefix</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Description</name>
+        <rename>Description</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Business Process ID</name>
+        <rename>Business Process ID</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>SObject Type Name</name>
+        <rename>SObject Type Name</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Active</name>
+        <rename>Active</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Created By ID</name>
+        <rename>Created By ID</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Created Date</name>
+        <rename>Created Date</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Last Modified By ID</name>
+        <rename>Last Modified By ID</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Last Modified Date</name>
+        <rename>Last Modified Date</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>System Modstamp</name>
+        <rename>System Modstamp</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>LastUpdate</name>
+        <rename>LastUpdate</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+    <update_bypassed>N</update_bypassed>
+    <attributes/>
+    <GUI>
+      <xloc>1120</xloc>
+      <yloc>224</yloc>
+    </GUI>
+  </transform>
   <transform_error_handling>
   </transform_error_handling>
   <attributes/>

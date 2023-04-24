@@ -102,8 +102,6 @@
       <create_parent_folder>N</create_parent_folder>
       <exec_per_row>N</exec_per_row>
       <filename>${PROJECT_HOME}\/BusinessHub/9999_100_000_FixMissingValuesForNewFCCs.hpl</filename>
-      <logext/>
-      <logfile/>
       <loglevel>Basic</loglevel>
       <parameters>
         <pass_all_parameters>Y</pass_all_parameters>
@@ -222,11 +220,14 @@
       <create_parent_folder>N</create_parent_folder>
       <exec_per_row>N</exec_per_row>
       <filename>${PROJECT_HOME}\/Salesforce_Backup/00_00_Salesforce_Backup.hwf</filename>
+      <logext/>
+      <logfile/>
       <loglevel>Nothing</loglevel>
       <parameters>
         <pass_all_parameters>Y</pass_all_parameters>
       </parameters>
       <params_from_previous>N</params_from_previous>
+      <run_configuration>local</run_configuration>
       <set_append_logfile>N</set_append_logfile>
       <set_logfile>N</set_logfile>
       <wait_until_finished>Y</wait_until_finished>

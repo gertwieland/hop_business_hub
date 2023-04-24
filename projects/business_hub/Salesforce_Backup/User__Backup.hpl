@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <pipeline>
   <info>
     <name>User__Backup</name>
@@ -6,7 +7,6 @@
     <extended_description/>
     <pipeline_version/>
     <pipeline_type>Normal</pipeline_type>
-    <directory>/Salesforce_Backup</directory>
     <parameters>
     </parameters>
     <capture_transform_performance>N</capture_transform_performance>
@@ -16,77 +16,72 @@
     <created_date>2023/04/23 22:11:23.909</created_date>
     <modified_user>gert</modified_user>
     <modified_date>2023/01/23 23:17:38.857</modified_date>
-    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
-    <is_key_private>N</is_key_private>
   </info>
   <notepads>
     <notepad>
-      <note>Add a new record per user if any of the relevant fields has changed.</note>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorred>255</backgroundcolorred>
+      <bordercolorblue>100</bordercolorblue>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorred>100</bordercolorred>
+      <fontbold>N</fontbold>
+      <fontcolorblue>0</fontcolorblue>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorred>0</fontcolorred>
+      <fontitalic>N</fontitalic>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <height>24</height>
       <xloc>3616</xloc>
       <yloc>720</yloc>
+      <note>Add a new record per user if any of the relevant fields has changed.</note>
       <width>543</width>
-      <heigth>34</heigth>
-      <fontname>Segoe UI</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>205</backgroundcolorgreen>
-      <backgroundcolorblue>112</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
     </notepad>
     <notepad>
-      <note>Update the user record if any of the relevant fields has changed.</note>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorred>255</backgroundcolorred>
+      <bordercolorblue>100</bordercolorblue>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorred>100</bordercolorred>
+      <fontbold>N</fontbold>
+      <fontcolorblue>0</fontcolorblue>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorred>0</fontcolorred>
+      <fontitalic>N</fontitalic>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <height>24</height>
       <xloc>3632</xloc>
       <yloc>960</yloc>
+      <note>Update the user record if any of the relevant fields has changed.</note>
       <width>515</width>
-      <heigth>34</heigth>
-      <fontname>Segoe UI</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>205</backgroundcolorgreen>
-      <backgroundcolorblue>112</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
     </notepad>
     <notepad>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorred>255</backgroundcolorred>
+      <bordercolorblue>100</bordercolorblue>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorred>100</bordercolorred>
+      <fontbold>N</fontbold>
+      <fontcolorblue>0</fontcolorblue>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorred>0</fontcolorred>
+      <fontitalic>N</fontitalic>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <height>94</height>
+      <xloc>1264</xloc>
+      <yloc>416</yloc>
       <note>Purpose: Later steps pull the "Has User License" information from the Contact table.
 Since the License status is only a lookup field, the LastModifiedDate in contact does not change
 when the user license status changes. 
 This step is just a workaround to change the LastModifiedDate in the contacts object, so the update
 process would pick it up (Limit is usually LAST_N_DAYS: 7). It just reads the current name of a contact
 and "writes it back". Effectively it makes no change, but it's enough to change the LAST_MODIFIED_DATE.</note>
-      <xloc>1264</xloc>
-      <yloc>416</yloc>
       <width>841</width>
-      <heigth>154</heigth>
-      <fontname>Segoe UI</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>205</backgroundcolorgreen>
-      <backgroundcolorblue>112</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
     </notepad>
   </notepads>
   <order>
@@ -217,7 +212,6 @@ and "writes it back". Effectively it makes no change, but it's enough to change 
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <compatible>N</compatible>
     <optimizationLevel>9</optimizationLevel>
     <jsScripts>
       <jsScript>
@@ -241,11 +235,9 @@ ContactID = ContactID_ByUserID
       </field>
     </fields>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>1376</xloc>
       <yloc>864</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -260,11 +252,9 @@ ContactID = ContactID_ByUserID
       <schema_name/>
     </partitioning>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>2768</xloc>
       <yloc>864</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -279,11 +269,9 @@ ContactID = ContactID_ByUserID
       <schema_name/>
     </partitioning>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>3376</xloc>
       <yloc>720</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -298,11 +286,9 @@ ContactID = ContactID_ByUserID
       <schema_name/>
     </partitioning>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>3408</xloc>
       <yloc>960</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -317,11 +303,9 @@ ContactID = ContactID_ByUserID
       <schema_name/>
     </partitioning>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>1152</xloc>
       <yloc>864</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -335,22 +319,20 @@ ContactID = ContactID_ByUserID
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <send_true_to/>
-    <send_false_to/>
     <compare>
       <condition>
-        <negated>N</negated>
-        <leftvalue>ContactID</leftvalue>
+        <conditions>
+</conditions>
         <function>IS NOT NULL</function>
-        <rightvalue/>
+        <leftvalue>ContactID</leftvalue>
+        <negated>N</negated>
+        <operator>-</operator>
       </condition>
     </compare>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>1152</xloc>
       <yloc>768</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -364,35 +346,30 @@ ContactID = ContactID_ByUserID
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>MSSQL_RFSDW</connection>
     <cache>Y</cache>
     <cache_load_all>Y</cache_load_all>
     <cache_size>0</cache_size>
+    <connection>MSSQL_RFSDW</connection>
     <lookup>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <fail_on_multiple>N</fail_on_multiple>
+      <key>
+        <condition>=</condition>
+        <field>UID_FlagChanges</field>
+        <name>UID_FlagChanges</name>
+      </key>
       <schema>salesforce_backup</schema>
       <table>User</table>
-      <orderby/>
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
-        <name>UID_FlagChanges</name>
-        <field>UID_FlagChanges</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
       <value>
         <name>UID_FlagChanges</name>
         <rename>UID_FlagChanges_in_SF</rename>
-        <default/>
         <type>String</type>
       </value>
     </lookup>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>2976</xloc>
       <yloc>720</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -406,35 +383,30 @@ ContactID = ContactID_ByUserID
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>MSSQL_RFSDW</connection>
     <cache>Y</cache>
     <cache_load_all>Y</cache_load_all>
     <cache_size>0</cache_size>
+    <connection>MSSQL_RFSDW</connection>
     <lookup>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <fail_on_multiple>N</fail_on_multiple>
+      <key>
+        <condition>=</condition>
+        <field>UID_FlagChanges</field>
+        <name>UID_FlagChanges</name>
+      </key>
       <schema>salesforce_dim</schema>
       <table>User</table>
-      <orderby/>
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
-        <name>UID_FlagChanges</name>
-        <field>UID_FlagChanges</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
       <value>
         <name>UID_FlagChanges</name>
         <rename>UID_FlagChanges_in_SF</rename>
-        <default/>
         <type>String</type>
       </value>
     </lookup>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>3008</xloc>
       <yloc>960</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -449,17 +421,6 @@ ContactID = ContactID_ByUserID
       <schema_name/>
     </partitioning>
     <checksumtype>SHA-256</checksumtype>
-    <resultfieldName>UID_FlagChanges</resultfieldName>
-    <resultType>hexadecimal</resultType>
-    <compatibilityMode>N</compatibilityMode>
-    <oldChecksumBehaviour>N</oldChecksumBehaviour>
-    <fieldSeparatorString>-</fieldSeparatorString>
-    <checksumtype>SHA-256</checksumtype>
-    <resultfieldName>UID_FlagChanges</resultfieldName>
-    <resultType>hexadecimal</resultType>
-    <compatibilityMode>N</compatibilityMode>
-    <oldChecksumBehaviour>N</oldChecksumBehaviour>
-    <fieldSeparatorString>-</fieldSeparatorString>
     <fields>
       <field>
         <name>About Me</name>
@@ -981,12 +942,12 @@ ContactID = ContactID_ByUserID
         <name>Role Portal Role</name>
       </field>
     </fields>
+    <resultType>hexadecimal</resultType>
+    <resultfieldName>UID_FlagChanges</resultfieldName>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>2544</xloc>
       <yloc>864</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -1007,11 +968,9 @@ ContactID = ContactID_ByUserID
       </field>
     </fields>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>2304</xloc>
       <yloc>864</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -1025,7 +984,6 @@ ContactID = ContactID_ByUserID
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <compatible>N</compatible>
     <optimizationLevel>9</optimizationLevel>
     <jsScripts>
       <jsScript>
@@ -1048,11 +1006,9 @@ Email = 'inactive.jung.ahn@uhn.ca'
       </field>
     </fields>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>1616</xloc>
       <yloc>864</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -1066,9 +1022,9 @@ Email = 'inactive.jung.ahn@uhn.ca'
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <targeturl>${GW_Salesforce_Webservice_URL}</targeturl>
-    <username>${GW_Salesforce_UserName}</username>
-    <password>${GW_Salesforce_Password}</password>
+    <targeturl>${Salesforce_Webservice_URL}</targeturl>
+    <username>${Salesforce_ETL_Username}</username>
+    <password>${Salesforce_ETL_Password}</password>
     <timeout>60000</timeout>
     <useCompression>N</useCompression>
     <module>Contact</module>
@@ -1087,11 +1043,9 @@ Email = 'inactive.jung.ahn@uhn.ca'
     </fields>
     <rollbackAllChangesOnError>N</rollbackAllChangesOnError>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>1152</xloc>
       <yloc>512</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -1105,9 +1059,9 @@ Email = 'inactive.jung.ahn@uhn.ca'
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <targeturl>${GW_Salesforce_Webservice_URL}</targeturl>
-    <username>${GW_Salesforce_UserName}</username>
-    <password>${GW_Salesforce_Password}</password>
+    <targeturl>${Salesforce_Webservice_URL}</targeturl>
+    <username>${Salesforce_ETL_Username}</username>
+    <password>${Salesforce_ETL_Password}</password>
     <timeout>60000</timeout>
     <useCompression>N</useCompression>
     <module>Contact</module>
@@ -1176,11 +1130,9 @@ Email = 'inactive.jung.ahn@uhn.ca'
     </fields>
     <limit>0</limit>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>1024</xloc>
       <yloc>592</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -1194,9 +1146,9 @@ Email = 'inactive.jung.ahn@uhn.ca'
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <targeturl>${GW_Salesforce_Webservice_URL}</targeturl>
-    <username>${GW_Salesforce_UserName}</username>
-    <password>${GW_Salesforce_Password}</password>
+    <targeturl>${Salesforce_Webservice_URL}</targeturl>
+    <username>${Salesforce_ETL_Username}</username>
+    <password>${Salesforce_ETL_Password}</password>
     <timeout>60000</timeout>
     <useCompression>N</useCompression>
     <module>User</module>
@@ -3687,11 +3639,9 @@ Email = 'inactive.jung.ahn@uhn.ca'
     </fields>
     <limit>0</limit>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>576</xloc>
       <yloc>864</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -3705,41 +3655,35 @@ Email = 'inactive.jung.ahn@uhn.ca'
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>MSSQL_RFSDW</connection>
     <cache>Y</cache>
     <cache_load_all>Y</cache_load_all>
     <cache_size>0</cache_size>
+    <connection>MSSQL_RFSDW</connection>
     <lookup>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <fail_on_multiple>N</fail_on_multiple>
+      <key>
+        <condition>=</condition>
+        <field>User</field>
+        <name>User ID</name>
+      </key>
       <schema>salesforce_dim</schema>
       <table>Contact</table>
-      <orderby/>
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
-        <name>User ID</name>
-        <field>User</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
       <value>
         <name>Contact ID</name>
         <rename>ContactID_ByUserID</rename>
-        <default/>
         <type>String</type>
       </value>
       <value>
         <name>Last Modified Date</name>
         <rename>LastModifiedDate_Contact</rename>
-        <default/>
         <type>Date</type>
       </value>
     </lookup>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>816</xloc>
       <yloc>864</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -3768,11 +3712,9 @@ Email = 'inactive.jung.ahn@uhn.ca'
       <select_unspecified>Y</select_unspecified>
     </fields>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>1008</xloc>
       <yloc>864</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -3798,11 +3740,9 @@ Email = 'inactive.jung.ahn@uhn.ca'
       <select_unspecified>Y</select_unspecified>
     </fields>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>1840</xloc>
       <yloc>864</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -3826,11 +3766,9 @@ Email = 'inactive.jung.ahn@uhn.ca'
       <select_unspecified>N</select_unspecified>
     </fields>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>1152</xloc>
       <yloc>672</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -3844,22 +3782,21 @@ Email = 'inactive.jung.ahn@uhn.ca'
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <send_true_to>Dummy (do nothing)</send_true_to>
-    <send_false_to/>
     <compare>
       <condition>
-        <negated>N</negated>
-        <leftvalue>UID_FlagChanges_in_SF</leftvalue>
+        <conditions>
+</conditions>
         <function>IS NULL</function>
-        <rightvalue/>
+        <leftvalue>UID_FlagChanges_in_SF</leftvalue>
+        <negated>N</negated>
+        <operator>-</operator>
       </condition>
     </compare>
+    <send_true_to>Dummy (do nothing)</send_true_to>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>3184</xloc>
       <yloc>720</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -3873,22 +3810,22 @@ Email = 'inactive.jung.ahn@uhn.ca'
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <send_true_to>Dummy (do nothing) 2</send_true_to>
-    <send_false_to/>
     <compare>
       <condition>
-        <negated>N</negated>
-        <leftvalue>UID_FlagChanges_in_SF</leftvalue>
+        <conditions>
+</conditions>
         <function>&lt;></function>
+        <leftvalue>UID_FlagChanges_in_SF</leftvalue>
+        <negated>N</negated>
+        <operator>-</operator>
         <rightvalue>UID_FlagChanges</rightvalue>
       </condition>
     </compare>
+    <send_true_to>Dummy (do nothing) 2</send_true_to>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>3200</xloc>
       <yloc>960</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -3926,11 +3863,9 @@ Email = 'inactive.jung.ahn@uhn.ca'
       </value>
     </lookup>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>1152</xloc>
       <yloc>592</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -3944,18 +3879,16 @@ Email = 'inactive.jung.ahn@uhn.ca'
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>MSSQL_RFSDW</connection>
     <commit>1000</commit>
-    <update_bypassed>N</update_bypassed>
+    <connection>MSSQL_RFSDW</connection>
     <lookup>
+      <key>
+        <condition>=</condition>
+        <field>UID_FlagChanges</field>
+        <name>UID_FlagChanges</name>
+      </key>
       <schema>salesforce_backup</schema>
       <table>User</table>
-      <key>
-        <name>UID_FlagChanges</name>
-        <field>UID_FlagChanges</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
       <value>
         <name>User ID</name>
         <rename>User ID</rename>
@@ -4882,12 +4815,11 @@ Email = 'inactive.jung.ahn@uhn.ca'
         <update>Y</update>
       </value>
     </lookup>
+    <update_bypassed>N</update_bypassed>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>3536</xloc>
       <yloc>720</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -4901,18 +4833,16 @@ Email = 'inactive.jung.ahn@uhn.ca'
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>MSSQL_RFSDW</connection>
     <commit>1000</commit>
-    <update_bypassed>N</update_bypassed>
+    <connection>MSSQL_RFSDW</connection>
     <lookup>
+      <key>
+        <condition>=</condition>
+        <field>User ID</field>
+        <name>User ID</name>
+      </key>
       <schema>salesforce_dim</schema>
       <table>User</table>
-      <key>
-        <name>User ID</name>
-        <field>User ID</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
       <value>
         <name>User ID</name>
         <rename>User ID</rename>
@@ -5839,12 +5769,11 @@ Email = 'inactive.jung.ahn@uhn.ca'
         <update>Y</update>
       </value>
     </lookup>
+    <update_bypassed>N</update_bypassed>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>3568</xloc>
       <yloc>960</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -5858,71 +5787,60 @@ Email = 'inactive.jung.ahn@uhn.ca'
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>MSSQL_RFSDW</connection>
     <cache>Y</cache>
     <cache_load_all>Y</cache_load_all>
     <cache_size>0</cache_size>
+    <connection>MSSQL_RFSDW</connection>
     <lookup>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <fail_on_multiple>N</fail_on_multiple>
+      <key>
+        <condition>=</condition>
+        <field>Role ID</field>
+        <name>Role ID</name>
+      </key>
       <schema>salesforce_backup</schema>
       <table>UserRole</table>
-      <orderby/>
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
-        <name>Role ID</name>
-        <field>Role ID</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
       <value>
         <name>Name</name>
         <rename>Role Name</rename>
-        <default/>
         <type>String</type>
       </value>
       <value>
         <name>Parent Role ID</name>
         <rename>Parent Role ID</rename>
-        <default/>
         <type>String</type>
       </value>
       <value>
         <name>Description</name>
         <rename>Role Description</rename>
-        <default/>
         <type>String</type>
       </value>
       <value>
         <name>Developer Name</name>
         <rename>Role Developer Name</rename>
-        <default/>
         <type>String</type>
       </value>
       <value>
         <name>Entity ID</name>
         <rename>Role Entity ID</rename>
-        <default/>
         <type>String</type>
       </value>
       <value>
         <name>Portal Type</name>
         <rename>Role Portal Type</rename>
-        <default/>
         <type>String</type>
       </value>
       <value>
         <name>Portal Role</name>
         <rename>Role Portal Role</rename>
-        <default/>
         <type>String</type>
       </value>
     </lookup>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>2080</xloc>
       <yloc>864</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform_error_handling>

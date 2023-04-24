@@ -13,11 +13,11 @@
     "description" : ""
   }, {
     "name" : "MSSQL_Username",
-    "value" : "gert",
+    "value" : "sa",
     "description" : ""
   }, {
     "name" : "MSSQL_Password",
-    "value" : "Encrypted 2be98afc86aa7daca9a4aaa26cf9ce193",
+    "value" : "vH79tUm2l2CGs84zd7WV",
     "description" : ""
   }, {
     "name" : "MSSQL_Port",
@@ -25,7 +25,7 @@
     "description" : ""
   }, {
     "name" : "MSSQL_HostName",
-    "value" : "rfsbi.database.windows.net",
+    "value" : "107.173.80.17",
     "description" : ""
   }, {
     "name" : "MSSQL_DatabaseName",

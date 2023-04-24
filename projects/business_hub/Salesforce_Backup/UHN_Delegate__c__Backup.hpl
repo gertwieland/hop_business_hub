@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <pipeline>
   <info>
     <name>UHN_Delegate__c__Backup</name>
@@ -6,7 +7,6 @@
     <extended_description/>
     <pipeline_version/>
     <pipeline_type>Normal</pipeline_type>
-    <directory>/Salesforce_Backup</directory>
     <parameters>
     </parameters>
     <capture_transform_performance>N</capture_transform_performance>
@@ -16,8 +16,6 @@
     <created_date>2023/04/23 22:11:23.651</created_date>
     <modified_user>gert</modified_user>
     <modified_date>2023/04/01 15:56:26.652</modified_date>
-    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
-    <is_key_private>N</is_key_private>
   </info>
   <notepads>
   </notepads>
@@ -109,18 +107,16 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>MSSQL_RFSDW</connection>
     <commit>100</commit>
-    <update_bypassed>N</update_bypassed>
+    <connection>MSSQL_RFSDW</connection>
     <lookup>
+      <key>
+        <condition>=</condition>
+        <field>Record ID</field>
+        <name>Record ID</name>
+      </key>
       <schema>errors_loading</schema>
       <table>SF_Delegate_local</table>
-      <key>
-        <name>Record ID</name>
-        <field>Record ID</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
       <value>
         <name>ErrorDescription</name>
         <rename>ErrorDescription</rename>
@@ -157,12 +153,11 @@
         <update>Y</update>
       </value>
     </lookup>
+    <update_bypassed>N</update_bypassed>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>3104</xloc>
       <yloc>656</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -176,22 +171,21 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <send_true_to>Insert / update Delegates Dim</send_true_to>
-    <send_false_to/>
     <compare>
       <condition>
-        <negated>N</negated>
-        <leftvalue>Checksum_FlagChanges_In_Table</leftvalue>
+        <conditions>
+</conditions>
         <function>IS NULL</function>
-        <rightvalue/>
+        <leftvalue>Checksum_FlagChanges_In_Table</leftvalue>
+        <negated>N</negated>
+        <operator>-</operator>
       </condition>
     </compare>
+    <send_true_to>Insert / update Delegates Dim</send_true_to>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>2656</xloc>
       <yloc>656</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -205,35 +199,30 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>MSSQL_RFSDW</connection>
     <cache>Y</cache>
     <cache_load_all>Y</cache_load_all>
     <cache_size>0</cache_size>
+    <connection>MSSQL_RFSDW</connection>
     <lookup>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <fail_on_multiple>N</fail_on_multiple>
+      <key>
+        <condition>=</condition>
+        <field>Record ID</field>
+        <name>FCC</name>
+      </key>
       <schema>salesforce_dim</schema>
       <table>FCC</table>
-      <orderby/>
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
-        <name>FCC</name>
-        <field>Record ID</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
       <value>
         <name>SAP Id</name>
         <rename>FCC_SAP_ID</rename>
-        <default/>
         <type>String</type>
       </value>
     </lookup>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>1456</xloc>
       <yloc>656</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -247,35 +236,30 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>MSSQL_RFSDW</connection>
     <cache>Y</cache>
     <cache_load_all>Y</cache_load_all>
     <cache_size>0</cache_size>
+    <connection>MSSQL_RFSDW</connection>
     <lookup>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <fail_on_multiple>N</fail_on_multiple>
+      <key>
+        <condition>=</condition>
+        <field>Checksum_FlagChanges</field>
+        <name>Checksum_FlagChanges</name>
+      </key>
       <schema>salesforce_dim</schema>
       <table>Delegate</table>
-      <orderby/>
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
-        <name>Checksum_FlagChanges</name>
-        <field>Checksum_FlagChanges</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
       <value>
         <name>Checksum_FlagChanges</name>
         <rename>Checksum_FlagChanges_In_Table</rename>
-        <default/>
         <type>String</type>
       </value>
     </lookup>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>2416</xloc>
       <yloc>656</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -289,35 +273,30 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>MSSQL_RFSDW</connection>
     <cache>Y</cache>
     <cache_load_all>Y</cache_load_all>
     <cache_size>0</cache_size>
+    <connection>MSSQL_RFSDW</connection>
     <lookup>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <fail_on_multiple>N</fail_on_multiple>
+      <key>
+        <condition>=</condition>
+        <field>Checksum (Flag Changes)</field>
+        <name>Checksum (Flag Changes)</name>
+      </key>
       <schema>salesforce_backup</schema>
       <table>UHN_Delegate__c</table>
-      <orderby/>
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
-        <name>Checksum (Flag Changes)</name>
-        <field>Checksum (Flag Changes)</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
       <value>
         <name>Checksum (Flag Changes)</name>
         <rename>Checksum_in_table</rename>
-        <default/>
         <type>String</type>
       </value>
     </lookup>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>1440</xloc>
       <yloc>368</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -338,11 +317,9 @@
       </field>
     </fields>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>1264</xloc>
       <yloc>512</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -356,18 +333,16 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>MSSQL_RFSDW</connection>
     <commit>100</commit>
-    <update_bypassed>N</update_bypassed>
+    <connection>MSSQL_RFSDW</connection>
     <lookup>
+      <key>
+        <condition>=</condition>
+        <field>UID</field>
+        <name>UID</name>
+      </key>
       <schema>salesforce_dim</schema>
       <table>Delegate</table>
-      <key>
-        <name>UID</name>
-        <field>UID</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
       <value>
         <name>Active_Record</name>
         <rename>Active Record</rename>
@@ -479,12 +454,11 @@
         <update>Y</update>
       </value>
     </lookup>
+    <update_bypassed>N</update_bypassed>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>2896</xloc>
       <yloc>656</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -498,7 +472,6 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <compatible>N</compatible>
     <optimizationLevel>9</optimizationLevel>
     <jsScripts>
       <jsScript>
@@ -522,11 +495,9 @@ if (ChecksumFlagChanges == null) {
       </field>
     </fields>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>800</xloc>
       <yloc>512</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -540,22 +511,21 @@ if (ChecksumFlagChanges == null) {
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <send_true_to>Write UHN_Delegate__c Backup</send_true_to>
-    <send_false_to/>
     <compare>
       <condition>
-        <negated>N</negated>
-        <leftvalue>Checksum_in_table</leftvalue>
+        <conditions>
+</conditions>
         <function>IS NULL</function>
-        <rightvalue/>
+        <leftvalue>Checksum_in_table</leftvalue>
+        <negated>N</negated>
+        <operator>-</operator>
       </condition>
     </compare>
+    <send_true_to>Write UHN_Delegate__c Backup</send_true_to>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>1728</xloc>
       <yloc>368</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -571,228 +541,190 @@ if (ChecksumFlagChanges == null) {
     </partitioning>
     <fields>
       <field>
+        <case_sensitive>N</case_sensitive>
         <in_stream_name>Active Record</in_stream_name>
-        <out_stream_name/>
-        <use_regex>no</use_regex>
-        <replace_string>Y</replace_string>
+        <is_unicode>N</is_unicode>
         <replace_by_string>Yes</replace_by_string>
+        <replace_string>Y</replace_string>
         <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>yes</whole_word>
-        <case_sensitive>no</case_sensitive>
-        <is_unicode>no</is_unicode>
+        <use_regex>N</use_regex>
+        <whole_word>Y</whole_word>
       </field>
       <field>
+        <case_sensitive>N</case_sensitive>
         <in_stream_name>Active Record</in_stream_name>
-        <out_stream_name/>
-        <use_regex>no</use_regex>
-        <replace_string>N</replace_string>
+        <is_unicode>N</is_unicode>
         <replace_by_string>No</replace_by_string>
+        <replace_string>N</replace_string>
         <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>yes</whole_word>
-        <case_sensitive>no</case_sensitive>
-        <is_unicode>no</is_unicode>
+        <use_regex>N</use_regex>
+        <whole_word>Y</whole_word>
       </field>
       <field>
+        <case_sensitive>N</case_sensitive>
         <in_stream_name>Active (Source)</in_stream_name>
-        <out_stream_name/>
-        <use_regex>no</use_regex>
-        <replace_string>Y</replace_string>
+        <is_unicode>N</is_unicode>
         <replace_by_string>Yes</replace_by_string>
+        <replace_string>Y</replace_string>
         <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>yes</whole_word>
-        <case_sensitive>no</case_sensitive>
-        <is_unicode>no</is_unicode>
+        <use_regex>N</use_regex>
+        <whole_word>Y</whole_word>
       </field>
       <field>
+        <case_sensitive>N</case_sensitive>
         <in_stream_name>Active (Source)</in_stream_name>
-        <out_stream_name/>
-        <use_regex>no</use_regex>
-        <replace_string>N</replace_string>
+        <is_unicode>N</is_unicode>
         <replace_by_string>No</replace_by_string>
+        <replace_string>N</replace_string>
         <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>yes</whole_word>
-        <case_sensitive>no</case_sensitive>
-        <is_unicode>no</is_unicode>
+        <use_regex>N</use_regex>
+        <whole_word>Y</whole_word>
       </field>
       <field>
+        <case_sensitive>N</case_sensitive>
         <in_stream_name>Active User</in_stream_name>
-        <out_stream_name/>
-        <use_regex>no</use_regex>
-        <replace_string>Y</replace_string>
+        <is_unicode>N</is_unicode>
         <replace_by_string>Yes</replace_by_string>
+        <replace_string>Y</replace_string>
         <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>yes</whole_word>
-        <case_sensitive>no</case_sensitive>
-        <is_unicode>no</is_unicode>
+        <use_regex>N</use_regex>
+        <whole_word>Y</whole_word>
       </field>
       <field>
+        <case_sensitive>N</case_sensitive>
         <in_stream_name>Active User</in_stream_name>
-        <out_stream_name/>
-        <use_regex>no</use_regex>
-        <replace_string>N</replace_string>
+        <is_unicode>N</is_unicode>
         <replace_by_string>No</replace_by_string>
+        <replace_string>N</replace_string>
         <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>yes</whole_word>
-        <case_sensitive>no</case_sensitive>
-        <is_unicode>no</is_unicode>
+        <use_regex>N</use_regex>
+        <whole_word>Y</whole_word>
       </field>
       <field>
+        <case_sensitive>N</case_sensitive>
         <in_stream_name>Can Approve Pcard Statement</in_stream_name>
-        <out_stream_name/>
-        <use_regex>no</use_regex>
-        <replace_string>Y</replace_string>
+        <is_unicode>N</is_unicode>
         <replace_by_string>Yes</replace_by_string>
+        <replace_string>Y</replace_string>
         <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>yes</whole_word>
-        <case_sensitive>no</case_sensitive>
-        <is_unicode>no</is_unicode>
+        <use_regex>N</use_regex>
+        <whole_word>Y</whole_word>
       </field>
       <field>
+        <case_sensitive>N</case_sensitive>
         <in_stream_name>Can Approve Pcard Statement</in_stream_name>
-        <out_stream_name/>
-        <use_regex>no</use_regex>
-        <replace_string>N</replace_string>
+        <is_unicode>N</is_unicode>
         <replace_by_string>No</replace_by_string>
+        <replace_string>N</replace_string>
         <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>yes</whole_word>
-        <case_sensitive>no</case_sensitive>
-        <is_unicode>no</is_unicode>
+        <use_regex>N</use_regex>
+        <whole_word>Y</whole_word>
       </field>
       <field>
+        <case_sensitive>N</case_sensitive>
         <in_stream_name>Can View FCC</in_stream_name>
-        <out_stream_name/>
-        <use_regex>no</use_regex>
-        <replace_string>Y</replace_string>
+        <is_unicode>N</is_unicode>
         <replace_by_string>Yes</replace_by_string>
+        <replace_string>Y</replace_string>
         <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>yes</whole_word>
-        <case_sensitive>no</case_sensitive>
-        <is_unicode>no</is_unicode>
+        <use_regex>N</use_regex>
+        <whole_word>Y</whole_word>
       </field>
       <field>
+        <case_sensitive>N</case_sensitive>
         <in_stream_name>Can View FCC</in_stream_name>
-        <out_stream_name/>
-        <use_regex>no</use_regex>
-        <replace_string>N</replace_string>
+        <is_unicode>N</is_unicode>
         <replace_by_string>No</replace_by_string>
+        <replace_string>N</replace_string>
         <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>yes</whole_word>
-        <case_sensitive>no</case_sensitive>
-        <is_unicode>no</is_unicode>
+        <use_regex>N</use_regex>
+        <whole_word>Y</whole_word>
       </field>
       <field>
+        <case_sensitive>N</case_sensitive>
         <in_stream_name>Has Unlimited Signing</in_stream_name>
-        <out_stream_name/>
-        <use_regex>no</use_regex>
-        <replace_string>Y</replace_string>
+        <is_unicode>N</is_unicode>
         <replace_by_string>Yes</replace_by_string>
+        <replace_string>Y</replace_string>
         <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>no</whole_word>
-        <case_sensitive>no</case_sensitive>
-        <is_unicode>no</is_unicode>
+        <use_regex>N</use_regex>
+        <whole_word>N</whole_word>
       </field>
       <field>
+        <case_sensitive>N</case_sensitive>
         <in_stream_name>Has Unlimited Signing</in_stream_name>
-        <out_stream_name/>
-        <use_regex>no</use_regex>
-        <replace_string>N</replace_string>
+        <is_unicode>N</is_unicode>
         <replace_by_string>No</replace_by_string>
+        <replace_string>N</replace_string>
         <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>no</whole_word>
-        <case_sensitive>no</case_sensitive>
-        <is_unicode>no</is_unicode>
+        <use_regex>N</use_regex>
+        <whole_word>N</whole_word>
       </field>
       <field>
+        <case_sensitive>N</case_sensitive>
         <in_stream_name>Main Contact</in_stream_name>
-        <out_stream_name/>
-        <use_regex>no</use_regex>
-        <replace_string>Y</replace_string>
+        <is_unicode>N</is_unicode>
         <replace_by_string>Yes</replace_by_string>
+        <replace_string>Y</replace_string>
         <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>no</whole_word>
-        <case_sensitive>no</case_sensitive>
-        <is_unicode>no</is_unicode>
+        <use_regex>N</use_regex>
+        <whole_word>N</whole_word>
       </field>
       <field>
+        <case_sensitive>N</case_sensitive>
         <in_stream_name>Main Contact</in_stream_name>
-        <out_stream_name/>
-        <use_regex>no</use_regex>
-        <replace_string>N</replace_string>
+        <is_unicode>N</is_unicode>
         <replace_by_string>No</replace_by_string>
+        <replace_string>N</replace_string>
         <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>no</whole_word>
-        <case_sensitive>no</case_sensitive>
-        <is_unicode>no</is_unicode>
+        <use_regex>N</use_regex>
+        <whole_word>N</whole_word>
       </field>
       <field>
+        <case_sensitive>N</case_sensitive>
         <in_stream_name>Permitted to View FCC</in_stream_name>
-        <out_stream_name/>
-        <use_regex>no</use_regex>
-        <replace_string>Y</replace_string>
+        <is_unicode>N</is_unicode>
         <replace_by_string>Yes</replace_by_string>
+        <replace_string>Y</replace_string>
         <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>no</whole_word>
-        <case_sensitive>no</case_sensitive>
-        <is_unicode>no</is_unicode>
+        <use_regex>N</use_regex>
+        <whole_word>N</whole_word>
       </field>
       <field>
+        <case_sensitive>N</case_sensitive>
         <in_stream_name>Permitted to View FCC</in_stream_name>
-        <out_stream_name/>
-        <use_regex>no</use_regex>
-        <replace_string>N</replace_string>
+        <is_unicode>N</is_unicode>
         <replace_by_string>No</replace_by_string>
+        <replace_string>N</replace_string>
         <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>no</whole_word>
-        <case_sensitive>no</case_sensitive>
-        <is_unicode>no</is_unicode>
+        <use_regex>N</use_regex>
+        <whole_word>N</whole_word>
       </field>
       <field>
+        <case_sensitive>N</case_sensitive>
         <in_stream_name>ContactActiveAsDelegate</in_stream_name>
-        <out_stream_name/>
-        <use_regex>no</use_regex>
-        <replace_string>Y</replace_string>
+        <is_unicode>N</is_unicode>
         <replace_by_string>Yes</replace_by_string>
+        <replace_string>Y</replace_string>
         <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>yes</whole_word>
-        <case_sensitive>no</case_sensitive>
-        <is_unicode>no</is_unicode>
+        <use_regex>N</use_regex>
+        <whole_word>Y</whole_word>
       </field>
       <field>
+        <case_sensitive>N</case_sensitive>
         <in_stream_name>ContactActiveAsDelegate</in_stream_name>
-        <out_stream_name/>
-        <use_regex>no</use_regex>
-        <replace_string>N</replace_string>
+        <is_unicode>N</is_unicode>
         <replace_by_string>No</replace_by_string>
+        <replace_string>N</replace_string>
         <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>yes</whole_word>
-        <case_sensitive>no</case_sensitive>
-        <is_unicode>no</is_unicode>
+        <use_regex>N</use_regex>
+        <whole_word>Y</whole_word>
       </field>
     </fields>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>2176</xloc>
       <yloc>656</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -806,35 +738,30 @@ if (ChecksumFlagChanges == null) {
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>MSSQL_RFSDW</connection>
     <cache>Y</cache>
     <cache_load_all>N</cache_load_all>
     <cache_size>0</cache_size>
+    <connection>MSSQL_RFSDW</connection>
     <lookup>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <fail_on_multiple>N</fail_on_multiple>
+      <key>
+        <condition>=</condition>
+        <field>Contact ID</field>
+        <name>Contact</name>
+      </key>
       <schema>salesforce_backup</schema>
       <table>Contact</table>
-      <orderby/>
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
-        <name>Contact</name>
-        <field>Contact ID</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
       <value>
         <name>Active As Delegate</name>
         <rename>ContactActiveAsDelegate</rename>
-        <default/>
         <type>Boolean</type>
       </value>
     </lookup>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>1696</xloc>
       <yloc>656</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -1140,11 +1067,9 @@ if (ChecksumFlagChanges == null) {
       </meta>
     </fields>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>1936</xloc>
       <yloc>656</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -1170,11 +1095,9 @@ if (ChecksumFlagChanges == null) {
       <select_unspecified>Y</select_unspecified>
     </fields>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>560</xloc>
       <yloc>512</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -1200,11 +1123,9 @@ if (ChecksumFlagChanges == null) {
       <select_unspecified>Y</select_unspecified>
     </fields>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>1024</xloc>
       <yloc>512</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -1218,9 +1139,9 @@ if (ChecksumFlagChanges == null) {
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <targeturl>${GW_Salesforce_Webservice_URL}</targeturl>
-    <username>${GW_Salesforce_UserName}</username>
-    <password>${GW_Salesforce_Password}</password>
+    <targeturl>${Salesforce_Webservice_URL}</targeturl>
+    <username>${Salesforce_ETL_Username}</username>
+    <password>${Salesforce_ETL_Password}</password>
     <timeout>60000</timeout>
     <useCompression>N</useCompression>
     <module>UHN_Delegate__c</module>
@@ -1765,11 +1686,9 @@ if (ChecksumFlagChanges == null) {
     </fields>
     <limit>0</limit>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>336</xloc>
       <yloc>512</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -1783,18 +1702,16 @@ if (ChecksumFlagChanges == null) {
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>MSSQL_RFSDW</connection>
     <commit>1000</commit>
-    <update_bypassed>N</update_bypassed>
+    <connection>MSSQL_RFSDW</connection>
     <lookup>
+      <key>
+        <condition>=</condition>
+        <field>Checksum (Flag Changes)</field>
+        <name>Checksum (Flag Changes)</name>
+      </key>
       <schema>salesforce_backup</schema>
       <table>UHN_Delegate__c</table>
-      <key>
-        <name>Checksum (Flag Changes)</name>
-        <field>Checksum (Flag Changes)</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
       <value>
         <name>Account Holder</name>
         <rename>Account Holder</rename>
@@ -1981,12 +1898,11 @@ if (ChecksumFlagChanges == null) {
         <update>Y</update>
       </value>
     </lookup>
+    <update_bypassed>N</update_bypassed>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>2288</xloc>
       <yloc>368</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform_error_handling>

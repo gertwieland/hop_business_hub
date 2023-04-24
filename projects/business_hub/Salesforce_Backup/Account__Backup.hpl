@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <pipeline>
   <info>
     <name>Account__Backup</name>
@@ -6,7 +7,6 @@
     <extended_description/>
     <pipeline_version/>
     <pipeline_type>Normal</pipeline_type>
-    <directory>/Salesforce_Backup</directory>
     <parameters>
     </parameters>
     <capture_transform_performance>N</capture_transform_performance>
@@ -16,73 +16,68 @@
     <created_date>2023/04/23 22:11:23.429</created_date>
     <modified_user>gert</modified_user>
     <modified_date>2023/04/20 11:37:15.613</modified_date>
-    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
-    <is_key_private>N</is_key_private>
   </info>
   <notepads>
     <notepad>
-      <note>SystemModstamp &lt;= LAST_N_DAYS:7</note>
-      <xloc>288</xloc>
-      <yloc>480</yloc>
-      <width>344</width>
-      <heigth>37</heigth>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorred>255</backgroundcolorred>
+      <bordercolorblue>100</bordercolorblue>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorred>100</bordercolorred>
+      <fontbold>N</fontbold>
+      <fontcolorblue>0</fontcolorblue>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorred>0</fontcolorred>
+      <fontitalic>N</fontitalic>
       <fontname>Segoe UI</fontname>
       <fontsize>10</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>205</backgroundcolorgreen>
-      <backgroundcolorblue>112</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
+      <height>26</height>
+      <xloc>288</xloc>
+      <yloc>480</yloc>
+      <note>SystemModstamp &lt;= LAST_N_DAYS:7</note>
+      <width>344</width>
     </notepad>
     <notepad>
-      <note>Create new record when a value changes.
-</note>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorred>255</backgroundcolorred>
+      <bordercolorblue>100</bordercolorblue>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorred>100</bordercolorred>
+      <fontbold>N</fontbold>
+      <fontcolorblue>0</fontcolorblue>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorred>0</fontcolorred>
+      <fontitalic>N</fontitalic>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <height>36</height>
       <xloc>2064</xloc>
       <yloc>336</yloc>
+      <note>Create new record when a value changes.
+</note>
       <width>334</width>
-      <heigth>59</heigth>
-      <fontname>Segoe UI</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>205</backgroundcolorgreen>
-      <backgroundcolorblue>112</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
     </notepad>
     <notepad>
-      <note>${SF_Query_for_Dimensions}</note>
-      <xloc>496</xloc>
-      <yloc>272</yloc>
-      <width>235</width>
-      <heigth>34</heigth>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorred>255</backgroundcolorred>
+      <bordercolorblue>100</bordercolorblue>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorred>100</bordercolorred>
+      <fontbold>N</fontbold>
+      <fontcolorblue>0</fontcolorblue>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorred>0</fontcolorred>
+      <fontitalic>N</fontitalic>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>205</backgroundcolorgreen>
-      <backgroundcolorblue>112</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
+      <height>24</height>
+      <xloc>496</xloc>
+      <yloc>272</yloc>
+      <note>${SF_Query_for_Dimensions}</note>
+      <width>235</width>
     </notepad>
   </notepads>
   <order>
@@ -143,6 +138,11 @@
     </hop>
     <hop>
       <from>Look for existing records</from>
+      <to>Only changed records</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Only changed records</from>
       <to>Write Account</to>
       <enabled>Y</enabled>
     </hop>
@@ -159,17 +159,6 @@
       <schema_name/>
     </partitioning>
     <checksumtype>SHA-256</checksumtype>
-    <resultfieldName>Checksum_FlagChanges</resultfieldName>
-    <resultType>hexadecimal</resultType>
-    <compatibilityMode>N</compatibilityMode>
-    <oldChecksumBehaviour>N</oldChecksumBehaviour>
-    <fieldSeparatorString>-</fieldSeparatorString>
-    <checksumtype>SHA-256</checksumtype>
-    <resultfieldName>Checksum_FlagChanges</resultfieldName>
-    <resultType>hexadecimal</resultType>
-    <compatibilityMode>N</compatibilityMode>
-    <oldChecksumBehaviour>N</oldChecksumBehaviour>
-    <fieldSeparatorString>-</fieldSeparatorString>
     <fields>
       <field>
         <name>Institute_Type</name>
@@ -199,12 +188,12 @@
         <name>Financial_Report_Rollup</name>
       </field>
     </fields>
+    <resultType>hexadecimal</resultType>
+    <resultfieldName>Checksum_FlagChanges</resultfieldName>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>1568</xloc>
       <yloc>352</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -219,10 +208,6 @@
       <schema_name/>
     </partitioning>
     <checksumtype>SHA-256</checksumtype>
-    <resultfieldName>Checksum_FlagChanges</resultfieldName>
-    <resultType>hexadecimal</resultType>
-    <compatibilityMode>N</compatibilityMode>
-    <oldChecksumBehaviour>N</oldChecksumBehaviour>
     <fields>
       <field>
         <name>Entity ID</name>
@@ -408,12 +393,12 @@
         <name>Financial Report Rollup</name>
       </field>
     </fields>
+    <resultType>hexadecimal</resultType>
+    <resultfieldName>Checksum_FlagChanges</resultfieldName>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>1520</xloc>
       <yloc>512</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -428,11 +413,9 @@
       <schema_name/>
     </partitioning>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>1280</xloc>
       <yloc>512</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -447,11 +430,9 @@
       <schema_name/>
     </partitioning>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>1728</xloc>
       <yloc>352</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -465,31 +446,29 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <send_true_to>Select values</send_true_to>
-    <send_false_to/>
     <compare>
       <condition>
-        <negated>N</negated>
-        <leftvalue>Entity Type</leftvalue>
+        <conditions>
+</conditions>
         <function>=</function>
-        <rightvalue/>
+        <leftvalue>Entity Type</leftvalue>
+        <negated>N</negated>
+        <operator>-</operator>
         <value>
-          <name>constant</name>
-          <type>String</type>
-          <text>Institute</text>
-          <length>-1</length>
-          <precision>-1</precision>
           <isnull>N</isnull>
-          <mask/>
+          <length>-1</length>
+          <name>constant</name>
+          <precision>-1</precision>
+          <text>Institute</text>
+          <type>String</type>
         </value>
       </condition>
     </compare>
+    <send_true_to>Select values</send_true_to>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>1280</xloc>
       <yloc>352</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -503,35 +482,31 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>MSSQL_RFSDW</connection>
     <cache>Y</cache>
     <cache_load_all>Y</cache_load_all>
     <cache_size>0</cache_size>
+    <connection>MSSQL_RFSDW</connection>
     <lookup>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <fail_on_multiple>N</fail_on_multiple>
+      <key>
+        <condition>=</condition>
+        <field>Record Type ID</field>
+        <name>Entity Record Type</name>
+      </key>
       <schema>salesforce_backup</schema>
       <table>RecordType</table>
-      <orderby/>
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
-        <name>Entity Record Type</name>
-        <field>Record Type ID</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
       <value>
         <name>Name</name>
         <rename>Entity Type</rename>
-        <default/>
+        <trim_type>none</trim_type>
         <type>String</type>
       </value>
     </lookup>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>864</xloc>
       <yloc>512</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -552,11 +527,9 @@
       </field>
     </fields>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>1056</xloc>
       <yloc>512</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -570,35 +543,30 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>MSSQL_RFSDW</connection>
     <cache>Y</cache>
     <cache_load_all>Y</cache_load_all>
     <cache_size>0</cache_size>
+    <connection>MSSQL_RFSDW</connection>
     <lookup>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <fail_on_multiple>N</fail_on_multiple>
+      <key>
+        <condition>=</condition>
+        <field>Checksum (Flag changes)</field>
+        <name>Checksum_FlagChanges</name>
+      </key>
       <schema>salesforce_backup</schema>
       <table>Account</table>
-      <orderby/>
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
-        <name>Checksum_FlagChanges</name>
-        <field>Checksum (Flag changes)</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
       <value>
         <name>Checksum (Flag changes)</name>
         <rename>Checksum_FlagChanges_InTable</rename>
-        <default/>
         <type>String</type>
       </value>
     </lookup>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>1712</xloc>
       <yloc>512</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -612,22 +580,21 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <send_true_to>Write Account</send_true_to>
-    <send_false_to/>
     <compare>
       <condition>
-        <negated>N</negated>
-        <leftvalue>Checksum_FlagChanges_InTable</leftvalue>
+        <conditions>
+</conditions>
         <function>IS NULL</function>
-        <rightvalue/>
+        <leftvalue>Checksum_FlagChanges_InTable</leftvalue>
+        <negated>N</negated>
+        <operator>-</operator>
       </condition>
     </compare>
+    <send_true_to>Write Account</send_true_to>
     <attributes/>
-    <cluster_schema/>
     <GUI>
-      <xloc>1920</xloc>
-      <yloc>688</yloc>
-      <draw>Y</draw>
+      <xloc>1952</xloc>
+      <yloc>512</yloc>
     </GUI>
   </transform>
   <transform>
@@ -641,9 +608,9 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <targeturl>${GW_Salesforce_Webservice_URL}</targeturl>
-    <username>${GW_Salesforce_UserName}</username>
-    <password>${GW_Salesforce_Password}</password>
+    <targeturl>${Salesforce_Webservice_URL}</targeturl>
+    <username>${Salesforce_ETL_Username}</username>
+    <password>${Salesforce_ETL_Password}</password>
     <timeout>60000</timeout>
     <useCompression>N</useCompression>
     <module>Account</module>
@@ -1510,940 +1477,9 @@
     </fields>
     <limit>0</limit>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>576</xloc>
       <yloc>512</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </transform>
-  <transform>
-    <name>Read Account 2</name>
-    <type>SalesforceInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <targeturl>${GW_Salesforce_Webservice_URL}</targeturl>
-    <username>${GW_Salesforce_UserName}</username>
-    <password>${GW_Salesforce_Password}</password>
-    <timeout>60000</timeout>
-    <useCompression>N</useCompression>
-    <module>Account</module>
-    <condition>${SF_Query_for_Dimensions}</condition>
-    <specifyQuery>N</specifyQuery>
-    <query/>
-    <include_targeturl>N</include_targeturl>
-    <targeturl_field/>
-    <include_module>N</include_module>
-    <module_field/>
-    <include_rownum>N</include_rownum>
-    <include_deletion_date>N</include_deletion_date>
-    <deletion_date_field/>
-    <rownum_field/>
-    <include_sql>N</include_sql>
-    <sql_field/>
-    <include_Timestamp>N</include_Timestamp>
-    <timestamp_field/>
-    <read_from/>
-    <read_to/>
-    <records_filter>all</records_filter>
-    <queryAll>N</queryAll>
-    <fields>
-      <field>
-        <name>Entity ID</name>
-        <field>Id</field>
-        <idlookup>Y</idlookup>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>18</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Deleted</name>
-        <field>IsDeleted</field>
-        <idlookup>N</idlookup>
-        <type>Boolean</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Master Record ID</name>
-        <field>MasterRecordId</field>
-        <idlookup>N</idlookup>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>18</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Entity Name</name>
-        <field>Name</field>
-        <idlookup>N</idlookup>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>255</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Entity Record Type</name>
-        <field>RecordTypeId</field>
-        <idlookup>N</idlookup>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>18</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Parent Entity</name>
-        <field>ParentId</field>
-        <idlookup>N</idlookup>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>18</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Billing Street</name>
-        <field>BillingStreet</field>
-        <idlookup>N</idlookup>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>255</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Billing City</name>
-        <field>BillingCity</field>
-        <idlookup>N</idlookup>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>40</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Billing State/Province</name>
-        <field>BillingState</field>
-        <idlookup>N</idlookup>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>80</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Billing Zip/Postal Code</name>
-        <field>BillingPostalCode</field>
-        <idlookup>N</idlookup>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>20</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Billing Country</name>
-        <field>BillingCountry</field>
-        <idlookup>N</idlookup>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>80</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Billing Latitude</name>
-        <field>BillingLatitude</field>
-        <idlookup>N</idlookup>
-        <type>Number</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>0</length>
-        <precision>18</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Billing Longitude</name>
-        <field>BillingLongitude</field>
-        <idlookup>N</idlookup>
-        <type>Number</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>0</length>
-        <precision>18</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Billing Geocode Accuracy</name>
-        <field>BillingGeocodeAccuracy</field>
-        <idlookup>N</idlookup>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>40</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Billing Address</name>
-        <field>BillingAddress</field>
-        <idlookup>N</idlookup>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>0</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Shipping Street</name>
-        <field>ShippingStreet</field>
-        <idlookup>N</idlookup>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>255</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Shipping City</name>
-        <field>ShippingCity</field>
-        <idlookup>N</idlookup>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>40</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Shipping State/Province</name>
-        <field>ShippingState</field>
-        <idlookup>N</idlookup>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>80</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Shipping Zip/Postal Code</name>
-        <field>ShippingPostalCode</field>
-        <idlookup>N</idlookup>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>20</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Shipping Country</name>
-        <field>ShippingCountry</field>
-        <idlookup>N</idlookup>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>80</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Shipping Latitude</name>
-        <field>ShippingLatitude</field>
-        <idlookup>N</idlookup>
-        <type>Number</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>0</length>
-        <precision>18</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Shipping Longitude</name>
-        <field>ShippingLongitude</field>
-        <idlookup>N</idlookup>
-        <type>Number</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>0</length>
-        <precision>18</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Shipping Geocode Accuracy</name>
-        <field>ShippingGeocodeAccuracy</field>
-        <idlookup>N</idlookup>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>40</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Shipping Address</name>
-        <field>ShippingAddress</field>
-        <idlookup>N</idlookup>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>0</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Entity Phone</name>
-        <field>Phone</field>
-        <idlookup>N</idlookup>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>40</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Website</name>
-        <field>Website</field>
-        <idlookup>N</idlookup>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>255</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Photo URL</name>
-        <field>PhotoUrl</field>
-        <idlookup>N</idlookup>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>255</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Industry</name>
-        <field>Industry</field>
-        <idlookup>N</idlookup>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>40</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Employees</name>
-        <field>NumberOfEmployees</field>
-        <idlookup>N</idlookup>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>0</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Entity Description</name>
-        <field>Description</field>
-        <idlookup>N</idlookup>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>32000</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Entity Owner</name>
-        <field>OwnerId</field>
-        <idlookup>N</idlookup>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>18</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Created Date</name>
-        <field>CreatedDate</field>
-        <idlookup>N</idlookup>
-        <type>Date</type>
-        <format>yyyy-MM-dd'T'HH:mm:ss'.000'XXX</format>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Created By ID</name>
-        <field>CreatedById</field>
-        <idlookup>N</idlookup>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>18</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Last Modified Date</name>
-        <field>LastModifiedDate</field>
-        <idlookup>N</idlookup>
-        <type>Date</type>
-        <format>yyyy-MM-dd'T'HH:mm:ss'.000'XXX</format>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Last Modified By ID</name>
-        <field>LastModifiedById</field>
-        <idlookup>N</idlookup>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>18</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>System Modstamp</name>
-        <field>SystemModstamp</field>
-        <idlookup>N</idlookup>
-        <type>Date</type>
-        <format>yyyy-MM-dd'T'HH:mm:ss'.000'XXX</format>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Last Activity</name>
-        <field>LastActivityDate</field>
-        <idlookup>N</idlookup>
-        <type>Date</type>
-        <format>yyyy-MM-dd</format>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Last Viewed Date</name>
-        <field>LastViewedDate</field>
-        <idlookup>N</idlookup>
-        <type>Date</type>
-        <format>yyyy-MM-dd'T'HH:mm:ss'.000'XXX</format>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Last Referenced Date</name>
-        <field>LastReferencedDate</field>
-        <idlookup>N</idlookup>
-        <type>Date</type>
-        <format>yyyy-MM-dd'T'HH:mm:ss'.000'XXX</format>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Customer Portal Account</name>
-        <field>IsCustomerPortal</field>
-        <idlookup>N</idlookup>
-        <type>Boolean</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Data.com Key</name>
-        <field>Jigsaw</field>
-        <idlookup>N</idlookup>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>20</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Jigsaw Company ID</name>
-        <field>JigsawCompanyId</field>
-        <idlookup>N</idlookup>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>20</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Entity Source</name>
-        <field>AccountSource</field>
-        <idlookup>N</idlookup>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>40</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>SIC Description</name>
-        <field>SicDesc</field>
-        <idlookup>N</idlookup>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>80</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>COVID-19 Risk Classification</name>
-        <field>UHN_COVID19_Risk_Classification__c</field>
-        <idlookup>N</idlookup>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>255</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Institute Code</name>
-        <field>UHN_Institute_Code__c</field>
-        <idlookup>N</idlookup>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>32</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>SAP Id</name>
-        <field>UHN_SAP_Id__c</field>
-        <idlookup>Y</idlookup>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>20</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Sponsor Class</name>
-        <field>UHN_Sponsor_Class__c</field>
-        <idlookup>N</idlookup>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>255</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Sponsor Legacy Name</name>
-        <field>UHN_Sponsor_Legacy_Name__c</field>
-        <idlookup>N</idlookup>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>255</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Sponsor Short Name</name>
-        <field>UHN_Sponsor_Short_Name__c</field>
-        <idlookup>N</idlookup>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>255</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Sponsored Program</name>
-        <field>UHN_Sponsored_Program__c</field>
-        <idlookup>N</idlookup>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>32</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Business Officer</name>
-        <field>UHN_Institute_Business_Officer__c</field>
-        <idlookup>N</idlookup>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>18</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Funding Type(s)</name>
-        <field>UHN_Sponsor_Funding_Type_Roll__c</field>
-        <idlookup>N</idlookup>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>250</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Total Awarded Funding</name>
-        <field>UHN_Total_Awarded_Funding__c</field>
-        <idlookup>N</idlookup>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>0</length>
-        <precision>18</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Number of Active FCCs</name>
-        <field>UHN_Number_of_active_accounts__c</field>
-        <idlookup>N</idlookup>
-        <type>Number</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>0</length>
-        <precision>18</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Checksum (Flag changes)</name>
-        <field>UHN_Checksum_Flag_Changes__c</field>
-        <idlookup>N</idlookup>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>64</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Entity Name Short</name>
-        <field>UHN_Entity_Name_Short__c</field>
-        <idlookup>N</idlookup>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>25</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Sponsor Name No Number</name>
-        <field>UHN_Sponsor_Name_No_Number__c</field>
-        <idlookup>N</idlookup>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>150</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Country Code</name>
-        <field>UHN_Country_Code__c</field>
-        <idlookup>N</idlookup>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>255</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Reporting Due Date Details</name>
-        <field>UHN_Due_Date_Details__c</field>
-        <idlookup>N</idlookup>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>150</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Report Type(s)</name>
-        <field>Report_Type_s__c</field>
-        <idlookup>N</idlookup>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>4099</length>
-        <precision>4</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>UofT Location Code</name>
-        <field>UHN_Location_Code__c</field>
-        <idlookup>N</idlookup>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>30</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>Financial Report Rollup</name>
-        <field>UHN_Financial_Report_Rollup__c</field>
-        <idlookup>N</idlookup>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>150</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-    </fields>
-    <limit>0</limit>
-    <attributes/>
-    <cluster_schema/>
-    <GUI>
-      <xloc>576</xloc>
-      <yloc>608</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -2500,11 +1536,9 @@
       <select_unspecified>N</select_unspecified>
     </fields>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>1424</xloc>
       <yloc>352</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -2518,18 +1552,16 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>MSSQL_RFSDW</connection>
     <commit>1000</commit>
-    <update_bypassed>N</update_bypassed>
+    <connection>MSSQL_RFSDW</connection>
     <lookup>
+      <key>
+        <condition>=</condition>
+        <field>Entity ID</field>
+        <name>Entity ID</name>
+      </key>
       <schema>salesforce_backup</schema>
       <table>Account</table>
-      <key>
-        <name>Entity ID</name>
-        <field>Entity ID</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
       <value>
         <name>Entity ID</name>
         <rename>Entity ID</rename>
@@ -2841,12 +1873,11 @@
         <update>Y</update>
       </value>
     </lookup>
+    <update_bypassed>N</update_bypassed>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>2112</xloc>
       <yloc>512</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -2860,18 +1891,16 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>MSSQL_RFSDW</connection>
     <commit>1000</commit>
-    <update_bypassed>N</update_bypassed>
+    <connection>MSSQL_RFSDW</connection>
     <lookup>
+      <key>
+        <condition>=</condition>
+        <field>Checksum_FlagChanges</field>
+        <name>Checksum_FlagChanges</name>
+      </key>
       <schema>salesforce_backup</schema>
       <table>Institute</table>
-      <key>
-        <name>Checksum_FlagChanges</name>
-        <field>Checksum_FlagChanges</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
       <value>
         <name>Institute_Type</name>
         <rename>Institute_Type</rename>
@@ -2928,12 +1957,11 @@
         <update>Y</update>
       </value>
     </lookup>
+    <update_bypassed>N</update_bypassed>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>1984</xloc>
       <yloc>352</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform>
@@ -2947,18 +1975,16 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>MSSQL_RFSDW</connection>
     <commit>1000</commit>
-    <update_bypassed>N</update_bypassed>
+    <connection>MSSQL_RFSDW</connection>
     <lookup>
+      <key>
+        <condition>=</condition>
+        <field>Institute_ID_SAP</field>
+        <name>Institute_ID_SAP</name>
+      </key>
       <schema>salesforce_dim</schema>
       <table>Institute</table>
-      <key>
-        <name>Institute_ID_SAP</name>
-        <field>Institute_ID_SAP</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
       <value>
         <name>Institute_Type</name>
         <rename>Institute_Type</rename>
@@ -3015,12 +2041,11 @@
         <update>Y</update>
       </value>
     </lookup>
+    <update_bypassed>N</update_bypassed>
     <attributes/>
-    <cluster_schema/>
     <GUI>
       <xloc>1984</xloc>
       <yloc>208</yloc>
-      <draw>Y</draw>
     </GUI>
   </transform>
   <transform_error_handling>

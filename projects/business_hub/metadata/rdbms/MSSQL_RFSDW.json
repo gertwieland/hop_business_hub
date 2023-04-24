@@ -1,16 +1,16 @@
 {
   "rdbms": {
     "MSSQLNATIVE": {
-      "databaseName": "${MSSQL_DatabaseName}",
+      "databaseName": "RFS_DataWarehouse",
       "instanceName": "",
       "pluginId": "MSSQLNATIVE",
       "usingDoubleDigit": false,
       "usingIntegratedSecurity": false,
       "accessType": 0,
-      "hostname": "${MSSQL_HostName}",
-      "password": "${MSSQL_Password}",
+      "hostname": "107.173.80.17",
+      "password": "Encrypted 7648373bcacdc2fa0695b1a3b841fa6adac598ec",
       "pluginName": "MS SQL Server (Native)",
-      "port": "${MSSQL_Port}",
+      "port": "1433",
       "attributes": {
         "SUPPORTS_TIMESTAMP_DATA_TYPE": "Y",
         "QUOTE_ALL_FIELDS": "N",
@@ -21,8 +21,8 @@
         "FORCE_IDENTIFIERS_TO_UPPERCASE": "N",
         "PREFERRED_SCHEMA_NAME": ""
       },
-      "manualUrl": "",
-      "username": "${MSSQL_Username}"
+      "manualUrl": "jdbc:sqlserver://107.173.80.17:1433;databaseName\u003dRFS_DataWarehouse;user\u003dsa;password\u003dvH79tUm2l2CGs84zd7WV;encrypt\u003dfalse",
+      "username": "sa"
     }
   },
   "name": "MSSQL_RFSDW"
