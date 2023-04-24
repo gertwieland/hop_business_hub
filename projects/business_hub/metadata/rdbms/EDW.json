@@ -1,12 +1,12 @@
 {
   "rdbms": {
-    "ORACLERDB": {
+    "ORACLE": {
       "databaseName": "Whatever",
-      "pluginId": "ORACLERDB",
+      "pluginId": "ORACLE",
       "accessType": 0,
       "hostname": "",
-      "password": "Encrypted 36676936f3de9ead3882a28cbf16b840dab0bff3",
-      "pluginName": "Oracle RDB",
+      "password": "${EDW_Password}",
+      "pluginName": "Oracle",
       "port": "",
       "attributes": {
         "SUPPORTS_TIMESTAMP_DATA_TYPE": "N",
@@ -18,8 +18,8 @@
         "FORCE_IDENTIFIERS_TO_UPPERCASE": "N",
         "PREFERRED_SCHEMA_NAME": ""
       },
-      "manualUrl": "jdbc:oracle:thin:@//10.182.6.70:1521/@PDBCDWPRD.ca2.ocm.s7332938.oraclecloudatcustomer.com",
-      "username": "ss_reader"
+      "manualUrl": "${EDW_ManualConnectionURL}",
+      "username": "${EDW_Username}"
     }
   },
   "name": "EDW"

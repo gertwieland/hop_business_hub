@@ -47,5 +47,17 @@
     "name" : "SFTP_Password",
     "value" : "Encrypted 5a415435ccd9c2fe09d69ab69f1fb826f6918dc8",
     "description" : ""
+  }, {
+    "name" : "EDW_Username",
+    "value" : "ss_reader",
+    "description" : ""
+  }, {
+    "name" : "EDW_Password",
+    "value" : "Encrypted 2be98afc86aa7f296ae18aa4fcd81eb89",
+    "description" : ""
+  }, {
+    "name" : "EDW_ManualConnectionURL",
+    "value" : "jdbc:oracle:thin:@//10.182.6.70:1521/PDBCDWPRD.ca2.ocm.s7332938.oraclecloudatcustomer.com",
+    "description" : ""
   } ]
 }
