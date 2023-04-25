@@ -1,0 +1,13 @@
+{
+  "executionInfoLocation": {
+    "local-folder": {
+      "pluginName": "File location",
+      "pluginId": "local-folder",
+      "rootFolder": "C:\\Users\\t57664uhn\\ETL\\hop\\BusinessHub\\central\\hop-logs"
+    }
+  },
+  "dataLoggingDelay": "2000",
+  "name": "file-logs",
+  "description": "",
+  "dataLoggingInterval": "5000"
+}

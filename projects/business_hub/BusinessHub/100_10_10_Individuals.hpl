@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <pipeline>
   <info>
     <name>100_10_10_Individuals</name>
@@ -7,7 +8,6 @@
     <pipeline_version/>
     <pipeline_type>Normal</pipeline_type>
     <pipeline_status>0</pipeline_status>
-    <directory>/BusinessHub</directory>
     <parameters>
       <parameter>
         <name>n1</name>
@@ -22,20 +22,34 @@
     <created_date>2022/02/22 16:39:07.390</created_date>
     <modified_user>gert</modified_user>
     <modified_date>2023/04/18 13:52:07.437</modified_date>
-    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
-    <is_key_private>N</is_key_private>
   </info>
   <notepads>
+    <notepad>
+      <backgroundcolorblue>251</backgroundcolorblue>
+      <backgroundcolorgreen>232</backgroundcolorgreen>
+      <backgroundcolorred>201</backgroundcolorred>
+      <bordercolorblue>90</bordercolorblue>
+      <bordercolorgreen>58</bordercolorgreen>
+      <bordercolorred>14</bordercolorred>
+      <fontbold>N</fontbold>
+      <fontcolorblue>90</fontcolorblue>
+      <fontcolorgreen>58</fontcolorgreen>
+      <fontcolorred>14</fontcolorred>
+      <fontitalic>N</fontitalic>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <height>38</height>
+      <xloc>1616</xloc>
+      <yloc>464</yloc>
+      <note>Once in production, we can limit to only recently updated records.
+Consider a full update once a month or so.</note>
+      <width>303</width>
+    </notepad>
   </notepads>
   <order>
     <hop>
       <from>Select values</from>
       <to>Employee</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Individual</from>
-      <to>Lookup Criteria</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -79,11 +93,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>edwhr.BPL_HR_EMPLOYEE_POSITION_DIM</from>
-      <to>Sort rows</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Sort rows</from>
       <to>Add value fields changing sequence</to>
       <enabled>Y</enabled>
@@ -96,11 +105,6 @@
     <hop>
       <from>Filter rows</from>
       <to>Select values 4</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>edwhr.EDW_HR_EMPLOYEE_POSITION</from>
-      <to>Sort rows 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -146,36 +150,6 @@
     <hop>
       <from>String operations</from>
       <to>Replace in string</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>ReportTo_Details</from>
-      <to>Find ENID by EmployeeID</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>PDB_EMPLOYEEEMAILADDRESS</from>
-      <to>Sort rows 3</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Sort rows 3</from>
-      <to>Add value fields changing sequence 3</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Add value fields changing sequence 3</from>
-      <to>Email</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Find ENID by EmployeeID</from>
-      <to>Stream lookup 3</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Email</from>
-      <to>Stream lookup 3</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -243,6 +217,46 @@
       <to>If field value is null</to>
       <enabled>Y</enabled>
     </hop>
+    <hop>
+      <from>Individual</from>
+      <to>Lookup Criteria</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>BPL_HR_EMPLOYEE_POSITION_DIM</from>
+      <to>Sort rows</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>EDW_HR_EMPLOYEE_POSITION</from>
+      <to>Sort rows 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Dummy (do nothing) 2</from>
+      <to>Stream lookup 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>EMPLOYEEEMAILADDRESS</from>
+      <to>Dummy (do nothing) 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>ReportTo_Details</from>
+      <to>Stream lookup 4</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Stream lookup 4</from>
+      <to>Stream lookup 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Find ENID by EmployeeID</from>
+      <to>Stream lookup 4</to>
+      <enabled>Y</enabled>
+    </hop>
   </order>
   <transform>
     <name>Add a checksum</name>
@@ -256,17 +270,6 @@
       <schema_name/>
     </partitioning>
     <checksumtype>SHA-256</checksumtype>
-    <resultfieldName>Checksum_FlagChanges</resultfieldName>
-    <resultType>hexadecimal</resultType>
-    <compatibilityMode>N</compatibilityMode>
-    <oldChecksumBehaviour>N</oldChecksumBehaviour>
-    <fieldSeparatorString>-</fieldSeparatorString>
-    <checksumtype>SHA-256</checksumtype>
-    <resultfieldName>Checksum_FlagChanges</resultfieldName>
-    <resultType>hexadecimal</resultType>
-    <compatibilityMode>N</compatibilityMode>
-    <oldChecksumBehaviour>N</oldChecksumBehaviour>
-    <fieldSeparatorString>-</fieldSeparatorString>
     <fields>
       <field>
         <name>APPLICATION_LAST_ACTIVITY_DATE</name>
@@ -470,12 +473,12 @@
         <name>IsEmployee</name>
       </field>
     </fields>
+    <resultType>hexadecimal</resultType>
+    <resultfieldName>Checksum_FlagChanges</resultfieldName>
     <attributes/>
-    <cluster_schema/>
     <GUI>
-      <xloc>5856</xloc>
-      <yloc>448</yloc>
-      <draw>Y</draw>
+      <xloc>7392</xloc>
+      <yloc>544</yloc>
     </GUI>
   </transform>
   <transform>
@@ -489,20 +492,18 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <start>1</start>
-    <increment>1</increment>
-    <resultfieldName>Priority</resultfieldName>
     <fields>
       <field>
         <name>INDIVIDUAL_ID</name>
       </field>
     </fields>
+    <increment>1</increment>
+    <resultfieldName>Priority</resultfieldName>
+    <start>1</start>
     <attributes/>
-    <cluster_schema/>
     <GUI>
-      <xloc>1696</xloc>
-      <yloc>576</yloc>
-      <draw>Y</draw>
+      <xloc>3230</xloc>
+      <yloc>672</yloc>
     </GUI>
   </transform>
   <transform>
@@ -516,25 +517,23 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <start>1</start>
-    <increment>1</increment>
-    <resultfieldName>Priority</resultfieldName>
     <fields>
       <field>
         <name>POSITION_CODE</name>
       </field>
     </fields>
+    <increment>1</increment>
+    <resultfieldName>Priority</resultfieldName>
+    <start>1</start>
     <attributes/>
-    <cluster_schema/>
     <GUI>
-      <xloc>2800</xloc>
-      <yloc>688</yloc>
-      <draw>Y</draw>
+      <xloc>4336</xloc>
+      <yloc>784</yloc>
     </GUI>
   </transform>
   <transform>
-    <name>Add value fields changing sequence 3</name>
-    <type>FieldsChangeSequence</type>
+    <name>BPL_HR_EMPLOYEE_POSITION_DIM</name>
+    <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -543,20 +542,58 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <start>1</start>
-    <increment>1</increment>
-    <resultfieldName>Counter</resultfieldName>
-    <fields>
-      <field>
-        <name>ENID</name>
-      </field>
-    </fields>
+    <connection>EDW_HR</connection>
+    <execute_each_row>N</execute_each_row>
+    <limit>0</limit>
+    <sql>SELECT
+  EMPLOYEE_POSITION_KEY
+, INDIVIDUAL_ID
+, EMPLOYEE_POSITION_EFFECTIVE_DT
+, POSITION_CODE
+, POSITION_NAME
+, POSITION_EXPIRY_DATE
+, LOCATION_CODE
+, LOCATION_NAME
+, JOB_NUMBER
+, JOB_NAME
+, POSITION_TYPE_CODE
+, POSITION_TYPE_NAME
+, REPORT_TO_POSITION_CODE
+, REPORT_TO_POSITION_NAME
+, REPORT_TO_ORG_TYPE
+, REPORT_TO_EMPLOYEE_NAME
+, AFFILIATION_GROUP_CODE
+, REPLACE_ORGANIZATION_CODE
+, ACTING_POSITION_ADD_AMOUNT
+, BENEFIT_GROUP_CODE
+, REASON_CODE
+, PERMANENT_INDICATOR
+, FULL_TIME_INDICATOR
+, FULL_TIME_PERCENT
+, EXPIRY_DATE
+, TRIAL_END_DATE
+, CONTRACT_END_DATE
+, EMPLOYEE_TYPE_CODE
+, TAX_PROVINCE_CODE
+, DISTRICT_BENEFIT_INDICATOR
+, PENSION_EARN_INDICATOR
+, PENSION_SERVICE_INDICATOR
+, CREATE_DATE
+, UPDATE_DATE
+, CURRENT_RECORD_INDICATOR
+, ASSIGNMENT_TYPE
+, VIP_CREATE_DATE
+, INDIVIDUAL_ENTITY_KEY
+, REPORT_TO_EFFECTIVE_DATE
+, RESEARCH_COMMENT
+, PERSONAL_SERVICE_OFFICE_CODE
+FROM HR_READER.BPL_HR_EMPLOYEE_POSITION_DIM
+where REPORT_TO_EFFECTIVE_DATE is not null</sql>
+    <variables_active>N</variables_active>
     <attributes/>
-    <cluster_schema/>
     <GUI>
-      <xloc>720</xloc>
-      <yloc>816</yloc>
-      <draw>Y</draw>
+      <xloc>1712</xloc>
+      <yloc>672</yloc>
     </GUI>
   </transform>
   <transform>
@@ -570,22 +607,21 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <send_true_to>Get system info</send_true_to>
-    <send_false_to/>
     <compare>
       <condition>
-        <negated>N</negated>
-        <leftvalue>Checksum_FlagChanges_In_SF</leftvalue>
+        <conditions>
+</conditions>
         <function>IS NULL</function>
-        <rightvalue/>
+        <leftvalue>Checksum_FlagChanges_In_SF</leftvalue>
+        <negated>N</negated>
+        <operator>-</operator>
       </condition>
     </compare>
+    <send_true_to>Get system info</send_true_to>
     <attributes/>
-    <cluster_schema/>
     <GUI>
-      <xloc>6272</xloc>
-      <yloc>448</yloc>
-      <draw>Y</draw>
+      <xloc>7808</xloc>
+      <yloc>544</yloc>
     </GUI>
   </transform>
   <transform>
@@ -599,46 +635,41 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>MSSQL_RFSDW</connection>
     <cache>Y</cache>
     <cache_load_all>Y</cache_load_all>
     <cache_size>0</cache_size>
+    <connection>EDW_HR</connection>
     <lookup>
-      <schema>edwhr</schema>
-      <table>EDW_HR_EMPLOYEE_STATUS</table>
-      <orderby/>
-      <fail_on_multiple>N</fail_on_multiple>
       <eat_row_on_failure>N</eat_row_on_failure>
+      <fail_on_multiple>N</fail_on_multiple>
       <key>
-        <name>INDIVIDUAL_ID</name>
+        <condition>=</condition>
         <field>INDIVIDUAL_ID</field>
-        <condition>=</condition>
-        <name2/>
+        <name>INDIVIDUAL_ID</name>
       </key>
       <key>
-        <name>LOOKUP_STATUS_REASON_CODE_CURRENT</name>
-        <field>CURRENT_RECORD_INDICATOR</field>
         <condition>=</condition>
-        <name2/>
+        <field>CURRENT_RECORD_INDICATOR</field>
+        <name>LOOKUP_STATUS_REASON_CODE_CURRENT</name>
       </key>
+      <schema>HR_READER</schema>
+      <table>EDW_HR_EMPLOYEE_STATUS</table>
       <value>
         <name>STATUS_REASON_CODE</name>
         <rename>STATUS_REASON_CODE_CURRENT</rename>
-        <default/>
+        <trim_type>none</trim_type>
         <type>String</type>
       </value>
     </lookup>
     <attributes/>
-    <cluster_schema/>
     <GUI>
-      <xloc>1792</xloc>
-      <yloc>448</yloc>
-      <draw>Y</draw>
+      <xloc>3483</xloc>
+      <yloc>544</yloc>
     </GUI>
   </transform>
   <transform>
-    <name>Email</name>
-    <type>FilterRows</type>
+    <name>Dummy (do nothing) 2</name>
+    <type>Dummy</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -647,31 +678,112 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <send_true_to>Stream lookup 3</send_true_to>
-    <send_false_to/>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <leftvalue>Counter</leftvalue>
-        <function>=</function>
-        <rightvalue/>
-        <value>
-          <name>constant</name>
-          <type>Integer</type>
-          <text>1</text>
-          <length>-1</length>
-          <precision>0</precision>
-          <isnull>N</isnull>
-          <mask>#</mask>
-        </value>
-      </condition>
-    </compare>
     <attributes/>
-    <cluster_schema/>
     <GUI>
-      <xloc>4192</xloc>
-      <yloc>816</yloc>
-      <draw>Y</draw>
+      <xloc>5728</xloc>
+      <yloc>896</yloc>
+    </GUI>
+  </transform>
+  <transform>
+    <name>EDW_HR_EMPLOYEE_POSITION</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>EDW_HR</connection>
+    <execute_each_row>N</execute_each_row>
+    <limit>0</limit>
+    <sql>SELECT
+  POSITION_ENTITY_ID
+, INDIVIDUAL_ENTITY_ID
+, INDIVIDUAL_ID
+, EMPLOYEE_POSITION_EFFECTIVE_DT
+, POSITION_CODE
+, AUDIT_SEQUENCE
+, ASSIGNMENT_TYPE
+, REPLACE_ORGANIZATION_CODE
+, ACTING_POSITION_ADD_AMOUNT
+, BENEFIT_GROUP_CODE
+, REASON_CODE
+, PERMANENT_INDICATOR
+, FULL_TIME_INDICATOR
+, FULL_TIME_PERCENT
+, EXPIRY_DATE
+, TRIAL_END_DATE
+, CONTRACT_END_DATE
+, EMPLOYEE_TYPE_CODE
+, TAX_PROVINCE_CODE
+, DISTRICT_BENEFIT_INDICATOR
+, PENSION_EARN_INDICATOR
+, PENSION_SERVICE_INDICATOR
+, EMPLORERS_TAX_ACCOUNT_NUMBER
+, INTERNAL_MAIL_CODE
+, SORT_CODE
+, COMMENTS
+, UPDATE_TYPE
+, CREA_TS
+, LAST_UPD_TS
+, CURRENT_RECORD_INDICATOR
+, CREATE_DATE
+, UPDATE_DATE
+FROM HR_READER.EDW_HR_EMPLOYEE_POSITION
+</sql>
+    <variables_active>N</variables_active>
+    <attributes/>
+    <GUI>
+      <xloc>1712</xloc>
+      <yloc>784</yloc>
+    </GUI>
+  </transform>
+  <transform>
+    <name>EMPLOYEEEMAILADDRESS</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>PDB</connection>
+    <execute_each_row>N</execute_each_row>
+    <limit>0</limit>
+    <sql>-- This query retrieves the latest email address for each ENID where VALIDID=10. If there are multiple records per ENID, it gives priority to the EMAILADDRESSLABEL "Primary" over "Personal".
+
+SELECT 
+  ENID, 
+  -- Select the first email address per ENID ordered by EMAILADDRESSLABEL in descending order (i.e., "Primary" is higher than "Personal")
+  MAX(EMAILADDRESS) KEEP (DENSE_RANK FIRST ORDER BY EMAILADDRESSLABEL DESC) AS EMAILADDRESS
+FROM 
+  PDB.EMPLOYEEEMAILADDRESS
+WHERE 
+  -- Only consider records where VALIDID = 10
+  VALIDID = 10
+  AND EVSQN = (
+    -- Retrieve the highest EVSQN value for each ENID where VALIDID=10
+    SELECT 
+      MAX(EVSQN) 
+    FROM 
+      PDB.EMPLOYEEEMAILADDRESS 
+    WHERE 
+      ENID = PDB.EMPLOYEEEMAILADDRESS.ENID 
+      AND VALIDID = 10
+  )
+GROUP BY 
+  -- Group the results by ENID to return one row per ENID
+  ENID
+</sql>
+    <variables_active>N</variables_active>
+    <attributes/>
+    <GUI>
+      <xloc>1712</xloc>
+      <yloc>912</yloc>
     </GUI>
   </transform>
   <transform>
@@ -685,47 +797,90 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>MSSQL_RFSDW</connection>
     <cache>Y</cache>
     <cache_load_all>N</cache_load_all>
     <cache_size>0</cache_size>
+    <connection>EDW_HR</connection>
     <lookup>
-      <schema>edwhr</schema>
-      <table>EDW_HR_EMPLOYEE</table>
-      <orderby/>
-      <fail_on_multiple>N</fail_on_multiple>
       <eat_row_on_failure>N</eat_row_on_failure>
+      <fail_on_multiple>N</fail_on_multiple>
       <key>
-        <name>INDIVIDUAL_ID</name>
-        <field>INDIVIDUAL_ID</field>
         <condition>=</condition>
-        <name2/>
+        <field>INDIVIDUAL_ID</field>
+        <name>INDIVIDUAL_ID</name>
       </key>
+      <schema>HR_READER</schema>
+      <table>EDW_HR_EMPLOYEE</table>
       <value>
         <name>INDIVIDUAL_ID</name>
         <rename>Employee_ID</rename>
-        <default/>
+        <trim_type>none</trim_type>
         <type>String</type>
       </value>
       <value>
         <name>ORIGIONAL_HIRE_DATE</name>
         <rename>OriginalHireDate</rename>
-        <default/>
+        <trim_type>none</trim_type>
         <type>Date</type>
       </value>
       <value>
         <name>LAST_HIRE_DATE</name>
         <rename>LastHireDate</rename>
-        <default/>
+        <trim_type>none</trim_type>
         <type>Date</type>
       </value>
     </lookup>
     <attributes/>
-    <cluster_schema/>
     <GUI>
-      <xloc>864</xloc>
-      <yloc>448</yloc>
-      <draw>Y</draw>
+      <xloc>2471</xloc>
+      <yloc>544</yloc>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Employee 2</name>
+    <type>DBLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <cache>Y</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <connection>MSSQL_RFSDW</connection>
+    <lookup>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <fail_on_multiple>N</fail_on_multiple>
+      <key>
+        <condition>=</condition>
+        <field>INDIVIDUAL_ID</field>
+        <name>INDIVIDUAL_ID</name>
+      </key>
+      <schema>edwhr</schema>
+      <table>EDW_HR_EMPLOYEE</table>
+      <value>
+        <name>INDIVIDUAL_ID</name>
+        <rename>Employee_ID</rename>
+        <type>String</type>
+      </value>
+      <value>
+        <name>ORIGIONAL_HIRE_DATE</name>
+        <rename>OriginalHireDate</rename>
+        <type>Date</type>
+      </value>
+      <value>
+        <name>LAST_HIRE_DATE</name>
+        <rename>LastHireDate</rename>
+        <type>Date</type>
+      </value>
+    </lookup>
+    <attributes/>
+    <GUI>
+      <xloc>2384</xloc>
+      <yloc>352</yloc>
     </GUI>
   </transform>
   <transform>
@@ -739,95 +894,90 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>MSSQL_RFSDW</connection>
     <cache>Y</cache>
     <cache_load_all>Y</cache_load_all>
     <cache_size>0</cache_size>
+    <connection>EDW_HR</connection>
     <lookup>
-      <schema>edwhr</schema>
-      <table>EDW_HR_EMPLOYEE_POSITION</table>
-      <orderby/>
-      <fail_on_multiple>N</fail_on_multiple>
       <eat_row_on_failure>N</eat_row_on_failure>
+      <fail_on_multiple>N</fail_on_multiple>
       <key>
-        <name>LOOKUP_STATUS_POSITION_CURRENT</name>
+        <condition>=</condition>
         <field>CURRENT_RECORD_INDICATOR</field>
-        <condition>=</condition>
-        <name2/>
+        <name>LOOKUP_STATUS_POSITION_CURRENT</name>
       </key>
       <key>
-        <name>INDIVIDUAL_ID</name>
-        <field>INDIVIDUAL_ID</field>
         <condition>=</condition>
-        <name2/>
+        <field>INDIVIDUAL_ID</field>
+        <name>INDIVIDUAL_ID</name>
       </key>
+      <schema>HR_READER</schema>
+      <table>EDW_HR_EMPLOYEE_POSITION</table>
       <value>
         <name>ASSIGNMENT_TYPE</name>
         <rename>AssignmentType_Position</rename>
-        <default/>
+        <trim_type>none</trim_type>
         <type>String</type>
       </value>
       <value>
         <name>BENEFIT_GROUP_CODE</name>
         <rename>BenefitGroupCode_Position</rename>
-        <default/>
+        <trim_type>none</trim_type>
         <type>String</type>
       </value>
       <value>
         <name>REASON_CODE</name>
         <rename>ReasonCode_Position</rename>
-        <default/>
+        <trim_type>none</trim_type>
         <type>String</type>
       </value>
       <value>
         <name>PERMANENT_INDICATOR</name>
         <rename>PermanentIndicator_Position</rename>
-        <default/>
+        <trim_type>none</trim_type>
         <type>Integer</type>
       </value>
       <value>
         <name>FULL_TIME_INDICATOR</name>
         <rename>FullTimeIndicator_Position</rename>
-        <default/>
+        <trim_type>none</trim_type>
         <type>Integer</type>
       </value>
       <value>
         <name>FULL_TIME_PERCENT</name>
         <rename>FullTimePercent_Position</rename>
-        <default/>
+        <trim_type>none</trim_type>
         <type>Integer</type>
       </value>
       <value>
         <name>EMPLOYEE_TYPE_CODE</name>
         <rename>EmployeeTypeCode_Position</rename>
-        <default/>
+        <trim_type>none</trim_type>
         <type>Integer</type>
       </value>
       <value>
         <name>TRIAL_END_DATE</name>
         <rename>TrialEndDate_Position</rename>
-        <default/>
+        <trim_type>none</trim_type>
         <type>Date</type>
       </value>
       <value>
         <name>UPDATE_TYPE</name>
         <rename>UpdateType_Position</rename>
-        <default/>
+        <trim_type>none</trim_type>
         <type>String</type>
       </value>
       <value>
         <name>POSITION_CODE</name>
         <rename>PositionCode</rename>
-        <default/>
+        <trim_type>none</trim_type>
         <type>String</type>
       </value>
     </lookup>
     <attributes/>
-    <cluster_schema/>
     <GUI>
-      <xloc>1104</xloc>
-      <yloc>448</yloc>
-      <draw>Y</draw>
+      <xloc>2724</xloc>
+      <yloc>544</yloc>
     </GUI>
   </transform>
   <transform>
@@ -841,47 +991,43 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>MSSQL_RFSDW</connection>
     <cache>Y</cache>
     <cache_load_all>Y</cache_load_all>
     <cache_size>0</cache_size>
+    <connection>EDW_HR</connection>
     <lookup>
-      <schema>edwhr</schema>
-      <table>EDW_HR_STATUS_REASON</table>
-      <orderby/>
-      <fail_on_multiple>N</fail_on_multiple>
       <eat_row_on_failure>N</eat_row_on_failure>
+      <fail_on_multiple>N</fail_on_multiple>
       <key>
-        <name>STATUS_REASON_CODE_CURRENT</name>
-        <field>STATUS_REASON_CODE</field>
         <condition>=</condition>
-        <name2/>
+        <field>STATUS_REASON_CODE</field>
+        <name>STATUS_REASON_CODE_CURRENT</name>
       </key>
+      <schema>HR_READER</schema>
+      <table>EDW_HR_STATUS_REASON</table>
       <value>
         <name>STATUS_REASON_TYPE</name>
         <rename>STATUS_REASON_TYPE_CURRENT</rename>
-        <default/>
+        <trim_type>none</trim_type>
         <type>String</type>
       </value>
       <value>
         <name>ENGLISH_NAME</name>
         <rename>STATUS_REASON_CURRENT_ENGLISH</rename>
-        <default/>
+        <trim_type>none</trim_type>
         <type>String</type>
       </value>
       <value>
         <name>EXPLANATION_ONE</name>
         <rename>STATUS_REASON_EXPLANATION_ONE_CURRENT</rename>
-        <default/>
+        <trim_type>none</trim_type>
         <type>String</type>
       </value>
     </lookup>
     <attributes/>
-    <cluster_schema/>
     <GUI>
-      <xloc>2048</xloc>
-      <yloc>448</yloc>
-      <draw>Y</draw>
+      <xloc>3736</xloc>
+      <yloc>544</yloc>
     </GUI>
   </transform>
   <transform>
@@ -895,41 +1041,37 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>MSSQL_RFSDW</connection>
     <cache>Y</cache>
     <cache_load_all>Y</cache_load_all>
     <cache_size>0</cache_size>
+    <connection>MSSQL_RFSDW_Azure__ReplaceLater</connection>
     <lookup>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <fail_on_multiple>N</fail_on_multiple>
+      <key>
+        <condition>=</condition>
+        <field>EmployeeType_ID</field>
+        <name>EmployeeTypeCode_Position</name>
+      </key>
       <schema>edwhr</schema>
       <table>EDW_HR_EMPLOYEE_TYPE</table>
-      <orderby/>
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
-        <name>EmployeeTypeCode_Position</name>
-        <field>EmployeeType_ID</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
       <value>
         <name>EmployeeType_Text</name>
         <rename>EmployeeType_Text</rename>
-        <default/>
+        <trim_type>none</trim_type>
         <type>String</type>
       </value>
       <value>
         <name>EmployeeType_Explanation</name>
         <rename>EmployeeType_Explanation</rename>
-        <default/>
+        <trim_type>none</trim_type>
         <type>String</type>
       </value>
     </lookup>
     <attributes/>
-    <cluster_schema/>
     <GUI>
-      <xloc>2272</xloc>
-      <yloc>448</yloc>
-      <draw>Y</draw>
+      <xloc>3989</xloc>
+      <yloc>544</yloc>
     </GUI>
   </transform>
   <transform>
@@ -943,7 +1085,6 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <compatible>N</compatible>
     <optimizationLevel>9</optimizationLevel>
     <jsScripts>
       <jsScript>
@@ -1128,11 +1269,9 @@ switch (true) {
       </field>
     </fields>
     <attributes/>
-    <cluster_schema/>
     <GUI>
-      <xloc>5120</xloc>
-      <yloc>448</yloc>
-      <draw>Y</draw>
+      <xloc>6656</xloc>
+      <yloc>544</yloc>
     </GUI>
   </transform>
   <transform>
@@ -1146,31 +1285,30 @@ switch (true) {
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <send_true_to>Select values 4</send_true_to>
-    <send_false_to/>
     <compare>
       <condition>
-        <negated>N</negated>
-        <leftvalue>Priority</leftvalue>
+        <conditions>
+</conditions>
         <function>=</function>
-        <rightvalue/>
+        <leftvalue>Priority</leftvalue>
+        <negated>N</negated>
+        <operator>-</operator>
         <value>
-          <name>constant</name>
-          <type>Integer</type>
-          <text>1</text>
-          <length>-1</length>
-          <precision>0</precision>
           <isnull>N</isnull>
+          <length>-1</length>
           <mask>#</mask>
+          <name>constant</name>
+          <precision>0</precision>
+          <text>1</text>
+          <type>Integer</type>
         </value>
       </condition>
     </compare>
+    <send_true_to>Select values 4</send_true_to>
     <attributes/>
-    <cluster_schema/>
     <GUI>
-      <xloc>2464</xloc>
-      <yloc>576</yloc>
-      <draw>Y</draw>
+      <xloc>3989</xloc>
+      <yloc>672</yloc>
     </GUI>
   </transform>
   <transform>
@@ -1184,35 +1322,69 @@ switch (true) {
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <send_true_to>Select values 5</send_true_to>
-    <send_false_to/>
     <compare>
       <condition>
-        <negated>N</negated>
-        <leftvalue>Priority</leftvalue>
+        <conditions>
+</conditions>
         <function>=</function>
-        <rightvalue/>
+        <leftvalue>Priority</leftvalue>
+        <negated>N</negated>
+        <operator>-</operator>
         <value>
-          <name>constant</name>
-          <type>Integer</type>
-          <text>1</text>
-          <length>-1</length>
-          <precision>0</precision>
           <isnull>N</isnull>
+          <length>-1</length>
           <mask>#</mask>
+          <name>constant</name>
+          <precision>0</precision>
+          <text>1</text>
+          <type>Integer</type>
         </value>
       </condition>
     </compare>
+    <send_true_to>Select values 5</send_true_to>
     <attributes/>
-    <cluster_schema/>
     <GUI>
-      <xloc>3120</xloc>
-      <yloc>688</yloc>
-      <draw>Y</draw>
+      <xloc>4656</xloc>
+      <yloc>784</yloc>
     </GUI>
   </transform>
   <transform>
     <name>Find ENID by EmployeeID</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>PDB</connection>
+    <execute_each_row>N</execute_each_row>
+    <limit>0</limit>
+    <sql>SELECT  m.ENID
+      , m.EVSQN
+      , m.EMPLOYEEIDDESC
+      , m.VALIDID
+      , m.VALIDDESC
+
+  FROM PDB.VFSTDB_EMPLOYEEID m
+  INNER JOIN (
+  SELECT ENID
+      ,max(EVSQN) as MAXEVSQN
+  FROM PDB.VFSTDB_EMPLOYEEID 
+  group by ENID
+  ) t
+  ON t.MAXEVSQN = m.EVSQN and m.ENID = t.ENID</sql>
+    <variables_active>N</variables_active>
+    <attributes/>
+    <GUI>
+      <xloc>5472</xloc>
+      <yloc>352</yloc>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Find ENID by EmployeeID ori</name>
     <type>DBLookup</type>
     <description/>
     <distribute>Y</distribute>
@@ -1222,35 +1394,29 @@ switch (true) {
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>MSSQL_RFSDW</connection>
     <cache>Y</cache>
     <cache_load_all>Y</cache_load_all>
     <cache_size>0</cache_size>
+    <connection>MSSQL_RFSDW</connection>
     <lookup>
-      <schema>pdb</schema>
-      <table>PDB_VFSTDB_EMPLOYEE_ID</table>
-      <orderby/>
-      <fail_on_multiple>N</fail_on_multiple>
       <eat_row_on_failure>N</eat_row_on_failure>
+      <fail_on_multiple>N</fail_on_multiple>
       <key>
-        <name>INDIVIDUAL_ID</name>
-        <field>EMPLOYEEIDDESC</field>
         <condition>=</condition>
-        <name2/>
+        <field>EMPLOYEEIDDESC</field>
+        <name>INDIVIDUAL_ID</name>
       </key>
       <value>
         <name>ENID</name>
         <rename>ENID</rename>
-        <default/>
+        <trim_type>none</trim_type>
         <type>String</type>
       </value>
     </lookup>
     <attributes/>
-    <cluster_schema/>
     <GUI>
-      <xloc>3984</xloc>
-      <yloc>448</yloc>
-      <draw>Y</draw>
+      <xloc>5008</xloc>
+      <yloc>256</yloc>
     </GUI>
   </transform>
   <transform>
@@ -1271,11 +1437,9 @@ switch (true) {
       </field>
     </fields>
     <attributes/>
-    <cluster_schema/>
     <GUI>
-      <xloc>6432</xloc>
-      <yloc>448</yloc>
-      <draw>Y</draw>
+      <xloc>7968</xloc>
+      <yloc>544</yloc>
     </GUI>
   </transform>
   <transform>
@@ -1289,47 +1453,42 @@ switch (true) {
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>MSSQL_RFSDW</connection>
     <cache>Y</cache>
     <cache_load_all>Y</cache_load_all>
     <cache_size>0</cache_size>
+    <connection>EDW_HR</connection>
     <lookup>
-      <schema>edwhr</schema>
-      <table>EDW_HR_JOB_DETAIL</table>
-      <orderby/>
-      <fail_on_multiple>N</fail_on_multiple>
       <eat_row_on_failure>N</eat_row_on_failure>
+      <fail_on_multiple>N</fail_on_multiple>
       <key>
-        <name>JobNumber</name>
+        <condition>=</condition>
         <field>JOB_NUMBER</field>
-        <condition>=</condition>
-        <name2/>
+        <name>JobNumber</name>
       </key>
       <key>
-        <name>LOOKUP_HR_JOB_DETAIL_CURRENT</name>
-        <field>CURRENT_RECORD_INDICATOR</field>
         <condition>=</condition>
-        <name2/>
+        <field>CURRENT_RECORD_INDICATOR</field>
+        <name>LOOKUP_HR_JOB_DETAIL_CURRENT</name>
       </key>
+      <schema>HR_READER</schema>
+      <table>EDW_HR_JOB_DETAIL</table>
       <value>
         <name>JOB_DETAIL_NAME_ENGLISH</name>
         <rename>JOB_DETAIL_NAME_ENGLISH</rename>
-        <default/>
+        <trim_type>none</trim_type>
         <type>String</type>
       </value>
       <value>
         <name>COMPENSATION_GROUP_CODE</name>
         <rename>COMPENSATION_GROUP_CODE</rename>
-        <default/>
+        <trim_type>none</trim_type>
         <type>String</type>
       </value>
     </lookup>
     <attributes/>
-    <cluster_schema/>
     <GUI>
-      <xloc>1568</xloc>
-      <yloc>448</yloc>
-      <draw>Y</draw>
+      <xloc>3230</xloc>
+      <yloc>544</yloc>
     </GUI>
   </transform>
   <transform>
@@ -1343,35 +1502,31 @@ switch (true) {
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>MSSQL_RFSDW</connection>
     <cache>Y</cache>
     <cache_load_all>Y</cache_load_all>
     <cache_size>0</cache_size>
+    <connection>EDW_HR</connection>
     <lookup>
-      <schema>edwhr</schema>
-      <table>EDW_HR_LOCATION</table>
-      <orderby/>
-      <fail_on_multiple>N</fail_on_multiple>
       <eat_row_on_failure>N</eat_row_on_failure>
+      <fail_on_multiple>N</fail_on_multiple>
       <key>
-        <name>LOCATION_CODE</name>
-        <field>LOCATION_CODE</field>
         <condition>=</condition>
-        <name2/>
+        <field>LOCATION_CODE</field>
+        <name>LOCATION_CODE</name>
       </key>
+      <schema>HR_READER</schema>
+      <table>EDW_HR_LOCATION</table>
       <value>
         <name>ENGLISH_NAME</name>
         <rename>LOCATION_ENGLISH_NAME</rename>
-        <default/>
+        <trim_type>none</trim_type>
         <type>String</type>
       </value>
     </lookup>
     <attributes/>
-    <cluster_schema/>
     <GUI>
-      <xloc>2992</xloc>
-      <yloc>448</yloc>
-      <draw>Y</draw>
+      <xloc>4495</xloc>
+      <yloc>544</yloc>
     </GUI>
   </transform>
   <transform>
@@ -1385,65 +1540,60 @@ switch (true) {
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>MSSQL_RFSDW</connection>
     <cache>Y</cache>
     <cache_load_all>Y</cache_load_all>
     <cache_size>0</cache_size>
+    <connection>EDW_HR</connection>
     <lookup>
-      <schema>edwhr</schema>
-      <table>EDW_HR_POSITION</table>
-      <orderby/>
-      <fail_on_multiple>N</fail_on_multiple>
       <eat_row_on_failure>N</eat_row_on_failure>
+      <fail_on_multiple>N</fail_on_multiple>
       <key>
-        <name>PositionCode</name>
+        <condition>=</condition>
         <field>POSITION_CODE</field>
-        <condition>=</condition>
-        <name2/>
+        <name>PositionCode</name>
       </key>
       <key>
-        <name>LOOKUP_HR_POSITION_CURRENT</name>
-        <field>CURRENT_RECORD_INDICATOR</field>
         <condition>=</condition>
-        <name2/>
+        <field>CURRENT_RECORD_INDICATOR</field>
+        <name>LOOKUP_HR_POSITION_CURRENT</name>
       </key>
+      <schema>HR_READER</schema>
+      <table>EDW_HR_POSITION</table>
       <value>
         <name>JOB_NUMBER</name>
         <rename>JobNumber</rename>
-        <default/>
+        <trim_type>none</trim_type>
         <type>String</type>
       </value>
       <value>
         <name>POSITION_NAME_ONE</name>
         <rename>POSITION_NAME_ONE</rename>
-        <default/>
+        <trim_type>none</trim_type>
         <type>String</type>
       </value>
       <value>
         <name>POSITION_NAME_TWO</name>
         <rename>POSITION_NAME_TWO</rename>
-        <default/>
+        <trim_type>none</trim_type>
         <type>String</type>
       </value>
       <value>
         <name>LOCATION_CODE</name>
         <rename>LOCATION_CODE</rename>
-        <default/>
+        <trim_type>none</trim_type>
         <type>String</type>
       </value>
       <value>
         <name>LOCATION_ENTITY_ID</name>
         <rename>LOCATION_ENTITY_ID</rename>
-        <default/>
+        <trim_type>none</trim_type>
         <type>String</type>
       </value>
     </lookup>
     <attributes/>
-    <cluster_schema/>
     <GUI>
-      <xloc>1312</xloc>
-      <yloc>448</yloc>
-      <draw>Y</draw>
+      <xloc>2977</xloc>
+      <yloc>544</yloc>
     </GUI>
   </transform>
   <transform>
@@ -1457,35 +1607,31 @@ switch (true) {
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>MSSQL_RFSDW</connection>
     <cache>Y</cache>
     <cache_load_all>Y</cache_load_all>
     <cache_size>0</cache_size>
+    <connection>EDW_HR</connection>
     <lookup>
-      <schema>edwhr</schema>
-      <table>EDW_HR_STATUS_REASON_TYPE</table>
-      <orderby/>
-      <fail_on_multiple>N</fail_on_multiple>
       <eat_row_on_failure>N</eat_row_on_failure>
+      <fail_on_multiple>N</fail_on_multiple>
       <key>
-        <name>STATUS_REASON_TYPE_CURRENT</name>
-        <field>STATUS_REASON_TYPE</field>
         <condition>=</condition>
-        <name2/>
+        <field>STATUS_REASON_TYPE</field>
+        <name>STATUS_REASON_TYPE_CURRENT</name>
       </key>
+      <schema>HR_READER</schema>
+      <table>EDW_HR_STATUS_REASON_TYPE</table>
       <value>
         <name>ENGLISH_NAME</name>
         <rename>STATUS_REASON_TYPE_ENGLISH</rename>
-        <default/>
+        <trim_type>none</trim_type>
         <type>String</type>
       </value>
     </lookup>
     <attributes/>
-    <cluster_schema/>
     <GUI>
-      <xloc>2752</xloc>
-      <yloc>448</yloc>
-      <draw>Y</draw>
+      <xloc>4242</xloc>
+      <yloc>544</yloc>
     </GUI>
   </transform>
   <transform>
@@ -1499,39 +1645,32 @@ switch (true) {
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <replaceAllByValue/>
-    <replaceAllMask/>
+    <fields>
+      <field>
+        <name>POSITION_NAME_ONE</name>
+        <set_empty_string>N</set_empty_string>
+        <value>***Missing***</value>
+      </field>
+      <field>
+        <name>POSITION_NAME_TWO</name>
+        <set_empty_string>N</set_empty_string>
+        <value>***Missing***</value>
+      </field>
+      <field>
+        <name>JOB_DETAIL_NAME_ENGLISH</name>
+        <set_empty_string>N</set_empty_string>
+        <value>***Missing***</value>
+      </field>
+    </fields>
     <selectFields>Y</selectFields>
     <selectValuesType>N</selectValuesType>
     <setEmptyStringAll>N</setEmptyStringAll>
     <valuetypes>
-      </valuetypes>
-    <fields>
-      <field>
-        <name>POSITION_NAME_ONE</name>
-        <value>***Missing***</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>POSITION_NAME_TWO</name>
-        <value>***Missing***</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>JOB_DETAIL_NAME_ENGLISH</name>
-        <value>***Missing***</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-      </field>
-    </fields>
+</valuetypes>
     <attributes/>
-    <cluster_schema/>
     <GUI>
-      <xloc>4480</xloc>
-      <yloc>448</yloc>
-      <draw>Y</draw>
+      <xloc>6016</xloc>
+      <yloc>544</yloc>
     </GUI>
   </transform>
   <transform>
@@ -1545,789 +1684,52 @@ switch (true) {
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>MSSQL_RFSDW</connection>
-    <sql>SELECT *
-FROM edwhr.EDW_HR_INDIVIDUAL
---WHERE LastUpdate >=  DATEADD(DAY, -7, GETDATE())
---where FIRST_Name = 'ANDREA' and SURNAME = 'SOMERS'
---    where INDIVIDUAL_ID in ( '515165', '515154') --or
---(SURNAME = 'Krahn' and FIRST_NAME = 'Murray')
---where INDIVIDUAL_ID = '10374'
---WHERE INDIVIDUAL_ID = '377198' or INDIVIDUAL_ID = '516211' or SURNAME = 'WIELAND' OR FIRST_NAME = 'SURANGA R.' OR (FIRST_NAME = 'BARRY' and SURNAME = 'RUBIN') */
---order by SURNAME </sql>
-    <limit>0</limit>
-    <lookup/>
+    <connection>EDW_HR</connection>
     <execute_each_row>N</execute_each_row>
+    <limit>0</limit>
+    <sql>SELECT
+  INDIVIDUAL_ENTITY_ID
+, INDIVIDUAL_ID
+, SOCIAL_INSURANCE_NUMBER
+, SALUTATION_CODE
+, SURNAME
+, SOCIAL_SECURITY_NUMBER
+, FIRST_NAME
+, INITIALS
+, PREVIOUS_SURNAME
+, USUAL_FIRST_NAME
+, DATE_OF_BIRTH
+, COMMUNICATION_LANGUAGE_CODE
+, GENDER_CODE
+, CANADIAN_CITIZEN_INDICATOR
+, OTHER_CITIZEN_COUNTRY_CODE
+, APPLICATION_LAST_ACTIVITY_DATE
+, DEATH_DATE
+, SPOUSE_INDIVIDUAL_ID
+, CENSUS_METROPOLITAN_A_CODE
+, SMOKER_INDICATOR
+, MARITAL_STATUS_CODE
+, PHOTO_PATH
+, CANADIAN_EMPLOYMENT_CENTRE_CD
+, CARE_OF_CODE
+, CARE_OF_NAME
+, INDIVIDUAL_EFFECTIVE_DATE
+, INDIVIDUAL_EXPIRY_DATE
+, CREA_TS
+, LAST_UPD_TS
+, CURRENT_RECORD_INDICATOR
+, CREATE_DATE
+, UPDATE_DATE
+FROM HR_READER.EDW_HR_INDIVIDUAL
+--WHERE CREATE_DATE >= TRUNC(SYSDATE) - 7 OR UPDATE_DATE >= TRUNC(SYSDATE) - 7
+
+
+</sql>
     <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <cached_row_meta_active>N</cached_row_meta_active>
-    <row-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>INDIVIDUAL_ENTITY_ID</name>
-        <length>35</length>
-        <precision>-1</precision>
-        <origin>Individual</origin>
-        <comments>INDIVIDUAL_ENTITY_ID</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>INDIVIDUAL_ID</name>
-        <length>9</length>
-        <precision>-1</precision>
-        <origin>Individual</origin>
-        <comments>INDIVIDUAL_ID</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>SOCIAL_INSURANCE_NUMBER</name>
-        <length>35</length>
-        <precision>-1</precision>
-        <origin>Individual</origin>
-        <comments>SOCIAL_INSURANCE_NUMBER</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>SALUTATION_CODE</name>
-        <length>1</length>
-        <precision>-1</precision>
-        <origin>Individual</origin>
-        <comments>SALUTATION_CODE</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>SURNAME</name>
-        <length>35</length>
-        <precision>-1</precision>
-        <origin>Individual</origin>
-        <comments>SURNAME</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>SOCIAL_SECURITY_NUMBER</name>
-        <length>35</length>
-        <precision>-1</precision>
-        <origin>Individual</origin>
-        <comments>SOCIAL_SECURITY_NUMBER</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>FIRST_NAME</name>
-        <length>25</length>
-        <precision>-1</precision>
-        <origin>Individual</origin>
-        <comments>FIRST_NAME</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>INITIALS</name>
-        <length>3</length>
-        <precision>-1</precision>
-        <origin>Individual</origin>
-        <comments>INITIALS</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>PREVIOUS_SURNAME</name>
-        <length>35</length>
-        <precision>-1</precision>
-        <origin>Individual</origin>
-        <comments>PREVIOUS_SURNAME</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>USUAL_FIRST_NAME</name>
-        <length>25</length>
-        <precision>-1</precision>
-        <origin>Individual</origin>
-        <comments>USUAL_FIRST_NAME</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Date</type>
-        <storagetype>normal</storagetype>
-        <name>DATE_OF_BIRTH</name>
-        <length>-1</length>
-        <precision>-1</precision>
-        <origin>Individual</origin>
-        <comments>DATE_OF_BIRTH</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>COMMUNICATION_LANGUAGE_CODE</name>
-        <length>3</length>
-        <precision>-1</precision>
-        <origin>Individual</origin>
-        <comments>COMMUNICATION_LANGUAGE_CODE</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>GENDER_CODE</name>
-        <length>1</length>
-        <precision>-1</precision>
-        <origin>Individual</origin>
-        <comments>GENDER_CODE</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Integer</type>
-        <storagetype>normal</storagetype>
-        <name>CANADIAN_CITIZEN_INDICATOR</name>
-        <length>1</length>
-        <precision>0</precision>
-        <origin>Individual</origin>
-        <comments>CANADIAN_CITIZEN_INDICATOR</comments>
-        <conversion_Mask>####0;-####0</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>OTHER_CITIZEN_COUNTRY_CODE</name>
-        <length>2</length>
-        <precision>-1</precision>
-        <origin>Individual</origin>
-        <comments>OTHER_CITIZEN_COUNTRY_CODE</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Timestamp</type>
-        <storagetype>normal</storagetype>
-        <name>APPLICATION_LAST_ACTIVITY_DATE</name>
-        <length>0</length>
-        <precision>-1</precision>
-        <origin>Individual</origin>
-        <comments>APPLICATION_LAST_ACTIVITY_DATE</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Date</type>
-        <storagetype>normal</storagetype>
-        <name>DEATH_DATE</name>
-        <length>-1</length>
-        <precision>-1</precision>
-        <origin>Individual</origin>
-        <comments>DEATH_DATE</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>SPOUSE_INDIVIDUAL_ID</name>
-        <length>9</length>
-        <precision>-1</precision>
-        <origin>Individual</origin>
-        <comments>SPOUSE_INDIVIDUAL_ID</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>CENSUS_METROPOLITAN_A_CODE</name>
-        <length>2</length>
-        <precision>-1</precision>
-        <origin>Individual</origin>
-        <comments>CENSUS_METROPOLITAN_A_CODE</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Integer</type>
-        <storagetype>normal</storagetype>
-        <name>SMOKER_INDICATOR</name>
-        <length>9</length>
-        <precision>0</precision>
-        <origin>Individual</origin>
-        <comments>SMOKER_INDICATOR</comments>
-        <conversion_Mask>####0;-####0</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>MARITAL_STATUS_CODE</name>
-        <length>1</length>
-        <precision>-1</precision>
-        <origin>Individual</origin>
-        <comments>MARITAL_STATUS_CODE</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>PHOTO_PATH</name>
-        <length>100</length>
-        <precision>-1</precision>
-        <origin>Individual</origin>
-        <comments>PHOTO_PATH</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>CANADIAN_EMPLOYMENT_CENTRE_CD</name>
-        <length>5</length>
-        <precision>-1</precision>
-        <origin>Individual</origin>
-        <comments>CANADIAN_EMPLOYMENT_CENTRE_CD</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>CARE_OF_CODE</name>
-        <length>1</length>
-        <precision>-1</precision>
-        <origin>Individual</origin>
-        <comments>CARE_OF_CODE</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>CARE_OF_NAME</name>
-        <length>50</length>
-        <precision>-1</precision>
-        <origin>Individual</origin>
-        <comments>CARE_OF_NAME</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Date</type>
-        <storagetype>normal</storagetype>
-        <name>INDIVIDUAL_EFFECTIVE_DATE</name>
-        <length>-1</length>
-        <precision>-1</precision>
-        <origin>Individual</origin>
-        <comments>INDIVIDUAL_EFFECTIVE_DATE</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Date</type>
-        <storagetype>normal</storagetype>
-        <name>INDIVIDUAL_EXPIRY_DATE</name>
-        <length>-1</length>
-        <precision>-1</precision>
-        <origin>Individual</origin>
-        <comments>INDIVIDUAL_EXPIRY_DATE</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Date</type>
-        <storagetype>normal</storagetype>
-        <name>CREA_TS</name>
-        <length>-1</length>
-        <precision>-1</precision>
-        <origin>Individual</origin>
-        <comments>CREA_TS</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Date</type>
-        <storagetype>normal</storagetype>
-        <name>LAST_UPD_TS</name>
-        <length>-1</length>
-        <precision>-1</precision>
-        <origin>Individual</origin>
-        <comments>LAST_UPD_TS</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Integer</type>
-        <storagetype>normal</storagetype>
-        <name>CURRENT_RECORD_INDICATOR</name>
-        <length>9</length>
-        <precision>0</precision>
-        <origin>Individual</origin>
-        <comments>CURRENT_RECORD_INDICATOR</comments>
-        <conversion_Mask>####0;-####0</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Date</type>
-        <storagetype>normal</storagetype>
-        <name>CREATE_DATE</name>
-        <length>-1</length>
-        <precision>-1</precision>
-        <origin>Individual</origin>
-        <comments>CREATE_DATE</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Date</type>
-        <storagetype>normal</storagetype>
-        <name>UPDATE_DATE</name>
-        <length>-1</length>
-        <precision>-1</precision>
-        <origin>Individual</origin>
-        <comments>UPDATE_DATE</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Timestamp</type>
-        <storagetype>normal</storagetype>
-        <name>LastUpdate</name>
-        <length>7</length>
-        <precision>-1</precision>
-        <origin>Individual</origin>
-        <comments>LastUpdate</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-    </row-meta>
     <attributes/>
-    <cluster_schema/>
     <GUI>
-      <xloc>160</xloc>
-      <yloc>448</yloc>
-      <draw>Y</draw>
+      <xloc>1712</xloc>
+      <yloc>544</yloc>
     </GUI>
   </transform>
   <transform>
@@ -2341,18 +1743,16 @@ FROM edwhr.EDW_HR_INDIVIDUAL
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>MSSQL_RFSDW</connection>
     <commit>1000</commit>
-    <update_bypassed>N</update_bypassed>
+    <connection>MSSQL_RFSDW</connection>
     <lookup>
+      <key>
+        <condition>=</condition>
+        <field>INDIVIDUAL_ID</field>
+        <name>INDIVIDUAL_ID</name>
+      </key>
       <schema>bihrdim</schema>
       <table>Individual</table>
-      <key>
-        <name>INDIVIDUAL_ID</name>
-        <field>INDIVIDUAL_ID</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
       <value>
         <name>APPLICATION_LAST_ACTIVITY_DATE</name>
         <rename>APPLICATION_LAST_ACTIVITY_DATE</rename>
@@ -2694,12 +2094,11 @@ FROM edwhr.EDW_HR_INDIVIDUAL
         <update>N</update>
       </value>
     </lookup>
+    <update_bypassed>N</update_bypassed>
     <attributes/>
-    <cluster_schema/>
     <GUI>
-      <xloc>6944</xloc>
-      <yloc>448</yloc>
-      <draw>Y</draw>
+      <xloc>8480</xloc>
+      <yloc>544</yloc>
     </GUI>
   </transform>
   <transform>
@@ -2713,7 +2112,6 @@ FROM edwhr.EDW_HR_INDIVIDUAL
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <compatible>N</compatible>
     <optimizationLevel>9</optimizationLevel>
     <jsScripts>
       <jsScript>
@@ -2751,11 +2149,9 @@ if (EmploymentStatus == null) {
       </field>
     </fields>
     <attributes/>
-    <cluster_schema/>
     <GUI>
-      <xloc>5280</xloc>
-      <yloc>448</yloc>
-      <draw>Y</draw>
+      <xloc>6816</xloc>
+      <yloc>544</yloc>
     </GUI>
   </transform>
   <transform>
@@ -2769,7 +2165,6 @@ if (EmploymentStatus == null) {
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <compatible>N</compatible>
     <optimizationLevel>9</optimizationLevel>
     <jsScripts>
       <jsScript>
@@ -2823,11 +2218,9 @@ var LOOKUP_HR_JOB_DETAIL_CURRENT = 1</jsScript_script>
       </field>
     </fields>
     <attributes/>
-    <cluster_schema/>
     <GUI>
-      <xloc>384</xloc>
-      <yloc>448</yloc>
-      <draw>Y</draw>
+      <xloc>1965</xloc>
+      <yloc>544</yloc>
     </GUI>
   </transform>
   <transform>
@@ -2841,35 +2234,30 @@ var LOOKUP_HR_JOB_DETAIL_CURRENT = 1</jsScript_script>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>MSSQL_RFSDW</connection>
     <cache>Y</cache>
     <cache_load_all>Y</cache_load_all>
     <cache_size>0</cache_size>
+    <connection>MSSQL_RFSDW</connection>
     <lookup>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <fail_on_multiple>N</fail_on_multiple>
+      <key>
+        <condition>=</condition>
+        <field>Checksum_FlagChanges</field>
+        <name>Checksum_FlagChanges</name>
+      </key>
       <schema>bihrdim</schema>
       <table>Individual</table>
-      <orderby/>
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
-        <name>Checksum_FlagChanges</name>
-        <field>Checksum_FlagChanges</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
       <value>
         <name>Checksum_FlagChanges</name>
         <rename>Checksum_FlagChanges_In_SF</rename>
-        <default/>
         <type>String</type>
       </value>
     </lookup>
     <attributes/>
-    <cluster_schema/>
     <GUI>
-      <xloc>6032</xloc>
-      <yloc>448</yloc>
-      <draw>Y</draw>
+      <xloc>7568</xloc>
+      <yloc>544</yloc>
     </GUI>
   </transform>
   <transform>
@@ -2883,7 +2271,6 @@ var LOOKUP_HR_JOB_DETAIL_CURRENT = 1</jsScript_script>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <compatible>N</compatible>
     <optimizationLevel>9</optimizationLevel>
     <jsScripts>
       <jsScript>
@@ -2976,253 +2363,9 @@ if (
       </field>
     </fields>
     <attributes/>
-    <cluster_schema/>
     <GUI>
-      <xloc>4896</xloc>
-      <yloc>448</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </transform>
-  <transform>
-    <name>PDB_EMPLOYEEEMAILADDRESS</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>MSSQL_RFSDW</connection>
-    <sql>SELECT
- *
-FROM pdb.PDB_EMPLOYEEEMAILADDRESS
---where EMAILADDRESS = 'andrea.somers@uhn.ca'
-
-order by ENID
-</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <cached_row_meta_active>N</cached_row_meta_active>
-    <row-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>ENID</name>
-        <length>50</length>
-        <precision>-1</precision>
-        <origin>PDB_EMPLOYEEEMAILADDRESS</origin>
-        <comments>ENID</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Integer</type>
-        <storagetype>normal</storagetype>
-        <name>EVSQN</name>
-        <length>9</length>
-        <precision>0</precision>
-        <origin>PDB_EMPLOYEEEMAILADDRESS</origin>
-        <comments>EVSQN</comments>
-        <conversion_Mask>####0;-####0</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>PRIVACYID</name>
-        <length>10</length>
-        <precision>-1</precision>
-        <origin>PDB_EMPLOYEEEMAILADDRESS</origin>
-        <comments>PRIVACYID</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>EMAILADDRESSINDEX</name>
-        <length>10</length>
-        <precision>-1</precision>
-        <origin>PDB_EMPLOYEEEMAILADDRESS</origin>
-        <comments>EMAILADDRESSINDEX</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>EMAILADDRESS</name>
-        <length>120</length>
-        <precision>-1</precision>
-        <origin>PDB_EMPLOYEEEMAILADDRESS</origin>
-        <comments>EMAILADDRESS</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>EMAILADDRESSLABEL</name>
-        <length>120</length>
-        <precision>-1</precision>
-        <origin>PDB_EMPLOYEEEMAILADDRESS</origin>
-        <comments>EMAILADDRESSLABEL</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>VALIDID</name>
-        <length>10</length>
-        <precision>-1</precision>
-        <origin>PDB_EMPLOYEEEMAILADDRESS</origin>
-        <comments>VALIDID</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Timestamp</type>
-        <storagetype>normal</storagetype>
-        <name>LastUpdate</name>
-        <length>7</length>
-        <precision>-1</precision>
-        <origin>PDB_EMPLOYEEEMAILADDRESS</origin>
-        <comments>LastUpdate</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>ROWID_CHECKSUM_PKEY</name>
-        <length>64</length>
-        <precision>-1</precision>
-        <origin>PDB_EMPLOYEEEMAILADDRESS</origin>
-        <comments>ROWID_CHECKSUM_PKEY</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-    </row-meta>
-    <attributes/>
-    <cluster_schema/>
-    <GUI>
-      <xloc>160</xloc>
-      <yloc>816</yloc>
-      <draw>Y</draw>
+      <xloc>6432</xloc>
+      <yloc>544</yloc>
     </GUI>
   </transform>
   <transform>
@@ -3238,84 +2381,70 @@ order by ENID
     </partitioning>
     <fields>
       <field>
+        <case_sensitive>N</case_sensitive>
         <in_stream_name>GENDER_CODE</in_stream_name>
-        <out_stream_name/>
-        <use_regex>no</use_regex>
-        <replace_string>M</replace_string>
+        <is_unicode>N</is_unicode>
         <replace_by_string>Male</replace_by_string>
+        <replace_string>M</replace_string>
         <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>yes</whole_word>
-        <case_sensitive>no</case_sensitive>
-        <is_unicode>no</is_unicode>
+        <use_regex>N</use_regex>
+        <whole_word>Y</whole_word>
       </field>
       <field>
+        <case_sensitive>N</case_sensitive>
         <in_stream_name>GENDER_CODE</in_stream_name>
-        <out_stream_name/>
-        <use_regex>no</use_regex>
-        <replace_string>F</replace_string>
+        <is_unicode>N</is_unicode>
         <replace_by_string>Female</replace_by_string>
+        <replace_string>F</replace_string>
         <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>yes</whole_word>
-        <case_sensitive>no</case_sensitive>
-        <is_unicode>no</is_unicode>
+        <use_regex>N</use_regex>
+        <whole_word>Y</whole_word>
       </field>
       <field>
+        <case_sensitive>N</case_sensitive>
         <in_stream_name>LOCATION_ENGLISH_NAME</in_stream_name>
-        <out_stream_name/>
-        <use_regex>no</use_regex>
-        <replace_string> Tgh</replace_string>
+        <is_unicode>N</is_unicode>
         <replace_by_string> TGH</replace_by_string>
+        <replace_string> Tgh</replace_string>
         <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>no</whole_word>
-        <case_sensitive>no</case_sensitive>
-        <is_unicode>no</is_unicode>
+        <use_regex>N</use_regex>
+        <whole_word>N</whole_word>
       </field>
       <field>
+        <case_sensitive>N</case_sensitive>
         <in_stream_name>LOCATION_ENGLISH_NAME</in_stream_name>
-        <out_stream_name/>
-        <use_regex>no</use_regex>
-        <replace_string> Twh</replace_string>
+        <is_unicode>N</is_unicode>
         <replace_by_string> TWH</replace_by_string>
+        <replace_string> Twh</replace_string>
         <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>no</whole_word>
-        <case_sensitive>no</case_sensitive>
-        <is_unicode>no</is_unicode>
+        <use_regex>N</use_regex>
+        <whole_word>N</whole_word>
       </field>
       <field>
+        <case_sensitive>N</case_sensitive>
         <in_stream_name>LOCATION_ENGLISH_NAME</in_stream_name>
-        <out_stream_name/>
-        <use_regex>no</use_regex>
-        <replace_string> Pmh</replace_string>
+        <is_unicode>N</is_unicode>
         <replace_by_string> PMH</replace_by_string>
+        <replace_string> Pmh</replace_string>
         <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>no</whole_word>
-        <case_sensitive>no</case_sensitive>
-        <is_unicode>no</is_unicode>
+        <use_regex>N</use_regex>
+        <whole_word>N</whole_word>
       </field>
       <field>
+        <case_sensitive>N</case_sensitive>
         <in_stream_name>LOCATION_ENGLISH_NAME</in_stream_name>
-        <out_stream_name/>
-        <use_regex>no</use_regex>
-        <replace_string>Shss</replace_string>
+        <is_unicode>N</is_unicode>
         <replace_by_string>SHSS</replace_by_string>
+        <replace_string>Shss</replace_string>
         <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>no</whole_word>
-        <case_sensitive>no</case_sensitive>
-        <is_unicode>no</is_unicode>
+        <use_regex>N</use_regex>
+        <whole_word>N</whole_word>
       </field>
     </fields>
     <attributes/>
-    <cluster_schema/>
     <GUI>
-      <xloc>5632</xloc>
-      <yloc>448</yloc>
-      <draw>Y</draw>
+      <xloc>7168</xloc>
+      <yloc>544</yloc>
     </GUI>
   </transform>
   <transform>
@@ -3329,41 +2458,37 @@ order by ENID
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>MSSQL_RFSDW</connection>
     <cache>Y</cache>
     <cache_load_all>Y</cache_load_all>
     <cache_size>0</cache_size>
+    <connection>EDW_HR</connection>
     <lookup>
-      <schema>edwhr</schema>
-      <table>EDW_HR_INDIVIDUAL</table>
-      <orderby/>
-      <fail_on_multiple>N</fail_on_multiple>
       <eat_row_on_failure>N</eat_row_on_failure>
+      <fail_on_multiple>N</fail_on_multiple>
       <key>
-        <name>ReportTo_Individual_ID</name>
-        <field>INDIVIDUAL_ID</field>
         <condition>=</condition>
-        <name2/>
+        <field>INDIVIDUAL_ID</field>
+        <name>ReportTo_Individual_ID</name>
       </key>
+      <schema>HR_READER</schema>
+      <table>EDW_HR_INDIVIDUAL</table>
       <value>
         <name>FIRST_NAME</name>
         <rename>ReportTo_FirstName</rename>
-        <default/>
+        <trim_type>none</trim_type>
         <type>String</type>
       </value>
       <value>
         <name>SURNAME</name>
         <rename>ReportTo_LastName</rename>
-        <default/>
+        <trim_type>none</trim_type>
         <type>String</type>
       </value>
     </lookup>
     <attributes/>
-    <cluster_schema/>
     <GUI>
-      <xloc>3728</xloc>
-      <yloc>448</yloc>
-      <draw>Y</draw>
+      <xloc>5264</xloc>
+      <yloc>544</yloc>
     </GUI>
   </transform>
   <transform>
@@ -3450,11 +2575,9 @@ order by ENID
       <select_unspecified>N</select_unspecified>
     </fields>
     <attributes/>
-    <cluster_schema/>
     <GUI>
-      <xloc>624</xloc>
-      <yloc>448</yloc>
-      <draw>Y</draw>
+      <xloc>2218</xloc>
+      <yloc>544</yloc>
     </GUI>
   </transform>
   <transform>
@@ -3637,11 +2760,9 @@ order by ENID
       <select_unspecified>N</select_unspecified>
     </fields>
     <attributes/>
-    <cluster_schema/>
     <GUI>
-      <xloc>4672</xloc>
-      <yloc>448</yloc>
-      <draw>Y</draw>
+      <xloc>6208</xloc>
+      <yloc>544</yloc>
     </GUI>
   </transform>
   <transform>
@@ -3865,11 +2986,9 @@ order by ENID
       <select_unspecified>N</select_unspecified>
     </fields>
     <attributes/>
-    <cluster_schema/>
     <GUI>
-      <xloc>6624</xloc>
-      <yloc>448</yloc>
-      <draw>Y</draw>
+      <xloc>8160</xloc>
+      <yloc>544</yloc>
     </GUI>
   </transform>
   <transform>
@@ -3893,11 +3012,9 @@ order by ENID
       <select_unspecified>N</select_unspecified>
     </fields>
     <attributes/>
-    <cluster_schema/>
     <GUI>
-      <xloc>3232</xloc>
-      <yloc>576</yloc>
-      <draw>Y</draw>
+      <xloc>4748</xloc>
+      <yloc>672</yloc>
     </GUI>
   </transform>
   <transform>
@@ -3922,11 +3039,9 @@ order by ENID
       <select_unspecified>N</select_unspecified>
     </fields>
     <attributes/>
-    <cluster_schema/>
     <GUI>
-      <xloc>3472</xloc>
-      <yloc>688</yloc>
-      <draw>Y</draw>
+      <xloc>5008</xloc>
+      <yloc>784</yloc>
     </GUI>
   </transform>
   <transform>
@@ -3974,11 +3089,9 @@ order by ENID
       </field>
     </fields>
     <attributes/>
-    <cluster_schema/>
     <GUI>
-      <xloc>928</xloc>
-      <yloc>576</yloc>
-      <draw>Y</draw>
+      <xloc>2471</xloc>
+      <yloc>672</yloc>
     </GUI>
   </transform>
   <transform>
@@ -4042,63 +3155,9 @@ order by ENID
       </field>
     </fields>
     <attributes/>
-    <cluster_schema/>
     <GUI>
-      <xloc>2368</xloc>
-      <yloc>688</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </transform>
-  <transform>
-    <name>Sort rows 3</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory/>
-    <compress>N</compress>
-    <compress_variable/>
-    <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>ENID</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>2</collator_strength>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>EVSQN</name>
-        <ascending>N</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>2</collator_strength>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>EMAILADDRESSINDEX</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>2</collator_strength>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <GUI>
-      <xloc>496</xloc>
-      <yloc>816</yloc>
-      <draw>Y</draw>
+      <xloc>3904</xloc>
+      <yloc>784</yloc>
     </GUI>
   </transform>
   <transform>
@@ -4130,11 +3189,9 @@ order by ENID
       </value>
     </lookup>
     <attributes/>
-    <cluster_schema/>
     <GUI>
-      <xloc>3216</xloc>
-      <yloc>448</yloc>
-      <draw>Y</draw>
+      <xloc>4748</xloc>
+      <yloc>544</yloc>
     </GUI>
   </transform>
   <transform>
@@ -4166,11 +3223,9 @@ order by ENID
       </value>
     </lookup>
     <attributes/>
-    <cluster_schema/>
     <GUI>
-      <xloc>3472</xloc>
-      <yloc>448</yloc>
-      <draw>Y</draw>
+      <xloc>5001</xloc>
+      <yloc>544</yloc>
     </GUI>
   </transform>
   <transform>
@@ -4184,7 +3239,7 @@ order by ENID
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <from>Email</from>
+    <from>Dummy (do nothing) 2</from>
     <input_sorted>N</input_sorted>
     <preserve_memory>Y</preserve_memory>
     <sorted_list>N</sorted_list>
@@ -4202,11 +3257,43 @@ order by ENID
       </value>
     </lookup>
     <attributes/>
-    <cluster_schema/>
     <GUI>
-      <xloc>4192</xloc>
-      <yloc>448</yloc>
-      <draw>Y</draw>
+      <xloc>5728</xloc>
+      <yloc>544</yloc>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Stream lookup 4</name>
+    <type>StreamLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <from>Find ENID by EmployeeID</from>
+    <input_sorted>N</input_sorted>
+    <preserve_memory>Y</preserve_memory>
+    <sorted_list>N</sorted_list>
+    <integer_pair>N</integer_pair>
+    <lookup>
+      <key>
+        <name>INDIVIDUAL_ID</name>
+        <field>EMPLOYEEIDDESC</field>
+      </key>
+      <value>
+        <name>ENID</name>
+        <rename>ENID</rename>
+        <default/>
+        <type>String</type>
+      </value>
+    </lookup>
+    <attributes/>
+    <GUI>
+      <xloc>5472</xloc>
+      <yloc>544</yloc>
     </GUI>
   </transform>
   <transform>
@@ -4224,1938 +3311,125 @@ order by ENID
       <field>
         <in_stream_name>STATUS_REASON_TYPE_ENGLISH</in_stream_name>
         <out_stream_name/>
-        <trim_type/>
+        <trim_type>none</trim_type>
         <lower_upper>lower</lower_upper>
-        <padding_type/>
+        <padding_type>none</padding_type>
         <pad_char/>
         <pad_len/>
-        <init_cap>Y</init_cap>
-        <mask_xml/>
-        <digits/>
-        <remove_special_characters/>
+        <init_cap>no</init_cap>
+        <mask_xml>none</mask_xml>
+        <digits>none</digits>
+        <remove_special_characters>none</remove_special_characters>
       </field>
       <field>
         <in_stream_name>LOCATION_ENGLISH_NAME</in_stream_name>
         <out_stream_name/>
-        <trim_type/>
+        <trim_type>none</trim_type>
         <lower_upper>lower</lower_upper>
-        <padding_type/>
+        <padding_type>none</padding_type>
         <pad_char/>
         <pad_len/>
-        <init_cap>Y</init_cap>
-        <mask_xml/>
-        <digits/>
-        <remove_special_characters/>
+        <init_cap>no</init_cap>
+        <mask_xml>none</mask_xml>
+        <digits>none</digits>
+        <remove_special_characters>none</remove_special_characters>
       </field>
       <field>
         <in_stream_name>STATUS_REASON_CURRENT_ENGLISH</in_stream_name>
         <out_stream_name/>
-        <trim_type/>
+        <trim_type>none</trim_type>
         <lower_upper>lower</lower_upper>
-        <padding_type/>
+        <padding_type>none</padding_type>
         <pad_char/>
         <pad_len/>
-        <init_cap>Y</init_cap>
-        <mask_xml/>
-        <digits/>
-        <remove_special_characters/>
+        <init_cap>no</init_cap>
+        <mask_xml>none</mask_xml>
+        <digits>none</digits>
+        <remove_special_characters>none</remove_special_characters>
       </field>
       <field>
         <in_stream_name>SURNAME</in_stream_name>
         <out_stream_name/>
-        <trim_type/>
+        <trim_type>none</trim_type>
         <lower_upper>lower</lower_upper>
-        <padding_type/>
+        <padding_type>none</padding_type>
         <pad_char/>
         <pad_len/>
-        <init_cap>Y</init_cap>
-        <mask_xml/>
-        <digits/>
-        <remove_special_characters/>
+        <init_cap>no</init_cap>
+        <mask_xml>none</mask_xml>
+        <digits>none</digits>
+        <remove_special_characters>none</remove_special_characters>
       </field>
       <field>
         <in_stream_name>FIRST_NAME</in_stream_name>
         <out_stream_name/>
-        <trim_type/>
+        <trim_type>none</trim_type>
         <lower_upper>lower</lower_upper>
-        <padding_type/>
+        <padding_type>none</padding_type>
         <pad_char/>
         <pad_len/>
-        <init_cap>Y</init_cap>
-        <mask_xml/>
-        <digits/>
-        <remove_special_characters/>
+        <init_cap>no</init_cap>
+        <mask_xml>none</mask_xml>
+        <digits>none</digits>
+        <remove_special_characters>none</remove_special_characters>
       </field>
       <field>
         <in_stream_name>ReportTo_FirstName</in_stream_name>
         <out_stream_name/>
-        <trim_type/>
+        <trim_type>none</trim_type>
         <lower_upper>lower</lower_upper>
-        <padding_type/>
+        <padding_type>none</padding_type>
         <pad_char/>
         <pad_len/>
-        <init_cap>Y</init_cap>
-        <mask_xml/>
-        <digits/>
-        <remove_special_characters/>
+        <init_cap>no</init_cap>
+        <mask_xml>none</mask_xml>
+        <digits>none</digits>
+        <remove_special_characters>none</remove_special_characters>
       </field>
       <field>
         <in_stream_name>ReportTo_LastName</in_stream_name>
         <out_stream_name/>
-        <trim_type/>
+        <trim_type>none</trim_type>
         <lower_upper>lower</lower_upper>
-        <padding_type/>
+        <padding_type>none</padding_type>
         <pad_char/>
         <pad_len/>
-        <init_cap>Y</init_cap>
-        <mask_xml/>
-        <digits/>
-        <remove_special_characters/>
+        <init_cap>no</init_cap>
+        <mask_xml>none</mask_xml>
+        <digits>none</digits>
+        <remove_special_characters>none</remove_special_characters>
       </field>
       <field>
         <in_stream_name>Email</in_stream_name>
         <out_stream_name/>
-        <trim_type/>
+        <trim_type>none</trim_type>
         <lower_upper>lower</lower_upper>
-        <padding_type/>
+        <padding_type>none</padding_type>
         <pad_char/>
         <pad_len/>
-        <init_cap>N</init_cap>
-        <mask_xml/>
-        <digits/>
-        <remove_special_characters/>
+        <init_cap>no</init_cap>
+        <mask_xml>none</mask_xml>
+        <digits>none</digits>
+        <remove_special_characters>none</remove_special_characters>
       </field>
       <field>
         <in_stream_name>USUAL_FIRST_NAME</in_stream_name>
         <out_stream_name/>
-        <trim_type/>
+        <trim_type>none</trim_type>
         <lower_upper>lower</lower_upper>
-        <padding_type/>
+        <padding_type>none</padding_type>
         <pad_char/>
         <pad_len/>
-        <init_cap>Y</init_cap>
-        <mask_xml/>
-        <digits/>
-        <remove_special_characters/>
+        <init_cap>no</init_cap>
+        <mask_xml>none</mask_xml>
+        <digits>none</digits>
+        <remove_special_characters>none</remove_special_characters>
       </field>
     </fields>
     <attributes/>
-    <cluster_schema/>
     <GUI>
-      <xloc>5440</xloc>
-      <yloc>448</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </transform>
-  <transform>
-    <name>edwhr.BPL_HR_EMPLOYEE_POSITION_DIM</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>MSSQL_RFSDW</connection>
-    <sql>SELECT *
-FROM edwhr.BPL_HR_EMPLOYEE_POSITION_DIM
-where REPORT_TO_EFFECTIVE_DATE is not null
---and INDIVIDUAL_ID IN ('379952','521270')</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <cached_row_meta_active>N</cached_row_meta_active>
-    <row-meta>
-      <value-meta>
-        <type>Integer</type>
-        <storagetype>normal</storagetype>
-        <name>EMPLOYEE_POSITION_KEY</name>
-        <length>9</length>
-        <precision>0</precision>
-        <origin>edwhr.BPL_HR_EMPLOYEE_POSITION_DIM</origin>
-        <comments>EMPLOYEE_POSITION_KEY</comments>
-        <conversion_Mask>####0;-####0</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>INDIVIDUAL_ID</name>
-        <length>9</length>
-        <precision>-1</precision>
-        <origin>edwhr.BPL_HR_EMPLOYEE_POSITION_DIM</origin>
-        <comments>INDIVIDUAL_ID</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Date</type>
-        <storagetype>normal</storagetype>
-        <name>EMPLOYEE_POSITION_EFFECTIVE_DT</name>
-        <length>-1</length>
-        <precision>-1</precision>
-        <origin>edwhr.BPL_HR_EMPLOYEE_POSITION_DIM</origin>
-        <comments>EMPLOYEE_POSITION_EFFECTIVE_DT</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>POSITION_CODE</name>
-        <length>5</length>
-        <precision>-1</precision>
-        <origin>edwhr.BPL_HR_EMPLOYEE_POSITION_DIM</origin>
-        <comments>POSITION_CODE</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>POSITION_NAME</name>
-        <length>30</length>
-        <precision>-1</precision>
-        <origin>edwhr.BPL_HR_EMPLOYEE_POSITION_DIM</origin>
-        <comments>POSITION_NAME</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Date</type>
-        <storagetype>normal</storagetype>
-        <name>POSITION_EXPIRY_DATE</name>
-        <length>-1</length>
-        <precision>-1</precision>
-        <origin>edwhr.BPL_HR_EMPLOYEE_POSITION_DIM</origin>
-        <comments>POSITION_EXPIRY_DATE</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>LOCATION_CODE</name>
-        <length>3</length>
-        <precision>-1</precision>
-        <origin>edwhr.BPL_HR_EMPLOYEE_POSITION_DIM</origin>
-        <comments>LOCATION_CODE</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>LOCATION_NAME</name>
-        <length>40</length>
-        <precision>-1</precision>
-        <origin>edwhr.BPL_HR_EMPLOYEE_POSITION_DIM</origin>
-        <comments>LOCATION_NAME</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>JOB_NUMBER</name>
-        <length>4</length>
-        <precision>-1</precision>
-        <origin>edwhr.BPL_HR_EMPLOYEE_POSITION_DIM</origin>
-        <comments>JOB_NUMBER</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>JOB_NAME</name>
-        <length>40</length>
-        <precision>-1</precision>
-        <origin>edwhr.BPL_HR_EMPLOYEE_POSITION_DIM</origin>
-        <comments>JOB_NAME</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>POSITION_TYPE_CODE</name>
-        <length>2</length>
-        <precision>-1</precision>
-        <origin>edwhr.BPL_HR_EMPLOYEE_POSITION_DIM</origin>
-        <comments>POSITION_TYPE_CODE</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>POSITION_TYPE_NAME</name>
-        <length>5</length>
-        <precision>-1</precision>
-        <origin>edwhr.BPL_HR_EMPLOYEE_POSITION_DIM</origin>
-        <comments>POSITION_TYPE_NAME</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>REPORT_TO_POSITION_CODE</name>
-        <length>5</length>
-        <precision>-1</precision>
-        <origin>edwhr.BPL_HR_EMPLOYEE_POSITION_DIM</origin>
-        <comments>REPORT_TO_POSITION_CODE</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>REPORT_TO_POSITION_NAME</name>
-        <length>30</length>
-        <precision>-1</precision>
-        <origin>edwhr.BPL_HR_EMPLOYEE_POSITION_DIM</origin>
-        <comments>REPORT_TO_POSITION_NAME</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>REPORT_TO_ORG_TYPE</name>
-        <length>2</length>
-        <precision>-1</precision>
-        <origin>edwhr.BPL_HR_EMPLOYEE_POSITION_DIM</origin>
-        <comments>REPORT_TO_ORG_TYPE</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>REPORT_TO_EMPLOYEE_NAME</name>
-        <length>70</length>
-        <precision>-1</precision>
-        <origin>edwhr.BPL_HR_EMPLOYEE_POSITION_DIM</origin>
-        <comments>REPORT_TO_EMPLOYEE_NAME</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>AFFILIATION_GROUP_CODE</name>
-        <length>3</length>
-        <precision>-1</precision>
-        <origin>edwhr.BPL_HR_EMPLOYEE_POSITION_DIM</origin>
-        <comments>AFFILIATION_GROUP_CODE</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>REPLACE_ORGANIZATION_CODE</name>
-        <length>5</length>
-        <precision>-1</precision>
-        <origin>edwhr.BPL_HR_EMPLOYEE_POSITION_DIM</origin>
-        <comments>REPLACE_ORGANIZATION_CODE</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Number</type>
-        <storagetype>normal</storagetype>
-        <name>ACTING_POSITION_ADD_AMOUNT</name>
-        <length>9</length>
-        <precision>2</precision>
-        <origin>edwhr.BPL_HR_EMPLOYEE_POSITION_DIM</origin>
-        <comments>ACTING_POSITION_ADD_AMOUNT</comments>
-        <conversion_Mask>####0.0#########;-####0.0#########</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>BENEFIT_GROUP_CODE</name>
-        <length>2</length>
-        <precision>-1</precision>
-        <origin>edwhr.BPL_HR_EMPLOYEE_POSITION_DIM</origin>
-        <comments>BENEFIT_GROUP_CODE</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>REASON_CODE</name>
-        <length>3</length>
-        <precision>-1</precision>
-        <origin>edwhr.BPL_HR_EMPLOYEE_POSITION_DIM</origin>
-        <comments>REASON_CODE</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Integer</type>
-        <storagetype>normal</storagetype>
-        <name>PERMANENT_INDICATOR</name>
-        <length>9</length>
-        <precision>0</precision>
-        <origin>edwhr.BPL_HR_EMPLOYEE_POSITION_DIM</origin>
-        <comments>PERMANENT_INDICATOR</comments>
-        <conversion_Mask>####0;-####0</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Integer</type>
-        <storagetype>normal</storagetype>
-        <name>FULL_TIME_INDICATOR</name>
-        <length>9</length>
-        <precision>0</precision>
-        <origin>edwhr.BPL_HR_EMPLOYEE_POSITION_DIM</origin>
-        <comments>FULL_TIME_INDICATOR</comments>
-        <conversion_Mask>####0;-####0</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Integer</type>
-        <storagetype>normal</storagetype>
-        <name>FULL_TIME_PERCENT</name>
-        <length>3</length>
-        <precision>0</precision>
-        <origin>edwhr.BPL_HR_EMPLOYEE_POSITION_DIM</origin>
-        <comments>FULL_TIME_PERCENT</comments>
-        <conversion_Mask>####0;-####0</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Date</type>
-        <storagetype>normal</storagetype>
-        <name>EXPIRY_DATE</name>
-        <length>-1</length>
-        <precision>-1</precision>
-        <origin>edwhr.BPL_HR_EMPLOYEE_POSITION_DIM</origin>
-        <comments>EXPIRY_DATE</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Date</type>
-        <storagetype>normal</storagetype>
-        <name>TRIAL_END_DATE</name>
-        <length>-1</length>
-        <precision>-1</precision>
-        <origin>edwhr.BPL_HR_EMPLOYEE_POSITION_DIM</origin>
-        <comments>TRIAL_END_DATE</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Date</type>
-        <storagetype>normal</storagetype>
-        <name>CONTRACT_END_DATE</name>
-        <length>-1</length>
-        <precision>-1</precision>
-        <origin>edwhr.BPL_HR_EMPLOYEE_POSITION_DIM</origin>
-        <comments>CONTRACT_END_DATE</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>EMPLOYEE_TYPE_CODE</name>
-        <length>1</length>
-        <precision>-1</precision>
-        <origin>edwhr.BPL_HR_EMPLOYEE_POSITION_DIM</origin>
-        <comments>EMPLOYEE_TYPE_CODE</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>TAX_PROVINCE_CODE</name>
-        <length>2</length>
-        <precision>-1</precision>
-        <origin>edwhr.BPL_HR_EMPLOYEE_POSITION_DIM</origin>
-        <comments>TAX_PROVINCE_CODE</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Integer</type>
-        <storagetype>normal</storagetype>
-        <name>DISTRICT_BENEFIT_INDICATOR</name>
-        <length>9</length>
-        <precision>0</precision>
-        <origin>edwhr.BPL_HR_EMPLOYEE_POSITION_DIM</origin>
-        <comments>DISTRICT_BENEFIT_INDICATOR</comments>
-        <conversion_Mask>####0;-####0</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Integer</type>
-        <storagetype>normal</storagetype>
-        <name>PENSION_EARN_INDICATOR</name>
-        <length>9</length>
-        <precision>0</precision>
-        <origin>edwhr.BPL_HR_EMPLOYEE_POSITION_DIM</origin>
-        <comments>PENSION_EARN_INDICATOR</comments>
-        <conversion_Mask>####0;-####0</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Integer</type>
-        <storagetype>normal</storagetype>
-        <name>PENSION_SERVICE_INDICATOR</name>
-        <length>9</length>
-        <precision>0</precision>
-        <origin>edwhr.BPL_HR_EMPLOYEE_POSITION_DIM</origin>
-        <comments>PENSION_SERVICE_INDICATOR</comments>
-        <conversion_Mask>####0;-####0</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Date</type>
-        <storagetype>normal</storagetype>
-        <name>CREATE_DATE</name>
-        <length>-1</length>
-        <precision>-1</precision>
-        <origin>edwhr.BPL_HR_EMPLOYEE_POSITION_DIM</origin>
-        <comments>CREATE_DATE</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Date</type>
-        <storagetype>normal</storagetype>
-        <name>UPDATE_DATE</name>
-        <length>-1</length>
-        <precision>-1</precision>
-        <origin>edwhr.BPL_HR_EMPLOYEE_POSITION_DIM</origin>
-        <comments>UPDATE_DATE</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Integer</type>
-        <storagetype>normal</storagetype>
-        <name>CURRENT_RECORD_INDICATOR</name>
-        <length>9</length>
-        <precision>0</precision>
-        <origin>edwhr.BPL_HR_EMPLOYEE_POSITION_DIM</origin>
-        <comments>CURRENT_RECORD_INDICATOR</comments>
-        <conversion_Mask>####0;-####0</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>ASSIGNMENT_TYPE</name>
-        <length>1</length>
-        <precision>-1</precision>
-        <origin>edwhr.BPL_HR_EMPLOYEE_POSITION_DIM</origin>
-        <comments>ASSIGNMENT_TYPE</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Date</type>
-        <storagetype>normal</storagetype>
-        <name>VIP_CREATE_DATE</name>
-        <length>-1</length>
-        <precision>-1</precision>
-        <origin>edwhr.BPL_HR_EMPLOYEE_POSITION_DIM</origin>
-        <comments>VIP_CREATE_DATE</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>INDIVIDUAL_ENTITY_KEY</name>
-        <length>1073741823</length>
-        <precision>-1</precision>
-        <origin>edwhr.BPL_HR_EMPLOYEE_POSITION_DIM</origin>
-        <comments>INDIVIDUAL_ENTITY_KEY</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Date</type>
-        <storagetype>normal</storagetype>
-        <name>REPORT_TO_EFFECTIVE_DATE</name>
-        <length>-1</length>
-        <precision>-1</precision>
-        <origin>edwhr.BPL_HR_EMPLOYEE_POSITION_DIM</origin>
-        <comments>REPORT_TO_EFFECTIVE_DATE</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>RESEARCH_COMMENT</name>
-        <length>12</length>
-        <precision>-1</precision>
-        <origin>edwhr.BPL_HR_EMPLOYEE_POSITION_DIM</origin>
-        <comments>RESEARCH_COMMENT</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>PERSONAL_SERVICE_OFFICE_CODE</name>
-        <length>2</length>
-        <precision>-1</precision>
-        <origin>edwhr.BPL_HR_EMPLOYEE_POSITION_DIM</origin>
-        <comments>PERSONAL_SERVICE_OFFICE_CODE</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Timestamp</type>
-        <storagetype>normal</storagetype>
-        <name>LastUpdate</name>
-        <length>7</length>
-        <precision>-1</precision>
-        <origin>edwhr.BPL_HR_EMPLOYEE_POSITION_DIM</origin>
-        <comments>LastUpdate</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-    </row-meta>
-    <attributes/>
-    <cluster_schema/>
-    <GUI>
-      <xloc>160</xloc>
-      <yloc>576</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </transform>
-  <transform>
-    <name>edwhr.EDW_HR_EMPLOYEE_POSITION</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>MSSQL_RFSDW</connection>
-    <sql>SELECT *
-FROM edwhr.EDW_HR_EMPLOYEE_POSITION
---where INDIVIDUAL_ID IN ('379952','521270')</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <cached_row_meta_active>N</cached_row_meta_active>
-    <row-meta>
-      <value-meta>
-        <type>Integer</type>
-        <storagetype>normal</storagetype>
-        <name>POSITION_ENTITY_ID</name>
-        <length>9</length>
-        <precision>0</precision>
-        <origin>edwhr.EDW_HR_EMPLOYEE_POSITION</origin>
-        <comments>POSITION_ENTITY_ID</comments>
-        <conversion_Mask>####0;-####0</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Integer</type>
-        <storagetype>normal</storagetype>
-        <name>INDIVIDUAL_ENTITY_ID</name>
-        <length>9</length>
-        <precision>0</precision>
-        <origin>edwhr.EDW_HR_EMPLOYEE_POSITION</origin>
-        <comments>INDIVIDUAL_ENTITY_ID</comments>
-        <conversion_Mask>####0;-####0</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>INDIVIDUAL_ID</name>
-        <length>9</length>
-        <precision>-1</precision>
-        <origin>edwhr.EDW_HR_EMPLOYEE_POSITION</origin>
-        <comments>INDIVIDUAL_ID</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Date</type>
-        <storagetype>normal</storagetype>
-        <name>EMPLOYEE_POSITION_EFFECTIVE_DT</name>
-        <length>-1</length>
-        <precision>-1</precision>
-        <origin>edwhr.EDW_HR_EMPLOYEE_POSITION</origin>
-        <comments>EMPLOYEE_POSITION_EFFECTIVE_DT</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>POSITION_CODE</name>
-        <length>5</length>
-        <precision>-1</precision>
-        <origin>edwhr.EDW_HR_EMPLOYEE_POSITION</origin>
-        <comments>POSITION_CODE</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Integer</type>
-        <storagetype>normal</storagetype>
-        <name>AUDIT_SEQUENCE</name>
-        <length>9</length>
-        <precision>0</precision>
-        <origin>edwhr.EDW_HR_EMPLOYEE_POSITION</origin>
-        <comments>AUDIT_SEQUENCE</comments>
-        <conversion_Mask>####0;-####0</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>ASSIGNMENT_TYPE</name>
-        <length>1</length>
-        <precision>-1</precision>
-        <origin>edwhr.EDW_HR_EMPLOYEE_POSITION</origin>
-        <comments>ASSIGNMENT_TYPE</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>REPLACE_ORGANIZATION_CODE</name>
-        <length>5</length>
-        <precision>-1</precision>
-        <origin>edwhr.EDW_HR_EMPLOYEE_POSITION</origin>
-        <comments>REPLACE_ORGANIZATION_CODE</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Number</type>
-        <storagetype>normal</storagetype>
-        <name>ACTING_POSITION_ADD_AMOUNT</name>
-        <length>9</length>
-        <precision>2</precision>
-        <origin>edwhr.EDW_HR_EMPLOYEE_POSITION</origin>
-        <comments>ACTING_POSITION_ADD_AMOUNT</comments>
-        <conversion_Mask>####0.0#########;-####0.0#########</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>BENEFIT_GROUP_CODE</name>
-        <length>2</length>
-        <precision>-1</precision>
-        <origin>edwhr.EDW_HR_EMPLOYEE_POSITION</origin>
-        <comments>BENEFIT_GROUP_CODE</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>REASON_CODE</name>
-        <length>3</length>
-        <precision>-1</precision>
-        <origin>edwhr.EDW_HR_EMPLOYEE_POSITION</origin>
-        <comments>REASON_CODE</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Integer</type>
-        <storagetype>normal</storagetype>
-        <name>PERMANENT_INDICATOR</name>
-        <length>9</length>
-        <precision>0</precision>
-        <origin>edwhr.EDW_HR_EMPLOYEE_POSITION</origin>
-        <comments>PERMANENT_INDICATOR</comments>
-        <conversion_Mask>####0;-####0</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Integer</type>
-        <storagetype>normal</storagetype>
-        <name>FULL_TIME_INDICATOR</name>
-        <length>9</length>
-        <precision>0</precision>
-        <origin>edwhr.EDW_HR_EMPLOYEE_POSITION</origin>
-        <comments>FULL_TIME_INDICATOR</comments>
-        <conversion_Mask>####0;-####0</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Integer</type>
-        <storagetype>normal</storagetype>
-        <name>FULL_TIME_PERCENT</name>
-        <length>9</length>
-        <precision>0</precision>
-        <origin>edwhr.EDW_HR_EMPLOYEE_POSITION</origin>
-        <comments>FULL_TIME_PERCENT</comments>
-        <conversion_Mask>####0;-####0</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Date</type>
-        <storagetype>normal</storagetype>
-        <name>EXPIRY_DATE</name>
-        <length>-1</length>
-        <precision>-1</precision>
-        <origin>edwhr.EDW_HR_EMPLOYEE_POSITION</origin>
-        <comments>EXPIRY_DATE</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Date</type>
-        <storagetype>normal</storagetype>
-        <name>TRIAL_END_DATE</name>
-        <length>-1</length>
-        <precision>-1</precision>
-        <origin>edwhr.EDW_HR_EMPLOYEE_POSITION</origin>
-        <comments>TRIAL_END_DATE</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Date</type>
-        <storagetype>normal</storagetype>
-        <name>CONTRACT_END_DATE</name>
-        <length>-1</length>
-        <precision>-1</precision>
-        <origin>edwhr.EDW_HR_EMPLOYEE_POSITION</origin>
-        <comments>CONTRACT_END_DATE</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>EMPLOYEE_TYPE_CODE</name>
-        <length>1</length>
-        <precision>-1</precision>
-        <origin>edwhr.EDW_HR_EMPLOYEE_POSITION</origin>
-        <comments>EMPLOYEE_TYPE_CODE</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>TAX_PROVINCE_CODE</name>
-        <length>2</length>
-        <precision>-1</precision>
-        <origin>edwhr.EDW_HR_EMPLOYEE_POSITION</origin>
-        <comments>TAX_PROVINCE_CODE</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Integer</type>
-        <storagetype>normal</storagetype>
-        <name>DISTRICT_BENEFIT_INDICATOR</name>
-        <length>9</length>
-        <precision>0</precision>
-        <origin>edwhr.EDW_HR_EMPLOYEE_POSITION</origin>
-        <comments>DISTRICT_BENEFIT_INDICATOR</comments>
-        <conversion_Mask>####0;-####0</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Integer</type>
-        <storagetype>normal</storagetype>
-        <name>PENSION_EARN_INDICATOR</name>
-        <length>9</length>
-        <precision>0</precision>
-        <origin>edwhr.EDW_HR_EMPLOYEE_POSITION</origin>
-        <comments>PENSION_EARN_INDICATOR</comments>
-        <conversion_Mask>####0;-####0</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Integer</type>
-        <storagetype>normal</storagetype>
-        <name>PENSION_SERVICE_INDICATOR</name>
-        <length>9</length>
-        <precision>0</precision>
-        <origin>edwhr.EDW_HR_EMPLOYEE_POSITION</origin>
-        <comments>PENSION_SERVICE_INDICATOR</comments>
-        <conversion_Mask>####0;-####0</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>EMPLORERS_TAX_ACCOUNT_NUMBER</name>
-        <length>2</length>
-        <precision>-1</precision>
-        <origin>edwhr.EDW_HR_EMPLOYEE_POSITION</origin>
-        <comments>EMPLORERS_TAX_ACCOUNT_NUMBER</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>INTERNAL_MAIL_CODE</name>
-        <length>4</length>
-        <precision>-1</precision>
-        <origin>edwhr.EDW_HR_EMPLOYEE_POSITION</origin>
-        <comments>INTERNAL_MAIL_CODE</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>SORT_CODE</name>
-        <length>3</length>
-        <precision>-1</precision>
-        <origin>edwhr.EDW_HR_EMPLOYEE_POSITION</origin>
-        <comments>SORT_CODE</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>COMMENTS</name>
-        <length>2000</length>
-        <precision>-1</precision>
-        <origin>edwhr.EDW_HR_EMPLOYEE_POSITION</origin>
-        <comments>COMMENTS</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>UPDATE_TYPE</name>
-        <length>1</length>
-        <precision>-1</precision>
-        <origin>edwhr.EDW_HR_EMPLOYEE_POSITION</origin>
-        <comments>UPDATE_TYPE</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Date</type>
-        <storagetype>normal</storagetype>
-        <name>CREA_TS</name>
-        <length>-1</length>
-        <precision>-1</precision>
-        <origin>edwhr.EDW_HR_EMPLOYEE_POSITION</origin>
-        <comments>CREA_TS</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Date</type>
-        <storagetype>normal</storagetype>
-        <name>LAST_UPD_TS</name>
-        <length>-1</length>
-        <precision>-1</precision>
-        <origin>edwhr.EDW_HR_EMPLOYEE_POSITION</origin>
-        <comments>LAST_UPD_TS</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Integer</type>
-        <storagetype>normal</storagetype>
-        <name>CURRENT_RECORD_INDICATOR</name>
-        <length>9</length>
-        <precision>0</precision>
-        <origin>edwhr.EDW_HR_EMPLOYEE_POSITION</origin>
-        <comments>CURRENT_RECORD_INDICATOR</comments>
-        <conversion_Mask>####0;-####0</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Date</type>
-        <storagetype>normal</storagetype>
-        <name>CREATE_DATE</name>
-        <length>-1</length>
-        <precision>-1</precision>
-        <origin>edwhr.EDW_HR_EMPLOYEE_POSITION</origin>
-        <comments>CREATE_DATE</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Date</type>
-        <storagetype>normal</storagetype>
-        <name>UPDATE_DATE</name>
-        <length>-1</length>
-        <precision>-1</precision>
-        <origin>edwhr.EDW_HR_EMPLOYEE_POSITION</origin>
-        <comments>UPDATE_DATE</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>ROWID_CHECKSUM_PKEY</name>
-        <length>64</length>
-        <precision>-1</precision>
-        <origin>edwhr.EDW_HR_EMPLOYEE_POSITION</origin>
-        <comments>ROWID_CHECKSUM_PKEY</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Timestamp</type>
-        <storagetype>normal</storagetype>
-        <name>LastUpdate</name>
-        <length>7</length>
-        <precision>-1</precision>
-        <origin>edwhr.EDW_HR_EMPLOYEE_POSITION</origin>
-        <comments>LastUpdate</comments>
-        <conversion_Mask/>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol>,</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>en_US</date_format_locale>
-        <date_format_timezone>America/New_York</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-    </row-meta>
-    <attributes/>
-    <cluster_schema/>
-    <GUI>
-      <xloc>160</xloc>
-      <yloc>688</yloc>
-      <draw>Y</draw>
+      <xloc>6976</xloc>
+      <yloc>544</yloc>
     </GUI>
   </transform>
   <transform_error_handling>

@@ -1,0 +1,29 @@
+{
+  "rdbms": {
+    "MSSQLNATIVE": {
+      "databaseName": "RFS_DataWarehouse",
+      "instanceName": "",
+      "pluginId": "MSSQLNATIVE",
+      "usingDoubleDigit": false,
+      "usingIntegratedSecurity": false,
+      "accessType": 0,
+      "hostname": "rfsbi.database.windows.net",
+      "password": "Encrypted 456e6372797074656420326265393861666338366161376461636387f99ba90bc6c0d2a81ff773dbc3f689",
+      "pluginName": "MS SQL Server (Native)",
+      "port": "1433",
+      "attributes": {
+        "SUPPORTS_TIMESTAMP_DATA_TYPE": "N",
+        "QUOTE_ALL_FIELDS": "N",
+        "SUPPORTS_BOOLEAN_DATA_TYPE": "N",
+        "FORCE_IDENTIFIERS_TO_LOWERCASE": "N",
+        "PRESERVE_RESERVED_WORD_CASE": "Y",
+        "SQL_CONNECT": "",
+        "FORCE_IDENTIFIERS_TO_UPPERCASE": "N",
+        "PREFERRED_SCHEMA_NAME": ""
+      },
+      "manualUrl": "",
+      "username": "Gert"
+    }
+  },
+  "name": "MSSQL_RFSDW_Azure__ReplaceLater"
+}

@@ -274,6 +274,7 @@ or if all records should be pulled</note>
         <condition>=</condition>
         <field>ENID</field>
         <name>ENID</name>
+        <name2/>
       </key>
       <schema>pdb</schema>
       <table>LatestEmployeeStatus</table>
@@ -536,7 +537,7 @@ switch (true) {
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>MSSQL_RFSDW</connection>
+    <connection>PDB</connection>
     <execute_each_row>N</execute_each_row>
     <limit>0</limit>
     <sql>SELECT *
@@ -561,7 +562,7 @@ FROM pdb.STDB_EMPLOYEESTATUS
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>MSSQL_RFSDW</connection>
+    <connection>PDB</connection>
     <execute_each_row>N</execute_each_row>
     <limit>0</limit>
     <sql>SELECT t.ENID, t.STATUSID, t.VALIDID
@@ -572,7 +573,7 @@ INNER JOIN (
   GROUP BY ENID
 ) latest
 ON t.ENID = latest.ENID AND t.EVSQN = latest.max_seq
-WHERE t.lastupdate >= DATEADD(day, -7, GETDATE());
+--WHERE t.lastupdate >= DATEADD(day, -7, GETDATE());
 </sql>
     <variables_active>N</variables_active>
     <attributes/>

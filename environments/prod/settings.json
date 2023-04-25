@@ -59,5 +59,29 @@
     "name" : "EDW_ManualConnectionURL",
     "value" : "jdbc:oracle:thin:@//10.182.6.70:1521/PDBCDWPRD.ca2.ocm.s7332938.oraclecloudatcustomer.com",
     "description" : ""
+  }, {
+    "name" : "EDWHR_UserName",
+    "value" : "hr_reader",
+    "description" : ""
+  }, {
+    "name" : "EDWHR_Password",
+    "value" : "Encrypted 2be98afc86aa7f2a0bc2bab3387c2a7c8",
+    "description" : ""
+  }, {
+    "name" : "EDWHR_ManualConnectionURL",
+    "value" : "jdbc:oracle:thin:@//10.182.6.70:1521/CDBOWB21.ca2.ocm.s7332938.oraclecloudatcustomer.com",
+    "description" : ""
+  }, {
+    "name" : "PDB_UserName",
+    "value" : "PDB_RO",
+    "description" : ""
+  }, {
+    "name" : "PDB_Password",
+    "value" : "Encrypted 2be98afc86aa7daca9a4aaa26cf9ce193",
+    "description" : ""
+  }, {
+    "name" : "PDB_ManualConnectionURL",
+    "value" : "jdbc:oracle:thin:@//oradca5-scan1.ca1.ocm.s7330844.oraclecloudatcustomer.com:1521/RAD11PRD19.ca1.ocm.s7330844.oraclecloudatcustomer.com",
+    "description" : ""
   } ]
 }
