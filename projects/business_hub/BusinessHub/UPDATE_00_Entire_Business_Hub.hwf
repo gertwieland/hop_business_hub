@@ -867,7 +867,7 @@
       <fontitalic>N</fontitalic>
       <fontname>Segoe UI</fontname>
       <fontsize>10</fontsize>
-      <height>26</height>
+      <height>28</height>
       <xloc>0</xloc>
       <yloc>0</yloc>
       <note>Tracked</note>
@@ -887,7 +887,7 @@
       <fontitalic>N</fontitalic>
       <fontname>Segoe UI</fontname>
       <fontsize>10</fontsize>
-      <height>26</height>
+      <height>28</height>
       <xloc>4752</xloc>
       <yloc>304</yloc>
       <note>Set Flags and Attributes</note>
@@ -907,11 +907,12 @@
       <fontitalic>N</fontitalic>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
-      <height>24</height>
+      <height>42</height>
       <xloc>32</xloc>
       <yloc>432</yloc>
-      <note>Added this note on MSI, then published</note>
-      <width>186</width>
+      <note>Added this note on MSI, then published
+Added this note on UHN machine. And this.</note>
+      <width>242</width>
     </notepad>
   </notepads>
   <attributes/>
